@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PA Standard Signal Browser</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">PA Standard Signal Library</p>
+      <h1>Signal Browser</h1>
+      <p class="hero-copy">
+        Filter the current repository contents by signal class and waveform parameters, then open the matching signal files and plots.
+      </p>
+      <div class="hero-actions">
+        <a class="action-link" href="https://github.com/rf-engine/PA-standard-sig" target="_blank" rel="noreferrer">View Repository</a>
+        <a class="action-link" href="../README.md">Back to README</a>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel controls-panel">
+        <div class="panel-head">
+          <p class="eyebrow">Selector</p>
+          <h2>Choose a waveform</h2>
+        </div>
+
+        <form id="signal-form" class="signal-form">
+          <label>
+            <span>Signal Class</span>
+            <select id="signalClass" name="signalClass"></select>
+          </label>
+
+          <label>
+            <span>Signal Family</span>
+            <select id="signalFamily" name="signalFamily"></select>
+          </label>
+
+          <label data-field="standard">
+            <span>Standard</span>
+            <select id="standard" name="standard"></select>
+          </label>
+
+          <label data-field="mcs">
+            <span>MCS</span>
+            <select id="mcs" name="mcs"></select>
+          </label>
+
+          <label data-field="bandwidth">
+            <span>Bandwidth</span>
+            <select id="bandwidth" name="bandwidth"></select>
+          </label>
+
+          <label data-field="memoryLength">
+            <span>Memory Length</span>
+            <select id="memoryLength" name="memoryLength"></select>
+          </label>
+
+          <label data-field="modulation">
+            <span>QAM Order</span>
+            <select id="modulation" name="modulation"></select>
+          </label>
+
+          <label data-field="rolloff">
+            <span>RRC Roll-Off</span>
+            <select id="rolloff" name="rolloff"></select>
+          </label>
+
+          <label data-field="filterType">
+            <span>Filter Type</span>
+            <input id="filterType" name="filterType" type="text" value="RRC" readonly>
+          </label>
+        </form>
+
+        <div class="catalog-note">
+          <p>Current browser coverage is driven by the repository contents available today. Additional metadata fields can be added as new signal families and files are published.</p>
+        </div>
+      </section>
+
+      <section class="panel results-panel">
+        <div class="panel-head results-head">
+          <div>
+            <p class="eyebrow">Results</p>
+            <h2 id="resultTitle">Matching assets</h2>
+          </div>
+          <span id="resultCount" class="result-count"></span>
+        </div>
+
+        <div id="summaryCard" class="summary-card"></div>
+
+        <div id="signalCards" class="card-grid"></div>
+
+        <div>
+          <h3>Plots</h3>
+          <div id="plotGallery" class="plot-gallery"></div>
+        </div>
+
+        <div id="emptyState" class="empty-state" hidden>
+          <h3>No matching assets</h3>
+          <p>Try broadening the selection or switching to a signal family that already has published files in the repository.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

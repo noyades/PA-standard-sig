@@ -51,6 +51,22 @@ Rigorous PAPR distribution statistics are collected and provided on a per-signal
 - [Figures](Figures): Plots and summary visualizations, including roll-off and WiFi/cellular breakdowns.
 - [LICENSE](LICENSE): Repository license.
 
+## Interactive Signal Browser
+
+This repository now includes a static signal browser that lets users filter available waveform assets and jump directly to signal files and related plots.
+
+- Published site: https://rf-engine.github.io/PA-standard-sig/
+- Site source: [docs/index.html](docs/index.html)
+
+The browser currently supports:
+
+- Multi-carrier WiFi selections using standard, MCS, bandwidth, and file size
+- Single-carrier QAM selections using modulation order and roll-off
+- Direct links to downloadable signal files when present
+- Inline previews of associated plots when present
+
+As the repository grows, the browser can be expanded to expose additional metadata such as filter type, memory length, and new signal families.
+
 ## Current Coverage
 
 The repository currently includes content for:
