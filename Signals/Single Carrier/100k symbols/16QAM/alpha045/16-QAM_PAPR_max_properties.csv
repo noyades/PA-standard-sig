@@ -1,0 +1,6 @@
+Modulation Order,16
+RRC Roll-off Factor,0.450000
+RRC Filter Length (symbols),8
+Oversampling Factor,4
+PAPR_dB,5.6445
+rngSeed,3822848561

@@ -1,0 +1,15 @@
+--- Sweep Summary 16QAM alpha 0.45 ---
+Symbol Count: 1M_symbols
+Date and Time: 2026-06-30 22:02:45
+Filter Length (symbols): 8
+Target SNR for filter sizing: 38 dB
+Number of Data Symbols: 1000000
+Number of Zero Padding Symbols (before and after data): 32
+Reference Avg. PAPR: 5.67 dB
+Reference Max. PAPR: 5.6730 dB
+-----------------------------------------------
+Found PAPR_average: 5.63 dB
+EVM_RMS: 0.5715 % (-44.86 dB)
+-----------------------------------------------
+Found PAPR_max: 5.63 dB
+EVM_RMS: 0.5715 % (-44.86 dB)
