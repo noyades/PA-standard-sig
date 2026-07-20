@@ -76,6 +76,10 @@ The repository currently includes content for:
 - Multiple QAM orders and roll-off settings
 - WiFi generations (WiFi 4 through WiFi 7)
 
+### WiFi 5 (802.11ac) Note
+
+WiFi 5 at MCS 0–7 and 20/40 MHz bandwidths produces signals that are identical to their WiFi 4 (802.11n) counterparts. To avoid redundant files, these combinations are **not** replicated under WiFi 5. Instead, the WiFi 5 entries for those MCS and bandwidth combinations point directly to the corresponding WiFi 4 signal files.
+
 ## Contributing
 
 Contributions are welcome. This repository will continue to grow as new waveform sets, statistics, and validation workflows are added.
