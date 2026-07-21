@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <!-- Include JSZip for client-side package generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
 <body>
   <div class="page-shell">
@@ -15,7 +17,7 @@
       <p class="eyebrow">PA Standard Signal Library</p>
       <h1>Signal Browser</h1>
       <p class="hero-copy">
-        Filter the current repository contents by signal class and waveform parameters, then open the matching signal files and plots.
+        Filter the current repository contents by signal class and waveform parameters, then open or export the matching signal files and plots at your required sample length.
       </p>
       <div class="hero-actions">
         <a class="action-link" href="https://github.com/rf-engine/PA-standard-sig" target="_blank" rel="noreferrer">View Repository</a>
@@ -75,6 +77,14 @@
             <span>Filter Type</span>
             <input id="filterType" name="filterType" type="text" value="RRC" readonly>
           </label>
+
+          <!-- Custom Output Settings -->
+          <hr style="margin: 1rem 0; border: none; border-top: 1px solid var(--border-color, #e0e0e0);">
+          
+          <label>
+            <span>Required Length (Samples)</span>
+            <input id="targetLength" name="targetLength" type="number" placeholder="Original full size" min="100" step="100">
+          </label>
         </form>
 
         <div class="catalog-note">
@@ -88,7 +98,10 @@
             <p class="eyebrow">Results</p>
             <h2 id="resultTitle">Matching assets</h2>
           </div>
-          <span id="resultCount" class="result-count"></span>
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <span id="resultCount" class="result-count"></span>
+            <button id="downloadZipBtn" class="action-link" style="cursor: pointer; display: none;">Download Bundle (ZIP)</button>
+          </div>
         </div>
 
         <div id="summaryCard" class="summary-card"></div>
