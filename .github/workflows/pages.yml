@@ -30,6 +30,9 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Install dependencies
+        run: pip install numpy
+
       - name: Build Signal Manifest
         run: python scripts/build_manifest.py
 

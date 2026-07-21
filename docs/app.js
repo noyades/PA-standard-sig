@@ -316,9 +316,27 @@ function renderSummary(entry) {
   if (entry.filterType) chips.push(chip(entry.filterType));
   if (entry.oversampling) chips.push(chip(`Oversampling ${entry.oversampling}`));
 
+  // Display computed PAPR metrics
+  if (entry.maxPapr && entry.maxPapr !== "N/A") {
+    chips.push(chip(`Max PAPR: ${entry.maxPapr}`));
+  }
+  if (entry.meanPapr && entry.meanPapr !== "N/A") {
+    chips.push(chip(`Mean PAPR: ${entry.meanPapr}`));
+  }
+  
+  let noteBanner = "";
+  if (entry.isAlias && entry.aliasNote) {
+    noteBanner = `
+      <div style="margin-top: 10px; font-size: 0.85rem; color: var(--muted); font-style: italic;">
+        ℹ️ <strong>Note:</strong> ${escapeHtml(entry.aliasNote)}
+      </div>
+    `;
+  }
+
   summaryCard.innerHTML = `
     <h3>${entry.signalClass === "MC" ? "Selected multi-carrier profile" : "Selected single-carrier profile"}</h3>
     <div class="summary-meta">${chips.join("")}</div>
+    ${noteBanner}
   `;
 }
 
