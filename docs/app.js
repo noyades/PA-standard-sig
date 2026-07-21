@@ -373,6 +373,18 @@ function renderPlots(entry) {
   `).join("");
 }
 
+// BibTeX Generator inside app.js
+function generateBibtex(entry) {
+  return `@misc{pa_standard_sig_${entry.id},
+  title        = {${entry.name} Standard PA Test Signal},
+  author       = {${entry.contributor || 'RF Engine PA Signal Library'}},
+  year         = {2026},
+  publisher    = {GitHub},
+  journal      = {PA Standard Signal Repository},
+  howpublished = {\\url{https://rf-engine.github.io/PA-standard-sig/}}
+}`;
+}
+
 async function downloadBundle() {
   if (!activeMatch) return;
   if (typeof JSZip === "undefined") {
