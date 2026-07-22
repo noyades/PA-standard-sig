@@ -57,7 +57,7 @@ Rigorous PAPR distribution statistics are collected and provided on a per-signal
 
 This repository now includes a static signal browser that lets users filter available waveform assets and jump directly to signal files and related plots.
 
-- Published site: https://rf-engine.github.io/PA-standard-sig/
+- Published site: https://noyades.github.io/PA-standard-sig/
 - Site source: [docs/index.html](docs/index.html)
 
 The browser currently supports:
