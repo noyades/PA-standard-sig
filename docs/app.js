@@ -119,9 +119,10 @@ async function initialize() {
 
 function processManifest(manifestItems) {
   return manifestItems.map((item) => {
-    const signalClass = item.signal_class || (item.category && item.category.includes("Multi") ? "MC" : "MC");
+    const signalClass = item.signal_class || (item.category && item.category.includes("Multi") ? "MC" : "SC");
     return {
       id: item.id || item.name,
+      name: item.name || item.id || "Signal",
       signalClass: item.signalClass || signalClass,
       signalFamily: item.signalFamily || item.category || "General",
       standard: item.standard || "WiFi4",
@@ -130,8 +131,14 @@ function processManifest(manifestItems) {
       memoryLength: item.memoryLength || "4 MB",
       modulation: item.modulation || "64-QAM",
       rolloff: item.rolloff || "0.25",
+      symbols: item.symbols,
       filterType: item.filterType || "RRC",
       oversampling: item.oversampling || "4x",
+      maxPapr: item.maxPapr || item.max_papr || item.maxPAPR || "N/A",
+      meanPapr: item.meanPapr || item.mean_papr || item.meanPAPR || "N/A",
+      isAlias: Boolean(item.isAlias),
+      aliasNote: item.aliasNote || "",
+      contributor: item.contributor || "RF Engine PA Signal Library",
       signalFiles: item.data_file ? [{
         label: `${item.name || 'Signal'} Data File`,
         repoPath: item.data_file,
