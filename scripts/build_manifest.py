@@ -25,12 +25,18 @@ ALIAS_CONFIGS = [
 ]
 
 def calculate_papr(file_path, frame_size=1000):
-    """Calculates Max and Mean PAPR (in dB) for 32-bit float I/Q binary or text signals."""
+    """Calculates Max and Mean PAPR (in dB) supporting float32, float64, and CSV/TXT."""
     try:
         if file_path.endswith('.bin'):
+            # Try float32 first
             data = np.fromfile(file_path, dtype=np.float32)
+            if len(data) < 2 or np.isnan(data).any():
+                # Fallback to float64 if float32 yields bad data
+                data = np.fromfile(file_path, dtype=np.float64)
+            
             if len(data) < 2:
                 return None, None
+
             i_samples = data[0::2]
             q_samples = data[1::2]
             power = i_samples**2 + q_samples**2
@@ -42,7 +48,7 @@ def calculate_papr(file_path, frame_size=1000):
                 return None, None
 
         mean_power = np.mean(power)
-        if mean_power == 0:
+        if mean_power == 0 or np.isnan(mean_power):
             return None, None
 
         max_power = np.max(power)
@@ -63,6 +69,7 @@ def calculate_papr(file_path, frame_size=1000):
 
         return round(float(max_papr_db), 2), round(float(mean_papr_db), 2)
     except Exception as e:
+        print(f"Error calculating PAPR for {file_path}: {e}")
         return None, None
 
 def format_fig_name(filename):
