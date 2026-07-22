@@ -304,30 +304,38 @@ function renderResults(matches, signalClass) {
 function renderSummary(entry) {
   const chips = [];
 
+  // Core classification chips (All entries)
   chips.push(chip(entry.signalClass));
   chips.push(chip(entry.signalFamily));
 
-  if (entry.standard) chips.push(chip(entry.standard));
-  if (entry.mcs) chips.push(chip(`MCS ${entry.mcs}`));
-  if (entry.bandwidth) chips.push(chip(entry.bandwidth));
-  if (entry.memoryLength) chips.push(chip(entry.memoryLength));
-  if (entry.modulation) chips.push(chip(entry.modulation));
-  if (entry.rolloff) chips.push(chip(`Roll-off ${entry.rolloff}`));
-  if (entry.filterType) chips.push(chip(entry.filterType));
-  if (entry.oversampling) chips.push(chip(`Oversampling ${entry.oversampling}`));
+  if (entry.signalClass === "MC") {
+    // Multi-Carrier specific chips
+    if (entry.standard) chips.push(chip(entry.standard));
+    if (entry.mcs !== undefined && entry.mcs !== null) chips.push(chip(`MCS ${entry.mcs}`));
+    if (entry.bandwidth) chips.push(chip(entry.bandwidth));
+    if (entry.memoryLength) chips.push(chip(entry.memoryLength));
+    if (entry.oversampling) chips.push(chip(`Oversampling ${entry.oversampling}`));
+  } else if (entry.signalClass === "SC") {
+    // Single-Carrier specific chips
+    if (entry.modulation) chips.push(chip(entry.modulation));
+    if (entry.symbols) chips.push(chip(entry.symbols));
+    if (entry.rolloff) chips.push(chip(`Roll-off ${entry.rolloff}`));
+    if (entry.filterType) chips.push(chip(entry.filterType));
+  }
 
-  // Display computed PAPR metrics
+  // PAPR Metric chips (Applies to both MC & SC)
   if (entry.maxPapr && entry.maxPapr !== "N/A") {
     chips.push(chip(`Max PAPR: ${entry.maxPapr}`));
   }
   if (entry.meanPapr && entry.meanPapr !== "N/A") {
     chips.push(chip(`Mean PAPR: ${entry.meanPapr}`));
   }
-  
+
+  // Alias Educational Note Banner (e.g. WiFi 5 / WiFi 7 alias points)
   let noteBanner = "";
   if (entry.isAlias && entry.aliasNote) {
     noteBanner = `
-      <div style="margin-top: 10px; font-size: 0.85rem; color: var(--muted); font-style: italic;">
+      <div style="margin-top: 10px; font-size: 0.85rem; color: var(--muted); font-style: italic; border-top: 1px dashed var(--line); padding-top: 8px;">
         ℹ️ <strong>Note:</strong> ${escapeHtml(entry.aliasNote)}
       </div>
     `;
