@@ -1,5 +1,5 @@
 const REPOSITORY = {
-  owner: "rf-engine",
+  owner: "noyades",
   name: "PA-standard-sig",
   branch: "main",
 };
@@ -381,7 +381,7 @@ function generateBibtex(entry) {
   year         = {2026},
   publisher    = {GitHub},
   journal      = {PA Standard Signal Repository},
-  howpublished = {\\url{https://rf-engine.github.io/PA-standard-sig/}}
+  howpublished = {\\url{https:/noyades.github.io/PA-standard-sig/}}
 }`;
 }
 
