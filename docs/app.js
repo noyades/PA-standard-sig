@@ -304,45 +304,44 @@ function renderResults(matches, signalClass) {
 function renderSummary(entry) {
   const chips = [];
 
-  // Core classification chips (All entries)
+  // 1. Core classification
   chips.push(chip(entry.signalClass));
   chips.push(chip(entry.signalFamily));
 
+  // 2. Class-specific filtering
   if (entry.signalClass === "MC") {
-    // Multi-Carrier specific chips
     if (entry.standard) chips.push(chip(entry.standard));
     if (entry.mcs !== undefined && entry.mcs !== null) chips.push(chip(`MCS ${entry.mcs}`));
     if (entry.bandwidth) chips.push(chip(entry.bandwidth));
     if (entry.memoryLength) chips.push(chip(entry.memoryLength));
     if (entry.oversampling) chips.push(chip(`Oversampling ${entry.oversampling}`));
   } else if (entry.signalClass === "SC") {
-    // Single-Carrier specific chips
     if (entry.modulation) chips.push(chip(entry.modulation));
     if (entry.symbols) chips.push(chip(entry.symbols));
     if (entry.rolloff) chips.push(chip(`Roll-off ${entry.rolloff}`));
     if (entry.filterType) chips.push(chip(entry.filterType));
   }
 
-  // PAPR Metric chips (Applies to both MC & SC)
+  // 3. Computed PAPR metrics (using highlighted metric chip)
   if (entry.maxPapr && entry.maxPapr !== "N/A") {
-    chips.push(chip(`Max PAPR: ${entry.maxPapr}`));
+    chips.push(`<span class="chip chip-metric">Max PAPR: ${escapeHtml(entry.maxPapr)}</span>`);
   }
   if (entry.meanPapr && entry.meanPapr !== "N/A") {
-    chips.push(chip(`Mean PAPR: ${entry.meanPapr}`));
+    chips.push(`<span class="chip chip-metric">Mean PAPR: ${escapeHtml(entry.meanPapr)}</span>`);
   }
 
-  // Alias Educational Note Banner (e.g. WiFi 5 / WiFi 7 alias points)
+  // 4. Educational alias note banner
   let noteBanner = "";
   if (entry.isAlias && entry.aliasNote) {
     noteBanner = `
-      <div style="margin-top: 10px; font-size: 0.85rem; color: var(--muted); font-style: italic; border-top: 1px dashed var(--line); padding-top: 8px;">
+      <div style="margin-top: 12px; font-size: 0.85rem; color: #5a524e; font-style: italic; border-top: 1px dashed #dcd5c9; padding-top: 8px;">
         ℹ️ <strong>Note:</strong> ${escapeHtml(entry.aliasNote)}
       </div>
     `;
   }
 
   summaryCard.innerHTML = `
-    <h3>${entry.signalClass === "MC" ? "Selected multi-carrier profile" : "Selected single-carrier profile"}</h3>
+    <h3 style="color: #5c1d2e; font-weight: 700;">${entry.signalClass === "MC" ? "Selected multi-carrier profile" : "Selected single-carrier profile"}</h3>
     <div class="summary-meta">${chips.join("")}</div>
     ${noteBanner}
   `;
