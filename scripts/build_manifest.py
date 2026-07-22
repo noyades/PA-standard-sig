@@ -67,19 +67,34 @@ def calculate_papr(file_path, frame_size=1000):
     except Exception as e:
         print(f"Error calculating PAPR for {file_path}: {e}")
         return None, None
+
+def format_fig_name(filename):
+    name = filename.replace(".png", "").replace(".jpg", "").replace("_", " ")
+    if "constellation" in name.lower():
+        return "Constellation Heatmap"
+    elif "derivative envelop" in name.lower():
+        return "Derivative Envelope Histogram"
+    elif "derivative phase" in name.lower():
+        return "Derivative Phase Histogram"
+    elif "envelop" in name.lower():
+        return "Envelope Histogram"
+    elif "phase" in name.lower():
+        return "Phase Histogram"
+    return name.title()
         
 def build_manifest():
     manifest = []
     os.makedirs("docs", exist_ok=True)
 
+    # -------------------------------------------------------------
+    # 1. Multi-Carrier (MC) Signals & Aliasing Rules
+    # -------------------------------------------------------------
     mc_dir = os.path.join("Signals", "Multi Carrier")
     if os.path.exists(mc_dir):
         for root, _, files in os.walk(mc_dir):
             for file in files:
-                if file.endswith((".bin", ".csv", ".mat")):
+                if file.endswith((".bin", ".csv")):
                     repo_path = os.path.join(root, file).replace("\\", "/")
-                    
-                    # Regex matching for wifi4, wifi6, etc.
                     match = re.search(r"(wifi\d+)_mcs=(\d+)_bw=(\d+)_osf=(\d+)_(4MB|8MB)\.bin$", file, re.I)
                     if match:
                         prefix, mcs, bw, osf, mem = match.groups()
@@ -87,15 +102,15 @@ def build_manifest():
                         mcs_int = int(mcs)
                         bw_int = int(bw)
                         mem_label = mem.replace("MB", " MB")
-                        
                         std_label = "WiFi4" if prefix_lower == "wifi4" else "WiFi6"
-                        
-                        plot_path = f"Figures/WiFi/{std_label}/constellation_mcs={mcs}_bw={bw}_osf={osf}_{mem}.png"
+
+                        max_papr, mean_papr = calculate_papr(repo_path)
+                        plot_path = f"Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs={mcs}_bw={bw}_osf={osf}_{mem}.png"
                         figures = []
                         if os.path.exists(plot_path):
                             figures.append({"name": "Constellation", "path": plot_path})
 
-                        # 1. Primary Entry
+                        # Primary Entry
                         manifest.append({
                             "id": f"mc-{prefix_lower}-{mcs}-{bw}-{mem}",
                             "signalClass": "MC",
@@ -105,13 +120,15 @@ def build_manifest():
                             "bandwidth": f"{bw} MHz",
                             "memoryLength": mem_label,
                             "oversampling": f"{osf}x",
+                            "maxPapr": f"{max_papr} dB" if max_papr is not None else "N/A",
+                            "meanPapr": f"{mean_papr} dB" if mean_papr is not None else "N/A",
                             "data_file": repo_path,
                             "name": f"{std_label} MCS{mcs} {bw}MHz {mem_label}",
                             "figures": figures,
                             "isAlias": False
                         })
 
-                        # 2. Check Aliasing Rules
+                        # Process Aliasing Rules (WiFi 5 & WiFi 7)
                         for rule in ALIAS_CONFIGS:
                             if prefix_lower == rule["source_prefix"] and mcs_int <= rule["max_mcs"] and bw_int in rule["allowed_bw"]:
                                 manifest.append({
@@ -123,17 +140,77 @@ def build_manifest():
                                     "bandwidth": f"{bw} MHz",
                                     "memoryLength": mem_label,
                                     "oversampling": f"{osf}x",
-                                    "data_file": repo_path, # Alias pointer
+                                    "maxPapr": f"{max_papr} dB" if max_papr is not None else "N/A",
+                                    "meanPapr": f"{mean_papr} dB" if mean_papr is not None else "N/A",
+                                    "data_file": repo_path,
                                     "name": f"{rule['alias_standard']} (via {std_label}) MCS{mcs} {bw}MHz {mem_label}",
                                     "figures": figures,
                                     "isAlias": True,
                                     "aliasNote": rule["note"]
                                 })
 
+    # -------------------------------------------------------------
+    # 2. Single-Carrier (SC) Signals & Figures Scanning
+    # -------------------------------------------------------------
+    fig_dir = "Figures"
+    if os.path.exists(fig_dir):
+        for root, _, files in os.walk(fig_dir):
+            image_files = [f for f in files if f.endswith((".png", ".jpg", ".jpeg", ".svg"))]
+            if image_files:
+                norm_root = root.replace("\\", "/")
+                
+                rolloff_match = re.search(r"rolloff_(\d+)p(\d+)", norm_root, re.I)
+                qam_match = re.search(r"(\d+)QAM|(\d+)-QAM", norm_root, re.I)
+
+                if rolloff_match and qam_match:
+                    rolloff_str = f"{rolloff_match.group(1)}.{rolloff_match.group(2)}"
+                    qam_val = qam_match.group(1) or qam_match.group(2)
+                    mod_label = f"{qam_val}-QAM"
+
+                    figures = []
+                    for img in sorted(image_files):
+                        fig_path = os.path.join(norm_root, img).replace("\\", "/")
+                        figures.append({
+                            "name": format_fig_name(img),
+                            "path": fig_path
+                        })
+
+                    # Match SC signal data file in Signals/Single Carrier/
+                    data_file = None
+                    max_papr_str = "N/A"
+                    mean_papr_str = "N/A"
+                    
+                    sc_data_dir = os.path.join("Signals", "Single Carrier")
+                    if os.path.exists(sc_data_dir):
+                        for sc_root, _, sc_files in os.walk(sc_data_dir):
+                            for sc_file in sc_files:
+                                if qam_val in sc_file and (f"rolloff_{rolloff_match.group(1)}p{rolloff_match.group(2)}" in sc_file or f"0p{rolloff_match.group(2)}" in sc_file or f"0.{rolloff_match.group(2)}" in sc_file):
+                                    data_file = os.path.join(sc_root, sc_file).replace("\\", "/")
+                                    max_papr, mean_papr = calculate_papr(data_file)
+                                    if max_papr is not None:
+                                        max_papr_str = f"{max_papr} dB"
+                                        mean_papr_str = f"{mean_papr} dB"
+                                    break
+
+                    manifest.append({
+                        "id": f"sc-{rolloff_str}-{qam_val}",
+                        "signalClass": "SC",
+                        "signalFamily": "QAM",
+                        "modulation": mod_label,
+                        "rolloff": rolloff_str,
+                        "filterType": "RRC",
+                        "maxPapr": max_papr_str,
+                        "meanPapr": mean_papr_str,
+                        "data_file": data_file,
+                        "name": f"{mod_label} (Roll-off {rolloff_str})",
+                        "figures": figures
+                    })
+
+    # Save manifest output
     with open(MANIFEST_FILE, "w") as f:
         json.dump(manifest, f, indent=2)
-    
-    print(f"Manifest written to {MANIFEST_FILE} with {len(manifest)} items.")
+
+    print(f"Manifest generated successfully at {MANIFEST_FILE} with {len(manifest)} items.")
 
 if __name__ == "__main__":
     build_manifest()
