@@ -6,38 +6,38 @@ const REPOSITORY = {
 
 // Fallback hardcoded catalog if manifest.json is unreachable during local testing
 const HARDCODED_MC_PATHS = [
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=20_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=20_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=40_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=40_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=20_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=20_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=40_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=40_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=20_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=20_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=40_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=40_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=20_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=20_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=40_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=40_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=20_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=20_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=40_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=40_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=20_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=20_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=40_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=40_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=20_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=20_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=40_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=40_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=20_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=20_osf=4_8MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=40_osf=4_4MB.bin",
-  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=40_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=20_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=20_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=40_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=40_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=20_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=20_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=40_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=40_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=20_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=20_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=40_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=40_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=20_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=20_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=40_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=40_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=20_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=20_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=40_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=40_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=20_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=20_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=40_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=40_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=20_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=20_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=40_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=40_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=20_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=20_GI=Long_osf=4_8MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=40_GI=Long_osf=4_4MB.bin",
+  "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=40_GI=Long_osf=4_8MB.bin",
 ];
 
 const HARDCODED_SC_CONFIGS = [
@@ -156,13 +156,13 @@ function processManifest(manifestItems) {
 function buildFallbackCatalog() {
   const mcEntries = HARDCODED_MC_PATHS.map((path) => {
     const fileName = path.split("/").at(-1);
-    const match = fileName.match(/^wifi4_mcs=(\d+)_bw=(\d+)_osf=(\d+)_(4MB|8MB)\.bin$/i);
+  const match = fileName.match(/^wifi4_mcs=(\d+)_bw=(\d+)_GI=(\w+)_osf=(\d+)_(4MB|8MB)\.bin$/i);
 
     if (!match) return null;
 
-    const [, mcs, bandwidth, osf, memoryLength] = match;
+    const [, mcs, bandwidth, GI, osf, memoryLength] = match;
     const sizeLabel = memoryLength.replace("MB", " MB");
-    const plotPath = `Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=${mcs}_bw=${bandwidth}_osf=${osf}_${memoryLength}.png`;
+    const plotPath = `Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=${mcs}_bw=${bandwidth}_GI=${GI}_osf=${osf}_${memoryLength}.png`;
 
     return {
       id: `mc-${mcs}-${bandwidth}-${memoryLength}`,
