@@ -18,7 +18,14 @@ Different test waveforms can produce very different PA behavior, which makes cro
 
 ### Multi-Carrier (MC)
 
-Multi-Carrier (MC) modulation formats, such as orthogonal frequency division multiplexing (OFDM), are frequently utilized at lower frequencies (e.g., sub-6 GHz) for base stations and WiFi systems. In OFDM, the signal is split into multiple tightly packed frequency-domain subcarriers, structured so that the peak of one subcarrier overlaps with the nulls of its adjacent subcarriers. Because an OFDM signal operates essentially as a collection of single-carrier signals transmitted in parallel, the individual subcarriers can constructively or destructively interfere with one another. This interference leads to massive peaks and nulls in the time domain, which intrinsically generates a high peak-to-average power ratio (PAPR). Unlike single-carrier (SC) signals—where PAPR is largely dictated by the modulation type, pulse shaping filter, and sequence length—the PAPR in MC signals is fundamentally driven by the number of subcarriers and the specific modulation applied to each of them. To assist with standardized benchmarking of these complex signals, this repository provides multi-carrier waveforms with matching statistical properties representing common standards, including IEEE 802.11N/AC/AX/BE and 5G-NR.
+Multi-Carrier (MC) modulation formats, such as orthogonal frequency division multiplexing (OFDM), are standard at lower frequencies (e.g., sub-6 GHz) for base stations and WiFi systems. In OFDM, the signal is split into multiple tightly packed frequency-domain subcarriers, structured so that the peak of one subcarrier overlaps with the nulls of its adjacent subcarriers.  
+
+Because an OFDM signal acts as a collection of single-carrier signals transmitted in parallel, the subcarriers can constructively or destructively interfere with one another. This interference leads to massive peaks and nulls in the time domain, which intrinsically generates a high peak-to-average power ratio (PAPR). Unlike single-carrier (SC) signals—where PAPR is largely dictated by the modulation type, pulse shaping filter, and sequence length—the PAPR in MC signals is fundamentally driven by the number of subcarriers and the specific modulation applied to each.  
+
+Because the mathematical analysis of these dynamics exceeds the scope of the main magazine article, we provide the detailed statistical breakdown here. To assist with standardized benchmarking of these complex signals, this repository includes comprehensive statistical data for each Modulation and Coding Scheme (MCS) across common standards (e.g., IEEE 802.11N/AC/AX/BE and 5G-NR). For each MCS, we provide:
+
+- Probability Density Functions (PDFs): Illustrating the distribution of the signal envelope and phase to help visualize MC signal dynamics.
+- Complementary Cumulative Distribution Functions (CCDFs): Quantifying the precise probability of the signal exceeding specific PAPR thresholds for rigorous PA evaluation.
 
 For multi-carrier signals, this repository includes waveforms selected to match the global mean PAPR at two practical file sizes:
 
