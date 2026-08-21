@@ -3,7 +3,7 @@
     "id": "mc-wifi5-0-160-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "0",
     "bandwidth": "160 MHz",
     "memoryLength": "8 MB",
@@ -11,15 +11,56 @@
     "maxPapr": "12.82 dB",
     "meanPapr": "8.29 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=0_bw=160_osf=4_8MB.bin",
-    "name": "WiFi6 MCS0 160MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS0 160MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=0_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_mcs=0_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=0_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_mcs=0_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=0_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=0_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_env_pdf_mcs=0_bw=CBW160.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_denv_pdf_mcs=0_bw=CBW160.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_pha_pdf__mcs=0_bw=CBW160.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_dpha_pdf_mcs=0_bw=CBW160.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-0-80-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "0",
     "bandwidth": "80 MHz",
     "memoryLength": "4 MB",
@@ -27,15 +68,60 @@
     "maxPapr": "12.48 dB",
     "meanPapr": "8.14 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=0_bw=80_osf=4_4MB.bin",
-    "name": "WiFi6 MCS0 80MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS0 80MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=0_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=0_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_mcs=0_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=0_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_mcs=0_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=0_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=0_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_env_pdf_mcs=0_bw=CBW80.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_denv_pdf_mcs=0_bw=CBW80.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_pha_pdf__mcs=0_bw=CBW80.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_dpha_pdf_mcs=0_bw=CBW80.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-0-80-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "0",
     "bandwidth": "80 MHz",
     "memoryLength": "8 MB",
@@ -43,15 +129,60 @@
     "maxPapr": "12.48 dB",
     "meanPapr": "8.13 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=0_bw=80_osf=4_8MB.bin",
-    "name": "WiFi6 MCS0 80MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS0 80MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=0_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=0_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_mcs=0_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=0_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_mcs=0_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=0_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=0_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_env_pdf_mcs=0_bw=CBW80.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_denv_pdf_mcs=0_bw=CBW80.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_pha_pdf__mcs=0_bw=CBW80.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_dpha_pdf_mcs=0_bw=CBW80.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-1-160-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "1",
     "bandwidth": "160 MHz",
     "memoryLength": "4 MB",
@@ -59,15 +190,44 @@
     "maxPapr": "12.46 dB",
     "meanPapr": "8.39 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=1_bw=160_osf=4_4MB.bin",
-    "name": "WiFi6 MCS1 160MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS1 160MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=1_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=1_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_mcs=1_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=1_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_mcs=1_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=1_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-1-160-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "1",
     "bandwidth": "160 MHz",
     "memoryLength": "8 MB",
@@ -75,15 +235,44 @@
     "maxPapr": "12.38 dB",
     "meanPapr": "8.36 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=1_bw=160_osf=4_8MB.bin",
-    "name": "WiFi6 MCS1 160MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS1 160MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=1_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=1_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_mcs=1_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=1_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_mcs=1_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=1_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-1-80-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "1",
     "bandwidth": "80 MHz",
     "memoryLength": "4 MB",
@@ -91,15 +280,40 @@
     "maxPapr": "12.5 dB",
     "meanPapr": "8.37 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=1_bw=80_osf=4_4MB.bin",
-    "name": "WiFi6 MCS1 80MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS1 80MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=1_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=1_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "Constellation (82 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=1_bw=80_osf=4_82MB.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=1_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=1_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-1-80-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "1",
     "bandwidth": "80 MHz",
     "memoryLength": "8 MB",
@@ -107,15 +321,40 @@
     "maxPapr": "12.44 dB",
     "meanPapr": "8.32 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=1_bw=80_osf=4_8MB.bin",
-    "name": "WiFi6 MCS1 80MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS1 80MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=1_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=1_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "Constellation (82 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=1_bw=80_osf=4_82MB.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=1_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=1_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-2-160-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "2",
     "bandwidth": "160 MHz",
     "memoryLength": "4 MB",
@@ -123,15 +362,56 @@
     "maxPapr": "13.11 dB",
     "meanPapr": "8.43 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=2_bw=160_osf=4_4MB.bin",
-    "name": "WiFi6 MCS2 160MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS2 160MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=2_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_mcs=2_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=2_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_mcs=2_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=2_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_env_pdf_mcs=2_bw=CBW160.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_denv_pdf_mcs=2_bw=CBW160.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_pha_pdf__mcs=2_bw=CBW160.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_dpha_pdf_mcs=2_bw=CBW160.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-2-80-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "2",
     "bandwidth": "80 MHz",
     "memoryLength": "4 MB",
@@ -139,15 +419,60 @@
     "maxPapr": "12.14 dB",
     "meanPapr": "8.36 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=2_bw=80_osf=4_4MB.bin",
-    "name": "WiFi6 MCS2 80MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS2 80MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=2_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=2_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_mcs=2_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=2_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_mcs=2_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=2_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_env_pdf_mcs=2_bw=CBW80.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_denv_pdf_mcs=2_bw=CBW80.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_pha_pdf__mcs=2_bw=CBW80.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_dpha_pdf_mcs=2_bw=CBW80.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-2-80-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "2",
     "bandwidth": "80 MHz",
     "memoryLength": "8 MB",
@@ -155,15 +480,60 @@
     "maxPapr": "12.16 dB",
     "meanPapr": "8.35 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=2_bw=80_osf=4_8MB.bin",
-    "name": "WiFi6 MCS2 80MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS2 80MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=2_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=2_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_mcs=2_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=2_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_mcs=2_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=2_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_env_pdf_mcs=2_bw=CBW80.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_denv_pdf_mcs=2_bw=CBW80.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_pha_pdf__mcs=2_bw=CBW80.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_dpha_pdf_mcs=2_bw=CBW80.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-3-160-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "3",
     "bandwidth": "160 MHz",
     "memoryLength": "4 MB",
@@ -171,15 +541,52 @@
     "maxPapr": "12.85 dB",
     "meanPapr": "8.41 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=3_bw=160_osf=4_4MB.bin",
-    "name": "WiFi6 MCS3 160MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS3 160MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=3_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=3_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_mcs=3_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=3_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF (full burst)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_full_mcs=3_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_mcs=3_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=3_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF (full burst)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_full_mcs=3_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-3-160-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "3",
     "bandwidth": "160 MHz",
     "memoryLength": "8 MB",
@@ -187,15 +594,52 @@
     "maxPapr": "12.82 dB",
     "meanPapr": "8.39 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=3_bw=160_osf=4_8MB.bin",
-    "name": "WiFi6 MCS3 160MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS3 160MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=3_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=3_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_mcs=3_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=3_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF (full burst)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_full_mcs=3_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_mcs=3_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=3_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF (full burst)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_full_mcs=3_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-3-80-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "3",
     "bandwidth": "80 MHz",
     "memoryLength": "4 MB",
@@ -203,15 +647,36 @@
     "maxPapr": "12.14 dB",
     "meanPapr": "8.41 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=3_bw=80_osf=4_4MB.bin",
-    "name": "WiFi6 MCS3 80MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS3 80MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=3_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=3_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=3_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=3_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-3-80-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "3",
     "bandwidth": "80 MHz",
     "memoryLength": "8 MB",
@@ -219,15 +684,36 @@
     "maxPapr": "12.2 dB",
     "meanPapr": "8.35 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=3_bw=80_osf=4_8MB.bin",
-    "name": "WiFi6 MCS3 80MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS3 80MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=3_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=3_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=3_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=3_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-4-160-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "4",
     "bandwidth": "160 MHz",
     "memoryLength": "4 MB",
@@ -235,15 +721,28 @@
     "maxPapr": "12.44 dB",
     "meanPapr": "8.4 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=4_bw=160_osf=4_4MB.bin",
-    "name": "WiFi6 MCS4 160MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS4 160MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=4_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=4_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-4-160-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "4",
     "bandwidth": "160 MHz",
     "memoryLength": "8 MB",
@@ -251,15 +750,28 @@
     "maxPapr": "12.4 dB",
     "meanPapr": "8.42 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=4_bw=160_osf=4_8MB.bin",
-    "name": "WiFi6 MCS4 160MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS4 160MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=4_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=4_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-4-80-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "4",
     "bandwidth": "80 MHz",
     "memoryLength": "4 MB",
@@ -267,15 +779,28 @@
     "maxPapr": "12.13 dB",
     "meanPapr": "8.43 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=4_bw=80_osf=4_4MB.bin",
-    "name": "WiFi6 MCS4 80MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS4 80MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=4_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=4_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-4-80-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "4",
     "bandwidth": "80 MHz",
     "memoryLength": "8 MB",
@@ -283,15 +808,28 @@
     "maxPapr": "12.16 dB",
     "meanPapr": "8.36 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=4_bw=80_osf=4_8MB.bin",
-    "name": "WiFi6 MCS4 80MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS4 80MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=4_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=4_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-5-160-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "5",
     "bandwidth": "160 MHz",
     "memoryLength": "4 MB",
@@ -299,15 +837,28 @@
     "maxPapr": "12.49 dB",
     "meanPapr": "8.38 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=5_bw=160_osf=4_4MB.bin",
-    "name": "WiFi6 MCS5 160MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS5 160MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=5_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=5_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-5-160-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "5",
     "bandwidth": "160 MHz",
     "memoryLength": "8 MB",
@@ -315,15 +866,28 @@
     "maxPapr": "12.47 dB",
     "meanPapr": "8.4 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=5_bw=160_osf=4_8MB.bin",
-    "name": "WiFi6 MCS5 160MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS5 160MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=5_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=5_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-5-80-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "5",
     "bandwidth": "80 MHz",
     "memoryLength": "4 MB",
@@ -331,15 +895,36 @@
     "maxPapr": "12.15 dB",
     "meanPapr": "8.36 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=5_bw=80_osf=4_4MB.bin",
-    "name": "WiFi6 MCS5 80MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS5 80MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=5_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=5_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=5_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=5_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-5-80-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "5",
     "bandwidth": "80 MHz",
     "memoryLength": "8 MB",
@@ -347,15 +932,36 @@
     "maxPapr": "12.18 dB",
     "meanPapr": "8.33 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=5_bw=80_osf=4_8MB.bin",
-    "name": "WiFi6 MCS5 80MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS5 80MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=5_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=5_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=5_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=5_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-6-160-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "6",
     "bandwidth": "160 MHz",
     "memoryLength": "4 MB",
@@ -363,15 +969,28 @@
     "maxPapr": "12.37 dB",
     "meanPapr": "8.4 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=6_bw=160_osf=4_4MB.bin",
-    "name": "WiFi6 MCS6 160MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS6 160MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=6_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=6_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-6-160-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "6",
     "bandwidth": "160 MHz",
     "memoryLength": "8 MB",
@@ -379,15 +998,28 @@
     "maxPapr": "12.39 dB",
     "meanPapr": "8.39 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=6_bw=160_osf=4_8MB.bin",
-    "name": "WiFi6 MCS6 160MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS6 160MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=6_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=6_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-6-80-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "6",
     "bandwidth": "80 MHz",
     "memoryLength": "4 MB",
@@ -395,15 +1027,28 @@
     "maxPapr": "12.2 dB",
     "meanPapr": "8.37 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=6_bw=80_osf=4_4MB.bin",
-    "name": "WiFi6 MCS6 80MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS6 80MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=6_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=6_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-6-80-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "6",
     "bandwidth": "80 MHz",
     "memoryLength": "8 MB",
@@ -411,15 +1056,28 @@
     "maxPapr": "12.22 dB",
     "meanPapr": "8.34 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=6_bw=80_osf=4_8MB.bin",
-    "name": "WiFi6 MCS6 80MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS6 80MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=6_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=6_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-7-160-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "7",
     "bandwidth": "160 MHz",
     "memoryLength": "4 MB",
@@ -427,15 +1085,28 @@
     "maxPapr": "12.46 dB",
     "meanPapr": "8.41 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=7_bw=160_osf=4_4MB.bin",
-    "name": "WiFi6 MCS7 160MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS7 160MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=7_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=7_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-7-160-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "7",
     "bandwidth": "160 MHz",
     "memoryLength": "8 MB",
@@ -443,15 +1114,28 @@
     "maxPapr": "12.49 dB",
     "meanPapr": "8.41 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=7_bw=160_osf=4_8MB.bin",
-    "name": "WiFi6 MCS7 160MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS7 160MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=7_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=7_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-7-80-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "7",
     "bandwidth": "80 MHz",
     "memoryLength": "4 MB",
@@ -459,15 +1143,28 @@
     "maxPapr": "12.15 dB",
     "meanPapr": "8.39 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=7_bw=80_osf=4_4MB.bin",
-    "name": "WiFi6 MCS7 80MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS7 80MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=7_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=7_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-7-80-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "7",
     "bandwidth": "80 MHz",
     "memoryLength": "8 MB",
@@ -475,15 +1172,28 @@
     "maxPapr": "12.23 dB",
     "meanPapr": "8.35 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=7_bw=80_osf=4_8MB.bin",
-    "name": "WiFi6 MCS7 80MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS7 80MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=7_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=7_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-8-160-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "8",
     "bandwidth": "160 MHz",
     "memoryLength": "4 MB",
@@ -491,15 +1201,28 @@
     "maxPapr": "12.43 dB",
     "meanPapr": "8.38 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=8_bw=160_osf=4_4MB.bin",
-    "name": "WiFi6 MCS8 160MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS8 160MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 8-9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=8-9_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-8-160-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "8",
     "bandwidth": "160 MHz",
     "memoryLength": "8 MB",
@@ -507,15 +1230,28 @@
     "maxPapr": "12.4 dB",
     "meanPapr": "8.39 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=8_bw=160_osf=4_8MB.bin",
-    "name": "WiFi6 MCS8 160MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS8 160MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 8-9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=8-9_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-8-20-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "8",
     "bandwidth": "20 MHz",
     "memoryLength": "4 MB",
@@ -523,15 +1259,28 @@
     "maxPapr": "11.6 dB",
     "meanPapr": "8.23 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=8_bw=20_osf=4_4MB.bin",
-    "name": "WiFi6 MCS8 20MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS8 20MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=20_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=20_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 8-9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=8-9_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-8-20-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "8",
     "bandwidth": "20 MHz",
     "memoryLength": "8 MB",
@@ -539,15 +1288,28 @@
     "maxPapr": "11.65 dB",
     "meanPapr": "8.23 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=8_bw=20_osf=4_8MB.bin",
-    "name": "WiFi6 MCS8 20MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS8 20MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=20_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=20_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 8-9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=8-9_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-8-40-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "8",
     "bandwidth": "40 MHz",
     "memoryLength": "4 MB",
@@ -555,15 +1317,28 @@
     "maxPapr": "12.02 dB",
     "meanPapr": "8.34 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=8_bw=40_osf=4_4MB.bin",
-    "name": "WiFi6 MCS8 40MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS8 40MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=40_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=40_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 8-9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=8-9_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-8-40-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "8",
     "bandwidth": "40 MHz",
     "memoryLength": "8 MB",
@@ -571,15 +1346,28 @@
     "maxPapr": "12.01 dB",
     "meanPapr": "8.32 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=8_bw=40_osf=4_8MB.bin",
-    "name": "WiFi6 MCS8 40MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS8 40MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=40_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=40_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 8-9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=8-9_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-8-80-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "8",
     "bandwidth": "80 MHz",
     "memoryLength": "4 MB",
@@ -587,15 +1375,28 @@
     "maxPapr": "12.14 dB",
     "meanPapr": "8.36 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=8_bw=80_osf=4_4MB.bin",
-    "name": "WiFi6 MCS8 80MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS8 80MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 8-9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=8-9_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-8-80-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "8",
     "bandwidth": "80 MHz",
     "memoryLength": "8 MB",
@@ -603,15 +1404,28 @@
     "maxPapr": "12.15 dB",
     "meanPapr": "8.36 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=8_bw=80_osf=4_8MB.bin",
-    "name": "WiFi6 MCS8 80MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS8 80MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=8_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 8-9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=8-9_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-9-160-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "9",
     "bandwidth": "160 MHz",
     "memoryLength": "4 MB",
@@ -619,15 +1433,40 @@
     "maxPapr": "12.45 dB",
     "meanPapr": "8.38 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=9_bw=160_osf=4_4MB.bin",
-    "name": "WiFi6 MCS9 160MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS9 160MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=9_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=9_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=9_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=9_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 8-9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=8-9_papr_pdf.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=9_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-9-160-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "9",
     "bandwidth": "160 MHz",
     "memoryLength": "8 MB",
@@ -635,15 +1474,40 @@
     "maxPapr": "12.46 dB",
     "meanPapr": "8.4 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=9_bw=160_osf=4_8MB.bin",
-    "name": "WiFi6 MCS9 160MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS9 160MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=9_bw=160_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=9_bw=160_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=9_bw=160.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=9_bw=160.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 8-9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=8-9_papr_pdf.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=9_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-9-40-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "9",
     "bandwidth": "40 MHz",
     "memoryLength": "4 MB",
@@ -651,15 +1515,40 @@
     "maxPapr": "11.91 dB",
     "meanPapr": "8.33 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=9_bw=40_osf=4_4MB.bin",
-    "name": "WiFi6 MCS9 40MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS9 40MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=9_bw=40_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=9_bw=40_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_mcs=9_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_mcs=9_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 8-9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=8-9_papr_pdf.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=9_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-9-40-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "9",
     "bandwidth": "40 MHz",
     "memoryLength": "8 MB",
@@ -667,15 +1556,40 @@
     "maxPapr": "11.9 dB",
     "meanPapr": "8.31 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=9_bw=40_osf=4_8MB.bin",
-    "name": "WiFi6 MCS9 40MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS9 40MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=9_bw=40_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=9_bw=40_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_mcs=9_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_mcs=9_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 8-9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=8-9_papr_pdf.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=9_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-9-80-4MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "9",
     "bandwidth": "80 MHz",
     "memoryLength": "4 MB",
@@ -683,15 +1597,48 @@
     "maxPapr": "12.24 dB",
     "meanPapr": "8.36 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=9_bw=80_osf=4_4MB.bin",
-    "name": "WiFi6 MCS9 80MHz 4 MB",
-    "figures": [],
+    "name": "WiFi5 MCS9 80MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=9_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=9_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_mcs=9_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=9_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_mcs=9_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=9_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 8-9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=8-9_papr_pdf.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=9_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
     "id": "mc-wifi5-9-80-8MB",
     "signalClass": "MC",
     "signalFamily": "WiFi",
-    "standard": "WiFi6",
+    "standard": "WiFi5",
     "mcs": "9",
     "bandwidth": "80 MHz",
     "memoryLength": "8 MB",
@@ -699,8 +1646,41 @@
     "maxPapr": "12.15 dB",
     "meanPapr": "8.34 dB",
     "data_file": "Signals/Multi Carrier/WiFi/802.11AC (WiFi5)/wifi5_mcs=9_bw=80_osf=4_8MB.bin",
-    "name": "WiFi6 MCS9 80MHz 8 MB",
-    "figures": [],
+    "name": "WiFi5 MCS9 80MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=9_bw=80_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/Constellations/wifi5_Constellation_mcs=9_bw=80_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_mcs=9_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=9_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_mcs=9_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=9_bw=80.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 8-9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=8-9_papr_pdf.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 9)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=9_papr_pdf.png"
+      }
+    ],
     "isAlias": false
   },
   {
@@ -712,14 +1692,1729 @@
     "bandwidth": "20 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.76 dB",
-    "meanPapr": "7.86 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=20_osf=4_4MB.bin",
+    "maxPapr": "12.15 dB",
+    "meanPapr": "7.82 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=20_GI=Long_osf=4_4MB.bin",
     "name": "WiFi4 MCS0 20MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=0_bw=20_osf=4_4MB.png"
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=0_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=0_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=0_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=0_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_mcs=mcs=0_papr_pdf.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=0_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=0_bw=CBW20.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=0_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=0_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=0_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-0-20-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "0",
+    "bandwidth": "20 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "12.06 dB",
+    "meanPapr": "7.84 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=20_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS0 20MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=0_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=0_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=0_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=0_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_mcs=mcs=0_papr_pdf.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=0_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=0_bw=CBW20.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=0_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=0_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=0_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-0-40-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "0",
+    "bandwidth": "40 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "12.07 dB",
+    "meanPapr": "8.25 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=40_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS0 40MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=0_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=0_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=0_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_PAPRPDF_data_mcs=0_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=0_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_PAPRCCDF_data_mcs=0_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_mcs=mcs=0_papr_pdf.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=0_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_env_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_denv_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_pha_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=0_bw=40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_dpha_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=0_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-0-40-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "0",
+    "bandwidth": "40 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "12.11 dB",
+    "meanPapr": "8.24 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=40_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS0 40MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=0_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=0_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=0_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_PAPRPDF_data_mcs=0_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=0_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_PAPRCCDF_data_mcs=0_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_mcs=mcs=0_papr_pdf.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=0_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_env_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_denv_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_pha_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=0_bw=40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_dpha_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=0_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-1-20-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "1",
+    "bandwidth": "20 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.57 dB",
+    "meanPapr": "8.23 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=20_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS1 20MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=1_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=1_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=1_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=1_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=1_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=1_bw=CBW20.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=1_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=1_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=1_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-1-20-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "1",
+    "bandwidth": "20 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.56 dB",
+    "meanPapr": "8.21 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=20_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS1 20MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=1_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=1_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=1_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=1_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=1_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=1_bw=CBW20.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=1_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=1_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=1_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-1-40-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "1",
+    "bandwidth": "40 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.87 dB",
+    "meanPapr": "8.3 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=40_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS1 40MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=1_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=1_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=1_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=1_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=1_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=1_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=1_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=1_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=1_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-1-40-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "1",
+    "bandwidth": "40 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.9 dB",
+    "meanPapr": "8.32 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=40_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS1 40MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=1_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=1_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=1_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=1_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=1_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=1_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=1_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=1_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=1_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-2-20-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "2",
+    "bandwidth": "20 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.5 dB",
+    "meanPapr": "8.18 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=20_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS2 20MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=2_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=2_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=2_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=2_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 2)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=2_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=2_bw=CBW20.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=2_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=2_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=2_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-2-20-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "2",
+    "bandwidth": "20 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.57 dB",
+    "meanPapr": "8.18 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=20_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS2 20MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=2_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=2_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=2_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=2_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 2)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=2_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=2_bw=CBW20.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=2_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=2_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=2_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-2-40-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "2",
+    "bandwidth": "40 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.9 dB",
+    "meanPapr": "8.35 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=40_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS2 40MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=2_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=2_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=2_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=2_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 2)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=2_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=2_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=2_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=2_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-2-40-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "2",
+    "bandwidth": "40 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.87 dB",
+    "meanPapr": "8.36 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=40_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS2 40MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=2_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=2_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=2_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=2_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 2)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=2_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=2_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=2_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=2_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-3-20-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "3",
+    "bandwidth": "20 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.6 dB",
+    "meanPapr": "8.19 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=20_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS3 20MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=3_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=3_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=3_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=3_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=3_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=3_bw=CBW20.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=3_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=3_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=3_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-3-20-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "3",
+    "bandwidth": "20 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.65 dB",
+    "meanPapr": "8.17 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=20_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS3 20MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=3_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=3_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=3_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=3_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=3_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=3_bw=CBW20.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=3_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=3_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=3_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-3-40-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "3",
+    "bandwidth": "40 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.98 dB",
+    "meanPapr": "8.34 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=40_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS3 40MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=3_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=3_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=3_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=3_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=3_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=3_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=3_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=3_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=3_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-3-40-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "3",
+    "bandwidth": "40 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.96 dB",
+    "meanPapr": "8.3 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=40_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS3 40MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=3_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=3_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=3_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=3_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=3_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=3_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=3_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=3_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=3_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-4-20-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "4",
+    "bandwidth": "20 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.66 dB",
+    "meanPapr": "8.14 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=20_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS4 20MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=4_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=4_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=4_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=4_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 4)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=4_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=4_bw=CBW20.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=4_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=4_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=4_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-4-20-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "4",
+    "bandwidth": "20 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.58 dB",
+    "meanPapr": "8.16 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=20_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS4 20MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=4_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=4_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=4_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=4_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 4)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=4_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=4_bw=CBW20.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=4_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=4_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=4_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-4-40-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "4",
+    "bandwidth": "40 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.93 dB",
+    "meanPapr": "8.37 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=40_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS4 40MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=4_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=4_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=4_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=4_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 4)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=4_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=4_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=4_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=4_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-4-40-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "4",
+    "bandwidth": "40 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.92 dB",
+    "meanPapr": "8.34 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=40_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS4 40MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=4_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=4_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=4_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=4_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 4)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=4_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=4_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=4_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=4_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-5-20-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "5",
+    "bandwidth": "20 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.63 dB",
+    "meanPapr": "8.19 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=20_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS5 20MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=5_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=5_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=5_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=5_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=5_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=5_bw=CBW20.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=5_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=5_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=5_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-5-20-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "5",
+    "bandwidth": "20 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.57 dB",
+    "meanPapr": "8.19 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=20_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS5 20MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=5_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=5_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=5_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=5_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=5_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=5_bw=CBW20.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=5_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=5_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=5_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-5-40-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "5",
+    "bandwidth": "40 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.93 dB",
+    "meanPapr": "8.31 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=40_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS5 40MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=5_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=5_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=5_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=5_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=5_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=5_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=5_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=5_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=5_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-5-40-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "5",
+    "bandwidth": "40 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.94 dB",
+    "meanPapr": "8.33 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=40_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS5 40MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=5_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=5_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=5_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=5_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=5_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=5_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=5_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=5_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=5_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-6-20-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "6",
+    "bandwidth": "20 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.66 dB",
+    "meanPapr": "8.21 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=20_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS6 20MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=6_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=6_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=6_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=6_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 6)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=6_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=6_bw=CBW20.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=6_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=6_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=6_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-6-20-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "6",
+    "bandwidth": "20 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.62 dB",
+    "meanPapr": "8.18 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=20_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS6 20MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=6_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=6_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=6_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=6_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 6)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=6_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=6_bw=CBW20.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=6_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=6_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=6_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-6-40-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "6",
+    "bandwidth": "40 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.97 dB",
+    "meanPapr": "8.33 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=40_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS6 40MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=6_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=6_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=6_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=6_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 6)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=6_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=6_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=6_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=6_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=6_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-6-40-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "6",
+    "bandwidth": "40 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.91 dB",
+    "meanPapr": "8.3 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=40_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS6 40MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=6_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=6_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=6_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=6_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 6)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=6_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=6_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_denv_pdf_mcs=6_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=6_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=6_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-7-20-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "7",
+    "bandwidth": "20 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.66 dB",
+    "meanPapr": "8.29 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=20_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS7 20MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=7_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=7_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=7_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=7_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 7)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=7_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=7_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=7_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=7_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-7-20-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "7",
+    "bandwidth": "20 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.64 dB",
+    "meanPapr": "8.18 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=20_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS7 20MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=7_bw=20_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=7_bw=20_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=7_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=7_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 7)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=7_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=7_bw=CBW20.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=7_bw=CBW20.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=7_bw=CBW20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-7-40-4MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "7",
+    "bandwidth": "40 MHz",
+    "memoryLength": "4 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.9 dB",
+    "meanPapr": "8.26 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=40_GI=Long_osf=4_4MB.bin",
+    "name": "WiFi4 MCS7 40MHz 4 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=7_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=7_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=7_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=7_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 7)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=7_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=7_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=7_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=7_bw=CBW40.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi4-7-40-8MB",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi4",
+    "mcs": "7",
+    "bandwidth": "40 MHz",
+    "memoryLength": "8 MB",
+    "oversampling": "4x",
+    "maxPapr": "11.9 dB",
+    "meanPapr": "8.32 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=40_GI=Long_osf=4_8MB.bin",
+    "name": "WiFi4 MCS7 40MHz 8 MB",
+    "figures": [
+      {
+        "name": "Constellation (4 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=7_bw=40_GI=Long_osf=4_4MB.png"
+      },
+      {
+        "name": "Constellation (8 MB)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/Constellations/wifi4_Constellation_mcs=7_bw=40_GI=Long_osf=4_8MB.png"
+      },
+      {
+        "name": "PAPR PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRPDF_mcs=7_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_PAPRCCDF_mcs=7_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 7)",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_mcs=mcs=7_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_env_pdf_mcs=7_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_pha_pdf__mcs=7_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11N (WiFi4)/PDF/wifi4_dpha_pdf_mcs=7_bw=CBW40.png"
       }
     ],
     "isAlias": false
@@ -733,39 +3428,26 @@
     "bandwidth": "20 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.76 dB",
-    "meanPapr": "7.86 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=20_osf=4_4MB.bin",
+    "maxPapr": "12.15 dB",
+    "meanPapr": "7.82 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=20_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS0 20MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=0_bw=20_osf=4_4MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=0_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=0_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=0_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-0-20-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "0",
-    "bandwidth": "20 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.75 dB",
-    "meanPapr": "7.84 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=20_osf=4_8MB.bin",
-    "name": "WiFi4 MCS0 20MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=0_bw=20_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-0-20-8MB",
@@ -776,39 +3458,26 @@
     "bandwidth": "20 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.75 dB",
+    "maxPapr": "12.06 dB",
     "meanPapr": "7.84 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=20_osf=4_8MB.bin",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=20_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS0 20MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=0_bw=20_osf=4_8MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=0_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=0_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=0_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-0-40-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "0",
-    "bandwidth": "40 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.85 dB",
-    "meanPapr": "8.22 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=40_osf=4_4MB.bin",
-    "name": "WiFi4 MCS0 40MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=0_bw=40_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-0-40-4MB",
@@ -819,39 +3488,42 @@
     "bandwidth": "40 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.85 dB",
-    "meanPapr": "8.22 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=40_osf=4_4MB.bin",
+    "maxPapr": "12.07 dB",
+    "meanPapr": "8.25 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=40_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS0 40MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=0_bw=40_osf=4_4MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=0_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=0_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=0_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_env_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_denv_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_pha_pdf__mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_dpha_pdf_mcs=0_bw=CBW40.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-0-40-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "0",
-    "bandwidth": "40 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.86 dB",
-    "meanPapr": "8.26 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=40_osf=4_8MB.bin",
-    "name": "WiFi4 MCS0 40MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=0_bw=40_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-0-40-8MB",
@@ -862,39 +3534,42 @@
     "bandwidth": "40 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.86 dB",
-    "meanPapr": "8.26 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=40_osf=4_8MB.bin",
+    "maxPapr": "12.11 dB",
+    "meanPapr": "8.24 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=0_bw=40_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS0 40MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=0_bw=40_osf=4_8MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=0_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=0_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=0_papr_pdf.png"
+      },
+      {
+        "name": "Envelope PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_env_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Envelope Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_denv_pdf_mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Phase PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_pha_pdf__mcs=0_bw=CBW40.png"
+      },
+      {
+        "name": "Phase Derivative PDF",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/PDF/wifi5_dpha_pdf_mcs=0_bw=CBW40.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-1-20-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "1",
-    "bandwidth": "20 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.27 dB",
-    "meanPapr": "8.19 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=20_osf=4_4MB.bin",
-    "name": "WiFi4 MCS1 20MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=1_bw=20_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-1-20-4MB",
@@ -905,39 +3580,26 @@
     "bandwidth": "20 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.27 dB",
-    "meanPapr": "8.19 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=20_osf=4_4MB.bin",
+    "maxPapr": "11.57 dB",
+    "meanPapr": "8.23 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=20_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS1 20MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=1_bw=20_osf=4_4MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=1_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=1_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-1-20-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "1",
-    "bandwidth": "20 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.23 dB",
-    "meanPapr": "8.18 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=20_osf=4_8MB.bin",
-    "name": "WiFi4 MCS1 20MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=1_bw=20_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-1-20-8MB",
@@ -948,39 +3610,26 @@
     "bandwidth": "20 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.23 dB",
-    "meanPapr": "8.18 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=20_osf=4_8MB.bin",
+    "maxPapr": "11.56 dB",
+    "meanPapr": "8.21 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=20_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS1 20MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=1_bw=20_osf=4_8MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=1_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=1_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-1-40-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "1",
-    "bandwidth": "40 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.7 dB",
-    "meanPapr": "8.35 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=40_osf=4_4MB.bin",
-    "name": "WiFi4 MCS1 40MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=1_bw=40_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-1-40-4MB",
@@ -991,39 +3640,26 @@
     "bandwidth": "40 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.7 dB",
-    "meanPapr": "8.35 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=40_osf=4_4MB.bin",
+    "maxPapr": "11.87 dB",
+    "meanPapr": "8.3 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=40_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS1 40MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=1_bw=40_osf=4_4MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=1_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=1_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-1-40-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "1",
-    "bandwidth": "40 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.73 dB",
-    "meanPapr": "8.3 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=40_osf=4_8MB.bin",
-    "name": "WiFi4 MCS1 40MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=1_bw=40_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-1-40-8MB",
@@ -1034,39 +3670,26 @@
     "bandwidth": "40 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.73 dB",
-    "meanPapr": "8.3 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=40_osf=4_8MB.bin",
+    "maxPapr": "11.9 dB",
+    "meanPapr": "8.32 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=1_bw=40_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS1 40MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=1_bw=40_osf=4_8MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=1_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=1_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-2-20-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "2",
-    "bandwidth": "20 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.28 dB",
-    "meanPapr": "8.21 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=20_osf=4_4MB.bin",
-    "name": "WiFi4 MCS2 20MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=2_bw=20_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-2-20-4MB",
@@ -1077,39 +3700,26 @@
     "bandwidth": "20 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.28 dB",
-    "meanPapr": "8.21 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=20_osf=4_4MB.bin",
+    "maxPapr": "11.5 dB",
+    "meanPapr": "8.18 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=20_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS2 20MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=2_bw=20_osf=4_4MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=2_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=2_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-2-20-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "2",
-    "bandwidth": "20 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.31 dB",
-    "meanPapr": "8.17 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=20_osf=4_8MB.bin",
-    "name": "WiFi4 MCS2 20MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=2_bw=20_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-2-20-8MB",
@@ -1120,39 +3730,26 @@
     "bandwidth": "20 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.31 dB",
-    "meanPapr": "8.17 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=20_osf=4_8MB.bin",
+    "maxPapr": "11.57 dB",
+    "meanPapr": "8.18 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=20_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS2 20MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=2_bw=20_osf=4_8MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=2_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=2_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-2-40-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "2",
-    "bandwidth": "40 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.66 dB",
-    "meanPapr": "8.29 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=40_osf=4_4MB.bin",
-    "name": "WiFi4 MCS2 40MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=2_bw=40_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-2-40-4MB",
@@ -1163,39 +3760,26 @@
     "bandwidth": "40 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.66 dB",
-    "meanPapr": "8.29 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=40_osf=4_4MB.bin",
+    "maxPapr": "11.9 dB",
+    "meanPapr": "8.35 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=40_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS2 40MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=2_bw=40_osf=4_4MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=2_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=2_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-2-40-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "2",
-    "bandwidth": "40 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.66 dB",
-    "meanPapr": "8.29 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=40_osf=4_8MB.bin",
-    "name": "WiFi4 MCS2 40MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=2_bw=40_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-2-40-8MB",
@@ -1206,39 +3790,26 @@
     "bandwidth": "40 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.66 dB",
-    "meanPapr": "8.29 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=40_osf=4_8MB.bin",
+    "maxPapr": "11.87 dB",
+    "meanPapr": "8.36 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=2_bw=40_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS2 40MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=2_bw=40_osf=4_8MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=2_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=2_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=1-2_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-3-20-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "3",
-    "bandwidth": "20 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.38 dB",
-    "meanPapr": "8.19 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=20_osf=4_4MB.bin",
-    "name": "WiFi4 MCS3 20MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=3_bw=20_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-3-20-4MB",
@@ -1249,39 +3820,26 @@
     "bandwidth": "20 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.38 dB",
+    "maxPapr": "11.6 dB",
     "meanPapr": "8.19 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=20_osf=4_4MB.bin",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=20_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS3 20MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=3_bw=20_osf=4_4MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=3_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=3_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-3-20-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "3",
-    "bandwidth": "20 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.43 dB",
-    "meanPapr": "8.22 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=20_osf=4_8MB.bin",
-    "name": "WiFi4 MCS3 20MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=3_bw=20_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-3-20-8MB",
@@ -1292,39 +3850,26 @@
     "bandwidth": "20 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.43 dB",
-    "meanPapr": "8.22 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=20_osf=4_8MB.bin",
+    "maxPapr": "11.65 dB",
+    "meanPapr": "8.17 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=20_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS3 20MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=3_bw=20_osf=4_8MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=3_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=3_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-3-40-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "3",
-    "bandwidth": "40 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.76 dB",
-    "meanPapr": "8.33 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=40_osf=4_4MB.bin",
-    "name": "WiFi4 MCS3 40MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=3_bw=40_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-3-40-4MB",
@@ -1335,39 +3880,26 @@
     "bandwidth": "40 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.76 dB",
-    "meanPapr": "8.33 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=40_osf=4_4MB.bin",
+    "maxPapr": "11.98 dB",
+    "meanPapr": "8.34 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=40_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS3 40MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=3_bw=40_osf=4_4MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=3_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=3_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-3-40-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "3",
-    "bandwidth": "40 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.7 dB",
-    "meanPapr": "8.34 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=40_osf=4_8MB.bin",
-    "name": "WiFi4 MCS3 40MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=3_bw=40_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-3-40-8MB",
@@ -1378,39 +3910,26 @@
     "bandwidth": "40 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.7 dB",
-    "meanPapr": "8.34 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=40_osf=4_8MB.bin",
+    "maxPapr": "11.96 dB",
+    "meanPapr": "8.3 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=3_bw=40_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS3 40MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=3_bw=40_osf=4_8MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=3_bw=40.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=3_bw=40.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-4-20-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "4",
-    "bandwidth": "20 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.39 dB",
-    "meanPapr": "8.2 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=20_osf=4_4MB.bin",
-    "name": "WiFi4 MCS4 20MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=4_bw=20_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-4-20-4MB",
@@ -1421,39 +3940,18 @@
     "bandwidth": "20 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.39 dB",
-    "meanPapr": "8.2 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=20_osf=4_4MB.bin",
+    "maxPapr": "11.66 dB",
+    "meanPapr": "8.14 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=20_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS4 20MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=4_bw=20_osf=4_4MB.png"
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-4-20-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "4",
-    "bandwidth": "20 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.44 dB",
-    "meanPapr": "8.16 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=20_osf=4_8MB.bin",
-    "name": "WiFi4 MCS4 20MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=4_bw=20_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-4-20-8MB",
@@ -1464,39 +3962,18 @@
     "bandwidth": "20 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.44 dB",
+    "maxPapr": "11.58 dB",
     "meanPapr": "8.16 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=20_osf=4_8MB.bin",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=20_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS4 20MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=4_bw=20_osf=4_8MB.png"
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-4-40-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "4",
-    "bandwidth": "40 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.69 dB",
-    "meanPapr": "8.34 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=40_osf=4_4MB.bin",
-    "name": "WiFi4 MCS4 40MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=4_bw=40_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-4-40-4MB",
@@ -1507,39 +3984,18 @@
     "bandwidth": "40 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.69 dB",
-    "meanPapr": "8.34 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=40_osf=4_4MB.bin",
+    "maxPapr": "11.93 dB",
+    "meanPapr": "8.37 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=40_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS4 40MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=4_bw=40_osf=4_4MB.png"
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-4-40-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "4",
-    "bandwidth": "40 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.69 dB",
-    "meanPapr": "8.31 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=40_osf=4_8MB.bin",
-    "name": "WiFi4 MCS4 40MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=4_bw=40_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-4-40-8MB",
@@ -1550,39 +4006,18 @@
     "bandwidth": "40 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.69 dB",
-    "meanPapr": "8.31 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=40_osf=4_8MB.bin",
+    "maxPapr": "11.92 dB",
+    "meanPapr": "8.34 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=4_bw=40_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS4 40MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=4_bw=40_osf=4_8MB.png"
+        "name": "PAPR PDF sweep (MCS 3-4)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=3-4_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-5-20-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "5",
-    "bandwidth": "20 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.4 dB",
-    "meanPapr": "8.14 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=20_osf=4_4MB.bin",
-    "name": "WiFi4 MCS5 20MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=5_bw=20_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-5-20-4MB",
@@ -1593,39 +4028,18 @@
     "bandwidth": "20 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.4 dB",
-    "meanPapr": "8.14 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=20_osf=4_4MB.bin",
+    "maxPapr": "11.63 dB",
+    "meanPapr": "8.19 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=20_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS5 20MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=5_bw=20_osf=4_4MB.png"
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-5-20-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "5",
-    "bandwidth": "20 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.37 dB",
-    "meanPapr": "8.26 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=20_osf=4_8MB.bin",
-    "name": "WiFi4 MCS5 20MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=5_bw=20_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-5-20-8MB",
@@ -1636,39 +4050,18 @@
     "bandwidth": "20 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.37 dB",
-    "meanPapr": "8.26 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=20_osf=4_8MB.bin",
+    "maxPapr": "11.57 dB",
+    "meanPapr": "8.19 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=20_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS5 20MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=5_bw=20_osf=4_8MB.png"
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-5-40-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "5",
-    "bandwidth": "40 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.7 dB",
-    "meanPapr": "8.32 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=40_osf=4_4MB.bin",
-    "name": "WiFi4 MCS5 40MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=5_bw=40_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-5-40-4MB",
@@ -1679,39 +4072,18 @@
     "bandwidth": "40 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.7 dB",
-    "meanPapr": "8.32 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=40_osf=4_4MB.bin",
+    "maxPapr": "11.93 dB",
+    "meanPapr": "8.31 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=40_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS5 40MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=5_bw=40_osf=4_4MB.png"
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-5-40-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "5",
-    "bandwidth": "40 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.69 dB",
-    "meanPapr": "8.3 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=40_osf=4_8MB.bin",
-    "name": "WiFi4 MCS5 40MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=5_bw=40_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-5-40-8MB",
@@ -1722,39 +4094,18 @@
     "bandwidth": "40 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.69 dB",
-    "meanPapr": "8.3 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=40_osf=4_8MB.bin",
+    "maxPapr": "11.94 dB",
+    "meanPapr": "8.33 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=5_bw=40_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS5 40MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=5_bw=40_osf=4_8MB.png"
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-6-20-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "6",
-    "bandwidth": "20 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.55 dB",
-    "meanPapr": "8.22 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=20_osf=4_4MB.bin",
-    "name": "WiFi4 MCS6 20MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=6_bw=20_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-6-20-4MB",
@@ -1765,39 +4116,18 @@
     "bandwidth": "20 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.55 dB",
-    "meanPapr": "8.22 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=20_osf=4_4MB.bin",
+    "maxPapr": "11.66 dB",
+    "meanPapr": "8.21 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=20_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS6 20MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=6_bw=20_osf=4_4MB.png"
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-6-20-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "6",
-    "bandwidth": "20 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.51 dB",
-    "meanPapr": "8.15 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=20_osf=4_8MB.bin",
-    "name": "WiFi4 MCS6 20MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=6_bw=20_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-6-20-8MB",
@@ -1808,39 +4138,18 @@
     "bandwidth": "20 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.51 dB",
-    "meanPapr": "8.15 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=20_osf=4_8MB.bin",
+    "maxPapr": "11.62 dB",
+    "meanPapr": "8.18 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=20_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS6 20MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=6_bw=20_osf=4_8MB.png"
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-6-40-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "6",
-    "bandwidth": "40 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.89 dB",
-    "meanPapr": "8.36 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=40_osf=4_4MB.bin",
-    "name": "WiFi4 MCS6 40MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=6_bw=40_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-6-40-4MB",
@@ -1851,39 +4160,18 @@
     "bandwidth": "40 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.89 dB",
-    "meanPapr": "8.36 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=40_osf=4_4MB.bin",
+    "maxPapr": "11.97 dB",
+    "meanPapr": "8.33 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=40_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS6 40MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=6_bw=40_osf=4_4MB.png"
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-6-40-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "6",
-    "bandwidth": "40 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.8 dB",
-    "meanPapr": "8.33 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=40_osf=4_8MB.bin",
-    "name": "WiFi4 MCS6 40MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=6_bw=40_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-6-40-8MB",
@@ -1894,39 +4182,18 @@
     "bandwidth": "40 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.8 dB",
-    "meanPapr": "8.33 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=40_osf=4_8MB.bin",
+    "maxPapr": "11.91 dB",
+    "meanPapr": "8.3 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=6_bw=40_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS6 40MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=6_bw=40_osf=4_8MB.png"
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-7-20-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "7",
-    "bandwidth": "20 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.62 dB",
-    "meanPapr": "8.18 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=20_osf=4_4MB.bin",
-    "name": "WiFi4 MCS7 20MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=7_bw=20_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-7-20-4MB",
@@ -1937,39 +4204,26 @@
     "bandwidth": "20 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.62 dB",
-    "meanPapr": "8.18 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=20_osf=4_4MB.bin",
+    "maxPapr": "11.66 dB",
+    "meanPapr": "8.29 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=20_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS7 20MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=7_bw=20_osf=4_4MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=7_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=7_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-7-20-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "7",
-    "bandwidth": "20 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.63 dB",
-    "meanPapr": "8.21 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=20_osf=4_8MB.bin",
-    "name": "WiFi4 MCS7 20MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=7_bw=20_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-7-20-8MB",
@@ -1980,39 +4234,26 @@
     "bandwidth": "20 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.63 dB",
-    "meanPapr": "8.21 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=20_osf=4_8MB.bin",
+    "maxPapr": "11.64 dB",
+    "meanPapr": "8.18 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=20_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS7 20MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=7_bw=20_osf=4_8MB.png"
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRPDF_data_mcs=7_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_PAPRCCDF_data_mcs=7_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-7-40-4MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "7",
-    "bandwidth": "40 MHz",
-    "memoryLength": "4 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.93 dB",
-    "meanPapr": "8.34 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=40_osf=4_4MB.bin",
-    "name": "WiFi4 MCS7 40MHz 4 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=7_bw=40_osf=4_4MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-7-40-4MB",
@@ -2023,39 +4264,18 @@
     "bandwidth": "40 MHz",
     "memoryLength": "4 MB",
     "oversampling": "4x",
-    "maxPapr": "11.93 dB",
-    "meanPapr": "8.34 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=40_osf=4_4MB.bin",
+    "maxPapr": "11.9 dB",
+    "meanPapr": "8.26 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=40_GI=Long_osf=4_4MB.bin",
     "name": "WiFi5 (via WiFi4) MCS7 40MHz 4 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=7_bw=40_osf=4_4MB.png"
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
-  },
-  {
-    "id": "mc-wifi4-7-40-8MB",
-    "signalClass": "MC",
-    "signalFamily": "WiFi",
-    "standard": "WiFi4",
-    "mcs": "7",
-    "bandwidth": "40 MHz",
-    "memoryLength": "8 MB",
-    "oversampling": "4x",
-    "maxPapr": "11.98 dB",
-    "meanPapr": "8.29 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=40_osf=4_8MB.bin",
-    "name": "WiFi4 MCS7 40MHz 8 MB",
-    "figures": [
-      {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=7_bw=40_osf=4_8MB.png"
-      }
-    ],
-    "isAlias": false
   },
   {
     "id": "mc-wifi5-alias-7-40-8MB",
@@ -2066,18 +4286,174 @@
     "bandwidth": "40 MHz",
     "memoryLength": "8 MB",
     "oversampling": "4x",
-    "maxPapr": "11.98 dB",
-    "meanPapr": "8.29 dB",
-    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=40_osf=4_8MB.bin",
+    "maxPapr": "11.9 dB",
+    "meanPapr": "8.32 dB",
+    "data_file": "Signals/Multi Carrier/WiFi/802.11N (WiFi4)/wifi4_mcs=7_bw=40_GI=Long_osf=4_8MB.bin",
     "name": "WiFi5 (via WiFi4) MCS7 40MHz 8 MB",
     "figures": [
       {
-        "name": "Constellation",
-        "path": "Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs=7_bw=40_osf=4_8MB.png"
+        "name": "PAPR PDF sweep (MCS 5-7)",
+        "path": "Figures/WiFi/802.11AC (WiFi5)/wifi5_mcs=mcs=5-7_papr_pdf.png"
       }
     ],
     "isAlias": true,
     "aliasNote": "WiFi 5 at MCS 0\u20137 (20/40 MHz) shares identical waveforms with WiFi 4."
+  },
+  {
+    "id": "mc-wifi6-figs-2-20",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi6",
+    "mcs": "2",
+    "bandwidth": "20 MHz",
+    "memoryLength": "Figures only",
+    "oversampling": "4x",
+    "maxPapr": "N/A",
+    "meanPapr": "N/A",
+    "name": "WiFi6 MCS2 20MHz (analysis figures)",
+    "figures": [
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AX (WiFi6)/wifi6_PAPRPDF_data_mcs=2_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11AX (WiFi6)/wifi6_PAPRCCDF_data_mcs=2_bw=20.png"
+      },
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AX (WiFi6)/wifi6_mcs=mcs=1-2_papr_pdf.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi6-figs-4-80",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi6",
+    "mcs": "4",
+    "bandwidth": "80 MHz",
+    "memoryLength": "Figures only",
+    "oversampling": "4x",
+    "maxPapr": "N/A",
+    "meanPapr": "N/A",
+    "name": "WiFi6 MCS4 80MHz (analysis figures)",
+    "figures": [
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11AX (WiFi6)/wifi6_PAPRPDF_data_mcs=4_bw=80.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi7-figs-4-20",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi7",
+    "mcs": "4",
+    "bandwidth": "20 MHz",
+    "memoryLength": "Figures only",
+    "oversampling": "4x",
+    "maxPapr": "N/A",
+    "meanPapr": "N/A",
+    "name": "WiFi7 MCS4 20MHz (analysis figures)",
+    "figures": [
+      {
+        "name": "PAPR PDF (data field)",
+        "path": "Figures/WiFi/802.11BE (WiFi7)/wifi7_PAPRPDF_data_mcs=4_bw=20.png"
+      },
+      {
+        "name": "PAPR CCDF (data field)",
+        "path": "Figures/WiFi/802.11BE (WiFi7)/wifi7_PAPRCCDF_data_mcs=4_bw=20.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi7-figs-4-80",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi7",
+    "mcs": "4",
+    "bandwidth": "80 MHz",
+    "memoryLength": "Figures only",
+    "oversampling": "4x",
+    "maxPapr": "N/A",
+    "meanPapr": "N/A",
+    "name": "WiFi7 MCS4 80MHz (analysis figures)",
+    "figures": [
+      {
+        "name": "PAPR PDF (full burst)",
+        "path": "Figures/WiFi/802.11BE (WiFi7)/wifi7_PAPRPDF_full_mcs=4_bw=80.png"
+      },
+      {
+        "name": "PAPR CCDF (full burst)",
+        "path": "Figures/WiFi/802.11BE (WiFi7)/wifi7_PAPRCCDF_full_mcs=4_bw=80.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi6-sweep-0",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi6",
+    "mcs": "0",
+    "bandwidth": "All MHz",
+    "memoryLength": "Figures only",
+    "oversampling": "4x",
+    "maxPapr": "N/A",
+    "meanPapr": "N/A",
+    "name": "WiFi6 MCS0 (PAPR sweep figures)",
+    "figures": [
+      {
+        "name": "PAPR PDF sweep (MCS 0)",
+        "path": "Figures/WiFi/802.11AX (WiFi6)/wifi6_mcs=mcs=0_papr_pdf.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi6-sweep-1",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi6",
+    "mcs": "1",
+    "bandwidth": "All MHz",
+    "memoryLength": "Figures only",
+    "oversampling": "4x",
+    "maxPapr": "N/A",
+    "meanPapr": "N/A",
+    "name": "WiFi6 MCS1 (PAPR sweep figures)",
+    "figures": [
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AX (WiFi6)/wifi6_mcs=mcs=1-2_papr_pdf.png"
+      }
+    ],
+    "isAlias": false
+  },
+  {
+    "id": "mc-wifi6-sweep-2",
+    "signalClass": "MC",
+    "signalFamily": "WiFi",
+    "standard": "WiFi6",
+    "mcs": "2",
+    "bandwidth": "All MHz",
+    "memoryLength": "Figures only",
+    "oversampling": "4x",
+    "maxPapr": "N/A",
+    "meanPapr": "N/A",
+    "name": "WiFi6 MCS2 (PAPR sweep figures)",
+    "figures": [
+      {
+        "name": "PAPR PDF sweep (MCS 1-2)",
+        "path": "Figures/WiFi/802.11AX (WiFi6)/wifi6_mcs=mcs=1-2_papr_pdf.png"
+      }
+    ],
+    "isAlias": false
   },
   {
     "id": "sc-100symbols-1024-a005-1024-QAM_PAPR_average.bin",

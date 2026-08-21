@@ -2,16 +2,20 @@
 %  Wifi 5, this encapsulates the VHT standard)
 
 clear variables; close all; clc;
+scriptDir = fileparts(mfilename('fullpath'));
+addpath(scriptDir);
+addpath(fileparts(scriptDir));
 
-sigPath = '..\signals\wifi5\';
-figPath = '..\figures\wifi5\';
+sigPath = '..\..\Signals\Multi Carrier\WiFi\802.11AC (WiFi5)\';
+figPath = '..\..\Figures\WiFi\802.11AC (WiFi5)\';
 
-% Control which elements of the code run:
-runAll = 0; % Runs all elements
-runLong = 0; % Runs only long signal duration study of PAPR
-runStats = 0; % Runs statistics for the distributions of the signal components
-runCdf = 0; % Finds the CCDF of the signal as a function of signal duration
-runGen = 1; % Generates signals for loading on signal generators
+% Control which elements of the code run. Each is overridable from the shell
+% (e.g. PAPR_RUN_LONG=1) so a sweep needs no edits to this file.
+runAll = env_num('PAPR_RUN_ALL', 0); % Runs all elements
+runLong = env_num('PAPR_RUN_LONG', 0); % Runs only long signal duration study of PAPR
+runStats = env_num('PAPR_RUN_STATS', 0); % Runs statistics for the distributions of the signal components
+runCdf = env_num('PAPR_RUN_CDF', 1); % Finds the CCDF of the signal as a function of signal duration
+runGen = env_num('PAPR_RUN_GEN', 0); % Generates signals for loading on signal generators
 
 numTX = 1; % Single User (SISO)
 idleTime   = 16; % In microseconds 
@@ -22,16 +26,19 @@ cfgVHT.NumTransmitAntennas = numTX;
 cfgVHT.NumSpaceTimeStreams = numTX;
 cfgVHT.SpatialMapping = 'Direct';
 cfgVHT.STBC = false;               
+cfgVHT.GuardInterval = 'Long';
 
 %% Long-term statistics section
 if runLong || runAll
     numBins = 50;
-    numSims = 5000;
-    numBatches = 10;
-    batchSize = numSims/numBatches;
+    numSims = env_num('PAPR_LONG_SIMS', 2000);
+    statsOSF = 4;
+    verboseProgress = false;
+    [measureDataFieldOnly, modeTag] = papr_measure_mode(true);
     mcs_list = [0]; % Added MCS 9 (256-QAM) for Wi-Fi 5
     bw_list = [80 160];   % Added 80 MHz
-    numPackets = 10;
+    minPackets = 5;
+    maxPackets = 10;
     
     % --- DYNAMIC TIME NORMALIZATION (Max 5.484 ms) ---
     targetSymbols = 500; % Remains the same. 
@@ -41,9 +48,17 @@ if runLong || runAll
     Nbpscs_array = [1, 2, 2, 4, 4, 6, 6, 6, 8, 8];
     Rate_array   = [1/2, 1/2, 3/4, 1/2, 3/4, 2/3, 3/4, 5/6, 3/4, 5/6];
 
-    edges = linspace(10, 16, numBins + 1); 
-    binCenters = edges(1:end-1) + diff(edges)/2;
-    pdf_vals = zeros(numBins,numel(bw_list),numel(mcs_list)); cc = 0;
+    % Samples are pooled first and the grid, kernel width and axis ticks are
+    % derived from them by papr_density. The previous fixed linspace(10,16)
+    % grid fed histcounts, which silently DISCARDS out-of-range trials, so the
+    % "pdf" no longer integrated to 1 and the moment estimates below were
+    % biased by whatever fell outside the window.
+    numCombos = numel(bw_list) * numel(mcs_list);
+    comboSamples = cell(1, numCombos);
+    comboLabels  = cell(1, numCombos);
+    comboPinned  = zeros(1, numCombos);
+    nStored = 0;   % forbidden combinations are skipped, so this trails cc
+    cc = 0;
 
     for ibw = 1:numel(bw_list)
         chanBW_loop = ['CBW' num2str(bw_list(ibw))];
@@ -79,109 +94,66 @@ if runLong || runAll
             cfgVHT.APEPLength = min(ideal_bytes, 1048575);
             psduTotalOctets = cfgVHT.APEPLength;
 
-            %peak_pow = zeros(numSims,1); 
-            %mean_pow = zeros(numSims,1); 
-            papr_db = zeros(numSims,1); 
-            
-            for b = 1:numBatches
-                startIdx = (b-1) * batchSize + 1;
-                endIdx   = b * batchSize;
+            paprMeta = papr_field_meta(cfgVHT, statsOSF, idleTime);
 
-                % Pre-allocate an array to hold thousands of individual symbol PAPR values
-                randomSeed = randi([1 127],batchSize,1);
-                psduBits =  randi([0 1],batchSize,8*psduTotalOctets*numPackets); % use reasonable length
-            
-                %peak_pow = zeros(numSims,1); 
-                %mean_pow = zeros(numSims,1); 
-                papr_batch_db = zeros(batchSize,1); 
+            papr_db = zeros(numSims,1);
+            inPreamble = false(numSims,1);
+            randomSeed = randi([1 127],numSims,1);
+            numPktsPerTrial = randi([minPackets maxPackets],numSims,1);
 
-                parfor k = 1:batchSize
-                    
-                    % Generate 1 packet at a time to isolate symbols cleanly
-                    tx = wlanWaveformGenerator(psduBits(k,:)', cfgVHT, ...
-                        'NumPackets',numPackets, ...
-                        'IdleTime',idleTime*1e-6,...
-                        'OversamplingFactor',osf,...
-                        'ScramblerInitialization', randomSeed(k), ...
-                        'WindowTransitionTime', 0);
-                    
-                    inst_pow = abs(tx).^2; %tx.*conj(tx);
-                    peak_pow = max(max(inst_pow,[],1));
-                    mean_pow = mean(mean(inst_pow,1));
-                    papr_batch_db(k) = 10*log10(peak_pow / mean_pow);
-                end
-                papr_db(startIdx:endIdx) = papr_batch_db;
-                fprintf('Batch %d/%d completed.\n', b, numBatches);
+            parfor t = 1:numSims
+                nPkts = numPktsPerTrial(t);
+                psduBits = randi([0 1],8*psduTotalOctets*nPkts,1);
+                tx = wlanWaveformGenerator(psduBits, cfgVHT, ...
+                    'NumPackets',nPkts, ...
+                    'IdleTime',idleTime*1e-6,...
+                    'OversamplingFactor',statsOSF,...
+                    'ScramblerInitialization', randomSeed(t), ...
+                    'WindowTransitionTime', 0);
+                [papr_db(t), inPreamble(t)] = papr_burst_db(tx, paprMeta, nPkts, measureDataFieldOnly);
             end
             cc = cc + 1;
-            fprintf('We are %2.3f percent complete\n', 100*(cc)/(numel(bw_list)*numel(mcs_list)));
-            % Estimate the PDF using thousands of actual symbol data points
-            % f = histcounts(papr_db, edges, 'Normalization', 'pdf'); 
-            [f, xi] = ksdensity(papr_db, binCenters);
-            pdf_vals(:, ibw, imcs) = f;
+            if verboseProgress
+                fprintf('We are %2.3f percent complete\n', 100*(cc)/(numel(bw_list)*numel(mcs_list)));
+            end
+
+            % Store in loop order so the legend cannot drift out of step with
+            % the curves (the old reshape relied on column-major ordering
+            % happening to match a separately built legend).
+            nStored = nStored + 1;
+            comboSamples{nStored} = papr_db(isfinite(papr_db));
+            comboLabels{nStored}  = sprintf('CBW=%d, MCS=%d', bw_list(ibw), mcs_list(imcs));
+            comboPinned(nStored)  = mean(inPreamble);
         end
     end
-    Y = reshape(pdf_vals, size(pdf_vals,1), []);   % 50 x (2*8) = 50 x 16
-    %% Estimate the mean
-    % Inputs:
-    %   binCenters : vector (50x1 or 1x50)
-    %   pdf_vals   : matrix (50x8) where each column is a PDF over the bins
-    bc = binCenters(:);            % ensure column vector (50x1)
-    P = Y;                  % (50x8)
-    [N, M] = size(P);
-    if N ~= numel(bc)
-        error('binCenters length must match number of rows of pdf_vals.');
+    comboSamples = comboSamples(1:nStored);
+    comboLabels  = comboLabels(1:nStored);
+    comboPinned  = comboPinned(1:nStored);
+    warn_if_preamble_pinned(comboPinned, measureDataFieldOnly);
+
+    S = papr_density(comboSamples, numBins, []);
+    binCenters = S.binCenters;
+    Y = S.pdf;
+
+    %% Moments
+    % Taken straight from the samples rather than from the binned PDF: the
+    % binned estimate inherited every out-of-range trial the histogram had
+    % already thrown away. These are the numbers the runGen target table
+    % should be built from.
+    means    = cellfun(@mean, comboSamples).';
+    stds     = cellfun(@std,  comboSamples).';
+    var_vals = stds.^2;
+    fprintf('runLong moments (mode=%s):\n', modeTag);
+    for k = 1:numel(comboSamples)
+        fprintf('  %-18s n=%5d  mean=%.3f dB  std=%.4f dB  var=%.4f  maxInPreamble=%.0f%%\n', ...
+            comboLabels{k}, numel(comboSamples{k}), means(k), stds(k), var_vals(k), ...
+            100*comboPinned(k));
     end
-    
-    % Compute bin edges and widths from centers
-    if N < 2
-        error('Need at least two bin centers to compute widths.');
-    end
-    edges = [bc(1) - (bc(2)-bc(1))/2; (bc(1:end-1)+bc(2:end))/2; bc(end) + (bc(end)-bc(end-1))/2];
-    w = diff(edges);               % (N x 1) widths
-    
-    % Normalize each PDF column (in case not exactly normalized)
-    integrals = w.' * P;           
-    
-    % Isolate skipped columns (where the integral is 0)
-    skipped_cols = (integrals == 0);
-    
-    % Temporarily set zero integrals to 1 to prevent division-by-zero errors
-    integrals(skipped_cols) = 1; 
-    
-    if any(integrals < 0)
-        error('One or more PDF integrals are negative.');
-    end
-    
-    P_norm = P ./ integrals;       
-    
-    % Convert the skipped columns to NaN so MATLAB ignores them in calculations/plots
-    P_norm(:, skipped_cols) = NaN;
-    
-    % Estimate mean for each column: mean_j = sum(bc .* P_norm(:,j) .* w)
-    means = ( (bc .* w).' * P_norm ).';   % result Mx1
-    
-    % (Optional) estimate variance
-    means_col = means(:).';                % 1xM
-    var_vals = sum(((bc - means.').^2 .* w) .* P_norm, 1).';
-    
-    
-    % Output
-    means = means(:);       % Mx1
-    var_vals = var_vals(:); % Mx1 (optional)
+
     %% Call plot_generic
-    % --- 1. Dynamically Build the Legend ---
-    % Match MATLAB's column-major reshaping (inner loop = BW, outer loop = MCS)
-    legend_entries = cell(1, numel(bw_list) * numel(mcs_list));
-    idx = 1;
-    for imcs = 1:numel(mcs_list)
-        for ibw = 1:numel(bw_list)
-            legend_entries{idx} = sprintf('CBW=%d, MCS=%d', bw_list(ibw), mcs_list(imcs));
-            idx = idx + 1;
-        end
-    end
-    
-    % --- 2. Dynamically Build the Filename ---
+    legend_entries = comboLabels;
+
+    % --- Dynamically Build the Filename ---
     % Format cleanly whether the list has one element or a range
     if numel(mcs_list) > 1
         mcs_str = sprintf('mcs=%d-%d', min(mcs_list), max(mcs_list));
@@ -192,8 +164,8 @@ if runLong || runAll
     dynamic_filename = fullfile(figPath, sprintf('wifi5_mcs=%s_papr_pdf.png', mcs_str));
 
     fig = plot_generic(binCenters, Y, dynamic_filename, ...
-        'XLabel','PAPR [dB]','YLabel','Occurences [%]',...
-        'FigureSize',[1 1 6 4], 'XTick',10:0.5:15, 'YTick', 0:0.25:1.5,...
+        'XLabel','PAPR [dB]','YLabel','Probability density [1/dB]',...
+        'FigureSize',[1 1 6 4], 'XTick', S.xTick, 'YTick', S.yTickPdf,...
         'Legend', legend_entries, ...{'CBW=20, MCS=0','CBW=40, MCS=0'},... ,'CBW=20, MCS=1','CBW=40, MCS=1','CBW=20, MCS=2','CBW=40, MCS=2','CBW=20, MCS=3','CBW=40, MCS=3','CBW=20, MCS=4','CBW=40, MCS=4','CBW=20, MCS=5','CBW=40, MCS=5','CBW=20, MCS=6','CBW=40, MCS=6','CBW=20, MCS=7','CBW=40, MCS=7'},
         'LegendLocation','NorthEast',...
         'LineWidth', 1.5,...
@@ -212,8 +184,11 @@ if runStats || runAll
     edges_p = linspace(p_min,p_max, nbins + 1);
     edges_dp = linspace(dp_min,dp_max, nbins + 1);
     
-    numPackets = 10000; packetsPerChunk = 250;
-    numChunks = ceil(numPackets/packetsPerChunk);
+    % packetsPerChunk is derived from a sample budget rather than fixed: at
+    % wide bandwidths a fixed count made a single chunk many GB of complex
+    % doubles. numPackets is overridable so a smoke test need not edit this.
+    numPackets = env_num('PAPR_STATS_PACKETS', 10000);
+    chunkSampleBudget = env_num('PAPR_CHUNK_SAMPLES', 2e7);
     
     countsSum_v = zeros(nbins,1);
     countsSum_dv = zeros(nbins,1);
@@ -226,7 +201,7 @@ if runStats || runAll
     targetSymbols = 500; % 1362 is the exact number of symbols for 5.484ms
                          % 500 is 2ms, which is a typical burst length for
                          % a wifi transmission
-    Nsd_list     = [52, 108];
+    
     Nbpscs_array = [1, 2, 2, 4, 4, 6, 6, 6, 8, 8];
     Rate_array   = [1/2, 1/2, 3/4, 1/2, 3/4, 2/3, 3/4, 5/6, 3/4, 5/6];
 
@@ -255,20 +230,34 @@ if runStats || runAll
     cfgVHT.APEPLength = min(ideal_bytes, 1048575);
     psduTotalOctets = cfgVHT.APEPLength;
     
-    psduBits = randi([0 1], numChunks, psduTotalOctets*8*packetsPerChunk);
+    % Size a chunk by sample budget, using one probe packet to learn its length.
+    probeBits = randi([0 1], psduTotalOctets*8, 1);
+    probeTx = wlanWaveformGenerator(probeBits, cfgVHT, 'NumPackets', 1, ...
+        'IdleTime', idleTime*1e-6, 'OversamplingFactor', osf);
+    samplesPerPacket = size(probeTx, 1);
+    packetsPerChunk = max(1, floor(chunkSampleBudget / samplesPerPacket));
+    numChunks = ceil(numPackets / packetsPerChunk);
+    clear probeBits probeTx
+    fprintf('runStats: %d packets, %d samples each, %d per chunk, %d chunks\n', ...
+        numPackets, samplesPerPacket, packetsPerChunk, numChunks);
 
+    % Bits are drawn per chunk. Allocating every chunk up front defeated the
+    % chunking entirely: at MCS 2 / CBW160 that array is 40 x 87,744,000
+    % doubles, i.e. ~26 GB.
     for c = 1:numChunks
         nThis = min(packetsPerChunk, numPackets - (c-1)*packetsPerChunk);
-        % generate psduBits for nThis packets (reuse your computeHTAPEP etc)
-        % psduBitsChunk = randi([0 1], psduTotalOctets*8*nThis, 1);
-        
-        txChunk = wlanWaveformGenerator(psduBits(c,:), cfgVHT, ...
+        psduBitsChunk = randi([0 1], psduTotalOctets*8*nThis, 1);
+
+        txChunk = wlanWaveformGenerator(psduBitsChunk, cfgVHT, ...
                         'NumPackets',nThis, ...
                         'IdleTime',idleTime*1e-6,...
-                        'OversamplingFactor',osf,......
+                        'OversamplingFactor',osf,...
                         'WindowTransitionTime', 0);
 
-        txChunk = txChunk / max(txChunk);
+        % max() of a complex vector returns the largest-MAGNITUDE element,
+        % which is itself complex, so dividing by it rotated the whole chunk
+        % by that element's phase and smeared the phase histograms.
+        txChunk = txChunk / max(abs(txChunk));
 
         % compute power in dB normalized to max (same as your p)
         v = abs(txChunk);
@@ -287,7 +276,7 @@ if runStats || runAll
         countsSum_dp = countsSum_dp + counts_dp(:);
 
         totalSamples = totalSamples + numel(v);
-        totalSamples_d = totalSamples + numel(dv_max);
+        totalSamples_d = totalSamples_d + numel(dv); % was numel(dv_max), i.e. 1
         clear txChunk v dv p dp psduBitsChunk   % free memory early
     end
     
@@ -304,22 +293,32 @@ if runStats || runAll
     pdf_est_dp = countsSum_dp ./ (totalSamples_d * binWidths_dp');
 
     %% Plot Statistics
-    plot_bar(binCenters_v,pdf_est_v, cat(2,'..\figures\wifi5\wifi5_env_pdf_mcs=',num2str(MCS),'_bw=',chanBW,'.png'), ...
+    % Paths go through figPath (these used to hard-code '..\figures\wifi5\',
+    % which resolves to Code/figures/wifi5 and does not exist), and the y
+    % ticks come from the data so plot_bar cannot clip a peak.
+    statName = @(kind) fullfile(figPath, ...
+        sprintf('wifi5_%s_pdf_mcs=%d_bw=%s.png', kind, MCS, chanBW));
+
+    plot_bar(binCenters_v,pdf_est_v, statName('env'), ...
       'Colormap','parula', 'FlipMap',true, 'FontSize',9, ...
-      'FigureSize',[1 1 4 3], 'XTick',v_min:0.1:v_max, 'YTick', 0:1:5,...
-      'XLabel','Normalized Output Envelope [V]','YLabel','PDF [% / V]');
-    plot_bar(binCenters_dv,pdf_est_dv, cat(2,'..\figures\wifi5\wifi5_denv_pdf_mcs=',num2str(MCS),'_bw=',chanBW,'.png'), ...
+      'FigureSize',[1 1 4 3], 'XTick',v_min:0.1:v_max, ...
+      'YTick', nice_ticks(0, max(pdf_est_v), 5),...
+      'XLabel','Normalized Output Envelope [V]','YLabel','PDF [1/V]');
+    plot_bar(binCenters_dv,pdf_est_dv, statName('denv'), ...
       'Colormap','parula', 'FlipMap',true, 'FontSize',9, ...
-      'FigureSize',[1 1 4 3], 'XTick',dv_min:0.1:dv_max, 'YTick', 0:2:8,...
-      'XLabel','Normalized Output Envelope Derivative [V/s]','YLabel','PDF [% / V/s]');
-    plot_bar(binCenters_p,pdf_est_p, cat(2,'..\figures\wifi5\wifi5_pha_pdf__mcs=',num2str(MCS),'_bw=',chanBW,'.png'), ...
+      'FigureSize',[1 1 4 3], 'XTick',dv_min:0.1:dv_max, ...
+      'YTick', nice_ticks(0, max(pdf_est_dv), 5),...
+      'XLabel','Normalized Output Envelope Derivative [V/s]','YLabel','PDF [1/(V/s)]');
+    plot_bar(binCenters_p,pdf_est_p, statName('pha'), ...
       'Colormap','parula', 'FlipMap',true, 'FontSize',9, ...
-      'FigureSize',[1 1 4 3], 'XTick',p_min:pi/2:p_max, 'YTick', 0:0.1:0.6,...
-      'XLabel','Normalized Output Phase [rad]','YLabel','PDF [% / rad]');
-    plot_bar(binCenters_dp,pdf_est_dp, cat(2,'..\figures\wifi5\wifi5_dpha_pdf_mcs=',num2str(MCS),'_bw=',chanBW,'.png'), ...
+      'FigureSize',[1 1 4 3], 'XTick',p_min:pi/2:p_max, ...
+      'YTick', nice_ticks(0, max(pdf_est_p), 5),...
+      'XLabel','Normalized Output Phase [rad]','YLabel','PDF [1/rad]');
+    plot_bar(binCenters_dp,pdf_est_dp, statName('dpha'), ...
       'Colormap','parula', 'FlipMap',true, 'FontSize',9, ...
-      'FigureSize',[1 1 4 3], 'XTick',dp_min:pi:dp_max, 'YTick', 0:0.25:1.5,...
-      'XLabel','Normalized Output Phase Derivative [rad/s]','YLabel','PDF [% / rad/s]');
+      'FigureSize',[1 1 4 3], 'XTick',dp_min:pi:dp_max, ...
+      'YTick', nice_ticks(0, max(pdf_est_dp), 5),...
+      'XLabel','Normalized Output Phase Derivative [rad/s]','YLabel','PDF [1/(rad/s)]');
 
 end
 %% ------------------------------------------------------------------------
@@ -328,103 +327,141 @@ end
 
 if runCdf || runAll
     bins = 50;
-    edges = linspace(10, 16, bins + 1); 
-    binCenters = edges(1:end-1) + diff(edges)/2;
-    MCS = 9;
-    BW = 80;
-    numPackets = 5; % <--- Optimizing to 1 packet per trial significantly reduces overhead
-    targetSymbols = [250 525 1361];  
-    list = [10000, 15000, 40000]; % <--- Increase trials here for higher statistical confidence
-    
+    MCS = env_num('PAPR_MCS', 5);
+    BW  = env_num('PAPR_BW', 160);
+    numPackets = 8;
+    statsOSF = 4;
+    useExactSymbolProber = false;
+    verboseProgress = false;
+    [measureDataFieldOnly, modeTag] = papr_measure_mode(true);
+    kernelBw = []; % [] => Silverman's rule from the pooled samples (see below)
+    targetSymbols = [250 625 1000];
+    list = [500, 500, 500];
+    trialOverride = str2double(getenv('PAPR_TRIALS'));
+    if isfinite(trialOverride) && trialOverride > 0
+        list = repmat(round(trialOverride), size(targetSymbols));
+    end
+    fprintf('runCdf start: mode=%s, MCS=%d, BW=%d, trials=[%s]\n', ...
+        modeTag, MCS, BW, num2str(list));
+
     Nbpscs_array = [1, 2, 2, 4, 4, 6, 6, 6, 8, 8];
-    Rate_array   = [1/2, 1/2, 3/4, 1/2, 3/4, 2/3, 3/4, 5/6, 3/4, 5/6];
+    Rate_array = [1/2, 1/2, 3/4, 1/2, 3/4, 2/3, 3/4, 5/6, 3/4, 5/6];
     chanBW = ['CBW' num2str(BW)];
-    cfgVHT = wlanVHTConfig('ChannelBandwidth',chanBW);
-    cfgVHT.MCS = MCS; 
-            
+    cfgVHT = wlanVHTConfig('ChannelBandwidth', chanBW);
+    cfgVHT.MCS = MCS;
+
     if BW == 20
         Nsd = 52;
     elseif BW == 40
         Nsd = 108;
     elseif BW == 80
         Nsd = 234;
-    else %BW == 160
+    else
         Nsd = 468;
     end
-            
+
     Nbpscs = Nbpscs_array(MCS+1);
     Rate = Rate_array(MCS+1);
     Ndbps = Nsd * Nbpscs * Rate;
-    ideal_bytes = floor((targetSymbols * Ndbps - 22) / 8);
-    psduTotalOctets = min(ideal_bytes, 1048575);
-    % psduTotalOctets = cfgVHT.APEPLength;
-    
-    countsPAPR = zeros(bins,numel(targetSymbols));
-    binsPAPR   = zeros(bins,numel(targetSymbols));
-    pdfPAPR    = zeros(bins,numel(targetSymbols));
-    cdfPAPR    = zeros(bins,numel(targetSymbols));
-    maxPAPR    = zeros(1,numel(targetSymbols));
-    
+
+    samples_per_sym = 4 * BW * statsOSF;
+    preamble_samples = 40 * BW * statsOSF;
+    paprSamples = cell(1, numel(targetSymbols));
+    preamblePinned = zeros(1, numel(targetSymbols));
+
     for ib = 1:numel(targetSymbols)
-        trials = list(ib);
-        peakPower = zeros(trials,1);
-        meanPower = zeros(trials,1); % <--- Pre-allocate to prevent slicing/growth issues
-        
-        octets = psduTotalOctets(ib);
-        
-        cfgVHT.APEPLength = octets;
+        current_target = targetSymbols(ib);
 
-        bitLength = octets * 8 * numPackets;
-        
-        % Parallel execution over CPU cores
-        parfor t = 1:trials
-            % Generate random bits locally within the worker to bypass memory transfer bottlenecks
-            localBits = randi([0 1], bitLength, 1);
-            randomSeed = randi([1, 127]);
-            
-            % Generate waveform
-            tx = wlanWaveformGenerator(localBits, cfgVHT, ...
-                   'NumPackets', numPackets, ...
-                   'IdleTime', idleTime*1e-6, ...
-                   'OversamplingFactor', osf, ...
-                   'ScramblerInitialization', randomSeed, ...
-                   'WindowTransitionTime', 0);
+        if useExactSymbolProber
+            target_length_samples = preamble_samples + (current_target * samples_per_sym);
+            current_bytes = floor((current_target * Ndbps - 200) / 8);
+            current_bytes = floor(current_bytes / 4) * 4;
+            optimal_bytes = current_bytes;
 
-            sigPower = abs(tx).^2;
-            peakPower(t) = max(sigPower);
-            meanPower(t) = mean(sigPower);
+            for safety_counter = 1:100
+                cfgVHT.APEPLength = current_bytes;
+                test_bits = randi([0 1], 8 * current_bytes, 1);
+                tx_test = wlanWaveformGenerator(test_bits, cfgVHT, ...
+                    'NumPackets', 1, ...
+                    'WindowTransitionTime', 0, ...
+                    'OversamplingFactor', statsOSF);
+
+                if length(tx_test) > target_length_samples
+                    break;
+                elseif length(tx_test) < target_length_samples
+                    current_bytes = current_bytes + 4;
+                else
+                    optimal_bytes = current_bytes;
+                    current_bytes = current_bytes + 4;
+                end
+            end
+            octets = optimal_bytes;
+        else
+            octets = floor((current_target * Ndbps - 22) / 8);
+            octets = min(max(floor(octets/4)*4, 1), 1048575);
         end
-    
-        % Compute PAPR correctly (both column vectors, no transpose)
-        PAPR_long = 10*log10(peakPower ./ meanPower);
-        maxPAPR(ib) = max(PAPR_long);
-    
-        % Histogram / CDF calculations
-        [f, xi] = ksdensity(PAPR_long, binCenters);
-        pdfPAPR(:,ib) = f;
-        cdfPAPR(:,ib) = cumsum(f) / sum(f);    
-        % % % [counts, edges] = histcounts(PAPR_long, 'NumBins', bins);
-        % % % countsPAPR(:,ib) = counts(:);
-        % % % pdfPAPR(:,ib)   = (edges(1:end-1) + edges(2:end)) / 2;
-        % % % cdfPAPR(:,ib)    = cumsum(counts) / sum(counts);
+
+        cfgVHT.APEPLength = octets;
+        paprMeta = papr_field_meta(cfgVHT, statsOSF, idleTime);
+        trials = list(ib);
+        papr_db = zeros(trials, 1);
+        inPreamble = false(trials, 1);
+        randomSeed = randi([1 127], trials, 1);
+
+        parfor t = 1:trials
+            localBits = randi([0 1], 8 * octets * numPackets, 1);
+            tx = wlanWaveformGenerator(localBits, cfgVHT, ...
+                'NumPackets', numPackets, ...
+                'IdleTime', idleTime*1e-6, ...
+                'OversamplingFactor', statsOSF, ...
+                'ScramblerInitialization', randomSeed(t), ...
+                'WindowTransitionTime', 0);
+            [papr_db(t), inPreamble(t)] = papr_burst_db(tx, paprMeta, numPackets, measureDataFieldOnly);
+        end
+        preamblePinned(ib) = sum(inPreamble) / trials;
+
+        if verboseProgress
+            fprintf('Target %d symbols completed with %d trials.\n', current_target, trials);
+        end
+
+        paprSamples{ib} = papr_db(isfinite(papr_db));
+        fprintf('  %5d symbols: n=%3d  mean=%.3f dB  std=%.4f dB  span=[%.2f %.2f] dB  maxInPreamble=%.0f%%\n', ...
+            current_target, numel(paprSamples{ib}), mean(paprSamples{ib}), ...
+            std(paprSamples{ib}), min(paprSamples{ib}), max(paprSamples{ib}), ...
+            100*preamblePinned(ib));
     end
-    %% Call plot_generic
-    fname = fullfile(figPath, sprintf('wifi5_PAPRPDF_mcs=%d_bw=%d.png', MCS, BW)); 
-    fig1 = plot_generic(binCenters,pdfPAPR,...
+
+    warn_if_preamble_pinned(preamblePinned, measureDataFieldOnly);
+
+    S = papr_density(paprSamples, bins, kernelBw);
+    binCenters = S.binCenters;
+    pdfPAPR = S.pdf;
+    ccdfPAPR = S.ccdf;
+    symbolLegend = arrayfun(@(n) sprintf('#Symbols=%d', n), targetSymbols, ...
+        'UniformOutput', false);
+    fprintf('  KDE bandwidth=%.4f dB, grid=[%.2f %.2f] dB, peak density=%.2f 1/dB\n', ...
+        S.bandwidth, S.edges(1), S.edges(end), max(pdfPAPR(:)));
+
+    fname = fullfile(figPath, sprintf('wifi5_PAPRPDF_%s_mcs=%d_bw=%d.png', modeTag, MCS, BW));
+    fig1 = plot_generic(binCenters, pdfPAPR, ...
         fname, 'LogY', false, 'LogX', false, ...
-        'XLabel','PAPR [dB]','YLabel','Occurences [%]',...
-        'FigureSize',[1 1 4 3], 'XTick',10:0.5:14.5, 'YTick', 0:0.4:1.6,...
-        'Legend',{'#Symbols=250','#Symbols=525', '#Symbols=1362'},...
-        'LegendLocation','NorthEast',...
-        'FontSize', 8, 'NColors',64,'Save',true);
-    fname = fullfile(figPath, sprintf('wifi5_PAPRCCDF_mcs=%d_bw=%d.png', MCS, BW)); 
-    fig2 = plot_generic(binCenters,1-cdfPAPR,...
+        'XLabel', 'PAPR [dB]', 'YLabel', 'Probability density [1/dB]', ...
+        'FigureSize', [1 1 4 3], 'XTick', S.xTick, 'YTick', S.yTickPdf, ...
+        'Legend', symbolLegend, ...
+        'LegendLocation', 'NorthEast', ...
+        'FontSize', 8, 'NColors', 64, 'Save', true);
+
+    fname = fullfile(figPath, sprintf('wifi5_PAPRCCDF_%s_mcs=%d_bw=%d.png', modeTag, MCS, BW));
+    fig2 = plot_generic(binCenters, ccdfPAPR, ...
         fname, 'LogY', true, 'LogX', false, ...
-        'XLabel','S [dB]','YLabel','Pr(PAPR<S)',...
-        'FigureSize',[1 1 4 3], 'XTick',10:0.5:14.5, 'YTick', logspace(-3,0,4),...
-        'Legend',{'#Symbols=250','#Symbols=525', '#Symbols=1362'},...
-        'LegendLocation','SouthWest',...
-        'FontSize', 8, 'NColors',64,'Save',true);
+        'XLabel', 'S [dB]', 'YLabel', 'Pr(PAPR>S)', ...
+        'FigureSize', [1 1 4 3], 'XTick', S.xTick, 'YTick', S.yTickCcdf, ...
+        'Legend', symbolLegend, ...
+        'LegendLocation', 'SouthWest', ...
+        'FontSize', 8, 'NColors', 64, 'Save', true);
+    fprintf('runCdf done: wrote %s and %s\n', ...
+        sprintf('wifi5_PAPRPDF_%s_mcs=%d_bw=%d.png', modeTag, MCS, BW), ...
+        sprintf('wifi5_PAPRCCDF_%s_mcs=%d_bw=%d.png', modeTag, MCS, BW));
 end
 
 %% Signal Generation
@@ -439,151 +476,18 @@ if runGen == 1
     osf = 4;                 % Oversampling factor used in your previous runs
     numTX = 1;               % Number of TX Antennas
 
-    % Your empirical target mean PAPR for this MCS/BW combo (Example value)
-    tolerance_db = 0.05;     % Allowable variance from the mean
-    switch mcs_value
-        case 0
-            if strcmp(chanBW, 'CBW20')
-                target_mean_papr_db = 11.53
-                target_var_papr_db = 0.39
-            elseif strcmp(chanBW, 'CBW40')
-                target_mean_papr_db = 11.64
-                target_var_papr_db = 0.22
-            elseif strcmp(chanBW, 'CBW80')
-                target_mean_papr_db = 12.24;
-                target_var_papr_db = 0.309;
-            else % strcmp(chanBW, 'CBW160')
-                target_mean_papr_db = 12.58;
-                target_var_papr_db = 0.226;
-            end
-        case 1
-            if strcmp(chanBW, 'CBW20')
-                target_mean_papr_db = 11.01
-                target_var_papr_db = 0.14
-            elseif strcmp(chanBW, 'CBW40')
-                target_mean_papr_db = 11.47
-                target_var_papr_db = 0.14
-            elseif strcmp(chanBW, 'CBW80')
-                target_mean_papr_db = 12.24;
-                target_var_papr_db = 0.029;
-            else % strcmp(chanBW, 'CBW160')
-                target_mean_papr_db = 12.21;
-                target_var_papr_db = 0.109;
-            end
-        case 2
-            if strcmp(chanBW, 'CBW20')
-                target_mean_papr_db = 11.10
-                target_var_papr_db = 0.14
-            elseif strcmp(chanBW, 'CBW40')
-                target_mean_papr_db = 11.47
-                target_var_papr_db = 0.15
-            elseif strcmp(chanBW, 'CBW80')
-                target_mean_papr_db = 11.95;
-                target_var_papr_db = 0.116;
-            else % strcmp(chanBW, 'CBW160')
-                target_mean_papr_db = 12.91;
-                target_var_papr_db = 0.007;
-            end
-        case 3
-            if strcmp(chanBW, 'CBW20')
-                target_mean_papr_db = 11.17
-                target_var_papr_db = 0.15
-            elseif strcmp(chanBW, 'CBW40')
-                target_mean_papr_db = 11.50
-                target_var_papr_db = 0.14
-            elseif strcmp(chanBW, 'CBW80')
-                target_mean_papr_db = 11.97;
-                target_var_papr_db = 0.132;
-            else % strcmp(chanBW, 'CBW160')
-                target_mean_papr_db = 12.65;
-                target_var_papr_db = 0.078;
-            end
-        case 4
-            if strcmp(chanBW, 'CBW20')
-                target_mean_papr_db = 11.17
-                target_var_papr_db = 0.15
-            elseif strcmp(chanBW, 'CBW40')
-                target_mean_papr_db = 11.51
-                target_var_papr_db = 0.15
-            elseif strcmp(chanBW, 'CBW80')
-                target_mean_papr_db = 11.96;
-                target_var_papr_db = 0.118;
-            else % strcmp(chanBW, 'CBW160')
-                target_mean_papr_db = 12.21;
-                target_var_papr_db = 0.114;
-            end
-        case 5
-            if strcmp(chanBW, 'CBW20')
-                target_mean_papr_db = 11.14
-                target_var_papr_db = 0.16
-            elseif strcmp(chanBW, 'CBW40')
-                target_mean_papr_db = 11.49
-                target_var_papr_db = 0.16
-            elseif strcmp(chanBW, 'CBW80')
-                target_mean_papr_db = 11.97;
-                target_var_papr_db = 0.127;
-            else % strcmp(chanBW, 'CBW160')
-                target_mean_papr_db = 12.25;
-                target_var_papr_db = 0.106;
-            end
-        case 6
-            if strcmp(chanBW, 'CBW20')
-                target_mean_papr_db = 11.29
-                target_var_papr_db = 0.15
-            elseif strcmp(chanBW, 'CBW40')
-                target_mean_papr_db = 11.62
-                target_var_papr_db = 0.14
-            elseif strcmp(chanBW, 'CBW80')
-                target_mean_papr_db = 11.98;
-                target_var_papr_db = 0.133;
-            else % strcmp(chanBW, 'CBW160')
-                target_mean_papr_db = 12.21;
-                target_var_papr_db = 0.108;  
-            end
-        case 7
-            if strcmp(chanBW, 'CBW20')
-                target_mean_papr_db = 11.38
-                target_var_papr_db = 0.14
-            elseif strcmp(chanBW, 'CBW40')
-                target_mean_papr_db = 11.72
-                target_var_papr_db = 0.12
-            elseif strcmp(chanBW, 'CBW80')
-                target_mean_papr_db = 11.99;
-                target_var_papr_db = 0.134;
-            else % strcmp(chanBW, 'CBW160')
-                target_mean_papr_db = 12.23;
-                target_var_papr_db = 0.125;  
-            end
-        case 8
-            if strcmp(chanBW, 'CBW20')
-                target_mean_papr_db = 11.39;
-                target_var_papr_db = 0.124;
-            elseif strcmp(chanBW, 'CBW40')
-                target_mean_papr_db = 11.79;
-                target_var_papr_db = 0.101;
-            elseif strcmp(chanBW, 'CBW80')
-                target_mean_papr_db = 11.95;
-                target_var_papr_db = 0.131;
-            else % strcmp(chanBW, 'CBW160')
-                target_mean_papr_db = 12.22;
-                target_var_papr_db = 0.112;
-            end
-        case 9
-            if strcmp(chanBW, 'CBW20')
-                target_mean_papr_db = 0;
-                target_var_papr_db = 0;
-            elseif strcmp(chanBW, 'CBW40')
-                target_mean_papr_db = 11.70;
-                target_var_papr_db = 0.129;
-            elseif strcmp(chanBW, 'CBW80')
-                target_mean_papr_db = 11.98;
-                target_var_papr_db = 0.128;
-            else % strcmp(chanBW, 'CBW160')
-                target_mean_papr_db = 12.21
-                target_var_papr_db = 0.124
-            end    
-    end
-    
+    % Targets come from papr_targets.csv (see gen_papr_targets), measured with
+    % the same papr_burst_db definition the search loop below uses. The old
+    % inline switch/case table was populated from runs whose maximum could be
+    % pinned to a deterministic preamble sample, which is why several wide-BW
+    % entries carried impossibly small spreads.
+    tolerance_db = 0.05;     % Allowable deviation from the target mean
+    [measureDataFieldOnly, modeTag] = papr_measure_mode(true);
+    [target_mean_papr_db, target_std_papr_db] = ...
+        papr_target('vht', mcs_value, BW, modeTag);
+    fprintf('Target for VHT MCS %d @ %d MHz (%s): mean=%.3f dB, std=%.3f dB\n', ...
+        mcs_value, BW, modeTag, target_mean_papr_db, target_std_papr_db);
+
     % --- Step 1: Calculate Strict Sample Allocation ---
     total_target_bytes = target_mbytes * 1024 * 1024;
     total_target_samples = total_target_bytes / bytes_per_sample;
@@ -640,6 +544,8 @@ if runGen == 1
     fprintf('Targeting %d packets with %d padding samples to reach exactly %d MB.\n', ...
         numPackets, remaining_samples, target_mbytes);
     
+    genPaprMeta = papr_field_meta(cfgVHT, osf, idleTime*1e6);
+
     % --- Step 3: Search Loop for Mean PAPR Matching ---
     matched = false;
     max_attempts = 2000;
@@ -664,13 +570,12 @@ if runGen == 1
         padding_zeros = zeros(remaining_samples, size(tx_burst, 2));
         final_waveform = [tx_burst; padding_zeros];
         
-        % Calculate the PAPR of this specific generation
-        inst_pow = final_waveform .* conj(final_waveform);
-        peak_p = max(inst_pow(:));
-        % Important: Calculate mean over the active burst duration, not including the padding
-        mean_p = mean(inst_pow(1:size(tx_burst,1), :), 'all'); 
-        
-        current_papr_db = 10 * log10(peak_p / mean_p)
+        % Measured with the same definition as the targets. The previous
+        % inline max/mean averaged over every active sample including the
+        % inter-packet idle gaps, so it was comparing a different quantity
+        % against the table and could never converge at a 0.05 dB tolerance.
+        current_papr_db = papr_burst_db(tx_burst, genPaprMeta, numPackets, ...
+            measureDataFieldOnly);
         
         % Check if it hits your target mean PAPR window
         if abs(current_papr_db - target_mean_papr_db) <= tolerance_db

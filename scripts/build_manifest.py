@@ -24,6 +24,7 @@ ALIAS_CONFIGS = [
     }
 ]
 
+
 def calculate_papr(file_path, frame_size=1000):
     """Calculates Max and Mean PAPR (in dB) supporting float32, float64, and CSV/TXT."""
     try:
@@ -33,7 +34,7 @@ def calculate_papr(file_path, frame_size=1000):
             if len(data) < 2 or np.isnan(data).any():
                 # Fallback to float64 if float32 yields bad data
                 data = np.fromfile(file_path, dtype=np.float64)
-            
+
             if len(data) < 2:
                 return None, None
 
@@ -72,6 +73,7 @@ def calculate_papr(file_path, frame_size=1000):
         print(f"Error calculating PAPR for {file_path}: {e}")
         return None, None
 
+
 def format_fig_name(filename):
     name = filename.replace(".png", "").replace(".jpg", "").replace("_", " ")
     if "constellation" in name.lower():
@@ -86,6 +88,7 @@ def format_fig_name(filename):
         return "Phase Histogram"
     return name.title()
 
+
 def parse_alpha(alpha_str):
     """Converts folder string like 'alpha005' or 'alpha025' to decimal float string '0.05' or '0.25'."""
     clean = alpha_str.lower().replace("alpha", "").strip()
@@ -95,9 +98,193 @@ def parse_alpha(alpha_str):
         return f"0.{clean}"
     return f"0.{clean}"
 
+
+# -----------------------------------------------------------------
+# WiFi figure indexing
+# -----------------------------------------------------------------
+# Figures are indexed from the Figures/ tree in their own right rather than
+# being guessed at from a signal filename. The previous MC branch built one
+# hard-coded constellation path per signal and checked whether it existed;
+# that path never matched (Wi-Fi 4 constellations carry a GI=Long field, and
+# Wi-Fi 5 figures live under their own directory), so every WiFi figure in the
+# repository was silently absent from the published site.
+#
+# Each pattern below is anchored and named, so a figure dropped into
+# Figures/WiFi/<standard>/ is picked up on the next manifest build with no code
+# change. .github/workflows/pages.yml runs this script on every push to main,
+# so committing a figure is enough to publish it.
+
+FIGURE_ROOT = os.path.join("Figures", "WiFi")
+FIGURE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".svg")
+
+STANDARD_BY_PREFIX = {
+    "wifi4": "WiFi4",
+    "wifi5": "WiFi5",
+    "wifi6": "WiFi6",
+    "wifi7": "WiFi7",
+}
+
+STAT_LABELS = {
+    "env": "Envelope PDF",
+    "denv": "Envelope Derivative PDF",
+    "pha": "Phase PDF",
+    "dpha": "Phase Derivative PDF",
+}
+
+# Order used when a card lists several figures.
+KIND_ORDER = [
+    "Constellation",
+    "PAPR PDF",
+    "PAPR CCDF",
+    "PAPR PDF sweep",
+    "Envelope PDF",
+    "Envelope Derivative PDF",
+    "Phase PDF",
+    "Phase Derivative PDF",
+]
+
+# Bandwidth is matched with an optional CBW prefix because the statistics
+# figures embed the channel-bandwidth string ("bw=CBW160") while the PAPR
+# figures embed the plain number ("bw=160"). The doubled underscore in
+# "_pdf__mcs=" is a legacy filename quirk, tolerated by "_+".
+FIGURE_PATTERNS = [
+    (re.compile(
+        r"^(?P<prefix>wifi\d)_Constellation_mcs=(?P<mcs>\d+)_bw=(?P<bw>\d+)"
+        r"(?:_GI=(?P<gi>[A-Za-z]+))?_osf=(?P<osf>\d+)_(?P<mem>\d+MB)$", re.I), "Constellation"),
+    (re.compile(
+        r"^(?P<prefix>wifi\d)_PAPRPDF(?:_(?P<mode>data|full))?"
+        r"_mcs=(?P<mcs>\d+)_bw=(?P<bw>\d+)$", re.I), "PAPR PDF"),
+    (re.compile(
+        r"^(?P<prefix>wifi\d)_PAPRCCDF(?:_(?P<mode>data|full))?"
+        r"_mcs=(?P<mcs>\d+)_bw=(?P<bw>\d+)$", re.I), "PAPR CCDF"),
+    (re.compile(
+        r"^(?P<prefix>wifi\d)_(?P<stat>env|denv|pha|dpha)_pdf_+"
+        r"mcs=(?P<mcs>\d+)_bw=(?:CBW)?(?P<bw>\d+)$", re.I), "STAT"),
+    (re.compile(
+        r"^(?P<prefix>wifi\d)_mcs=mcs=(?P<lo>\d+)(?:-(?P<hi>\d+))?_papr_pdf$", re.I), "PAPR PDF sweep"),
+]
+
+
+def describe_figure(kind, groups):
+    """Human-readable label, including which PAPR definition was measured."""
+    mode = groups.get("mode")
+    if kind == "Constellation":
+        return f"Constellation ({groups['mem'].replace('MB', ' MB')})"
+    if kind in ("PAPR PDF", "PAPR CCDF"):
+        if mode and mode.lower() == "data":
+            return f"{kind} (data field)"
+        if mode and mode.lower() == "full":
+            return f"{kind} (full burst)"
+        return kind
+    if kind == "PAPR PDF sweep":
+        span = groups["lo"] if not groups.get("hi") else f"{groups['lo']}-{groups['hi']}"
+        return f"PAPR PDF sweep (MCS {span})"
+    return kind
+
+
+DIR_STANDARD_RE = re.compile(r"\(WiFi(\d)\)", re.I)
+
+
+def standard_from_path(path):
+    """Infer the standard from a directory like '802.11AC (WiFi5)'."""
+    match = DIR_STANDARD_RE.search(path.replace("\\", "/"))
+    return f"WiFi{match.group(1)}" if match else None
+
+
+def index_figures():
+    """Walk Figures/WiFi and return the figure indexes.
+
+    Returns (by_combo, by_sweep, unmatched) where
+      by_combo:  (standard, mcs, bw) -> [figure dicts]
+      by_sweep:  (standard, mcs)     -> [figure dicts]   multi-MCS comparisons
+      unmatched: repo paths no pattern recognised
+    """
+    by_combo = {}
+    by_sweep = {}
+    unmatched = []
+
+    if not os.path.exists(FIGURE_ROOT):
+        return by_combo, by_sweep, unmatched
+
+    for root, _, files in os.walk(FIGURE_ROOT):
+        for file in sorted(files):
+            if not file.lower().endswith(FIGURE_EXTENSIONS) or file.startswith("."):
+                continue
+            stem = os.path.splitext(file)[0]
+            repo_path = os.path.join(root, file).replace("\\", "/")
+
+            for pattern, kind in FIGURE_PATTERNS:
+                match = pattern.match(stem)
+                if not match:
+                    continue
+                groups = match.groupdict()
+                standard = STANDARD_BY_PREFIX.get(groups["prefix"].lower())
+                if standard is None:
+                    unmatched.append(repo_path)
+                    break
+
+                if kind == "STAT":
+                    kind = STAT_LABELS[groups["stat"].lower()]
+
+                entry = {"name": describe_figure(kind, groups), "path": repo_path, "kind": kind}
+
+                if kind == "PAPR PDF sweep":
+                    lo = int(groups["lo"])
+                    hi = int(groups["hi"]) if groups.get("hi") else lo
+                    for mcs in range(lo, hi + 1):
+                        by_sweep.setdefault((standard, str(mcs)), []).append(entry)
+                else:
+                    by_combo.setdefault((standard, groups["mcs"], groups["bw"]), []).append(entry)
+                break
+            else:
+                unmatched.append(repo_path)
+
+    return by_combo, by_sweep, unmatched
+
+
+def figures_for(by_combo, by_sweep, standard, mcs, bw):
+    """Figures for one (standard, MCS, bandwidth), ordered for display."""
+    combined = list(by_combo.get((standard, str(mcs), str(bw)), []))
+    combined += by_sweep.get((standard, str(mcs)), [])
+    order = {kind: i for i, kind in enumerate(KIND_ORDER)}
+    combined.sort(key=lambda f: (order.get(f["kind"], len(KIND_ORDER)), f["name"]))
+    return [{"name": f["name"], "path": f["path"]} for f in combined]
+
+
 def build_manifest():
     manifest = []
     os.makedirs("docs", exist_ok=True)
+
+    by_combo, by_sweep, unmatched = index_figures()
+    total_figs = sum(len(v) for v in by_combo.values()) + sum(len(v) for v in by_sweep.values())
+    print(f"Indexed {total_figs} WiFi figure references across "
+          f"{len(by_combo)} MCS/BW combinations.")
+    # Anything the patterns did not recognise is still published, grouped by the
+    # standard its directory names, rather than being dropped. A figure whose
+    # filename drifts from the convention then shows up somewhere obvious
+    # instead of disappearing without trace.
+    unclassified = {}
+    for path in unmatched:
+        standard = standard_from_path(os.path.dirname(path))
+        if standard is None:
+            print(f"WARNING: cannot infer a standard for {path}; it will not be published. "
+                  f"Place it under Figures/WiFi/<...(WiFiN)>/ to have it picked up.")
+            continue
+        unclassified.setdefault(standard, []).append(
+            {"name": os.path.splitext(os.path.basename(path))[0], "path": path})
+
+    if unmatched:
+        print(f"NOTE: {len(unmatched)} figure(s) matched no naming pattern; "
+              f"{sum(len(v) for v in unclassified.values())} published under "
+              f"'Other figures' entries:")
+        for path in unmatched[:20]:
+            print(f"  - {path}")
+        if len(unmatched) > 20:
+            print(f"  ... and {len(unmatched) - 20} more")
+
+    claimed_combos = set()   # (standard, mcs, bw) already covered by an entry
+    real_keys = set()        # (standard, mcs, bw, mem) backed by a real signal
+    alias_pending = []
 
     # -------------------------------------------------------------
     # 1. Multi-Carrier (MC) Scanning
@@ -108,65 +295,169 @@ def build_manifest():
 
     if os.path.exists(mc_dir):
         for root, _, files in os.walk(mc_dir):
-            for file in files:
-                if file.endswith((".bin", ".csv")) and not file.startswith("."):
-                    repo_path = os.path.join(root, file).replace("\\", "/")
-                    match = re.search(r"(wifi\d+)_mcs=(\d+)_bw=(\d+)_osf=(\d+)_(4MB|8MB)\.bin$", file, re.I)
-                    if match:
-                        prefix, mcs, bw, osf, mem = match.groups()
-                        prefix_lower = prefix.lower()
-                        mcs_int = int(mcs)
-                        bw_int = int(bw)
-                        mem_label = mem.replace("MB", " MB")
-                        std_label = "WiFi4" if prefix_lower == "wifi4" else "WiFi6"
+            for file in sorted(files):
+                if not file.endswith((".bin", ".csv")) or file.startswith("."):
+                    continue
+                repo_path = os.path.join(root, file).replace("\\", "/")
+                # GI is optional: Wi-Fi 4 filenames carry it, later ones do not.
+                match = re.search(
+                    r"(wifi\d+)_mcs=(\d+)_bw=(\d+)(?:_GI=[A-Za-z]+)?_osf=(\d+)_(\d+MB)\.bin$",
+                    file, re.I)
+                if not match:
+                    continue
 
-                        max_papr, mean_papr = calculate_papr(repo_path)
-                        max_papr_str = f"{max_papr} dB" if max_papr is not None else "N/A"
-                        mean_papr_str = f"{mean_papr} dB" if mean_papr is not None else "N/A"
+                prefix, mcs, bw, osf, mem = match.groups()
+                prefix_lower = prefix.lower()
+                mcs_int, bw_int = int(mcs), int(bw)
+                mem_label = mem.replace("MB", " MB")
 
-                        plot_path = f"Figures/WiFi/802.11N (WiFi4)/wifi4_Constellation_mcs={mcs}_bw={bw}_osf={osf}_{mem}.png"
-                        figures = []
-                        if os.path.exists(plot_path):
-                            figures.append({"name": "Constellation", "path": plot_path})
+                # Was "WiFi4 if wifi4 else WiFi6", which labelled every Wi-Fi 5
+                # signal as Wi-Fi 6 and had no mapping for Wi-Fi 7 at all.
+                std_label = STANDARD_BY_PREFIX.get(prefix_lower)
+                if std_label is None:
+                    print(f"WARNING: unknown standard prefix '{prefix}' in {repo_path}; skipping.")
+                    continue
 
-                        # Primary Entry
-                        manifest.append({
-                            "id": f"mc-{prefix_lower}-{mcs}-{bw}-{mem}",
-                            "signalClass": "MC",
-                            "signalFamily": "WiFi",
-                            "standard": std_label,
-                            "mcs": mcs,
-                            "bandwidth": f"{bw} MHz",
-                            "memoryLength": mem_label,
-                            "oversampling": f"{osf}x",
-                            "maxPapr": max_papr_str,
-                            "meanPapr": mean_papr_str,
-                            "data_file": repo_path,
-                            "name": f"{std_label} MCS{mcs} {bw}MHz {mem_label}",
-                            "figures": figures,
-                            "isAlias": False
-                        })
+                max_papr, mean_papr = calculate_papr(repo_path)
+                max_papr_str = f"{max_papr} dB" if max_papr is not None else "N/A"
+                mean_papr_str = f"{mean_papr} dB" if mean_papr is not None else "N/A"
 
-                        # Aliased Entries (WiFi 5 / WiFi 7)
-                        for rule in ALIAS_CONFIGS:
-                            if prefix_lower == rule["source_prefix"] and mcs_int <= rule["max_mcs"] and bw_int in rule["allowed_bw"]:
-                                manifest.append({
-                                    "id": f"mc-{rule['alias_standard'].lower()}-alias-{mcs}-{bw}-{mem}",
-                                    "signalClass": "MC",
-                                    "signalFamily": "WiFi",
-                                    "standard": rule["alias_standard"],
-                                    "mcs": mcs,
-                                    "bandwidth": f"{bw} MHz",
-                                    "memoryLength": mem_label,
-                                    "oversampling": f"{osf}x",
-                                    "maxPapr": max_papr_str,
-                                    "meanPapr": mean_papr_str,
-                                    "data_file": repo_path,
-                                    "name": f"{rule['alias_standard']} (via {std_label}) MCS{mcs} {bw}MHz {mem_label}",
-                                    "figures": figures,
-                                    "isAlias": True,
-                                    "aliasNote": rule["note"]
-                                })
+                figures = figures_for(by_combo, by_sweep, std_label, mcs, bw)
+                claimed_combos.add((std_label, mcs, bw))
+                real_keys.add((std_label, mcs, bw, mem))
+
+                manifest.append({
+                    "id": f"mc-{prefix_lower}-{mcs}-{bw}-{mem}",
+                    "signalClass": "MC",
+                    "signalFamily": "WiFi",
+                    "standard": std_label,
+                    "mcs": mcs,
+                    "bandwidth": f"{bw} MHz",
+                    "memoryLength": mem_label,
+                    "oversampling": f"{osf}x",
+                    "maxPapr": max_papr_str,
+                    "meanPapr": mean_papr_str,
+                    "data_file": repo_path,
+                    "name": f"{std_label} MCS{mcs} {bw}MHz {mem_label}",
+                    "figures": figures,
+                    "isAlias": False
+                })
+
+                for rule in ALIAS_CONFIGS:
+                    if (prefix_lower == rule["source_prefix"]
+                            and mcs_int <= rule["max_mcs"]
+                            and bw_int in rule["allowed_bw"]):
+                        alias_pending.append((rule, std_label, mcs, bw, mem, mem_label,
+                                              osf, max_papr_str, mean_papr_str, repo_path))
+
+    # Aliases are emitted only where no measured signal already covers that
+    # combination, so real data always wins over a shared-waveform alias.
+    for (rule, std_label, mcs, bw, mem, mem_label, osf,
+         max_papr_str, mean_papr_str, repo_path) in alias_pending:
+        alias_std = rule["alias_standard"]
+        if (alias_std, mcs, bw, mem) in real_keys:
+            print(f"Skipping {alias_std} alias for MCS{mcs} {bw}MHz {mem_label}: "
+                  f"a measured {alias_std} signal exists.")
+            continue
+        figures = figures_for(by_combo, by_sweep, alias_std, mcs, bw)
+        if not figures:
+            figures = figures_for(by_combo, by_sweep, std_label, mcs, bw)
+        claimed_combos.add((alias_std, mcs, bw))
+        manifest.append({
+            "id": f"mc-{alias_std.lower()}-alias-{mcs}-{bw}-{mem}",
+            "signalClass": "MC",
+            "signalFamily": "WiFi",
+            "standard": alias_std,
+            "mcs": mcs,
+            "bandwidth": f"{bw} MHz",
+            "memoryLength": mem_label,
+            "oversampling": f"{osf}x",
+            "maxPapr": max_papr_str,
+            "meanPapr": mean_papr_str,
+            "data_file": repo_path,
+            "name": f"{alias_std} (via {std_label}) MCS{mcs} {bw}MHz {mem_label}",
+            "figures": figures,
+            "isAlias": True,
+            "aliasNote": rule["note"]
+        })
+
+    # -------------------------------------------------------------
+    # 1b. Figure-only combinations
+    # -------------------------------------------------------------
+    # A PAPR PDF/CCDF has no waveform file behind it, so without this the
+    # analysis figures would never reach the site at all. app.js already
+    # renders "No signal file published yet" when signalFiles is empty.
+    figure_only = 0
+    for (standard, mcs, bw) in sorted(by_combo.keys()):
+        if (standard, mcs, bw) in claimed_combos:
+            continue
+        figures = figures_for(by_combo, by_sweep, standard, mcs, bw)
+        if not figures:
+            continue
+        figure_only += 1
+        manifest.append({
+            "id": f"mc-{standard.lower()}-figs-{mcs}-{bw}",
+            "signalClass": "MC",
+            "signalFamily": "WiFi",
+            "standard": standard,
+            "mcs": mcs,
+            "bandwidth": f"{bw} MHz",
+            "memoryLength": "Figures only",
+            "oversampling": "4x",
+            "maxPapr": "N/A",
+            "meanPapr": "N/A",
+            "name": f"{standard} MCS{mcs} {bw}MHz (analysis figures)",
+            "figures": figures,
+            "isAlias": False
+        })
+    print(f"Added {figure_only} figure-only MC entries (no waveform published yet).")
+
+    # A multi-MCS sweep plot is attached to each MCS it covers, but if none of
+    # those MCS values has any other figure there is nothing to attach it to.
+    # Give those their own bandwidth-agnostic entry so the plot is still
+    # reachable.
+    covered_mcs = {(standard, mcs) for (standard, mcs, _) in claimed_combos}
+    sweep_only = 0
+    for (standard, mcs) in sorted(by_sweep.keys()):
+        if (standard, mcs) in covered_mcs:
+            continue
+        sweep_only += 1
+        manifest.append({
+            "id": f"mc-{standard.lower()}-sweep-{mcs}",
+            "signalClass": "MC",
+            "signalFamily": "WiFi",
+            "standard": standard,
+            "mcs": mcs,
+            "bandwidth": "All MHz",
+            "memoryLength": "Figures only",
+            "oversampling": "4x",
+            "maxPapr": "N/A",
+            "meanPapr": "N/A",
+            "name": f"{standard} MCS{mcs} (PAPR sweep figures)",
+            "figures": [{"name": f["name"], "path": f["path"]}
+                        for f in by_sweep[(standard, mcs)]],
+            "isAlias": False
+        })
+    print(f"Added {sweep_only} sweep-only MC entries.")
+
+    for standard, figures in sorted(unclassified.items()):
+        manifest.append({
+            "id": f"mc-{standard.lower()}-other",
+            "signalClass": "MC",
+            "signalFamily": "WiFi",
+            "standard": standard,
+            "mcs": "n/a",
+            "bandwidth": "All MHz",
+            "memoryLength": "Figures only",
+            "oversampling": "4x",
+            "maxPapr": "N/A",
+            "meanPapr": "N/A",
+            "name": f"{standard} other figures",
+            "figures": sorted(figures, key=lambda f: f["name"]),
+            "isAlias": False
+        })
+    if unclassified:
+        print(f"Added {len(unclassified)} 'other figures' entries for unrecognised filenames.")
 
     # -------------------------------------------------------------
     # 2. Single-Carrier (SC) Scanning matching hierarchy:
@@ -179,7 +470,7 @@ def build_manifest():
                 if file.endswith((".bin", ".csv", ".txt")) and not file.startswith("."):
                     repo_path = os.path.join(root, file).replace("\\", "/")
                     norm_root = root.replace("\\", "/")
-                    
+
                     # 1. Symbol Count (e.g., "100 symbols", "100k symbols")
                     sym_match = re.search(r"(\d+[kM]?)\s*symbols", norm_root, re.I)
                     sym_label = sym_match.group(1) + " symbols" if sym_match else "100k symbols"
@@ -244,6 +535,7 @@ def build_manifest():
         json.dump(manifest, f, indent=2)
 
     print(f"Manifest generated successfully at {MANIFEST_FILE} with {len(manifest)} total items.")
+
 
 if __name__ == "__main__":
     build_manifest()

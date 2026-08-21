@@ -1,0 +1,2 @@
+23.2.0.2485118 (R2023b) Update 6
+C:\Program Files\MATLAB\R2023b\toolbox\wlan\wlan\wlanVHTConfig.m  % wlanVHTConfig constructor

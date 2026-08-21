@@ -1,0 +1,7 @@
+runCdf start: mode=data, MCS=3, BW=160, trials=[20  20  20]
+Starting parallel pool (parpool) using the 'Processes' profile ...
+Preserving jobs with IDs: 1 3 7 8 10 21 because they contain crash dump files.
+You can use 'delete(myCluster.Jobs)' to remove all jobs created with profile Processes. To create 'myCluster' use 'myCluster = parcluster('Processes')'.
+Connected to parallel pool with 4 workers.
+runCdf done: wrote wifi5_PAPRPDF_data_mcs=3_bw=160.png and wifi5_PAPRCCDF_data_mcs=3_bw=160.png
+Parallel pool using the 'Processes' profile is shutting down.

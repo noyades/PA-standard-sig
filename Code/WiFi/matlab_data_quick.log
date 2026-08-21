@@ -1,0 +1,11 @@
+[Warning: Name is nonexistent or not a directory: H:\Shared drives\Non-uniform Sampling RF-DAC] 
+[Warning: Name is nonexistent or not a directory: H:\Shared drives\DARPA H6\Code\DSM] 
+runCdf start: mode=data, MCS=3, BW=160, trials=[20  20  20]
+{Unrecognized function or variable 'plot_generic'.
+
+Error in pa_wifi_vht (line 422)
+    fig1 = plot_generic(binCenters, pdfPAPR, ...
+
+Error in run (line 99)
+evalin('caller', strcat(script, ';'));
+} 
