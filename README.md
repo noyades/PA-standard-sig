@@ -1,6 +1,7 @@
 # PA Standard Signal Library
 
-[![DOI]([https://zenodo.org/badge/DOI/10.5281/zenodo.21472795.svg](https://zenodo.org/badge/DOI/10.5281/zenodo.22048739.svg))]([https://doi.org/10.5281/zenodo.21472795](https://doi.org/10.5281/zenodo.22048739))
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22048739.svg)](https://doi.org/10.5281/zenodo.22048739)
+
 
 A community-oriented library of standard RF test signals for vector signal generators, intended to support more consistent and meaningful power amplifier (PA) comparisons.
 
