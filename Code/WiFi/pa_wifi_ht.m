@@ -245,7 +245,8 @@ if runStats || runAll
         psduBitsChunk = randi([0 1], psduTotalOctets*8*nThis, 1);
 
         txChunk = wlanWaveformGenerator(psduBitsChunk, cfgHT, 'NumPackets', nThis, ...
-                            'IdleTime', idleTime*1e-6, 'OversamplingFactor', osf);
+                            'IdleTime', idleTime*1e-6, 'OversamplingFactor', osf, ...
+                            'WindowTransitionTime', 0);
 
         % max() of a complex vector returns the largest-MAGNITUDE element,
         % which is itself complex, so dividing by it rotated the whole chunk
@@ -321,13 +322,13 @@ end
 
 if runCdf || runAll
     bins = 50;
-    MCS = env_num('PAPR_MCS', 0);
+    MCS = env_num('PAPR_MCS', 7);
     BW  = env_num('PAPR_BW', 40);
     numPackets = 5; % <--- Optimizing to 1 packet per trial significantly reduces overhead
     [measureDataFieldOnly, modeTag] = papr_measure_mode(true);
     kernelBw = []; % [] => Silverman's rule from the pooled samples
     targetSymbols = [250 525 1362];
-    list = [10000, 15000, 25000]; % <--- Increase trials here for higher statistical confidence
+    list = [500, 500, 500]; % <--- Increase trials here for higher statistical confidence
     trialOverride = str2double(getenv('PAPR_TRIALS'));
     if isfinite(trialOverride) && trialOverride > 0
         list = repmat(round(trialOverride), size(targetSymbols));

@@ -308,7 +308,10 @@ if runGen || runAll
     mcs_value = env_num('PAPR_MCS', 7);
     BW = env_num('PAPR_BW', 160);
     target_mbytes = 8;       % Target memory size: 4, 8, or 16 MB
-    bytes_per_sample = 4;    % 4 for int16 IQ, 8 for float32 IQ
+    % 8 bytes per complex sample: the export below writes float32 I and
+    % float32 Q via fwrite(...,'single'). Using 4 here made every file
+    % twice the size its name claims.
+    bytes_per_sample = 8;
     tolerance_db = 0.05;
     max_attempts = 2000;
     targetSymbols = min(env_num('PAPR_GEN_SYMBOLS', 300), MAX_HE_SYMBOLS);

@@ -327,7 +327,7 @@ end
 
 if runCdf || runAll
     bins = 50;
-    MCS = env_num('PAPR_MCS', 5);
+    MCS = env_num('PAPR_MCS', 9);
     BW  = env_num('PAPR_BW', 160);
     numPackets = 8;
     statsOSF = 4;
@@ -472,7 +472,10 @@ if runGen == 1
     chanBW = ['CBW' num2str(BW)];        
     mcs_value = 9;           % Target MCS
     target_mbytes = 8;       % Target memory size: 4, 8, or 16 MB
-    bytes_per_sample = 4;    % 8 for float32 (IQ), 4 for int16 (IQ)
+    % 8 bytes per complex sample: the export below writes float32 I and
+    % float32 Q via fwrite(...,'single'). Using 4 here made every file
+    % twice the size its name claims.
+    bytes_per_sample = 8;
     osf = 4;                 % Oversampling factor used in your previous runs
     numTX = 1;               % Number of TX Antennas
 
