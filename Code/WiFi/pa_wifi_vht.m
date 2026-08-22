@@ -12,9 +12,9 @@ figPath = '..\..\Figures\WiFi\802.11AC (WiFi5)\';
 % Control which elements of the code run. Each is overridable from the shell
 % (e.g. PAPR_RUN_LONG=1) so a sweep needs no edits to this file.
 runAll = env_num('PAPR_RUN_ALL', 0); % Runs all elements
-runLong = env_num('PAPR_RUN_LONG', 0); % Runs only long signal duration study of PAPR
+runLong = env_num('PAPR_RUN_LONG', 1); % Runs only long signal duration study of PAPR
 runStats = env_num('PAPR_RUN_STATS', 0); % Runs statistics for the distributions of the signal components
-runCdf = env_num('PAPR_RUN_CDF', 1); % Finds the CCDF of the signal as a function of signal duration
+runCdf = env_num('PAPR_RUN_CDF', 0); % Finds the CCDF of the signal as a function of signal duration
 runGen = env_num('PAPR_RUN_GEN', 0); % Generates signals for loading on signal generators
 
 numTX = 1; % Single User (SISO)
@@ -36,7 +36,7 @@ if runLong || runAll
     verboseProgress = false;
     [measureDataFieldOnly, modeTag] = papr_measure_mode(true);
     mcs_list = [0]; % Added MCS 9 (256-QAM) for Wi-Fi 5
-    bw_list = [80 160];   % Added 80 MHz
+    bw_list = [20 40 80 160];   % Added 80 MHz
     minPackets = 5;
     maxPackets = 10;
     

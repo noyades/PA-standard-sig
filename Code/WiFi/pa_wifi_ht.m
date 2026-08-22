@@ -14,8 +14,8 @@ figPath = '..\..\Figures\WiFi\802.11N (WiFi4)\';
 runAll = env_num('PAPR_RUN_ALL', 0); % Runs all elements
 runLong = env_num('PAPR_RUN_LONG', 0); % Runs only long signal duration study of PAPR
 runStats = env_num('PAPR_RUN_STATS', 0); % Runs statistics for the distributions of the signal components
-runCdf = env_num('PAPR_RUN_CDF', 1); % Finds the CCDF of the signal as a function of signal duration
-runGen = env_num('PAPR_RUN_GEN', 0); % Generates signals for loading on signal generators
+runCdf = env_num('PAPR_RUN_CDF', 0); % Finds the CCDF of the signal as a function of signal duration
+runGen = env_num('PAPR_RUN_GEN', 1); % Generates signals for loading on signal generators
 
 numTX = 1; % Single User (SISO)
 idleTime   = 16; % In microseconds (time inserted between packets if desired)
@@ -435,7 +435,7 @@ if runGen == 1
     BW = 40; % Target bandwidth
     chanBW = ['CBW' num2str(BW)];        
     mcs_value = 0;           % Target MCS
-    target_mbytes = 8;       % Target memory size: 4, 8, or 16 MB
+    target_mbytes = 4;       % Target memory size: 4, 8, or 16 MB
     bytes_per_sample = 8;    % 8 for float32 (IQ), 4 for int16 (IQ)
     osf = 4;                 % Oversampling factor used in your previous runs
     numTX = 1;               % Number of TX Antennas
@@ -458,6 +458,7 @@ if runGen == 1
     
     % --- Step 2: Initialize Wi-Fi 4 Config ---
     cfgHT = wlanHTConfig('ChannelBandwidth', chanBW);
+    cfgHT.GuardInterval = 'Long'; % Use long GI for simplicity
     cfgHT.MCS = mcs_value;
     cfgHT.NumSpaceTimeStreams = numTX;
     cfgHT.NumTransmitAntennas = numTX;
@@ -543,7 +544,7 @@ if runGen == 1
             interleaved_data(1:2:end) = real(final_waveform(:,1));
             interleaved_data(2:2:end) = imag(final_waveform(:,1));
             
-            filename = sprintf('wifi4_mcs=%d_bw=%d_osf=%d_%dMB.bin', mcs_value, BW, osf, target_mbytes);
+            filename = sprintf('wifi4_mcs=%d_bw=%d_GI=%s_osf=%d_%dMB.bin', mcs_value, BW, cfgHT.GuardInterval, osf, target_mbytes);
             full_dest_path = fullfile(sigPath, filename);
             
             fileID = fopen(full_dest_path, 'w');
@@ -655,8 +656,8 @@ if runGen == 1
 
     end
     %% Plot Constellation
-    fname = sprintf('wifi4_Constellation_mcs=%d_bw=%d_osf=%d_%dMB.png', mcs_value, BW, osf, target_mbytes); % MCS03_BW05
-    
+    fname = sprintf('wifi4_Constellation_mcs=%d_bw=%d_GI=%s_osf=%d_%dMB.png', mcs_value, BW, cfgHT.GuardInterval, osf, target_mbytes); % MCS03_BW05
+    fname = cat(2, figPath, 'Constellations\', fname);
     figConst = plot_generic(real(rxDataSym),imag(rxDataSym),...
         fname, 'LogY', false, 'LogX', false, ...
         'XLabel','I','YLabel','Q',...
