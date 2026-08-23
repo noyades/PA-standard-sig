@@ -12,10 +12,10 @@ figPath = '..\..\Figures\WiFi\802.11AC (WiFi5)\';
 % Control which elements of the code run. Each is overridable from the shell
 % (e.g. PAPR_RUN_LONG=1) so a sweep needs no edits to this file.
 runAll = env_num('PAPR_RUN_ALL', 0); % Runs all elements
-runLong = env_num('PAPR_RUN_LONG', 1); % Runs only long signal duration study of PAPR
+runLong = env_num('PAPR_RUN_LONG', 0); % Runs only long signal duration study of PAPR
 runStats = env_num('PAPR_RUN_STATS', 0); % Runs statistics for the distributions of the signal components
 runCdf = env_num('PAPR_RUN_CDF', 0); % Finds the CCDF of the signal as a function of signal duration
-runGen = env_num('PAPR_RUN_GEN', 0); % Generates signals for loading on signal generators
+runGen = env_num('PAPR_RUN_GEN', 1); % Generates signals for loading on signal generators
 
 numTX = 1; % Single User (SISO)
 idleTime   = 16; % In microseconds 
@@ -468,10 +468,10 @@ end
 if runGen == 1
     % --- Configuration Parameters ---
     idleTime = 16e-6; % Should be between 16-34us
-    BW = 160; % Target bandwidth
+    BW = 80; % Target bandwidth
     chanBW = ['CBW' num2str(BW)];        
     mcs_value = 9;           % Target MCS
-    target_mbytes = 8;       % Target memory size: 4, 8, or 16 MB
+    target_mbytes = 4;       % Target memory size: 4, 8, or 16 MB
     % 8 bytes per complex sample: the export below writes float32 I and
     % float32 Q via fwrite(...,'single'). Using 4 here made every file
     % twice the size its name claims.
@@ -539,7 +539,13 @@ if runGen == 1
     % Determine how many full packets can fit inside the target sample budget
     numPackets = floor(total_target_samples / samples_per_packet);
     if numPackets == 0
-        error('The target memory size is too small for even a single packet. Increase memory size or lower PSDULength.');
+        % A single packet exceeds the requested memory budget; grow the
+        % budget to fit exactly one packet instead of erroring out.
+        numPackets = 1;
+        total_target_samples = samples_per_packet;
+        total_target_bytes = total_target_samples * bytes_per_sample;
+        target_mbytes = total_target_bytes / (1024 * 1024);
+        fprintf('Requested memory size too small for one packet; growing to %.3f MB.\n', target_mbytes);
     end
     
     remaining_samples = total_target_samples - (numPackets * samples_per_packet);
@@ -707,7 +713,7 @@ if runGen == 1
     end
     %% Plot Constellation
     fname = sprintf('wifi5_Constellation_mcs=%d_bw=%d_osf=%d_%dMB.png', mcs_value, BW, osf, target_mbytes); % MCS03_BW05
-    
+    fname = cat(2, figPath, 'Constellations\', fname);
     figConst = plot_generic(real(eqDataSym),imag(eqDataSym),...
         fname, 'LogY', false, 'LogX', false, ...
         'XLabel','I','YLabel','Q',...
