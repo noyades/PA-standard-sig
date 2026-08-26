@@ -305,8 +305,8 @@ end
 
 %% Signal Generation
 if runGen || runAll
-    mcs_value = env_num('PAPR_MCS', 2);
-    BW = env_num('PAPR_BW', 40);
+    mcs_value = env_num('PAPR_MCS', 11);
+    BW = env_num('PAPR_BW', 80);
     target_mbytes = 4;       % Target memory size: 4, 8, or 16 MB
     % 8 bytes per complex sample: the export below writes float32 I and
     % float32 Q via fwrite(...,'single'). Using 4 here made every file
