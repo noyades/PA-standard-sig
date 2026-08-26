@@ -530,23 +530,19 @@ if runGen == 1
     fprintf('For MCS %d, dynamically set APEPLength to %d bytes to maintain uniform airtime.\n', ...
         mcs_value, cfgVHT.APEPLength);
 
-    % Generate one test packet to see how many samples it produces
-    test_bits = randi([0 1], 8 * cfgVHT.APEPLength, 1);
-    tx_test = wlanWaveformGenerator(test_bits, cfgVHT, 'OversamplingFactor', osf,...
-        'IdleTime',idleTime);
-    samples_per_packet = size(tx_test, 1);
-    
-    % Determine how many full packets can fit inside the target sample budget
-    numPackets = floor(total_target_samples / samples_per_packet);
-    if numPackets == 0
-        % A single packet exceeds the requested memory budget; grow the
-        % budget to fit exactly one packet instead of erroring out.
-        numPackets = 1;
-        total_target_samples = samples_per_packet;
-        total_target_bytes = total_target_samples * bytes_per_sample;
-        target_mbytes = total_target_bytes / (1024 * 1024);
-        fprintf('Requested memory size too small for one packet; growing to %.3f MB.\n', target_mbytes);
+    % The airtime above is what keeps the MCS sweep comparable, but the
+    % waveform still has to load onto the signal generator. Growing the file
+    % to fit the packet, as this used to do, defeats the point of asking for
+    % a given memory size, so shorten the packet instead: the budget is the
+    % hard limit and the airtime is the negotiable one.
+    [cfgVHT, fit] = papr_fit_airtime(cfgVHT, osf, idleTime*1e6, total_target_samples);
+    if fit.reduced
+        fprintf(['A %.3f ms packet does not fit %d MB at %d MHz; airtime ' ...
+            'reduced to %.3f ms (APEPLength now %d bytes).\n'], ...
+            fit.requestedUs/1000, target_mbytes, BW, fit.airtimeUs/1000, fit.octets);
     end
+    samples_per_packet = fit.samplesPerPacket;
+    numPackets = fit.numPackets;
     
     remaining_samples = total_target_samples - (numPackets * samples_per_packet);
     

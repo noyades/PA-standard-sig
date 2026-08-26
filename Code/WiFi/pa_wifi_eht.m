@@ -330,22 +330,27 @@ if runGen || runAll
         mcs_value, BW, modeTag, target_mean_papr_db, target_std_papr_db);
 
     cfgEHT = papr_std_config('eht', BW, mcs_value, numTX);
-    [octets, nSym] = papr_octets_for_symbols(cfgEHT, targetSymbols, osf);
-    cfgEHT = papr_payload(cfgEHT, mcs_value, octets);
-    fprintf('APEPLength %d octets gives %d data symbols.\n', octets, nSym);
-
+    cfgEHT = papr_payload(cfgEHT, mcs_value, 1);   % MCS now, payload length below
     total_target_samples = (target_mbytes * 1024 * 1024) / bytes_per_sample;
-    probeBits = randi([0 1], 8*octets, 1);
-    probeTx = wlanWaveformGenerator(papr_bits_arg(cfgEHT, probeBits), cfgEHT, ...
-        'NumPackets', 1, 'IdleTime', idleTime*1e-6, 'OversamplingFactor', osf);
-    samples_per_packet = size(probeTx, 1);
-    numPackets = floor(total_target_samples / samples_per_packet);
-    if numPackets == 0
-        error('pa_wifi_eht:MemoryTooSmall', ...
-            ['A single %d MHz packet is %d samples, more than the %d MB budget. ' ...
-             'Raise target_mbytes or lower PAPR_GEN_SYMBOLS.'], ...
-            BW, samples_per_packet, target_mbytes);
+
+    % Constant airtime is what makes the PAPR figures comparable across MCS,
+    % but the waveform still has to load onto the signal generator. Ask for
+    % the full airtime; papr_fit_airtime shortens it only when the packet
+    % would not fit the requested memory, because the budget is the hard
+    % limit and the airtime is the negotiable one. This bites hardest at
+    % 320 MHz, where one 300-symbol packet is several times a 4 MB budget.
+    [cfgEHT, fit] = papr_fit_airtime(cfgEHT, osf, idleTime, total_target_samples, targetSymbols);
+    if fit.reduced
+        fprintf(['%d data symbols (%.3f ms) does not fit %d MB at %d MHz; ' ...
+            'airtime reduced to %d symbols (%.3f ms).\n'], ...
+            fit.requestedSymbols, fit.requestedUs/1000, target_mbytes, BW, ...
+            fit.symbols, fit.airtimeUs/1000);
     end
+    octets = fit.octets;
+    samples_per_packet = fit.samplesPerPacket;
+    numPackets = fit.numPackets;
+    fprintf('APEPLength %d octets gives %d data symbols.\n', octets, fit.symbols);
+
     remaining_samples = total_target_samples - numPackets * samples_per_packet;
     fprintf('Targeting %d packets with %d padding samples to reach exactly %d MB.\n', ...
         numPackets, remaining_samples, target_mbytes);
@@ -375,6 +380,9 @@ if runGen || runAll
             filename = sprintf('wifi7_mcs=%d_bw=%d_osf=%d_%dMB.bin', ...
                 mcs_value, BW, osf, target_mbytes);
             full_dest_path = fullfile(sigPath, filename);
+            if ~exist(sigPath, 'dir')
+                mkdir(sigPath);
+            end
             fileID = fopen(full_dest_path, 'w');
             if fileID < 0
                 error('pa_wifi_eht:CannotWrite', 'Could not open %s for writing.', full_dest_path);
@@ -391,5 +399,140 @@ if runGen || runAll
              'The measured spread for this combination is %.3f dB, so widen ' ...
              'tolerance_db or confirm papr_targets.csv is current.'], ...
             tolerance_db, target_mean_papr_db, max_attempts, target_std_papr_db);
+    end
+
+    %% --- Step 5: Receiver & EVM (SNR) Measurement ---
+    % Fidelity check on the burst that was just written, mirroring the block
+    % in pa_wifi_vht.m / pa_wifi_ht.m. EHT has no wlanEHTDataRecover analogue
+    % to wlanVHTDataRecover, so the recovery chain is spelled out: demodulate
+    % the EHT-Data field, split data and pilot subcarriers, equalise, decode.
+    % cfgEHT is a wlanEHTMUConfig (see papr_std_config), so the equaliser and
+    % bit recovery take an explicit user index even though there is one user.
+    fprintf('\n--- Initiating Receiver Test ---\n');
+
+    userIdx = 1;
+
+    % Decimate away the oversampling factor; the receiver functions expect
+    % the waveform at its nominal baseband rate.
+    fs = wlanSampleRate(cfgEHT);
+    rx_baseband = tx_burst(1:osf:end, :);
+    rxWaveformLength = size(rx_baseband, 1);
+
+    refConstellation = double(wlanReferenceSymbols(cfgEHT, userIdx));
+    evmMeas = comm.EVM( ...
+        'ReferenceSignalSource', 'Estimated from reference constellation', ...
+        'ReferenceConstellation', refConstellation);
+
+    ind = wlanFieldIndices(cfgEHT);
+    ofdmInfo = wlanEHTOFDMInfo('EHT-Data', cfgEHT);
+    minPktLen = double(ind.LSTF(2) - ind.LSTF(1)) + 1;
+    % Packet length from the last field that carries samples, not from the
+    % data field: EHT appends a packet extension (EHTPE) after EHT-Data.
+    rxMeta = papr_field_meta(cfgEHT, 1, idleTime);
+    pktLength = rxMeta.packetLen;
+
+    % wlanWaveformGenerator consumes the PSDU bit vector contiguously and
+    % wraps when it runs out, so packet k carries these bits. That lets the
+    % check report real bit errors rather than EVM alone.
+    bitsPerPkt = 8 * psduLength(cfgEHT);
+
+    % Decoding every packet of a multi-megabyte burst is slow and tells us
+    % nothing the first few do not. Raise PAPR_RX_PACKETS to check more.
+    maxRxPackets = min(env_num('PAPR_RX_PACKETS', 4), numPackets);
+
+    rmsEVM = nan(maxRxPackets, 1);
+    bitErrors = nan(maxRxPackets, 1);
+    pktOffsetStore = zeros(maxRxPackets, 1);
+    eqDataSym = [];
+    pktNum = 0;
+    searchOffset = 0;
+
+    while (searchOffset + minPktLen) <= rxWaveformLength && pktNum < maxRxPackets
+        % Coarse packet detection off the L-STF
+        pktOffset = wlanPacketDetect(rx_baseband, cfgEHT.ChannelBandwidth, searchOffset);
+        if isempty(pktOffset)
+            break;
+        end
+        pktOffset = searchOffset + pktOffset;
+        if (pktOffset < 0) || ((pktOffset + double(ind.LSIG(2))) > rxWaveformLength)
+            break;
+        end
+
+        % Legacy preamble: coarse frequency offset estimate and correction
+        noneht = rx_baseband(pktOffset + (ind.LSTF(1):ind.LSIG(2)), :);
+        coarsefreqOff = wlanCoarseCFOEstimate(noneht, cfgEHT.ChannelBandwidth);
+        noneht = frequencyOffset(noneht, fs, -coarsefreqOff);
+
+        % Fine symbol timing off the L-LTF
+        lltfOffset = wlanSymbolTimingEstimate(noneht, cfgEHT.ChannelBandwidth);
+        pktOffset = pktOffset + lltfOffset;
+        if (pktOffset < 0) || ((pktOffset + pktLength) > rxWaveformLength)
+            searchOffset = pktOffset + double(ind.LSTF(2)) + 1;
+            continue;
+        end
+
+        pktNum = pktNum + 1;
+        fprintf('  Packet %d at index: %d\n', pktNum, pktOffset + 1);
+
+        % Channel estimate from the EHT-LTF
+        ehtltf = rx_baseband(pktOffset + (ind.EHTLTF(1):ind.EHTLTF(2)), :);
+        ehtltfDemod = wlanEHTDemodulate(ehtltf, 'EHT-LTF', cfgEHT);
+        [chanEst, chanEstSSPilots] = wlanEHTLTFChannelEstimate(ehtltfDemod, cfgEHT);
+
+        % Demodulate the data field and split data from pilot subcarriers
+        ehtdata = rx_baseband(pktOffset + (ind.EHTData(1):ind.EHTData(2)), :);
+        demodSym = wlanEHTDemodulate(ehtdata, 'EHT-Data', cfgEHT);
+        demodDataSym = demodSym(ofdmInfo.DataIndices, :, :);
+        demodPilotSym = demodSym(ofdmInfo.PilotIndices, :, :);
+        chanEstData = chanEst(ofdmInfo.DataIndices, :, :);
+
+        % Noise variance from the data-field pilots. The HT/VHT scripts pin
+        % this to a hard-coded 1e-12; measuring it keeps the MMSE weights
+        % sane whatever impairment is applied to the waveform later.
+        noiseVar = wlanEHTDataNoiseEstimate(demodPilotSym, chanEstSSPilots, cfgEHT);
+
+        % Equalization and LDPC/BCC decoding
+        [eqDataSym, csi] = wlanEHTEqualize(demodDataSym, chanEstData, noiseVar, ...
+            cfgEHT, 'EHT-Data', userIdx);
+        rxPSDU = wlanEHTDataBitRecover(eqDataSym, noiseVar, csi, cfgEHT, userIdx);
+
+        txPSDU = psduBits(mod((pktNum-1)*bitsPerPkt + (0:bitsPerPkt-1), numel(psduBits)) + 1);
+        bitErrors(pktNum) = sum(double(rxPSDU(:)) ~= double(txPSDU(:)));
+
+        reset(evmMeas);
+        rmsEVM(pktNum) = 20*log10(evmMeas(double(eqDataSym(:))) / 100);
+        fprintf('   RMS EVM: %.2f dB, bit errors: %d of %d\n', ...
+            rmsEVM(pktNum), bitErrors(pktNum), bitsPerPkt);
+
+        pktOffsetStore(pktNum) = pktOffset;
+        searchOffset = pktOffset + pktLength + minPktLen;
+    end
+
+    if pktNum == 0
+        warning('pa_wifi_eht:NoPacketDecoded', ...
+            'The receiver test detected no packet in the generated burst.');
+    else
+        fprintf('Decoded %d of %d packets: mean RMS EVM %.2f dB, %d total bit errors.\n', ...
+            pktNum, numPackets, mean(rmsEVM(1:pktNum)), sum(bitErrors(1:pktNum)));
+        if maxRxPackets < numPackets
+            fprintf('%d further packets were not decoded (PAPR_RX_PACKETS=%d).\n', ...
+                numPackets - maxRxPackets, maxRxPackets);
+        end
+
+        %% Plot Constellation
+        constPath = fullfile(figPath, 'Constellations');
+        if ~exist(constPath, 'dir')
+            mkdir(constPath);
+        end
+        fname = fullfile(constPath, sprintf('wifi7_Constellation_mcs=%d_bw=%d_osf=%d_%dMB.png', ...
+            mcs_value, BW, osf, target_mbytes));
+        figConst = plot_generic(real(eqDataSym(:)), imag(eqDataSym(:)), ...
+            fname, 'LogY', false, 'LogX', false, ...
+            'XLabel', 'I', 'YLabel', 'Q', ...
+            'FigureSize', [1 1 3 3], 'XTick', -1.1:1.1:1.1, 'YTick', -1.1:1.1:1.1, ...
+            'LegendLocation', 'SouthWest', 'LineStyle', 'none', ...
+            'Markers', '*', ...
+            'FontSize', 8, 'NColors', 64, 'Save', true);
+        fprintf('Wrote %s\n', fname);
     end
 end

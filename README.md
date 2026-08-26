@@ -87,6 +87,26 @@ Rigorous PAPR distribution statistics are collected and provided on a per-signal
 - Better understanding of waveform-dependent PA stress
 - Repeatable benchmarking workflows
 
+## Requirements
+
+Nothing is required to *use* the waveforms: the files under [Signals](Signals) are plain interleaved binary I/Q and can be loaded by a signal generator or any language.
+
+The generation and analysis scripts under [Code](Code) are MATLAB, and they do depend on several toolboxes:
+
+| Toolbox | Required? | Used for |
+| --- | --- | --- |
+| MATLAB | Required | Everything. Developed and tested on R2023b. |
+| WLAN Toolbox | Required | All WiFi waveform generation and measurement: `wlanWaveformGenerator`, the `wlanHTConfig` / `wlanVHTConfig` / `wlanHESUConfig` / `wlanEHTMUConfig` objects, `wlanFieldIndices`, `wlanSampleRate`, and the HT/VHT receiver chain (`wlanPacketDetect`, `wlanCoarseCFOEstimate`, `wlan*LTFChannelEstimate`, `wlan*DataRecover`). |
+| Communications Toolbox | Required | `comm.EVM` in the HT/VHT receiver verification, and a prerequisite of WLAN Toolbox. |
+| DSP System Toolbox | Required | `dsp.FIRRateConverter` in the HT/VHT receiver resampling, and a prerequisite of WLAN Toolbox. |
+| Signal Processing Toolbox | Required | Not called directly, but a prerequisite of the DSP System and Communications toolboxes. |
+| Statistics and Machine Learning Toolbox | Required | `ksdensity` in [papr_density.m](Code/WiFi/papr_density.m), which produces every PDF and CCDF curve in this repository. |
+| Parallel Computing Toolbox | Optional | The `parfor` trial loops in the `pa_wifi_*.m` generators and [gen_papr_targets.m](Code/WiFi/gen_papr_targets.m). Without it MATLAB runs those loops serially, which gives the same results but takes considerably longer. |
+
+802.11be (EHT) generation additionally needs a release whose WLAN Toolbox ships the EHT objects (R2023a or newer); the WiFi 4/5/6 scripts run on older releases.
+
+Run `ver` in MATLAB to list the toolboxes installed on your machine.
+
 ## Repository Layout
 
 - [Code](Code): Scripts and tooling used to generate/analyze signals.

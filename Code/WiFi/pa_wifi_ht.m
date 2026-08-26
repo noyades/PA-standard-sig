@@ -483,17 +483,19 @@ if runGen == 1
     fprintf('For MCS %d, dynamically set PSDULength to %d bytes to maintain uniform airtime.\n', ...
     mcs_value, cfgHT.PSDULength);
 
-    % Generate one test packet to see how many samples it produces
-    test_bits = randi([0 1], 8 * cfgHT.PSDULength, 1);
-    tx_test = wlanWaveformGenerator(test_bits, cfgHT, 'OversamplingFactor', osf,...
-        'IdleTime',idleTime);
-    samples_per_packet = size(tx_test, 1);
-    
-    % Determine how many full packets can fit inside the target sample budget
-    numPackets = floor(total_target_samples / samples_per_packet);
-    if numPackets == 0
-        error('The target memory size is too small for even a single packet. Increase memory size or lower PSDULength.');
+    % The airtime above is what keeps the MCS sweep comparable, but the
+    % waveform still has to load onto the signal generator. Rather than
+    % refuse the job when a packet is larger than the requested memory,
+    % shorten the packet: the budget is the hard limit and the airtime is
+    % the negotiable one.
+    [cfgHT, fit] = papr_fit_airtime(cfgHT, osf, idleTime*1e6, total_target_samples);
+    if fit.reduced
+        fprintf(['A %.3f ms packet does not fit %d MB at %d MHz; airtime ' ...
+            'reduced to %.3f ms (PSDULength now %d bytes).\n'], ...
+            fit.requestedUs/1000, target_mbytes, BW, fit.airtimeUs/1000, fit.octets);
     end
+    samples_per_packet = fit.samplesPerPacket;
+    numPackets = fit.numPackets;
     
     remaining_samples = total_target_samples - (numPackets * samples_per_packet);
     
