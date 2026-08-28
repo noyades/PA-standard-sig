@@ -23,7 +23,7 @@ figPath = '..\..\Figures\WiFi\802.11AX (WiFi6)\';
 runAll = env_num('PAPR_RUN_ALL', 0); % Runs all elements
 runLong = env_num('PAPR_RUN_LONG', 0); % Runs only long signal duration study of PAPR
 runStats = env_num('PAPR_RUN_STATS', 0); % Runs statistics for the distributions of the signal components
-runCdf = env_num('PAPR_RUN_CDF', 0); % Finds the CCDF of the signal as a function of signal duration
+runCdf = env_num('PAPR_RUN_CDF', 1); % Finds the CCDF of the signal as a function of signal duration
 runGen = env_num('PAPR_RUN_GEN', 1); % Generates signals for loading on signal generators
 
 numTX = 1; % Single User (SISO)
@@ -40,7 +40,7 @@ if runLong || runAll
     verboseProgress = false;
     [measureDataFieldOnly, modeTag] = papr_measure_mode(true);
     mcs_list = [0];
-    bw_list = [80 160];e 
+    bw_list = [80 160];
     minPackets = 5;
     maxPackets = 10;
     targetSymbols = min(env_num('PAPR_LONG_SYMBOLS', 250), MAX_HE_SYMBOLS);
@@ -61,23 +61,17 @@ if runLong || runAll
             % rules do not follow the simple HT/VHT arithmetic.
             [octets, nSym] = papr_octets_for_symbols(cfgHE, targetSymbols, statsOSF);
             cfgHE = papr_payload(cfgHE, mcs, octets);
-            paprMeta = papr_field_meta(cfgHE, statsOSF, idleTime);
+            streamPlan = papr_stream_plan(cfgHE, statsOSF, idleTime, measureDataFieldOnly);
 
             papr_db = zeros(numSims,1);
             inPreamble = false(numSims,1);
             randomSeed = randi([1 127], numSims, 1);
             numPktsPerTrial = randi([minPackets maxPackets], numSims, 1);
 
+            % Chunked generation, for the reason given in the runCdf section.
             parfor t = 1:numSims
-                nPkts = numPktsPerTrial(t);
-                bits = randi([0 1], 8*octets*nPkts, 1);
-                tx = wlanWaveformGenerator(papr_bits_arg(cfgHE, bits), cfgHE, ...
-                    'NumPackets', nPkts, ...
-                    'IdleTime', idleTime*1e-6, ...
-                    'OversamplingFactor', statsOSF, ...
-                    'ScramblerInitialization', randomSeed(t), ...
-                    'WindowTransitionTime', 0);
-                [papr_db(t), inPreamble(t)] = papr_burst_db(tx, paprMeta, nPkts, measureDataFieldOnly);
+                [papr_db(t), inPreamble(t)] = papr_burst_stream_db(cfgHE, octets, ...
+                    numPktsPerTrial(t), randomSeed(t), streamPlan);
             end
 
             if verboseProgress
@@ -123,7 +117,7 @@ end
 
 %% Plot statistics
 if runStats || runAll
-    MCS = env_num('PAPR_MCS', 4);
+    MCS = env_num('PAPR_MCS', 5);
     BW  = env_num('PAPR_BW', 80);
     nbins = 200;
     v_min = 0; v_max = 1; dv_min = -1; dv_max = 1;
@@ -222,7 +216,7 @@ end
 if runCdf || runAll
     bins = 50;
     MCS = env_num('PAPR_MCS', 11);
-    BW  = env_num('PAPR_BW', 80);
+    BW  = env_num('PAPR_BW', 160);
     numPackets = 8;
     statsOSF = 4;
     [measureDataFieldOnly, modeTag] = papr_measure_mode(true);
@@ -250,21 +244,19 @@ if runCdf || runAll
         cfgHE = papr_payload(cfgHE, MCS, octets);
         achieved(ib) = nSym;
 
-        paprMeta = papr_field_meta(cfgHE, statsOSF, idleTime);
+        streamPlan = papr_stream_plan(cfgHE, statsOSF, idleTime, measureDataFieldOnly);
         trials = list(ib);
         papr_db = zeros(trials, 1);
         inPreamble = false(trials, 1);
         randomSeed = randi([1 127], trials, 1);
 
+        % The burst is generated a few packets at a time rather than in one
+        % call. A 330-symbol HE packet at 160 MHz is 3.4e6 samples, so eight
+        % of them per trial on every parallel worker at once exhausted memory.
+        % papr_burst_stream_db measures the same sample set either way.
         parfor t = 1:trials
-            localBits = randi([0 1], 8*octets*numPackets, 1);
-            tx = wlanWaveformGenerator(papr_bits_arg(cfgHE, localBits), cfgHE, ...
-                'NumPackets', numPackets, ...
-                'IdleTime', idleTime*1e-6, ...
-                'OversamplingFactor', statsOSF, ...
-                'ScramblerInitialization', randomSeed(t), ...
-                'WindowTransitionTime', 0);
-            [papr_db(t), inPreamble(t)] = papr_burst_db(tx, paprMeta, numPackets, measureDataFieldOnly);
+            [papr_db(t), inPreamble(t)] = papr_burst_stream_db(cfgHE, octets, ...
+                numPackets, randomSeed(t), streamPlan);
         end
 
         paprSamples{ib} = papr_db(isfinite(papr_db));
@@ -306,7 +298,7 @@ end
 %% Signal Generation
 if runGen || runAll
     mcs_value = env_num('PAPR_MCS', 11);
-    BW = env_num('PAPR_BW', 80);
+    BW = env_num('PAPR_BW', 160);
     target_mbytes = 4;       % Target memory size: 4, 8, or 16 MB
     % 8 bytes per complex sample: the export below writes float32 I and
     % float32 Q via fwrite(...,'single'). Using 4 here made every file

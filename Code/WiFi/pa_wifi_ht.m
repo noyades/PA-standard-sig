@@ -365,23 +365,16 @@ if runCdf || runAll
 
         octets = psduTotalOctets(ib);
         cfgHT.PSDULength = octets;
-        bitLength = octets * 8 * numPackets;
-        paprMeta = papr_field_meta(cfgHT, osf, idleTime);
+        streamPlan = papr_stream_plan(cfgHT, osf, idleTime, measureDataFieldOnly);
 
-        % Parallel execution over CPU cores
+        % Parallel execution over CPU cores. Each trial generates its burst a
+        % few packets at a time, so a long packet does not have to fit in
+        % memory whole on every worker at once; the bits and the scrambler
+        % seed are still drawn on the worker, and the measured statistic is
+        % the same as measuring the assembled burst.
         parfor t = 1:trials
-            % Generate random bits locally within the worker to bypass memory transfer bottlenecks
-            localBits = randi([0 1], bitLength, 1);
-            randomSeed = randi([1, 127]);
-
-            % Generate waveform
-            tx = wlanWaveformGenerator(localBits, cfgHT, 'NumPackets', numPackets, ...
-                'IdleTime', idleTime*1e-6, 'OversamplingFactor', osf, ...
-                'ScramblerInitialization', randomSeed, 'WindowTransitionTime', 0);
-
-            % Was max(sigPower)/mean(sigPower) over the raw waveform, so the
-            % inter-packet idle zeros entered the mean and inflated PAPR.
-            [papr_db(t), inPreamble(t)] = papr_burst_db(tx, paprMeta, numPackets, measureDataFieldOnly);
+            [papr_db(t), inPreamble(t)] = papr_burst_stream_db(cfgHT, octets, ...
+                numPackets, [], streamPlan);
         end
 
         paprSamples{ib}    = papr_db(isfinite(papr_db));
@@ -669,4 +662,4 @@ if runGen == 1
         'FontSize', 8, 'NColors',64,'Save',true);
 
 
-end
+end

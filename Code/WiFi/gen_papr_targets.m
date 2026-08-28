@@ -131,20 +131,19 @@ fprintf('Wrote %d rows to %s\n', height(T), outPath);
 
 function row = sweep_one(cfg, standard, mcs, bw, mode, measureDataFieldOnly, ...
                          octets, numPackets, osf, idleTime, trials, nSym)
-paprMeta = papr_field_meta(cfg, osf, idleTime);
+streamPlan = papr_stream_plan(cfg, osf, idleTime, measureDataFieldOnly);
 papr_db = zeros(trials,1);
 inPreamble = false(trials,1);
 seeds = randi([1 127], trials, 1);
 
+% Chunked generation: at 320 MHz an eight-packet burst is several hundred
+% megabytes, on every parallel worker at once. papr_burst_stream_db reduces
+% it over the same sample set papr_burst_db uses on an assembled burst, so
+% the targets written here stay comparable with the rows already in
+% papr_targets.csv and with what the runGen sections measure.
 parfor t = 1:trials
-    bits = randi([0 1], 8*octets*numPackets, 1);
-    tx = wlanWaveformGenerator(papr_bits_arg(cfg, bits), cfg, ...
-        'NumPackets', numPackets, ...
-        'IdleTime', idleTime*1e-6, ...
-        'OversamplingFactor', osf, ...
-        'ScramblerInitialization', seeds(t), ...
-        'WindowTransitionTime', 0);
-    [papr_db(t), inPreamble(t)] = papr_burst_db(tx, paprMeta, numPackets, measureDataFieldOnly);
+    [papr_db(t), inPreamble(t)] = papr_burst_stream_db(cfg, octets, ...
+        numPackets, seeds(t), streamPlan);
 end
 
 papr_db = papr_db(isfinite(papr_db));

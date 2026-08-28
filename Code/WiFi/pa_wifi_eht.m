@@ -69,23 +69,17 @@ if runLong || runAll
             % rules do not follow the simple HT/VHT arithmetic.
             [octets, nSym] = papr_octets_for_symbols(cfgEHT, targetSymbols, statsOSF);
             cfgEHT = papr_payload(cfgEHT, mcs, octets);
-            paprMeta = papr_field_meta(cfgEHT, statsOSF, idleTime);
+            streamPlan = papr_stream_plan(cfgEHT, statsOSF, idleTime, measureDataFieldOnly);
 
             papr_db = zeros(numSims,1);
             inPreamble = false(numSims,1);
             randomSeed = randi([1 127], numSims, 1);
             numPktsPerTrial = randi([minPackets maxPackets], numSims, 1);
 
+            % Chunked generation, for the reason given in the runCdf section.
             parfor t = 1:numSims
-                nPkts = numPktsPerTrial(t);
-                bits = randi([0 1], 8*octets*nPkts, 1);
-                tx = wlanWaveformGenerator(papr_bits_arg(cfgEHT, bits), cfgEHT, ...
-                    'NumPackets', nPkts, ...
-                    'IdleTime', idleTime*1e-6, ...
-                    'OversamplingFactor', statsOSF, ...
-                    'ScramblerInitialization', randomSeed(t), ...
-                    'WindowTransitionTime', 0);
-                [papr_db(t), inPreamble(t)] = papr_burst_db(tx, paprMeta, nPkts, measureDataFieldOnly);
+                [papr_db(t), inPreamble(t)] = papr_burst_stream_db(cfgEHT, octets, ...
+                    numPktsPerTrial(t), randomSeed(t), streamPlan);
             end
 
             if verboseProgress
@@ -258,21 +252,19 @@ if runCdf || runAll
         cfgEHT = papr_payload(cfgEHT, MCS, octets);
         achieved(ib) = nSym;
 
-        paprMeta = papr_field_meta(cfgEHT, statsOSF, idleTime);
+        streamPlan = papr_stream_plan(cfgEHT, statsOSF, idleTime, measureDataFieldOnly);
         trials = list(ib);
         papr_db = zeros(trials, 1);
         inPreamble = false(trials, 1);
         randomSeed = randi([1 127], trials, 1);
 
+        % The burst is generated a few packets at a time rather than in one
+        % call. A 330-symbol EHT packet at 320 MHz is 6.8e6 samples, so eight
+        % of them per trial on every parallel worker at once exhausted memory.
+        % papr_burst_stream_db measures the same sample set either way.
         parfor t = 1:trials
-            localBits = randi([0 1], 8*octets*numPackets, 1);
-            tx = wlanWaveformGenerator(papr_bits_arg(cfgEHT, localBits), cfgEHT, ...
-                'NumPackets', numPackets, ...
-                'IdleTime', idleTime*1e-6, ...
-                'OversamplingFactor', statsOSF, ...
-                'ScramblerInitialization', randomSeed(t), ...
-                'WindowTransitionTime', 0);
-            [papr_db(t), inPreamble(t)] = papr_burst_db(tx, paprMeta, numPackets, measureDataFieldOnly);
+            [papr_db(t), inPreamble(t)] = papr_burst_stream_db(cfgEHT, octets, ...
+                numPackets, randomSeed(t), streamPlan);
         end
 
         paprSamples{ib} = papr_db(isfinite(papr_db));

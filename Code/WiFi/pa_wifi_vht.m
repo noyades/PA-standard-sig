@@ -94,23 +94,17 @@ if runLong || runAll
             cfgVHT.APEPLength = min(ideal_bytes, 1048575);
             psduTotalOctets = cfgVHT.APEPLength;
 
-            paprMeta = papr_field_meta(cfgVHT, statsOSF, idleTime);
+            streamPlan = papr_stream_plan(cfgVHT, statsOSF, idleTime, measureDataFieldOnly);
 
             papr_db = zeros(numSims,1);
             inPreamble = false(numSims,1);
             randomSeed = randi([1 127],numSims,1);
             numPktsPerTrial = randi([minPackets maxPackets],numSims,1);
 
+            % Chunked generation, for the reason given in the runCdf section.
             parfor t = 1:numSims
-                nPkts = numPktsPerTrial(t);
-                psduBits = randi([0 1],8*psduTotalOctets*nPkts,1);
-                tx = wlanWaveformGenerator(psduBits, cfgVHT, ...
-                    'NumPackets',nPkts, ...
-                    'IdleTime',idleTime*1e-6,...
-                    'OversamplingFactor',statsOSF,...
-                    'ScramblerInitialization', randomSeed(t), ...
-                    'WindowTransitionTime', 0);
-                [papr_db(t), inPreamble(t)] = papr_burst_db(tx, paprMeta, nPkts, measureDataFieldOnly);
+                [papr_db(t), inPreamble(t)] = papr_burst_stream_db(cfgVHT, ...
+                    psduTotalOctets, numPktsPerTrial(t), randomSeed(t), streamPlan);
             end
             cc = cc + 1;
             if verboseProgress
@@ -402,21 +396,19 @@ if runCdf || runAll
         end
 
         cfgVHT.APEPLength = octets;
-        paprMeta = papr_field_meta(cfgVHT, statsOSF, idleTime);
+        streamPlan = papr_stream_plan(cfgVHT, statsOSF, idleTime, measureDataFieldOnly);
         trials = list(ib);
         papr_db = zeros(trials, 1);
         inPreamble = false(trials, 1);
         randomSeed = randi([1 127], trials, 1);
 
+        % The burst is generated a few packets at a time rather than in one
+        % call: 1000 symbols at 160 MHz is 2.6e6 samples per packet, and eight
+        % of those on every parallel worker at once exhausted memory.
+        % papr_burst_stream_db measures the same sample set either way.
         parfor t = 1:trials
-            localBits = randi([0 1], 8 * octets * numPackets, 1);
-            tx = wlanWaveformGenerator(localBits, cfgVHT, ...
-                'NumPackets', numPackets, ...
-                'IdleTime', idleTime*1e-6, ...
-                'OversamplingFactor', statsOSF, ...
-                'ScramblerInitialization', randomSeed(t), ...
-                'WindowTransitionTime', 0);
-            [papr_db(t), inPreamble(t)] = papr_burst_db(tx, paprMeta, numPackets, measureDataFieldOnly);
+            [papr_db(t), inPreamble(t)] = papr_burst_stream_db(cfgVHT, octets, ...
+                numPackets, randomSeed(t), streamPlan);
         end
         preamblePinned(ib) = sum(inPreamble) / trials;
 
