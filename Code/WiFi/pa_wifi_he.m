@@ -23,7 +23,7 @@ figPath = '..\..\Figures\WiFi\802.11AX (WiFi6)\';
 runAll = env_num('PAPR_RUN_ALL', 0); % Runs all elements
 runLong = env_num('PAPR_RUN_LONG', 0); % Runs only long signal duration study of PAPR
 runStats = env_num('PAPR_RUN_STATS', 0); % Runs statistics for the distributions of the signal components
-runCdf = env_num('PAPR_RUN_CDF', 1); % Finds the CCDF of the signal as a function of signal duration
+runCdf = env_num('PAPR_RUN_CDF', 0); % Finds the CCDF of the signal as a function of signal duration
 runGen = env_num('PAPR_RUN_GEN', 1); % Generates signals for loading on signal generators
 
 numTX = 1; % Single User (SISO)
@@ -298,8 +298,8 @@ end
 %% Signal Generation
 if runGen || runAll
     mcs_value = env_num('PAPR_MCS', 11);
-    BW = env_num('PAPR_BW', 160);
-    target_mbytes = 4;       % Target memory size: 4, 8, or 16 MB
+    BW = env_num('PAPR_BW', 20);
+    target_mbytes = 8;       % Target memory size: 4, 8, or 16 MB
     % 8 bytes per complex sample: the export below writes float32 I and
     % float32 Q via fwrite(...,'single'). Using 4 here made every file
     % twice the size its name claims.
