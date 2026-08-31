@@ -136,7 +136,7 @@ end
 %% Plot statistics
 if runStats || runAll
     MCS = env_num('PAPR_MCS', 4);
-    BW  = env_num('PAPR_BW', 160);
+    BW  = env_num('PAPR_BW', 320);
     nbins = 200;
     v_min = 0; v_max = 1; dv_min = -1; dv_max = 1;
     p_min = -pi; p_max = pi; dp_min = -2*pi; dp_max = 2*pi;
@@ -233,8 +233,8 @@ end
 % PAPR as a function of signal length
 if runCdf || runAll
     bins = 50;
-    MCS = env_num('PAPR_MCS', 3);
-    BW  = env_num('PAPR_BW', 320);
+    MCS = env_num('PAPR_MCS', 5);
+    BW  = env_num('PAPR_BW', 80);
     numPackets = 8;
     statsOSF = 4;
     [measureDataFieldOnly, modeTag] = papr_measure_mode(true);
@@ -315,8 +315,8 @@ end
 
 %% Signal Generation
 if runGen || runAll
-    mcs_value = env_num('PAPR_MCS', 3);
-    BW = env_num('PAPR_BW', 320);
+    mcs_value = env_num('PAPR_MCS', 5);
+    BW = env_num('PAPR_BW', 80);
     target_mbytes = 4;       % Target memory size: 4, 8, or 16 MB
     % 8 bytes per complex sample: the export below writes float32 I and
     % float32 Q via fwrite(...,'single'). Using 4 here made every file

@@ -202,8 +202,8 @@ def verify_signal(submission, signal_path, report):
     measured["sha256"] = digest
     measured["sizeBytes"] = size
 
-    for key, label in (("maxPaprDb", "max PAPR"), ("meanPaprDb", "mean PAPR")):
-        if claimed.get(key) is None:
+    for key, label in (("paprDb", "PAPR"), ("meanPacketPaprDb", "mean packet PAPR")):
+        if claimed.get(key) is None or measured.get(key) is None:
             continue
         delta = abs(float(claimed[key]) - measured[key])
         if delta > PAPR_TOLERANCE_DB:
@@ -230,8 +230,11 @@ def verify_signal(submission, signal_path, report):
         )
 
     report.note(
-        f"Measured: max PAPR {measured['maxPaprDb']} dB, mean PAPR {measured['meanPaprDb']} dB, "
-        f"{measured['sampleCount']} complex samples, RMS {measured['rms']}"
+        f"Measured: PAPR {measured['paprDb']} dB"
+        + (f", mean packet PAPR {measured['meanPacketPaprDb']} dB"
+           if measured.get("meanPacketPaprDb") is not None else "")
+        + f", {measured['packets']} packet(s), {measured['activeSamples']} signal samples "
+        f"of {measured['sampleCount']}, RMS {measured['rms']}"
     )
     return measured, digest
 
@@ -277,8 +280,11 @@ def build_entry(submission, measured, data_file):
         "sampleRate": f"{values.get('sampleRateMHz')} MSa/s" if values.get("sampleRateMHz") else "n/a",
         "oversampling": f"{values.get('oversampling')}x" if values.get("oversampling") else "n/a",
         "memoryLength": f"{measured['sizeBytes'] / (1024 * 1024):.1f} MB",
-        "maxPapr": f"{measured['maxPaprDb']} dB",
-        "meanPapr": f"{measured['meanPaprDb']} dB",
+        "papr": f"{measured['paprDb']} dB",
+        "meanPacketPapr": (
+            f"{measured['meanPacketPaprDb']} dB"
+            if measured.get("meanPacketPaprDb") is not None else "N/A"
+        ),
         "data_file": data_file.replace(os.sep, "/"),
         "name": submission_name(values),
         "contributor": values.get("contributorName", "Community contribution"),

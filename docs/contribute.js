@@ -18,10 +18,14 @@ const REPOSITORY = {
 
 const SCHEMA_URL = "./contribution-schema.json";
 
-// Complex samples per frame in the mean-PAPR estimate. This has to match
-// FRAME_SIZE in scripts/signal_analysis.py, or the number shown here is not the
-// number the library would publish for the same file.
-const FRAME_SIZE = 1000;
+// Packet segmentation, mirroring IDLE_RUN_SAMPLES and MIN_PACKET_SAMPLES in
+// scripts/signal_analysis.py. A run of this many consecutive zero-power samples
+// is inter-packet idle or trailing pad rather than signal; a stretch of signal
+// shorter than MIN_PACKET_SAMPLES is a fragment, not a packet. Change either
+// here and it has to change there, or the browser stops agreeing with the
+// catalog.
+const IDLE_RUN_SAMPLES = 32;
+const MIN_PACKET_SAMPLES = 256;
 
 // Bytes per complex sample, by declared format.
 const SAMPLE_BYTES = {
@@ -51,6 +55,8 @@ const state = {
 const dom = {
   form: document.getElementById("contributionForm"),
   dropzone: document.getElementById("dropzone"),
+  dropzoneTitle: document.getElementById("dropzoneTitle"),
+  dropzoneHint: document.getElementById("dropzoneHint"),
   fileInput: document.getElementById("fileInput"),
   analysisPanel: document.getElementById("analysisPanel"),
   validationPanel: document.getElementById("validationPanel"),
@@ -302,10 +308,11 @@ async function acceptFile(file) {
   state.analysis = null;
   state.analysisError = null;
 
-  dom.dropzone.innerHTML = `
-    <p class="dropzone-title">${escapeHtml(file.name)}</p>
-    <p class="dropzone-hint">${formatBytes(file.size)} &mdash; click to choose a different file</p>
-  `;
+  // Only the labels are rewritten: the file input is a child of the dropzone,
+  // and replacing the dropzone's markup would tear it out of the document,
+  // leaving "click to choose a different file" unable to do anything.
+  dom.dropzoneTitle.textContent = file.name;
+  dom.dropzoneHint.textContent = `${formatBytes(file.size)} — click to choose a different file`;
 
   state.detection = await detectFormat(file);
   if (state.detection.format) {
@@ -415,10 +422,17 @@ function plausibility(view) {
 // Measurement
 //
 // The PAPR definition here is the library's own, from scripts/signal_analysis.py:
-//   max PAPR  = 10*log10(peak power / mean power) over the whole file
-//   mean PAPR = mean over 1000-sample frames of 10*log10(frame peak / frame mean)
-// A number produced by a different estimator would not be comparable with the
-// curves the library publishes, which is the whole point of showing it here.
+//
+//   PAPR              10*log10(peak power / mean power) over the samples that
+//                     carry signal
+//   mean packet PAPR  the same ratio computed inside each packet and averaged,
+//                     for a waveform that has more than one packet
+//
+// Both exclude inter-packet idle and any trailing pad, found as runs of at
+// least IDLE_RUN_SAMPLES consecutive zeros. Averaging those zeros into the mean
+// power inflates PAPR by a few tenths of a dB, which is enough to disagree with
+// the curves the library publishes -- and matching those curves is the whole
+// point of showing a number here. Keep this in step with signal_analysis.py.
 // ---------------------------------------------------------------------------
 
 async function analyzeBinary(file, format, littleEndian) {
@@ -426,9 +440,10 @@ async function analyzeBinary(file, format, littleEndian) {
   const totalSamples = Math.floor(file.size / bytesPerSample);
   if (totalSamples < 2) throw new Error("Fewer than two complex samples in the file.");
 
-  const frameBytes = FRAME_SIZE * bytesPerSample;
-  // Chunks are frame-aligned so a frame never straddles two reads.
-  const chunkBytes = Math.max(frameBytes, Math.floor((8 * 1024 * 1024) / frameBytes) * frameBytes);
+  // Any whole number of samples per read will do: the accumulator carries the
+  // current packet across chunk boundaries, so a packet may straddle reads.
+  const chunkBytes = Math.max(bytesPerSample,
+    Math.floor((8 * 1024 * 1024) / bytesPerSample) * bytesPerSample);
   const usableBytes = totalSamples * bytesPerSample;
 
   const acc = newAccumulator();
@@ -436,7 +451,7 @@ async function analyzeBinary(file, format, littleEndian) {
     const end = Math.min(offset + chunkBytes, usableBytes);
     const buffer = await file.slice(offset, end).arrayBuffer();
     const { iq, count } = decodeChunk(buffer, format, littleEndian);
-    accumulate(acc, iq, count, offset / bytesPerSample);
+    accumulate(acc, iq, count);
   }
 
   return finishAnalysis(acc, {
@@ -495,89 +510,130 @@ async function analyzeText(file) {
   if (count < 2) throw new Error("Fewer than two I,Q pairs could be parsed from the text.");
 
   const acc = newAccumulator();
-  accumulate(acc, Float64Array.from(iq), count, 0);
+  accumulate(acc, Float64Array.from(iq), count);
   return finishAnalysis(acc, { totalSamples: count, format: "csv-iq", malformedLines: malformed });
 }
 
 function newAccumulator() {
   return {
-    sumPower: 0,
-    maxPower: 0,
+    // Accepted packets, and the running totals across them.
+    peak: 0,
+    sum: 0,
+    count: 0,
     sumI: 0,
     sumQ: 0,
+    packetPaprSum: 0,
+    packets: 0,
+
+    // The packet currently being walked.
+    curPeak: 0,
+    curSum: 0,
+    curCount: 0,
+    curSumI: 0,
+    curSumQ: 0,
+
+    // Zeros seen since the last signal sample. They are only idle once the run
+    // reaches IDLE_RUN_SAMPLES; a shorter run belongs to the packet around it.
+    pendingZeros: 0,
+
+    // Fallback totals, used when the waveform turns out to have no packet
+    // structure at all -- a continuous single-carrier stream, for instance.
+    nzPeak: 0,
+    nzSum: 0,
+    nzCount: 0,
+    nzSumI: 0,
+    nzSumQ: 0,
+
     nonFinite: 0,
-    frameSum: 0,
-    frameCount: 0,
-    frameSkipped: 0,
-    // A frame can only be closed once all of its samples have been seen.
-    framePeak: 0,
-    frameTotal: 0,
-    frameFill: 0,
-    peakAmplitude: 0,
-    nearPeak: 0,
     samplesSeen: 0,
-    totalFrames: 0,
   };
 }
 
-function accumulate(acc, iq, count, sampleOffset) {
+function closePacket(acc) {
+  if (acc.curCount >= MIN_PACKET_SAMPLES && acc.curSum > 0) {
+    if (acc.curPeak > acc.peak) acc.peak = acc.curPeak;
+    acc.sum += acc.curSum;
+    acc.count += acc.curCount;
+    acc.sumI += acc.curSumI;
+    acc.sumQ += acc.curSumQ;
+    acc.packetPaprSum += 10 * Math.log10(acc.curPeak / (acc.curSum / acc.curCount));
+    acc.packets += 1;
+  }
+  acc.curPeak = 0;
+  acc.curSum = 0;
+  acc.curCount = 0;
+  acc.curSumI = 0;
+  acc.curSumQ = 0;
+}
+
+function accumulate(acc, iq, count) {
   for (let s = 0; s < count; s += 1) {
     const i = iq[2 * s];
     const q = iq[2 * s + 1];
-    if (!Number.isFinite(i) || !Number.isFinite(q)) {
-      acc.nonFinite += 1;
+    acc.samplesSeen += 1;
+
+    // A sample that is not a number cannot contribute to a peak or a mean.
+    // Treating it as zero lets it fall into the idle mask instead.
+    const finite = Number.isFinite(i) && Number.isFinite(q);
+    if (!finite) acc.nonFinite += 1;
+    const power = finite ? i * i + q * q : 0;
+
+    if (power === 0) {
+      acc.pendingZeros += 1;
       continue;
     }
-    const power = i * i + q * q;
-    acc.sumPower += power;
-    acc.sumI += i;
-    acc.sumQ += q;
-    if (power > acc.maxPower) acc.maxPower = power;
 
-    // Frame statistics cover only whole frames, matching the Python estimator's
-    // len(power)//FRAME_SIZE truncation.
-    acc.framePeak = Math.max(acc.framePeak, power);
-    acc.frameTotal += power;
-    acc.frameFill += 1;
-    if (acc.frameFill === FRAME_SIZE) {
-      const frameMean = acc.frameTotal / FRAME_SIZE;
-      if (frameMean > 0) {
-        acc.frameSum += 10 * Math.log10(acc.framePeak / frameMean);
-        acc.frameCount += 1;
-      } else {
-        acc.frameSkipped += 1;
-      }
-      acc.framePeak = 0;
-      acc.frameTotal = 0;
-      acc.frameFill = 0;
+    if (acc.pendingZeros >= IDLE_RUN_SAMPLES) {
+      closePacket(acc);           // that run of zeros was idle: packet boundary
+    } else {
+      acc.curCount += acc.pendingZeros;   // interior zeros stay inside the packet
     }
+    acc.pendingZeros = 0;
+
+    acc.curCount += 1;
+    acc.curSum += power;
+    acc.curSumI += i;
+    acc.curSumQ += q;
+    if (power > acc.curPeak) acc.curPeak = power;
+
+    if (power > acc.nzPeak) acc.nzPeak = power;
+    acc.nzSum += power;
+    acc.nzCount += 1;
+    acc.nzSumI += i;
+    acc.nzSumQ += q;
   }
-  acc.samplesSeen += count;
-  void sampleOffset;
 }
 
 function finishAnalysis(acc, meta) {
-  const valid = acc.samplesSeen - acc.nonFinite;
-  if (valid < 2) throw new Error("The file contains fewer than two usable samples.");
+  closePacket(acc);   // the trailing zero pad is discarded with it
 
-  const meanPower = acc.sumPower / valid;
+  // With no packet long enough to keep, fall back to every non-zero sample.
+  const usingPackets = acc.packets > 0;
+  const peak = usingPackets ? acc.peak : acc.nzPeak;
+  const sum = usingPackets ? acc.sum : acc.nzSum;
+  const n = usingPackets ? acc.count : acc.nzCount;
+  const sumI = usingPackets ? acc.sumI : acc.nzSumI;
+  const sumQ = usingPackets ? acc.sumQ : acc.nzSumQ;
+
+  if (n < 2) throw new Error("No signal samples: the file appears to be all zeros.");
+  const meanPower = sum / n;
   if (!(meanPower > 0)) throw new Error("Mean power is zero: the file appears to be all zeros.");
 
-  const maxPaprDb = 10 * Math.log10(acc.maxPower / meanPower);
-  const meanPaprDb = acc.frameCount > 0 ? acc.frameSum / acc.frameCount : maxPaprDb;
-  const peakAmplitude = Math.sqrt(acc.maxPower);
-
   return Object.assign({
-    sampleCount: valid,
+    sampleCount: acc.samplesSeen,
+    activeSamples: n,
+    idleSamples: acc.samplesSeen - n,
+    packets: acc.packets,
     nonFiniteSamples: acc.nonFinite,
-    maxPaprDb: round2(maxPaprDb),
-    meanPaprDb: round2(meanPaprDb),
-    framesUsed: acc.frameCount,
+    paprDb: round2(10 * Math.log10(peak / meanPower)),
+    // One packet is one measurement, not a distribution; averaging it with
+    // itself would dress a single number up as a mean.
+    meanPacketPaprDb: acc.packets >= 2 ? round2(acc.packetPaprSum / acc.packets) : null,
     rms: round4(Math.sqrt(meanPower)),
-    peakAmplitude: round4(peakAmplitude),
-    dcOffsetI: round4(acc.sumI / valid),
-    dcOffsetQ: round4(acc.sumQ / valid),
-    estimator: `max/mean over the file; mean PAPR over ${FRAME_SIZE}-sample frames`,
+    peakAmplitude: round4(Math.sqrt(peak)),
+    dcOffsetI: round4(sumI / n),
+    dcOffsetQ: round4(sumQ / n),
+    estimator: "peak/mean over signal samples; idle and pad excluded",
   }, meta);
 }
 
@@ -628,13 +684,18 @@ function renderAnalysis() {
 
   const rows = [
     ["Complex samples", a.sampleCount.toLocaleString()],
-    ["Max PAPR", `${a.maxPaprDb.toFixed(2)} dB`],
-    ["Mean PAPR", `${a.meanPaprDb.toFixed(2)} dB`],
+    ["PAPR", `${a.paprDb.toFixed(2)} dB`],
     ["RMS amplitude", a.rms.toFixed(4)],
     ["Peak amplitude", a.peakAmplitude.toFixed(4)],
     ["DC offset (I, Q)", `${a.dcOffsetI.toFixed(4)}, ${a.dcOffsetQ.toFixed(4)}`],
   ];
+  if (a.meanPacketPaprDb !== null && a.meanPacketPaprDb !== undefined) {
+    rows.push(["Mean packet PAPR", `${a.meanPacketPaprDb.toFixed(2)} dB`]);
+  }
+  if (a.packets) rows.push(["Packets", String(a.packets)]);
+  if (a.idleSamples) rows.push(["Idle / pad", `${a.idleSamples.toLocaleString()} samples`]);
   const rate = numberValue("sampleRateMHz");
+  // Duration counts the whole file, idle included: that is how long it plays.
   if (rate) rows.push(["Duration", formatDuration(a.sampleCount / (rate * 1e6))]);
 
   dom.analysisPanel.innerHTML = `
@@ -763,8 +824,10 @@ function collectCrossChecks(errors, warnings) {
   if (a.malformedLines) {
     warnings.push(`${a.malformedLines} text line(s) could not be parsed as an I,Q pair and were skipped.`);
   }
-  if (a.framesUsed === 0) {
-    warnings.push(`The file is shorter than one ${FRAME_SIZE}-sample frame, so mean PAPR falls back to the whole-file value.`);
+  if (a.packets === 0) {
+    warnings.push(
+      "No packet structure was found, so PAPR covers every non-zero sample. That is " +
+      "expected for a continuous single-carrier waveform.");
   }
 
   const sampleRate = numberValue("sampleRateMHz");
@@ -818,8 +881,8 @@ function collectCrossChecks(errors, warnings) {
     warnings.push(`The waveform carries a DC offset of ${dc.toFixed(4)}, ${(100 * dc / a.rms).toFixed(1)}% of RMS.`);
   }
 
-  if (a.maxPaprDb > 20) {
-    warnings.push(`A max PAPR of ${a.maxPaprDb.toFixed(2)} dB is unusually high; check for an impulse or a stray sample.`);
+  if (a.paprDb > 20) {
+    warnings.push(`A PAPR of ${a.paprDb.toFixed(2)} dB is unusually high; check for an impulse or a stray sample.`);
   }
 
   if (state.file.size > ATTACHMENT_LIMIT_BYTES) {
@@ -952,8 +1015,9 @@ function issueBody(submission) {
     "| Statistic | Value |",
     "| --- | --- |",
     `| Complex samples | ${a.sampleCount ?? "n/a"} |`,
-    `| Max PAPR | ${a.maxPaprDb ?? "n/a"} dB |`,
-    `| Mean PAPR | ${a.meanPaprDb ?? "n/a"} dB |`,
+    `| PAPR | ${a.paprDb ?? "n/a"} dB |`,
+    `| Mean packet PAPR | ${a.meanPacketPaprDb ?? "n/a"} dB |`,
+    `| Packets | ${a.packets ?? "n/a"} |`,
     `| RMS amplitude | ${a.rms ?? "n/a"} |`,
     `| SHA-256 | ${(submission.file && submission.file.sha256) || "not computed"} |`,
     "",

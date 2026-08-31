@@ -134,8 +134,12 @@ function processManifest(manifestItems) {
       symbols: item.symbols,
       filterType: item.filterType || "RRC",
       oversampling: item.oversampling || "4x",
-      maxPapr: item.maxPapr || item.max_papr || item.maxPAPR || "N/A",
-      meanPapr: item.meanPapr || item.mean_papr || item.meanPAPR || "N/A",
+      // `papr` is the waveform's peak-to-average ratio with idle and pad
+      // excluded; `meanPacketPapr` averages the per-packet values and is only
+      // present when the file holds more than one packet. The older maxPapr /
+      // meanPapr keys are read as a fallback so a stale manifest still renders.
+      papr: item.papr || item.maxPapr || item.max_papr || "N/A",
+      meanPacketPapr: item.meanPacketPapr || item.meanPapr || item.mean_papr || "N/A",
       isAlias: Boolean(item.isAlias),
       aliasNote: item.aliasNote || "",
       contributor: item.contributor || "RF Engine PA Signal Library",
@@ -335,12 +339,12 @@ function renderSummary(entry) {
     if (entry.filterType) chips.push(chip(entry.filterType));
   }
 
-  // 3. Computed PAPR metrics (using highlighted metric chip)
-  if (entry.maxPapr && entry.maxPapr !== "N/A") {
-    chips.push(`<span class="chip chip-metric">Max PAPR: ${escapeHtml(entry.maxPapr)}</span>`);
+  // 3. Measured PAPR. Only shown when it was actually computed from the file.
+  if (entry.papr && entry.papr !== "N/A") {
+    chips.push(`<span class="chip chip-metric">PAPR: ${escapeHtml(entry.papr)}</span>`);
   }
-  if (entry.meanPapr && entry.meanPapr !== "N/A") {
-    chips.push(`<span class="chip chip-metric">Mean PAPR: ${escapeHtml(entry.meanPapr)}</span>`);
+  if (entry.meanPacketPapr && entry.meanPacketPapr !== "N/A") {
+    chips.push(`<span class="chip chip-metric">Mean packet PAPR: ${escapeHtml(entry.meanPacketPapr)}</span>`);
   }
 
   if (entry.isContributed) {

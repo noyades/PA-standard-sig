@@ -313,9 +313,11 @@ def build_manifest():
                     print(f"WARNING: unknown standard prefix '{prefix}' in {repo_path}; skipping.")
                     continue
 
-                max_papr, mean_papr = calculate_papr(repo_path)
-                max_papr_str = f"{max_papr} dB" if max_papr is not None else "N/A"
-                mean_papr_str = f"{mean_papr} dB" if mean_papr is not None else "N/A"
+                papr, mean_packet_papr = calculate_papr(repo_path)
+                papr_str = f"{papr} dB" if papr is not None else "N/A"
+                mean_packet_papr_str = (
+                    f"{mean_packet_papr} dB" if mean_packet_papr is not None else "N/A"
+                )
 
                 figures = figures_for(by_combo, by_sweep, std_label, mcs, bw)
                 claimed_combos.add((std_label, mcs, bw))
@@ -330,8 +332,8 @@ def build_manifest():
                     "bandwidth": f"{bw} MHz",
                     "memoryLength": mem_label,
                     "oversampling": f"{osf}x",
-                    "maxPapr": max_papr_str,
-                    "meanPapr": mean_papr_str,
+                    "papr": papr_str,
+                    "meanPacketPapr": mean_packet_papr_str,
                     "data_file": repo_path,
                     "name": f"{std_label} MCS{mcs} {bw}MHz {mem_label}",
                     "figures": figures,
@@ -343,12 +345,12 @@ def build_manifest():
                             and mcs_int <= rule["max_mcs"]
                             and bw_int in rule["allowed_bw"]):
                         alias_pending.append((rule, std_label, mcs, bw, mem, mem_label,
-                                              osf, max_papr_str, mean_papr_str, repo_path))
+                                              osf, papr_str, mean_packet_papr_str, repo_path))
 
     # Aliases are emitted only where no measured signal already covers that
     # combination, so real data always wins over a shared-waveform alias.
     for (rule, std_label, mcs, bw, mem, mem_label, osf,
-         max_papr_str, mean_papr_str, repo_path) in alias_pending:
+         papr_str, mean_packet_papr_str, repo_path) in alias_pending:
         alias_std = rule["alias_standard"]
         if (alias_std, mcs, bw, mem) in real_keys:
             print(f"Skipping {alias_std} alias for MCS{mcs} {bw}MHz {mem_label}: "
@@ -367,8 +369,8 @@ def build_manifest():
             "bandwidth": f"{bw} MHz",
             "memoryLength": mem_label,
             "oversampling": f"{osf}x",
-            "maxPapr": max_papr_str,
-            "meanPapr": mean_papr_str,
+            "papr": papr_str,
+            "meanPacketPapr": mean_packet_papr_str,
             "data_file": repo_path,
             "name": f"{alias_std} (via {std_label}) MCS{mcs} {bw}MHz {mem_label}",
             "figures": figures,
@@ -399,8 +401,8 @@ def build_manifest():
             "bandwidth": f"{bw} MHz",
             "memoryLength": "Figures only",
             "oversampling": "4x",
-            "maxPapr": "N/A",
-            "meanPapr": "N/A",
+            "papr": "N/A",
+            "meanPacketPapr": "N/A",
             "name": f"{standard} MCS{mcs} {bw}MHz (analysis figures)",
             "figures": figures,
             "isAlias": False
@@ -426,8 +428,8 @@ def build_manifest():
             "bandwidth": "All MHz",
             "memoryLength": "Figures only",
             "oversampling": "4x",
-            "maxPapr": "N/A",
-            "meanPapr": "N/A",
+            "papr": "N/A",
+            "meanPacketPapr": "N/A",
             "name": f"{standard} MCS{mcs} (PAPR sweep figures)",
             "figures": [{"name": f["name"], "path": f["path"]}
                         for f in by_sweep[(standard, mcs)]],
@@ -445,8 +447,8 @@ def build_manifest():
             "bandwidth": "All MHz",
             "memoryLength": "Figures only",
             "oversampling": "4x",
-            "maxPapr": "N/A",
-            "meanPapr": "N/A",
+            "papr": "N/A",
+            "meanPacketPapr": "N/A",
             "name": f"{standard} other figures",
             "figures": sorted(figures, key=lambda f: f["name"]),
             "isAlias": False
@@ -493,9 +495,11 @@ def build_manifest():
                             rolloff_str = "0.25"
 
                     # 4. PAPR Calculation
-                    max_papr, mean_papr = calculate_papr(repo_path)
-                    max_papr_str = f"{max_papr} dB" if max_papr is not None else "N/A"
-                    mean_papr_str = f"{mean_papr} dB" if mean_papr is not None else "N/A"
+                    papr, mean_packet_papr = calculate_papr(repo_path)
+                    papr_str = f"{papr} dB" if papr is not None else "N/A"
+                    mean_packet_papr_str = (
+                        f"{mean_packet_papr} dB" if mean_packet_papr is not None else "N/A"
+                    )
 
                     # 5. Link Figures from Figures/ directory matching roll-off
                     figures = []
@@ -519,8 +523,8 @@ def build_manifest():
                         "rolloff": rolloff_str,
                         "symbols": sym_label,
                         "filterType": "RRC",
-                        "maxPapr": max_papr_str,
-                        "meanPapr": mean_papr_str,
+                        "papr": papr_str,
+                        "meanPacketPapr": mean_packet_papr_str,
                         "data_file": repo_path,
                         "name": f"{mod_label} {sym_label} (Roll-off {rolloff_str})",
                         "figures": figures

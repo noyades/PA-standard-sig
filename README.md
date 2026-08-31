@@ -87,6 +87,29 @@ Rigorous PAPR distribution statistics are collected and provided on a per-signal
 - Better understanding of waveform-dependent PA stress
 - Repeatable benchmarking workflows
 
+### What the browser reports per file
+
+Two figures are measured directly from each published file by
+[scripts/signal_analysis.py](scripts/signal_analysis.py):
+
+- **PAPR** -- `10*log10(peak power / mean power)` over the samples that carry
+  signal. Inter-packet idle and the trailing pad are excluded; they are found
+  as runs of consecutive zeros rather than assumed, since a bare I/Q file does
+  not describe its own packet layout. Averaging those zeros in would drag the
+  denominator down and inflate the figure by a few tenths of a dB.
+- **Mean packet PAPR** -- the same ratio computed inside each packet and
+  averaged. It is only shown for a file that holds more than one packet; a
+  long packet at a wide bandwidth fills the memory on its own, and averaging a
+  single measurement with itself would dress it up as a distribution.
+
+These are whole-packet figures, preamble included, and are not interchangeable
+with the data-field statistics in [Code/WiFi/papr_targets.csv](Code/WiFi/papr_targets.csv)
+that the MATLAB study produces. Usually the two agree closely, because the data
+field carries the peak. Where they do not, the preamble does: every WiFi 7 file
+in the library peaks 24-37 us in, inside the EHT preamble, which reads 1-3 dB
+above the data-field figure. That is the waveform, not a measurement artifact --
+a PA driven with the file sees that peak.
+
 ## Requirements
 
 Nothing is required to *use* the waveforms: the files under [Signals](Signals) are plain interleaved binary I/Q and can be loaded by a signal generator or any language.
