@@ -86,6 +86,11 @@ if runLong || runAll
             papr_db = zeros(numSims,1);
             inPreamble = false(numSims,1);
 
+            % Serial loop, so the reporter is called directly rather than
+            % through its DataQueue.
+            progress = papr_progress(sprintf('runLong HT CBW%d MCS%d (combo %d/%d)', ...
+                bw_list(ibw), mcs_list(imcs), cc+1, numCombos), numSims);
+
             for b = 1:numBatches
                 startIdx = (b-1) * batchSize + 1;
                 endIdx   = min(b * batchSize, numSims);
@@ -112,6 +117,7 @@ if runLong || runAll
                     % inter-packet idle zeros into mean_pow and inflated PAPR.
                     [papr_batch_db(k), inPre_batch(k)] = ...
                         papr_burst_db(tx, paprMeta, numPackets, measureDataFieldOnly);
+                    progress.report();
                 end
                 papr_db(startIdx:endIdx) = papr_batch_db;
                 inPreamble(startIdx:endIdx) = inPre_batch;
@@ -119,6 +125,7 @@ if runLong || runAll
                     fprintf('Batch %d/%d completed.\n', b, numBatches);
                 end
             end
+            progress.finish();
             cc = cc + 1;
             if verboseProgress
                 fprintf('We are %2.3f percent complete\n', 100*(cc)/(numel(bw_list)*numel(mcs_list)));

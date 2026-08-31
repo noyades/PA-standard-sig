@@ -147,7 +147,54 @@ WiFi 5 at MCS 0–7 and 20/40 MHz bandwidths produces signals that are identical
 
 Contributions are welcome. This repository will continue to grow as new waveform sets, statistics, and validation workflows are added.
 
-If you would like to contribute, please open an issue or pull request with:
+### Contributing a signal
+
+The quickest route is the contribution page:
+
+- Published page: https://noyades.github.io/PA-standard-sig/contribute.html
+- Page source: [docs/contribute.html](docs/contribute.html)
+
+It reads your waveform in your own browser -- nothing is uploaded by the page --
+detects the sample format, measures max and mean PAPR with the same estimator the
+catalog is built with, and checks what it measures against what you declare. It
+then asks for the metadata the library needs to file the signal:
+
+- Whether it is single-carrier or multi-carrier
+- Whether it follows a standard, and if so the standard, MCS and channel bandwidth
+- If not, the modulation, occupied bandwidth, pulse-shaping filter and roll-off, and symbol rate
+- Sample rate, sample format and oversampling ratio
+- Provenance: who generated it, with which tool, and under what licence
+- Whether the PA it was measured with appears in the Hua Wang PA survey, and if so
+  the DOI, survey edition and row, together with how certain the match is
+
+The page produces a `.zip` bundle holding the waveform and a `submission.json`,
+and opens a prefilled issue for you to attach it to. The fields it collects are
+defined in [docs/contribution-schema.json](docs/contribution-schema.json), which is
+also what the ingest script validates against, so the two cannot drift apart.
+
+A maintainer then checks and files the submission:
+
+```bash
+# validate without touching the tree
+python scripts/ingest_submission.py submission.json --signal waveform.bin
+
+# accept: re-measure, copy into Signals/Contributed/ and write the catalog sidecar
+python scripts/ingest_submission.py submission.json --signal waveform.bin --accept
+python scripts/build_manifest.py
+```
+
+The ingest re-measures the waveform rather than trusting the browser: the
+submitted statistics are a claim to be checked, and a mismatch is reported.
+
+Contributed metadata cannot be inferred from a file path the way the curated tree
+is, so each accepted signal carries a `.contribution.json` sidecar next to its
+waveform, which [scripts/build_manifest.py](scripts/build_manifest.py) reads back
+into the catalog.
+
+### Contributing anything else
+
+For fixes, figures, generator changes or new signal families, open an issue or
+pull request with:
 
 1. A clear description of the signal type and intended use.
 2. Generation settings and assumptions.

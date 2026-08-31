@@ -2,15 +2,15 @@
 
 Planned work for the signal library and the [interactive signal browser](https://noyades.github.io/PA-standard-sig/). Items keep their original numbering so they can be referenced directly; they are grouped by theme rather than by priority.
 
-Notes marked **Current state** were verified against the repository on 2026-08-26 and should be re-checked before acting on them.
+Notes marked **Current state** were verified against the repository on 2026-08-26 and should be re-checked before acting on them. Items 1, 2 and 3 carry a **Built** note describing what shipped on 2026-08-30 and what is still open.
 
 ## Summary
 
 | # | Item | Theme | Blocked by |
 | --- | --- | --- | --- |
-| 1 | User uploads a signal, we analyze its statistics | Portal | — |
-| 2 | Users contribute signals to the library, sorted by type/modulation/sample rate | Portal | 1, 8 |
-| 3 | Add signals from prior papers, cross-referenced to the Hua Wang PA Survey | Portal | 2 |
+| 1 | User uploads a signal, we analyze its statistics | Portal | — (first pass built) |
+| 2 | Users contribute signals to the library, sorted by type/modulation/sample rate | Portal | 8 (first pass built) |
+| 3 | Add signals from prior papers, cross-referenced to the Hua Wang PA Survey | Portal | survey data source |
 | 6 | Parse-signal app | Portal | 1 |
 | 4 | Resample to a user-supplied sig-gen sample rate and desired bandwidth | Instrument workflow | — |
 | 5 | Per-instrument upload instructions for R&S and Keysight VSGs | Instrument workflow | — |
@@ -34,6 +34,10 @@ Notes marked **Current state** were verified against the repository on 2026-08-2
 - The MATLAB side already produces the richer statistics (KDE-based PDF and CCDF via [Code/WiFi/papr_density.m](Code/WiFi/papr_density.m)). Decide whether the portal reimplements those in Python or whether the published curves stay MATLAB-generated and only user uploads go through Python. Divergent estimators would make user signals non-comparable to library signals, which defeats the purpose.
 - A hosted upload path needs a backend. The site is currently a static GitHub Pages app that links to `raw.githubusercontent.com`, so this is the first item that changes the deployment model. In-browser analysis (WASM/JS) is the alternative that preserves the static hosting.
 
+**Built (2026-08-30).** [docs/contribute.html](docs/contribute.html) reads a dropped waveform in the browser, detects its sample format, and reports sample count, max and mean PAPR, RMS, peak and DC offset. The estimator was factored out of `build_manifest.py` into [scripts/signal_analysis.py](scripts/signal_analysis.py) and reimplemented in [docs/contribute.js](docs/contribute.js) against the same definition, so the browser number equals the catalog number for the same file; this was verified end to end against the Python implementation. Large files are read in frame-aligned chunks, so peak memory does not scale with file length.
+
+**Still open.** Only scalar statistics, no plots. The richer MATLAB curves (KDE PDF and CCDF via [Code/WiFi/papr_density.m](Code/WiFi/papr_density.m), envelope and phase distributions, constellation) are not reimplemented, and the question of whether they should be reimplemented in JavaScript or left MATLAB-generated is still open. Rendering a user waveform against the library reference curves is not done.
+
 **Done when.** A user can submit a waveform plus its declared sample rate and receive PAPR statistics and plots rendered against the library's reference curves.
 
 ### 2. Users can contribute signals
@@ -48,6 +52,14 @@ Notes marked **Current state** were verified against the repository on 2026-08-2
 - Required metadata to collect at upload time, at minimum: signal class (SC/MC), family, modulation, symbol or packet length, sample rate, oversampling ratio, pulse-shaping filter and roll-off, sample format, and provenance (who generated it, with what tool).
 - Needs a review/acceptance step. Deciding what that is — automated validation only, or human review — is an open question.
 
+**Built (2026-08-30).** The metadata to collect is defined once in [docs/contribution-schema.json](docs/contribution-schema.json); the contribution page generates its form from that file and [scripts/ingest_submission.py](scripts/ingest_submission.py) validates against the same file, so the two cannot drift. Collected: signal class, family, whether a standard applies and if so standard/MCS/bandwidth/guard interval, otherwise modulation/bandwidth/symbol rate/filter and roll-off, plus sample rate, sample format, oversampling, normalization, provenance (contributor, tool, generation notes) and licence with an explicit rights confirmation.
+
+The sidecar question is settled: an accepted signal is filed under `Signals/Contributed/<id>/` with a `<id>.contribution.json` next to it, and `build_manifest.py` reads those back into the catalog rather than inferring anything from the path. A sidecar whose waveform is missing is skipped rather than published as a dead link.
+
+Submission travels by hand, because the site is static and has no upload endpoint: the page emits a zip of the waveform plus `submission.json` and opens a prefilled issue to attach it to. The submit step is isolated in `buildSubmission`/`openPrefilledIssue`, so a hosted endpoint can replace it without touching the form or the analysis.
+
+**Still open.** The review step is a human running `ingest_submission.py`; there is no automation and no queue. GitHub caps an attachment at 25 MB, so a larger waveform needs an out-of-band link. Contributed entries reuse the existing MC/SC facets, so a contributed signal that does not fit those facets is selectable only if its fields happen to line up -- that is item 7 and item 8 work.
+
 **Done when.** A contributed signal appears in the browser with the same filter facets as a curated one, and its provenance is recorded.
 
 ### 3. Signals from prior papers, cross-referenced to the Hua Wang PA Survey
@@ -61,6 +73,10 @@ Notes marked **Current state** were verified against the repository on 2026-08-2
 - What is the authoritative, citable, machine-readable form of the survey data, and does its license permit redistribution or only linking?
 - What is the join key — a DOI, a survey row ID, a paper reference? Whatever it is has to survive survey updates.
 - Many papers do not state their test waveform precisely enough to reconstruct. Decide how to represent a partial or best-effort match so the cross-reference is not read as stronger evidence than it is.
+
+**Built (2026-08-30).** The contribution form asks whether the PA the waveform was measured with appears in the survey, and when it does collects the survey edition or access date, the row identifier, the paper DOI (validated as a bare DOI, since a DOI outlives any row numbering), title, authors, venue and year, PA technology and centre frequency. It also requires a match confidence -- exact, reconstructed, or representative -- so a cross-reference cannot silently read as stronger evidence than it is. The ingest stores this as a `paSurvey` block on the catalog entry and [docs/app.js](docs/app.js) renders it in the summary card as a DOI link with its confidence shown.
+
+**Still open.** All three open questions below stand: nothing here consumes the survey itself. There is no authoritative machine-readable copy in the repository, no check that a claimed row exists, and no automated join -- only a recorded, human-supplied reference.
 
 **Done when.** A catalog entry can carry one or more survey/paper references, and the browser surfaces them as links.
 

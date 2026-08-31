@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contribute a Signal | PA Standard Signal Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- JSZip bundles the waveform and its metadata into one attachable archive. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">PA Standard Signal Library</p>
+      <h1>Contribute a Signal</h1>
+      <p class="hero-copy">
+        Add a waveform to the library. Your file is read in this browser and never uploaded anywhere by
+        this page: it is measured locally, checked against what you declare about it, and packaged with
+        its metadata for you to attach to a submission.
+      </p>
+      <div class="hero-actions">
+        <a class="action-link" href="./index.html">Back to the Signal Browser</a>
+        <a class="action-link" href="https://github.com/noyades/PA-standard-sig" target="_blank" rel="noreferrer">View Repository</a>
+      </div>
+    </header>
+
+    <main class="layout layout-contribute">
+      <section class="panel contribute-aside">
+        <div class="panel-head">
+          <p class="eyebrow">Step 1</p>
+          <h2>Waveform file</h2>
+        </div>
+
+        <div id="dropzone" class="dropzone" tabindex="0" role="button"
+             aria-label="Choose a waveform file, or drop one here">
+          <p class="dropzone-title">Drop a waveform here</p>
+          <p class="dropzone-hint">or click to choose &mdash; .bin, .csv or .txt</p>
+          <input id="fileInput" type="file" accept=".bin,.csv,.txt,.dat,.iq" hidden>
+        </div>
+
+        <div id="analysisPanel" class="analysis-panel" hidden></div>
+
+        <div class="panel-head contribute-step">
+          <p class="eyebrow">Step 3</p>
+          <h2>Review and submit</h2>
+        </div>
+
+        <div id="validationPanel" class="validation-panel"></div>
+
+        <div class="submit-actions">
+          <button id="bundleBtn" class="action-button" type="button" disabled>Download submission bundle (.zip)</button>
+          <button id="issueBtn" class="action-link" type="button" disabled>Open prefilled GitHub issue</button>
+          <button id="jsonBtn" class="action-link" type="button" disabled>Copy metadata JSON</button>
+        </div>
+
+        <div class="catalog-note">
+          <p>
+            <strong>How a submission travels.</strong> This site is served as static files and has no
+            upload endpoint, so the handoff is deliberate: download the bundle, open the prefilled
+            issue, and attach the bundle to it. The issue arrives carrying every field you filled in,
+            so nothing has to be re-typed. GitHub caps an attachment at 25&nbsp;MB &mdash; for anything
+            larger, attach the metadata alone and link the waveform from a file host in the issue.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <p class="eyebrow">Step 2</p>
+          <h2>Describe the signal</h2>
+          <p class="panel-blurb">
+            Fields appear and disappear as you answer &mdash; a standards-based waveform is described by
+            its MCS and channel bandwidth, a custom one by its modulation, filter and symbol rate.
+            Required fields are marked.
+          </p>
+        </div>
+
+        <form id="contributionForm" class="signal-form contribution-form" novalidate></form>
+      </section>
+    </main>
+  </div>
+
+  <script src="contribute.js"></script>
+</body>
+</html>

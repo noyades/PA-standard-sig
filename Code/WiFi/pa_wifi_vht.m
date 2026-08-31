@@ -102,10 +102,19 @@ if runLong || runAll
             numPktsPerTrial = randi([minPackets maxPackets],numSims,1);
 
             % Chunked generation, for the reason given in the runCdf section.
+            % The DataQueue listener runs on the client, so the status lines
+            % come out while the parfor is still going.
+            progress = papr_progress(sprintf('runLong VHT CBW%d MCS%d (combo %d/%d)', ...
+                bw_list(ibw), mcs_list(imcs), cc+1, numCombos), numSims, 'StartPool', true);
+            dq = progress.queue;
             parfor t = 1:numSims
                 [papr_db(t), inPreamble(t)] = papr_burst_stream_db(cfgVHT, ...
                     psduTotalOctets, numPktsPerTrial(t), randomSeed(t), streamPlan);
+                if ~isempty(dq)
+                    send(dq, 1);
+                end
             end
+            progress.finish();
             cc = cc + 1;
             if verboseProgress
                 fprintf('We are %2.3f percent complete\n', 100*(cc)/(numel(bw_list)*numel(mcs_list)));

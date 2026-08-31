@@ -1,0 +1,453 @@
+{
+  "version": 1,
+  "description": "Field definitions for a contributed signal. This file is the single source of truth: docs/contribute.js renders the form from it and scripts/ingest_submission.py validates against it, so a field added here reaches both sides at once.",
+  "conditionSyntax": "A condition is {\"field\": <id>, \"in\": [<values>]}. A field is shown when its showWhen condition passes, and is required when required is true, or when required is a condition that passes. Absent showWhen means always shown.",
+  "sections": [
+    {
+      "id": "classification",
+      "title": "What kind of signal is this?",
+      "blurb": "The library splits on single-carrier versus multi-carrier first, then on whether the waveform is defined by a published standard. Everything after this follows from these three answers.",
+      "fields": [
+        {
+          "id": "signalClass",
+          "label": "Signal class",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "MC", "label": "Multi-carrier (OFDM, OFDMA, filter-bank)" },
+            { "value": "SC", "label": "Single-carrier (QAM, PSK, APSK)" }
+          ],
+          "help": "Multi-carrier signals have an inherent bandwidth. Single-carrier signals are a symbol sequence whose bandwidth only becomes meaningful once a sample rate is chosen."
+        },
+        {
+          "id": "signalFamily",
+          "label": "Signal family",
+          "type": "text",
+          "required": true,
+          "placeholder": "WiFi, 5G NR, DVB-S2, QAM, ...",
+          "suggestions": ["WiFi", "5G NR", "LTE", "DVB-S2X", "QAM", "PSK", "APSK", "OFDM"],
+          "help": "The grouping this waveform belongs to in the browser. Reuse an existing family name where one fits."
+        },
+        {
+          "id": "isStandard",
+          "label": "Is the waveform defined by a published standard?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes — it follows a standard's numerology" },
+            { "value": "no", "label": "No — it is a custom or generic waveform" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "standard",
+      "title": "Standard parameters",
+      "blurb": "Enough to reproduce the waveform from the standard's own terms.",
+      "showWhen": { "field": "isStandard", "in": ["yes"] },
+      "fields": [
+        {
+          "id": "standard",
+          "label": "Standard",
+          "type": "text",
+          "required": { "field": "isStandard", "in": ["yes"] },
+          "placeholder": "WiFi6, 5G NR FR1, LTE, ...",
+          "suggestions": ["WiFi4", "WiFi5", "WiFi6", "WiFi7", "5G NR FR1", "5G NR FR2", "LTE", "DVB-S2X"],
+          "help": "Name it the way the library already does where possible: WiFi4 for 802.11n, WiFi5 for 802.11ac, WiFi6 for 802.11ax, WiFi7 for 802.11be."
+        },
+        {
+          "id": "standardRelease",
+          "label": "Release or amendment",
+          "type": "text",
+          "required": false,
+          "placeholder": "IEEE 802.11ax-2021, 3GPP Rel-17, ...",
+          "help": "Optional, but it settles which version of the numerology was used."
+        },
+        {
+          "id": "mcs",
+          "label": "MCS index",
+          "type": "text",
+          "required": { "field": "isStandard", "in": ["yes"] },
+          "placeholder": "0",
+          "help": "The modulation and coding scheme index as the standard numbers it."
+        },
+        {
+          "id": "bandwidthMHz",
+          "label": "Channel bandwidth",
+          "type": "number",
+          "unit": "MHz",
+          "required": { "field": "isStandard", "in": ["yes"] },
+          "min": 0.001,
+          "placeholder": "80"
+        },
+        {
+          "id": "guardInterval",
+          "label": "Guard interval / cyclic prefix",
+          "type": "text",
+          "required": false,
+          "placeholder": "0.8 us, 3.2 us, Long, Normal CP, ...",
+          "help": "Meaningful for OFDM standards. Leave blank if it does not apply."
+        },
+        {
+          "id": "spatialStreams",
+          "label": "Spatial streams",
+          "type": "number",
+          "required": false,
+          "min": 1,
+          "step": 1,
+          "placeholder": "1",
+          "help": "The library's own signals are all single-stream (SISO)."
+        },
+        {
+          "id": "packetLengthSymbols",
+          "label": "Data symbols per packet",
+          "type": "number",
+          "required": false,
+          "min": 1,
+          "step": 1,
+          "help": "Packet airtime is what makes PAPR comparable across MCS, so record it if you know it."
+        },
+        {
+          "id": "packetsInFile",
+          "label": "Packets in the file",
+          "type": "number",
+          "required": false,
+          "min": 1,
+          "step": 1
+        },
+        {
+          "id": "idleTimeUs",
+          "label": "Inter-packet idle time",
+          "type": "number",
+          "unit": "us",
+          "required": false,
+          "min": 0,
+          "help": "Idle samples between packets. The library uses 16 us and excludes them from the PAPR mean."
+        }
+      ]
+    },
+    {
+      "id": "custom",
+      "title": "Waveform parameters",
+      "blurb": "What the waveform is, when no standard defines it.",
+      "showWhen": { "field": "isStandard", "in": ["no"] },
+      "fields": [
+        {
+          "id": "modulation",
+          "label": "Modulation",
+          "type": "text",
+          "required": { "field": "isStandard", "in": ["no"] },
+          "placeholder": "64-QAM, QPSK, 32-APSK, ...",
+          "suggestions": ["QPSK", "16-QAM", "64-QAM", "256-QAM", "1024-QAM", "4096-QAM", "8-PSK", "16-APSK", "32-APSK", "OFDM"],
+          "help": "Write QAM orders the way the library does: 64-QAM, 1024-QAM."
+        },
+        {
+          "id": "bandwidthMHz",
+          "label": "Occupied bandwidth",
+          "type": "number",
+          "unit": "MHz",
+          "required": { "field": "isStandard", "in": ["no"] },
+          "min": 0.001,
+          "help": "For an RRC-shaped single-carrier signal this is symbol rate x (1 + roll-off)."
+        },
+        {
+          "id": "symbolRateMHz",
+          "label": "Symbol rate",
+          "type": "number",
+          "unit": "MSym/s",
+          "required": false,
+          "min": 0.000001,
+          "help": "Single-carrier only. Sample rate divided by the oversampling ratio."
+        },
+        {
+          "id": "filterType",
+          "label": "Pulse-shaping filter",
+          "type": "select",
+          "required": { "field": "isStandard", "in": ["no"] },
+          "options": [
+            { "value": "RRC", "label": "Root-raised cosine (RRC)" },
+            { "value": "RC", "label": "Raised cosine (RC)" },
+            { "value": "Gaussian", "label": "Gaussian" },
+            { "value": "None", "label": "None — unfiltered symbols" },
+            { "value": "Other", "label": "Other (describe below)" }
+          ],
+          "help": "The library's single-carrier signals are all RRC-shaped at 4x oversampling."
+        },
+        {
+          "id": "rolloff",
+          "label": "Filter roll-off (alpha)",
+          "type": "number",
+          "required": { "field": "filterType", "in": ["RRC", "RC"] },
+          "showWhen": { "field": "filterType", "in": ["RRC", "RC"] },
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "placeholder": "0.25",
+          "help": "The library ships 0.05, 0.15, 0.25, 0.35 and 0.45."
+        },
+        {
+          "id": "filterSpanSymbols",
+          "label": "Filter span",
+          "type": "number",
+          "unit": "symbols",
+          "required": false,
+          "min": 1,
+          "showWhen": { "field": "filterType", "in": ["RRC", "RC", "Gaussian", "Other"] }
+        },
+        {
+          "id": "filterNotes",
+          "label": "Filter description",
+          "type": "textarea",
+          "required": { "field": "filterType", "in": ["Other"] },
+          "showWhen": { "field": "filterType", "in": ["Other"] },
+          "placeholder": "What the filter is, and how it was designed."
+        },
+        {
+          "id": "symbolCount",
+          "label": "Symbols in the file",
+          "type": "number",
+          "required": false,
+          "min": 1,
+          "step": 1,
+          "help": "The library's single-carrier signals come in 100, 1k, 10k, 100k and 1M symbol lengths."
+        }
+      ]
+    },
+    {
+      "id": "sampling",
+      "title": "Sampling and file format",
+      "blurb": "How the numbers in the file map onto time. Everything downstream — resampling for an instrument, comparing PAPR against the library curves — depends on getting this right.",
+      "fields": [
+        {
+          "id": "sampleRateMHz",
+          "label": "Sample rate",
+          "type": "number",
+          "unit": "MSa/s",
+          "required": true,
+          "min": 0.000001,
+          "placeholder": "320",
+          "help": "The rate the file is written at, not the instrument you intend to play it on."
+        },
+        {
+          "id": "oversampling",
+          "label": "Oversampling ratio",
+          "type": "number",
+          "required": false,
+          "min": 1,
+          "placeholder": "4",
+          "help": "Sample rate divided by the Nyquist rate of the underlying signal. Every signal in the library today is 4x."
+        },
+        {
+          "id": "sampleFormat",
+          "label": "Sample format",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "float32-iq", "label": "Interleaved float32 I/Q (library convention, 8 bytes/sample)" },
+            { "value": "float64-iq", "label": "Interleaved float64 I/Q (16 bytes/sample)" },
+            { "value": "int16-iq", "label": "Interleaved int16 I/Q (4 bytes/sample)" },
+            { "value": "csv-iq", "label": "Delimited text, one I,Q pair per line" }
+          ],
+          "help": "Detected from the file where possible. Correct it if the detection is wrong — every later reader trusts this field."
+        },
+        {
+          "id": "byteOrder",
+          "label": "Byte order",
+          "type": "select",
+          "required": { "field": "sampleFormat", "in": ["float32-iq", "float64-iq", "int16-iq"] },
+          "showWhen": { "field": "sampleFormat", "in": ["float32-iq", "float64-iq", "int16-iq"] },
+          "options": [
+            { "value": "little", "label": "Little-endian (x86, and what the library writes)" },
+            { "value": "big", "label": "Big-endian" }
+          ]
+        },
+        {
+          "id": "normalization",
+          "label": "Amplitude normalization",
+          "type": "select",
+          "required": false,
+          "options": [
+            { "value": "peak", "label": "Peak normalized to 1.0" },
+            { "value": "rms", "label": "RMS normalized to 1.0" },
+            { "value": "none", "label": "Not normalized" },
+            { "value": "unknown", "label": "Not sure" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "survey",
+      "title": "Hua Wang PA survey cross-reference",
+      "blurb": "If this waveform was used to measure a PA that appears in the Georgia Tech / Hua Wang PA survey, recording the link here ties the waveform to the published PA result. That link is the piece normally missing when comparing PA numbers across labs.",
+      "fields": [
+        {
+          "id": "inPaSurvey",
+          "label": "Is the PA this signal was used with in the Hua Wang PA survey?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no", "label": "No" },
+            { "value": "unsure", "label": "Not sure" }
+          ]
+        },
+        {
+          "id": "surveyEdition",
+          "label": "Survey edition or access date",
+          "type": "text",
+          "required": false,
+          "showWhen": { "field": "inPaSurvey", "in": ["yes"] },
+          "placeholder": "2024 update, accessed 2026-03-01",
+          "help": "The survey is revised over time, so the row you are pointing at is only unambiguous alongside the edition you read."
+        },
+        {
+          "id": "surveyEntryId",
+          "label": "Survey entry / row identifier",
+          "type": "text",
+          "required": false,
+          "showWhen": { "field": "inPaSurvey", "in": ["yes"] },
+          "help": "Whatever identifies the row in the edition you used."
+        },
+        {
+          "id": "paperDoi",
+          "label": "DOI of the paper",
+          "type": "text",
+          "required": false,
+          "showWhen": { "field": "inPaSurvey", "in": ["yes", "unsure"] },
+          "placeholder": "10.1109/JSSC.2020.1234567",
+          "pattern": "^10[.][0-9]{4,9}/[^\\s]+$",
+          "patternHelp": "A bare DOI, starting with 10. and no https://doi.org/ prefix.",
+          "help": "The most durable join key: survey rows get renumbered between editions, DOIs do not."
+        },
+        {
+          "id": "paperTitle",
+          "label": "Paper title",
+          "type": "text",
+          "required": false,
+          "showWhen": { "field": "inPaSurvey", "in": ["yes", "unsure"] }
+        },
+        {
+          "id": "paperAuthors",
+          "label": "Authors",
+          "type": "text",
+          "required": false,
+          "showWhen": { "field": "inPaSurvey", "in": ["yes", "unsure"] },
+          "placeholder": "First author et al."
+        },
+        {
+          "id": "paperVenueYear",
+          "label": "Venue and year",
+          "type": "text",
+          "required": false,
+          "showWhen": { "field": "inPaSurvey", "in": ["yes", "unsure"] },
+          "placeholder": "IEEE JSSC 2021"
+        },
+        {
+          "id": "paTechnology",
+          "label": "PA technology",
+          "type": "text",
+          "required": false,
+          "showWhen": { "field": "inPaSurvey", "in": ["yes", "unsure"] },
+          "placeholder": "45 nm CMOS SOI, GaN HEMT, ...",
+          "help": "Helps disambiguate when one paper reports several PAs."
+        },
+        {
+          "id": "paFrequencyGHz",
+          "label": "PA centre frequency",
+          "type": "number",
+          "unit": "GHz",
+          "required": false,
+          "min": 0,
+          "showWhen": { "field": "inPaSurvey", "in": ["yes", "unsure"] }
+        },
+        {
+          "id": "surveyMatchConfidence",
+          "label": "How certain is the match?",
+          "type": "select",
+          "required": { "field": "inPaSurvey", "in": ["yes"] },
+          "showWhen": { "field": "inPaSurvey", "in": ["yes"] },
+          "options": [
+            { "value": "exact", "label": "Exact — this is the waveform the paper used" },
+            { "value": "reconstructed", "label": "Reconstructed — rebuilt from the parameters the paper states" },
+            { "value": "representative", "label": "Representative — same standard and settings, not the original file" }
+          ],
+          "help": "Most papers do not describe their test waveform precisely enough to reconstruct exactly. Saying so here keeps the cross-reference from reading as stronger evidence than it is."
+        },
+        {
+          "id": "surveyNotes",
+          "label": "Cross-reference notes",
+          "type": "textarea",
+          "required": false,
+          "showWhen": { "field": "inPaSurvey", "in": ["yes", "unsure"] },
+          "placeholder": "Which measurement in the paper this waveform corresponds to, and anything that had to be assumed."
+        }
+      ]
+    },
+    {
+      "id": "provenance",
+      "title": "Provenance and licence",
+      "blurb": "Who made the waveform and on what terms it can be redistributed. A signal whose licence is unclear cannot be published.",
+      "fields": [
+        {
+          "id": "contributorName",
+          "label": "Your name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "contributorAffiliation",
+          "label": "Affiliation",
+          "type": "text",
+          "required": false
+        },
+        {
+          "id": "contributorContact",
+          "label": "Contact (email or GitHub handle)",
+          "type": "text",
+          "required": false,
+          "help": "Optional, and it will be visible in the public issue. Leave blank if you would rather it were not."
+        },
+        {
+          "id": "generatorTool",
+          "label": "Generated with",
+          "type": "text",
+          "required": true,
+          "placeholder": "MATLAB R2023b WLAN Toolbox, GNU Radio 3.10, ...",
+          "help": "Tool and version. Two toolchains claiming the same standard do not always produce the same waveform."
+        },
+        {
+          "id": "generationNotes",
+          "label": "How it was generated",
+          "type": "textarea",
+          "required": false,
+          "placeholder": "Script, settings, and anything non-obvious about how the file was produced."
+        },
+        {
+          "id": "licence",
+          "label": "Licence",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "CC-BY-4.0", "label": "CC BY 4.0 — reuse with attribution" },
+            { "value": "CC0-1.0", "label": "CC0 1.0 — public domain dedication" },
+            { "value": "other", "label": "Other (describe below)" }
+          ],
+          "help": "The repository is MIT licensed; either of the first two lets a contributed waveform sit alongside it without friction."
+        },
+        {
+          "id": "licenceNotes",
+          "label": "Licence details",
+          "type": "textarea",
+          "required": { "field": "licence", "in": ["other"] },
+          "showWhen": { "field": "licence", "in": ["other"] }
+        },
+        {
+          "id": "rightsConfirmed",
+          "label": "I have the right to publish this waveform under the licence above, and it contains no proprietary or export-controlled content.",
+          "type": "checkbox",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

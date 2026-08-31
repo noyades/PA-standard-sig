@@ -21,10 +21,10 @@ figPath = '..\..\Figures\WiFi\802.11AX (WiFi6)\';
 % Control which elements of the code run. Each is overridable from the shell
 % (e.g. PAPR_RUN_LONG=1) so a sweep needs no edits to this file.
 runAll = env_num('PAPR_RUN_ALL', 0); % Runs all elements
-runLong = env_num('PAPR_RUN_LONG', 0); % Runs only long signal duration study of PAPR
+runLong = env_num('PAPR_RUN_LONG', 1); % Runs only long signal duration study of PAPR
 runStats = env_num('PAPR_RUN_STATS', 0); % Runs statistics for the distributions of the signal components
 runCdf = env_num('PAPR_RUN_CDF', 0); % Finds the CCDF of the signal as a function of signal duration
-runGen = env_num('PAPR_RUN_GEN', 1); % Generates signals for loading on signal generators
+runGen = env_num('PAPR_RUN_GEN', 0); % Generates signals for loading on signal generators
 
 numTX = 1; % Single User (SISO)
 idleTime = 16; % In microseconds
@@ -39,7 +39,7 @@ if runLong || runAll
     statsOSF = 4;
     verboseProgress = false;
     [measureDataFieldOnly, modeTag] = papr_measure_mode(true);
-    mcs_list = [0];
+    mcs_list = [1];
     bw_list = [80 160];
     minPackets = 5;
     maxPackets = 10;
@@ -69,10 +69,20 @@ if runLong || runAll
             numPktsPerTrial = randi([minPackets maxPackets], numSims, 1);
 
             % Chunked generation, for the reason given in the runCdf section.
+            % The DataQueue listener runs on the client, so the status lines
+            % come out while the parfor is still going.
+            comboIdx = (ibw-1)*numel(mcs_list) + imcs;
+            progress = papr_progress(sprintf('runLong HE CBW%d MCS%d (combo %d/%d)', ...
+                bw, mcs, comboIdx, numCombos), numSims, 'StartPool', true);
+            dq = progress.queue;
             parfor t = 1:numSims
                 [papr_db(t), inPreamble(t)] = papr_burst_stream_db(cfgHE, octets, ...
                     numPktsPerTrial(t), randomSeed(t), streamPlan);
+                if ~isempty(dq)
+                    send(dq, 1);
+                end
             end
+            progress.finish();
 
             if verboseProgress
                 fprintf('CBW%d MCS%d done (%d symbols, %d octets)\n', bw, mcs, nSym, octets);

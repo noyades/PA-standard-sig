@@ -139,6 +139,12 @@ function processManifest(manifestItems) {
       isAlias: Boolean(item.isAlias),
       aliasNote: item.aliasNote || "",
       contributor: item.contributor || "RF Engine PA Signal Library",
+      // Present only on signals that came in through docs/contribute.html.
+      isContributed: Boolean(item.isContributed),
+      sampleRate: item.sampleRate || "",
+      licence: item.licence || "",
+      provenance: item.provenance || null,
+      paSurvey: item.paSurvey || null,
       signalFiles: item.data_file ? [{
         label: `${item.name || 'Signal'} Data File`,
         repoPath: item.data_file,
@@ -337,6 +343,11 @@ function renderSummary(entry) {
     chips.push(`<span class="chip chip-metric">Mean PAPR: ${escapeHtml(entry.meanPapr)}</span>`);
   }
 
+  if (entry.isContributed) {
+    chips.push(`<span class="chip chip-metric">Contributed</span>`);
+  }
+  if (entry.sampleRate) chips.push(chip(entry.sampleRate));
+
   // 4. Educational alias note banner
   let noteBanner = "";
   if (entry.isAlias && entry.aliasNote) {
@@ -351,7 +362,50 @@ function renderSummary(entry) {
     <h3 style="color: #5c1d2e; font-weight: 700;">${entry.signalClass === "MC" ? "Selected multi-carrier profile" : "Selected single-carrier profile"}</h3>
     <div class="summary-meta">${chips.join("")}</div>
     ${noteBanner}
+    ${renderProvenance(entry)}
+    ${renderSurveyLink(entry)}
   `;
+}
+
+// A contributed waveform is only as trustworthy as its provenance, so who made
+// it and under what licence is shown next to its statistics rather than buried
+// in the manifest.
+function renderProvenance(entry) {
+  if (!entry.isContributed) return "";
+  const p = entry.provenance || {};
+  const bits = [
+    entry.contributor ? `Contributed by ${entry.contributor}` : null,
+    p.affiliation || null,
+    p.generatorTool ? `generated with ${p.generatorTool}` : null,
+    entry.licence ? `licensed ${entry.licence}` : null,
+  ].filter(Boolean);
+  if (!bits.length) return "";
+  return `<p class="provenance-note">${escapeHtml(bits.join(" — "))}</p>`;
+}
+
+// The cross-reference carries its own confidence: most papers do not describe
+// their test waveform precisely enough to reproduce, and saying so is the
+// difference between a citation and an overclaim.
+function renderSurveyLink(entry) {
+  const s = entry.paSurvey;
+  if (!s) return "";
+  const label = [s.title, s.authors, s.venueYear].filter(Boolean).join(", ");
+  const link = s.doi
+    ? `<a class="action-link" href="https://doi.org/${encodeURIComponent(s.doi)}" target="_blank" rel="noreferrer">${escapeHtml(s.doi)}</a>`
+    : "";
+  const confidence = s.matchConfidence
+    ? `<span class="chip">${escapeHtml(s.matchConfidence)} match</span>`
+    : "";
+  const heading = s.inSurvey === true
+    ? "Cross-referenced to the Hua Wang PA survey"
+    : "Possible PA survey cross-reference (unconfirmed)";
+  return `
+    <div class="survey-note">
+      <h4>${heading}</h4>
+      <p>${escapeHtml(label || "Reference details not supplied.")} ${link}</p>
+      <div class="summary-meta">${confidence}</div>
+      ${s.notes ? `<p class="survey-caveat">${escapeHtml(s.notes)}</p>` : ""}
+    </div>`;
 }
 
 function renderSignalCards(entry) {

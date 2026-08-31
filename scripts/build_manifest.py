@@ -2,7 +2,8 @@
 import os
 import json
 import re
-import numpy as np
+
+from signal_analysis import calculate_papr
 
 MANIFEST_FILE = os.path.join("docs", "manifest.json")
 
@@ -25,53 +26,10 @@ ALIAS_CONFIGS = [
 ]
 
 
-def calculate_papr(file_path, frame_size=1000):
-    """Calculates Max and Mean PAPR (in dB) supporting float32, float64, and CSV/TXT."""
-    try:
-        if file_path.endswith('.bin'):
-            # Try float32 first
-            data = np.fromfile(file_path, dtype=np.float32)
-            if len(data) < 2 or np.isnan(data).any():
-                # Fallback to float64 if float32 yields bad data
-                data = np.fromfile(file_path, dtype=np.float64)
-
-            if len(data) < 2:
-                return None, None
-
-            i_samples = data[0::2]
-            q_samples = data[1::2]
-            power = i_samples**2 + q_samples**2
-        else:
-            raw_data = np.loadtxt(file_path, delimiter=',')
-            if raw_data.ndim == 2 and raw_data.shape[1] >= 2:
-                power = raw_data[:, 0]**2 + raw_data[:, 1]**2
-            else:
-                return None, None
-
-        mean_power = np.mean(power)
-        if mean_power == 0 or np.isnan(mean_power):
-            return None, None
-
-        max_power = np.max(power)
-        max_papr_db = 10 * np.log10(max_power / mean_power)
-
-        num_frames = len(power) // frame_size
-        if num_frames > 0:
-            frames = power[:num_frames * frame_size].reshape(num_frames, frame_size)
-            frame_means = np.mean(frames, axis=1)
-            frame_peaks = np.max(frames, axis=1)
-            valid_mask = frame_means > 0
-            if np.any(valid_mask):
-                mean_papr_db = np.mean(10 * np.log10(frame_peaks[valid_mask] / frame_means[valid_mask]))
-            else:
-                mean_papr_db = max_papr_db
-        else:
-            mean_papr_db = max_papr_db
-
-        return round(float(max_papr_db), 2), round(float(mean_papr_db), 2)
-    except Exception as e:
-        print(f"Error calculating PAPR for {file_path}: {e}")
-        return None, None
+# PAPR is measured by scripts/signal_analysis.py, which is also what
+# scripts/ingest_submission.py and the browser-side preview in
+# docs/contribute.js implement. Keeping one definition is what makes a
+# contributed signal comparable with a curated one.
 
 
 def format_fig_name(filename):
@@ -249,6 +207,43 @@ def figures_for(by_combo, by_sweep, standard, mcs, bw):
     order = {kind: i for i, kind in enumerate(KIND_ORDER)}
     combined.sort(key=lambda f: (order.get(f["kind"], len(KIND_ORDER)), f["name"]))
     return [{"name": f["name"], "path": f["path"]} for f in combined]
+
+
+CONTRIB_ROOT = os.path.join("Signals", "Contributed")
+SIDECAR_SUFFIX = ".contribution.json"
+
+
+def index_contributed(root=CONTRIB_ROOT):
+    """Catalog entries for signals accepted through the contribution portal.
+
+    Contributed metadata cannot be inferred from a file path the way the
+    curated tree's is, so scripts/ingest_submission.py writes a sidecar next
+    to the waveform and this reads it back. A sidecar whose waveform is
+    missing is skipped rather than published as a dead download link.
+    """
+    entries = []
+    if not os.path.isdir(root):
+        return entries
+
+    for dirpath, _dirnames, filenames in os.walk(root):
+        for filename in sorted(filenames):
+            if not filename.endswith(SIDECAR_SUFFIX):
+                continue
+            sidecar = os.path.join(dirpath, filename)
+            try:
+                with open(sidecar, encoding="utf-8") as handle:
+                    entry = json.load(handle)["entry"]
+            except (OSError, ValueError, KeyError) as exc:
+                print(f"Skipping malformed sidecar {sidecar}: {exc}")
+                continue
+
+            data_file = entry.get("data_file", "")
+            if not data_file or not os.path.isfile(data_file):
+                print(f"Skipping {sidecar}: data file {data_file!r} is not present.")
+                continue
+            entries.append(entry)
+
+    return entries
 
 
 def build_manifest():
@@ -530,6 +525,11 @@ def build_manifest():
                         "name": f"{mod_label} {sym_label} (Roll-off {rolloff_str})",
                         "figures": figures
                     })
+
+    contributed = index_contributed()
+    if contributed:
+        print(f"Adding {len(contributed)} contributed signal(s) from {CONTRIB_ROOT}.")
+        manifest.extend(contributed)
 
     with open(MANIFEST_FILE, "w") as f:
         json.dump(manifest, f, indent=2)

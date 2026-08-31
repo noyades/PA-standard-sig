@@ -32,7 +32,7 @@ runAll = env_num('PAPR_RUN_ALL', 0); % Runs all elements
 runLong = env_num('PAPR_RUN_LONG', 0); % Runs only long signal duration study of PAPR
 runStats = env_num('PAPR_RUN_STATS', 0); % Runs statistics for the distributions of the signal components
 runCdf = env_num('PAPR_RUN_CDF', 1); % Finds the CCDF of the signal as a function of signal duration
-runGen = env_num('PAPR_RUN_GEN', 0); % Generates signals for loading on signal generators
+runGen = env_num('PAPR_RUN_GEN', 1); % Generates signals for loading on signal generators
 
 numTX = 1; % Single User (SISO)
 idleTime = 16; % In microseconds
@@ -77,10 +77,20 @@ if runLong || runAll
             numPktsPerTrial = randi([minPackets maxPackets], numSims, 1);
 
             % Chunked generation, for the reason given in the runCdf section.
+            % The DataQueue listener runs on the client, so the status lines
+            % come out while the parfor is still going.
+            comboIdx = (ibw-1)*numel(mcs_list) + imcs;
+            progress = papr_progress(sprintf('runLong EHT CBW%d MCS%d (combo %d/%d)', ...
+                bw, mcs, comboIdx, numCombos), numSims, 'StartPool', true);
+            dq = progress.queue;
             parfor t = 1:numSims
                 [papr_db(t), inPreamble(t)] = papr_burst_stream_db(cfgEHT, octets, ...
                     numPktsPerTrial(t), randomSeed(t), streamPlan);
+                if ~isempty(dq)
+                    send(dq, 1);
+                end
             end
+            progress.finish();
 
             if verboseProgress
                 fprintf('CBW%d MCS%d done (%d symbols, %d octets)\n', bw, mcs, nSym, octets);
@@ -223,8 +233,8 @@ end
 % PAPR as a function of signal length
 if runCdf || runAll
     bins = 50;
-    MCS = env_num('PAPR_MCS', 4);
-    BW  = env_num('PAPR_BW', 160);
+    MCS = env_num('PAPR_MCS', 3);
+    BW  = env_num('PAPR_BW', 320);
     numPackets = 8;
     statsOSF = 4;
     [measureDataFieldOnly, modeTag] = papr_measure_mode(true);
@@ -305,9 +315,9 @@ end
 
 %% Signal Generation
 if runGen || runAll
-    mcs_value = env_num('PAPR_MCS', 7);
+    mcs_value = env_num('PAPR_MCS', 3);
     BW = env_num('PAPR_BW', 320);
-    target_mbytes = 8;       % Target memory size: 4, 8, or 16 MB
+    target_mbytes = 4;       % Target memory size: 4, 8, or 16 MB
     % 8 bytes per complex sample: the export below writes float32 I and
     % float32 Q via fwrite(...,'single'). Using 4 here made every file
     % twice the size its name claims.
