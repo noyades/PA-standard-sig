@@ -47,6 +47,31 @@ def format_fig_name(filename):
     return name.title()
 
 
+def read_sc_oversampling(repo_path, default=4):
+    """Oversampling factor of a single-carrier waveform, from its sidecar CSV.
+
+    A single-carrier file is pulse-shaped symbols with no sample rate of its
+    own, so the browser has to ask the user for one. Turning that answer into a
+    symbol rate and an occupied bandwidth needs the samples-per-symbol the file
+    was written at, which lives only in the "<name>_properties.csv" written
+    beside it. Every file in the library today says 4, but reading it beats
+    assuming it, because a later sweep at a different factor would otherwise be
+    published with a bandwidth figure that is quietly wrong.
+    """
+    sidecar = re.sub(r"\.[^./]+$", "", repo_path) + "_properties.csv"
+    if not os.path.exists(sidecar):
+        return default
+    try:
+        with open(sidecar, "r", encoding="utf-8", errors="replace") as handle:
+            for line in handle:
+                key, _, value = line.partition(",")
+                if key.strip().lower() == "oversampling factor":
+                    return int(float(value.strip()))
+    except (OSError, ValueError):
+        pass
+    return default
+
+
 def parse_alpha(alpha_str):
     """Converts folder string like 'alpha005' or 'alpha025' to decimal float string '0.05' or '0.25'."""
     clean = alpha_str.lower().replace("alpha", "").strip()
@@ -465,6 +490,15 @@ def build_manifest():
         for root, _, files in os.walk(sc_dir):
             for file in files:
                 if file.endswith((".bin", ".csv", ".txt")) and not file.startswith("."):
+                    # Every waveform directory ships a "<name>_properties.csv"
+                    # and a "summary.txt" describing the sweep that produced it.
+                    # They match the extension filter but hold no samples, and
+                    # cataloguing them created 375 entries that render as
+                    # signals with no PAPR and cannot be converted into a
+                    # generator waveform. The extensions stay eligible so a
+                    # genuine CSV waveform can still be added later.
+                    if file.endswith("_properties.csv") or file == "summary.txt":
+                        continue
                     repo_path = os.path.join(root, file).replace("\\", "/")
                     norm_root = root.replace("\\", "/")
 
@@ -523,6 +557,7 @@ def build_manifest():
                         "rolloff": rolloff_str,
                         "symbols": sym_label,
                         "filterType": "RRC",
+                        "oversampling": f"{read_sc_oversampling(repo_path)}x",
                         "papr": papr_str,
                         "meanPacketPapr": mean_packet_papr_str,
                         "data_file": repo_path,

@@ -80,12 +80,54 @@
           </label>
 
           <!-- Custom Output Settings -->
-          <hr style="margin: 1rem 0; border: none; border-top: 1px solid var(--border-color, #e0e0e0);">
-          
+          <hr class="form-rule">
+
           <label>
             <span>Required Length (Samples)</span>
             <input id="targetLength" name="targetLength" type="number" placeholder="Original full size" min="100" step="100">
           </label>
+
+          <!--
+            Export settings. A raw float32 archive is not something a signal
+            generator will load, so the bundle is built for a named instrument
+            rather than left as a format the user has to convert themselves.
+          -->
+          <hr class="form-rule">
+          <p class="eyebrow">Export</p>
+
+          <label>
+            <span>Target Signal Generator</span>
+            <select id="targetGenerator" name="targetGenerator"></select>
+          </label>
+
+          <fieldset class="format-set">
+            <legend>File formats</legend>
+            <p class="field-note">Choosing a generator ticks its usual format. Change it freely — you can take more than one.</p>
+            <div id="formatOptions" class="format-options"></div>
+          </fieldset>
+
+          <!--
+            Multi-carrier rate is a property of the file (bandwidth x
+            oversampling), so it is shown rather than asked for. Single-carrier
+            files carry no rate at all, so both boxes below are live and each
+            keeps the other in step.
+          -->
+          <label data-rate="mc">
+            <span>Sample Rate</span>
+            <input id="mcSampleRate" type="text" readonly>
+          </label>
+
+          <label data-rate="sc">
+            <span>Sample Rate (MHz)</span>
+            <input id="scSampleRate" type="number" min="0.001" step="any" placeholder="e.g. 100">
+          </label>
+
+          <label data-rate="sc">
+            <span>Occupied Bandwidth (MHz)</span>
+            <input id="scBandwidth" type="number" min="0.001" step="any" placeholder="e.g. 31.25">
+          </label>
+
+          <p id="rateNote" class="field-note rate-note"></p>
         </form>
 
         <div class="catalog-note">
@@ -122,6 +164,7 @@
     </main>
   </div>
 
+  <script src="iq-formats.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -226,6 +226,85 @@ h3 {
   display: none;
 }
 
+/* Export controls: generator, output formats and sample rate. */
+
+.form-rule {
+  margin: 6px 0 2px;
+  border: none;
+  border-top: 1px solid var(--line);
+}
+
+.signal-form .eyebrow {
+  margin: 0;
+}
+
+.format-set {
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(134, 31, 65, 0.2);
+  border-radius: var(--radius-sm);
+  background: var(--panel-strong);
+  display: grid;
+  gap: 10px;
+}
+
+.format-set legend {
+  padding: 0 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--vt-dark-stone);
+}
+
+.format-options {
+  display: grid;
+  gap: 10px;
+}
+
+/* The checkbox has to sit beside its label rather than above it, which is the
+   opposite of every other control in this form. */
+.format-options label {
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.format-options input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  padding: 0;
+  accent-color: var(--vt-maroon);
+  cursor: pointer;
+}
+
+.format-options span {
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.field-note {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.rate-note:empty {
+  display: none;
+}
+
+.rate-note.rate-warning {
+  color: var(--vt-maroon);
+  font-weight: 600;
+}
+
+.signal-form input[readonly] {
+  background: rgba(134, 31, 65, 0.05);
+  color: var(--muted);
+  cursor: default;
+}
+
 .catalog-note {
   margin-top: 20px;
   padding-top: 18px;
