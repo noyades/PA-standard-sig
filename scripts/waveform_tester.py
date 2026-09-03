@@ -11,12 +11,11 @@ import matplotlib.pyplot as plt
 #  needed here. Reports:
 #    - waveform length in symbols
 #    - PAPR [dB]
-#  Also plots the envelope / phase distributions (same calculation as
-#  QAM_distribution_example), histogram only.
+#  Also plots the envelope / phase distributions.
 # =====================================================================
 
 #%%%%%%%%%%%%%%%%%%%%% User inputs %%%%%%%%%%%%%%%%%%%%%%%%%%%
-waveformDir  = r'\waveform_directory'
+waveformDir  = r'waveform_directory'
 waveformFile = 'waveform_name.bin'
 sps = 4   # oversampling factor used to generate this waveform
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
