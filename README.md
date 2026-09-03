@@ -75,9 +75,9 @@ See [papr_targets.csv](Code/WiFi/papr_targets.csv) for the full per-MCS/bandwidt
 
 ### Single-Carrier QAM (SC)
 
-For single-carrier QAM, waveform duration strongly impacts PAPR. Long SC signals (greater than 1M symbols) show relatively tight PAPR distributions, but those durations may not fit on all signal generators.
+For single-carrier QAM, the RRC filter and the waveform duration strongly impact the PAPR. Long SC signals (greater than 1M symbols) show relatively tight PAPR distributions, but those durations may not fit on all signal generators.
 
-To address this, we provide shorter-duration SC waveforms designed to preserve the same statistical behavior as longer-duration signals.
+To address this, we provide SC waveforms for multiple sequence lengths. For each modulation order, RRC roll-off factor, and sequence length two waveforms are provided: one with the average PAPR for the given length (_average) , and one with the PAPR equivalent to the one of a 1M symbols waveform (_max).
 
 ## PAPR Statistics
 
