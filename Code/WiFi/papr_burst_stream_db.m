@@ -16,11 +16,19 @@ function [papr_db, maxInPreamble] = papr_burst_stream_db(cfg, octets, nPkts, scr
 %   SCRAMBLERINIT may be empty, in which case one seed is drawn for the whole
 %   burst.
 %
+%   When STREAMPLAN carries a GENERATE field (see PAPR_5G_STREAM_PLAN) the
+%   chunks come from TX = STREAMPLAN.GENERATE(NUNITS, UNITOFFSET, SEED)
+%   instead of wlanWaveformGenerator, and CFG and OCTETS are ignored. A
+%   "packet" is then whatever repeating unit the plan defines - for 5G NR a
+%   block of subframes - and UNITOFFSET is how many units precede this chunk,
+%   so slot numbering and the data draw stay continuous across chunks. The
+%   accumulation and the PAPR definition are identical on both paths.
+%
 %   MAXINPREAMBLE reports whether the maximum of the winning chunk fell
 %   outside the data field, matching PAPR_BURST_DB. It is always false in
 %   data-field-only mode.
 %
-%   See also PAPR_STREAM_PLAN, PAPR_BURST_ACCUM, PAPR_BURST_DB.
+%   See also PAPR_STREAM_PLAN, PAPR_5G_STREAM_PLAN, PAPR_BURST_ACCUM, PAPR_BURST_DB.
 
 if nargin < 4 || isempty(scramblerInit)
     scramblerInit = randi([1 127]);
@@ -35,13 +43,18 @@ bestMax = -Inf;
 sent = 0;
 while sent < nPkts
     nThis = min(streamPlan.pktsPerChunk, nPkts - sent);
-    bits = randi([0 1], 8*octets*nThis, 1);
-    tx = wlanWaveformGenerator(papr_bits_arg(cfg, bits), cfg, ...
-        'NumPackets', nThis, ...
-        'IdleTime', streamPlan.idleTimeUs*1e-6, ...
-        'OversamplingFactor', streamPlan.osf, ...
-        'ScramblerInitialization', scramblerInit, ...
-        'WindowTransitionTime', 0);
+    if isfield(streamPlan, 'generate') && ~isempty(streamPlan.generate)
+        tx = streamPlan.generate(nThis, sent, scramblerInit);
+        bits = [];
+    else
+        bits = randi([0 1], 8*octets*nThis, 1);
+        tx = wlanWaveformGenerator(papr_bits_arg(cfg, bits), cfg, ...
+            'NumPackets', nThis, ...
+            'IdleTime', streamPlan.idleTimeUs*1e-6, ...
+            'OversamplingFactor', streamPlan.osf, ...
+            'ScramblerInitialization', scramblerInit, ...
+            'WindowTransitionTime', 0);
+    end
 
     [chunkMax, chunkSum, chunkN, chunkPre] = papr_burst_accum(tx, ...
         streamPlan.meta, nThis, streamPlan.dataFieldOnly);

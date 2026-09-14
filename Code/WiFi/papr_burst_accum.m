@@ -14,7 +14,25 @@ function [maxPow, sumPow, nSamp, maxInPreamble] = papr_burst_accum(tx, paprMeta,
 %   Field selection follows PAPR_BURST_DB: MEASUREDATAFIELDONLY takes the data
 %   field of each packet, otherwise every non-idle sample of the waveform.
 %
-%   See also PAPR_BURST_DB, PAPR_BURST_STREAM_DB, PAPR_FIELD_META.
+%   PAPRMETA describes one repeating unit of the burst - a WLAN packet plus
+%   its idle gap, or a 5G NR subframe block - through either of two forms:
+%
+%     WLAN form (PAPR_FIELD_META): packetStart, packetLen, dataStart,
+%       dataLen, idleLen. The unit is packetLen + idleLen samples and the
+%       data field is one contiguous range inside it.
+%
+%     Range form (PAPR_5G_META): unitLen and dataRanges, an Nx2 matrix of
+%       0-based [first last] sample offsets from the start of the unit.
+%       NR data is not one contiguous run: DM-RS-only symbols sit inside
+%       the allocation and unscheduled slots break it up, so the field
+%       selection needs a list rather than a start and a length.
+%
+%   Both forms go through the same loop, so HT/VHT/HE/EHT and NR figures are
+%   measured by one definition. MAXINPREAMBLE keeps its historical name; it
+%   reports that the burst maximum fell OUTSIDE the data ranges, which for
+%   NR means SSB, PDCCH, DM-RS or SRS rather than a preamble.
+%
+%   See also PAPR_BURST_DB, PAPR_BURST_STREAM_DB, PAPR_FIELD_META, PAPR_5G_META.
 
 maxPow = 0;
 sumPow = 0;
@@ -26,25 +44,28 @@ if isempty(pow)
     return;
 end
 
+[unitLen, dataRanges] = papr_meta_ranges(paprMeta);
+
 if measureDataFieldOnly
     nRows = size(pow, 1);
-    burstStride = paprMeta.packetLen + paprMeta.idleLen;
-    dataOffset = paprMeta.dataStart - paprMeta.packetStart;
-
     for p = 1:nPkts
-        packetBase = 1 + (p-1) * burstStride;
-        s1 = packetBase + dataOffset;
-        s2 = s1 + paprMeta.dataLen - 1;
-        if s1 > nRows
+        unitBase = 1 + (p-1) * unitLen;
+        if unitBase > nRows
             break;
         end
-        s2 = min(s2, nRows);
-        segment = pow(s1:s2, :);
-        maxPow = max(maxPow, max(segment(:)));
-        sumPow = sumPow + sum(segment(:));
-        nSamp = nSamp + numel(segment);
+        for r = 1:size(dataRanges, 1)
+            s1 = unitBase + dataRanges(r, 1);
+            s2 = unitBase + dataRanges(r, 2);
+            if s1 > nRows
+                break;
+            end
+            s2 = min(s2, nRows);
+            segment = pow(s1:s2, :);
+            maxPow = max(maxPow, max(segment(:)));
+            sumPow = sumPow + sum(segment(:));
+            nSamp = nSamp + numel(segment);
+        end
     end
-
     if nSamp == 0
         % No data field landed inside the waveform; fall back to the whole
         % thing rather than reporting nothing, as papr_burst_db always has.
@@ -59,10 +80,23 @@ else
     nSamp = numel(activePow);
 
     [~, maxIdx] = max(pow(:));
-    burstStride = paprMeta.packetLen + paprMeta.idleLen;
+    offsetInUnit = mod(mod(maxIdx - 1, size(pow,1)), unitLen);
+    maxInPreamble = ~any(offsetInUnit >= dataRanges(:,1) & offsetInUnit <= dataRanges(:,2));
+end
+end
+
+function [unitLen, dataRanges] = papr_meta_ranges(paprMeta)
+%PAPR_META_RANGES Unit length and 0-based data ranges from either meta form.
+if isfield(paprMeta, 'dataRanges')
+    unitLen = paprMeta.unitLen;
+    dataRanges = double(paprMeta.dataRanges);
+    if isempty(dataRanges)
+        dataRanges = zeros(0, 2);
+    end
+else
+    unitLen = paprMeta.packetLen + paprMeta.idleLen;
     dataOffset = paprMeta.dataStart - paprMeta.packetStart;
-    offsetInPacket = mod(mod(maxIdx - 1, size(pow,1)), burstStride);
-    maxInPreamble = offsetInPacket < dataOffset;
+    dataRanges = [dataOffset, dataOffset + paprMeta.dataLen - 1];
 end
 end
 
