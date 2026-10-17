@@ -23,8 +23,11 @@ scriptDir = fileparts(mfilename('fullpath'));
 addpath(scriptDir);
 addpath(fileparts(scriptDir));
 
-sigPath = '..\..\Signals\Multi Carrier\WiFi\802.11BE (WiFi7)\';
-figPath = '..\..\Figures\WiFi\802.11BE (WiFi7)\';
+% Anchored to this file, not MATLAB's current folder, so the script can be
+% run from anywhere (relative paths made fopen fail otherwise).
+repoRoot = fileparts(fileparts(scriptDir));
+sigPath = fullfile(repoRoot, 'Signals', 'Multi Carrier', 'WiFi', '802.11BE (WiFi7)');
+figPath = fullfile(repoRoot, 'Figures', 'WiFi', '802.11BE (WiFi7)');
 
 % Control which elements of the code run. Each is overridable from the shell
 % (e.g. PAPR_RUN_LONG=1) so a sweep needs no edits to this file.
@@ -36,7 +39,7 @@ runGen = env_num('PAPR_RUN_GEN', 1); % Generates signals for loading on signal g
 
 numTX = 1; % Single User (SISO)
 idleTime = 16; % In microseconds
-osf = 4; % Oversampling factor
+osf = 4; % Generation/PAPR-matching rate; files are exported at 2x (papr_export_rate)
 
 MAX_EHT_SYMBOLS = 339; % 5.484 ms TXOP limit at the default 3.2 us guard interval
 
@@ -317,7 +320,7 @@ end
 if runGen || runAll
     mcs_value = env_num('PAPR_MCS', 0);
     BW = env_num('PAPR_BW', 20);
-    target_mbytes = 8;       % Target memory size: 4, 8, or 16 MB
+    target_mbytes = env_num('PAPR_MB', 8); % Target memory size: 4, 8, or 16 MB
     % 8 bytes per complex sample: the export below writes float32 I and
     % float32 Q via fwrite(...,'single'). Using 4 here made every file
     % twice the size its name claims.
@@ -333,7 +336,12 @@ if runGen || runAll
 
     cfgEHT = papr_std_config('eht', BW, mcs_value, numTX);
     cfgEHT = papr_payload(cfgEHT, mcs_value, 1);   % MCS now, payload length below
-    total_target_samples = (target_mbytes * 1024 * 1024) / bytes_per_sample;
+    % Generate and match PAPR at osf (the rate the targets were measured
+    % at), export at 2x or the ARB clock cap; see papr_export_rate.
+    ex = papr_export_rate(BW*1e6, BW*1e6*osf, (target_mbytes * 1024 * 1024) / bytes_per_sample);
+    total_target_samples = ex.genSamples;
+    fprintf('Export: %.2f MS/s (%gx), %d samples; generating at %gx.\n', ...
+        ex.fs/1e6, ex.osf, ex.samples, osf);
 
     % Constant airtime is what makes the PAPR figures comparable across MCS,
     % but the waveform still has to load onto the signal generator. Ask for
@@ -358,6 +366,13 @@ if runGen || runAll
         numPackets, remaining_samples, target_mbytes);
 
     genPaprMeta = papr_field_meta(cfgEHT, osf, idleTime);
+
+    % Transmit filter: flat across the occupied band, zero from the channel
+    % edge on, so the file's own sidelobes do not mask the PA's regrowth.
+    fsGen = wlanSampleRate(cfgEHT) * osf;
+    passHz = papr_wlan_edge_hz(cfgEHT);
+    stopHz = BW * 1e6 / 2;
+
     matched = false;
     for attempt = 1:max_attempts
         psduBits = randi([0 1], 8*octets*numPackets, 1);
@@ -367,6 +382,14 @@ if runGen || runAll
             'OversamplingFactor', osf, ...
             'ScramblerInitialization', randi([1 127]));
 
+        % Pad to the memory budget, then filter the whole loop as one period
+        % so it stays band-limited across the wrap when the generator plays
+        % it end to end. PAPR is measured on the filtered burst, i.e. on
+        % what is exported.
+        final_waveform = papr_loop_filter([tx_burst; zeros(remaining_samples, size(tx_burst,2))], ...
+            fsGen, passHz, stopHz);
+        tx_burst = final_waveform(1:size(tx_burst,1), :);
+
         % Same definition as the targets, so the comparison is meaningful.
         current_papr_db = papr_burst_db(tx_burst, genPaprMeta, numPackets, measureDataFieldOnly);
 
@@ -374,13 +397,19 @@ if runGen || runAll
             matched = true;
             fprintf('Success on attempt %d! Matched PAPR: %2.2f dB\n', attempt, current_papr_db);
 
-            final_waveform = [tx_burst; zeros(remaining_samples, size(tx_burst,2))];
+            % Down to the export rate. The loop is band-limited and periodic,
+            % so this is exact and adds nothing at the wrap.
+            final_waveform = papr_loop_resample(final_waveform, ex.samples);
+
+            % Peak at 1.0, so an import that takes +/-1 as full scale
+            % cannot clip it.
+            final_waveform = final_waveform / max(abs(final_waveform(:)));
             interleaved_data = zeros(2*length(final_waveform), 1, 'single');
             interleaved_data(1:2:end) = real(final_waveform(:,1));
             interleaved_data(2:2:end) = imag(final_waveform(:,1));
 
-            filename = sprintf('wifi7_mcs=%d_bw=%d_osf=%d_%dMB.bin', ...
-                mcs_value, BW, osf, target_mbytes);
+            filename = sprintf('wifi7_mcs=%d_bw=%d_osf=%g_%dMB.bin', ...
+                mcs_value, BW, ex.osf, target_mbytes);
             full_dest_path = fullfile(sigPath, filename);
             if ~exist(sigPath, 'dir')
                 mkdir(sigPath);
@@ -418,6 +447,13 @@ if runGen || runAll
     % the waveform at its nominal baseband rate.
     fs = wlanSampleRate(cfgEHT);
     rx_baseband = tx_burst(1:osf:end, :);
+
+    % A -70 dBc noise floor, as any real capture has. The transmit filter
+    % leaves ringing about 90 dB down in the idle gaps, and wlanPacketDetect
+    % normalises by signal power, so on a noiseless input it locks onto that
+    % ringing and misplaces every packet after the first.
+    rx_baseband = rx_baseband + rms(rx_baseband(abs(rx_baseband) > 0)) * 10^(-70/20) * ...
+        complex(randn(size(rx_baseband)), randn(size(rx_baseband))) / sqrt(2);
     rxWaveformLength = size(rx_baseband, 1);
 
     refConstellation = double(wlanReferenceSymbols(cfgEHT, userIdx));
@@ -522,19 +558,22 @@ if runGen || runAll
         end
 
         %% Plot Constellation
-        constPath = fullfile(figPath, 'Constellations');
-        if ~exist(constPath, 'dir')
-            mkdir(constPath);
+        % PAPR_GEN_PLOT=0 skips the plot (batch sweeps; see run_wifi_all).
+        if env_num('PAPR_GEN_PLOT', 1)
+            constPath = fullfile(figPath, 'Constellations');
+            if ~exist(constPath, 'dir')
+                mkdir(constPath);
+            end
+            fname = fullfile(constPath, sprintf('wifi7_Constellation_mcs=%d_bw=%d_osf=%g_%dMB.png', ...
+                mcs_value, BW, ex.osf, target_mbytes));
+            figConst = plot_generic(real(eqDataSym(:)), imag(eqDataSym(:)), ...
+                fname, 'LogY', false, 'LogX', false, ...
+                'XLabel', 'I', 'YLabel', 'Q', ...
+                'FigureSize', [1 1 3 3], 'XTick', -1.1:1.1:1.1, 'YTick', -1.1:1.1:1.1, ...
+                'LegendLocation', 'SouthWest', 'LineStyle', 'none', ...
+                'Markers', '*', ...
+                'FontSize', 8, 'NColors', 64, 'Save', true);
+            fprintf('Wrote %s\n', fname);
         end
-        fname = fullfile(constPath, sprintf('wifi7_Constellation_mcs=%d_bw=%d_osf=%d_%dMB.png', ...
-            mcs_value, BW, osf, target_mbytes));
-        figConst = plot_generic(real(eqDataSym(:)), imag(eqDataSym(:)), ...
-            fname, 'LogY', false, 'LogX', false, ...
-            'XLabel', 'I', 'YLabel', 'Q', ...
-            'FigureSize', [1 1 3 3], 'XTick', -1.1:1.1:1.1, 'YTick', -1.1:1.1:1.1, ...
-            'LegendLocation', 'SouthWest', 'LineStyle', 'none', ...
-            'Markers', '*', ...
-            'FontSize', 8, 'NColors', 64, 'Save', true);
-        fprintf('Wrote %s\n', fname);
     end
 end

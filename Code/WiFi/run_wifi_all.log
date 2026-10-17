@@ -1,0 +1,951 @@
+2026-10-17 06:03:43  run_wifi_all: 2 file(s) to generate, 0 already current (standards=vht, MB=[4  8], mode=data, plots=0).
+2026-10-17 06:03:43  [1/2] start VHT MCS  8 @  20 MHz, 4 MB -> wifi5_mcs=8_bw=20_osf=2_4MB.bin
+2026-10-17 06:04:04  [1/2] done  VHT MCS  8 @  20 MHz, 4 MB -> wifi5_mcs=8_bw=20_osf=2_4MB.bin (0.4 min)
+2026-10-17 06:04:04  [2/2] start VHT MCS  8 @  20 MHz, 8 MB -> wifi5_mcs=8_bw=20_osf=2_8MB.bin
+2026-10-17 06:04:31  [2/2] done  VHT MCS  8 @  20 MHz, 8 MB -> wifi5_mcs=8_bw=20_osf=2_8MB.bin (0.4 min)
+2026-10-17 06:04:31  run_wifi_all finished generating: 2 ok, 0 failed, 0.0 h total.
+2026-10-17 06:04:31    deleted wifi5_mcs=8_bw=20_osf=4_4MB.bin
+2026-10-17 06:04:31    deleted wifi5_mcs=8_bw=20_osf=4_8MB.bin
+2026-10-17 06:04:31  Clean: 2 stale file(s) deleted, 0 kept until replaced.
+2026-10-17 06:04:31  Log: C:\Users\jeffr\OneDrive\Documents\Github\PA-standard-sig\Code\WiFi\run_wifi_all.log
+2026-10-17 06:55:37  run_wifi_all: 330 file(s) to generate, 16 already current (standards=ht,vht,he,eht, MB=[4  8], mode=data, plots=0).
+2026-10-17 06:55:37  [1/330] start HT  MCS  3 @  20 MHz, 4 MB -> wifi4_mcs=3_bw=20_GI=*_osf=2_4MB.bin
+2026-10-17 06:55:56  [1/330] done  HT  MCS  3 @  20 MHz, 4 MB -> wifi4_mcs=3_bw=20_GI=*_osf=2_4MB.bin (0.3 min)
+2026-10-17 06:55:56  [2/330] start HT  MCS  3 @  20 MHz, 8 MB -> wifi4_mcs=3_bw=20_GI=*_osf=2_8MB.bin
+2026-10-17 06:56:02  [2/330] done  HT  MCS  3 @  20 MHz, 8 MB -> wifi4_mcs=3_bw=20_GI=*_osf=2_8MB.bin (0.1 min)
+2026-10-17 06:56:02  [3/330] start HT  MCS  3 @  40 MHz, 8 MB -> wifi4_mcs=3_bw=40_GI=*_osf=2_8MB.bin
+2026-10-17 06:56:08  [3/330] done  HT  MCS  3 @  40 MHz, 8 MB -> wifi4_mcs=3_bw=40_GI=*_osf=2_8MB.bin (0.1 min)
+2026-10-17 06:56:08  [4/330] start HT  MCS  4 @  20 MHz, 4 MB -> wifi4_mcs=4_bw=20_GI=*_osf=2_4MB.bin
+2026-10-17 06:56:10  [4/330] done  HT  MCS  4 @  20 MHz, 4 MB -> wifi4_mcs=4_bw=20_GI=*_osf=2_4MB.bin (0.0 min)
+2026-10-17 06:56:10  [5/330] start HT  MCS  4 @  20 MHz, 8 MB -> wifi4_mcs=4_bw=20_GI=*_osf=2_8MB.bin
+2026-10-17 06:56:17  [5/330] done  HT  MCS  4 @  20 MHz, 8 MB -> wifi4_mcs=4_bw=20_GI=*_osf=2_8MB.bin (0.1 min)
+2026-10-17 06:56:17  [6/330] start HT  MCS  4 @  40 MHz, 8 MB -> wifi4_mcs=4_bw=40_GI=*_osf=2_8MB.bin
+2026-10-17 06:56:24  [6/330] done  HT  MCS  4 @  40 MHz, 8 MB -> wifi4_mcs=4_bw=40_GI=*_osf=2_8MB.bin (0.1 min)
+2026-10-17 06:56:24  [7/330] start HT  MCS  5 @  20 MHz, 4 MB -> wifi4_mcs=5_bw=20_GI=*_osf=2_4MB.bin
+2026-10-17 06:56:28  [7/330] done  HT  MCS  5 @  20 MHz, 4 MB -> wifi4_mcs=5_bw=20_GI=*_osf=2_4MB.bin (0.1 min)
+2026-10-17 06:56:28  [8/330] start HT  MCS  5 @  20 MHz, 8 MB -> wifi4_mcs=5_bw=20_GI=*_osf=2_8MB.bin
+2026-10-17 06:56:34  [8/330] done  HT  MCS  5 @  20 MHz, 8 MB -> wifi4_mcs=5_bw=20_GI=*_osf=2_8MB.bin (0.1 min)
+2026-10-17 06:56:34  [9/330] start HT  MCS  5 @  40 MHz, 4 MB -> wifi4_mcs=5_bw=40_GI=*_osf=2_4MB.bin
+2026-10-17 06:57:09  [9/330] done  HT  MCS  5 @  40 MHz, 4 MB -> wifi4_mcs=5_bw=40_GI=*_osf=2_4MB.bin (0.6 min)
+2026-10-17 06:57:09  [10/330] start HT  MCS  5 @  40 MHz, 8 MB -> wifi4_mcs=5_bw=40_GI=*_osf=2_8MB.bin
+2026-10-17 06:57:14  [10/330] done  HT  MCS  5 @  40 MHz, 8 MB -> wifi4_mcs=5_bw=40_GI=*_osf=2_8MB.bin (0.1 min)
+2026-10-17 06:57:14  [11/330] start HT  MCS  6 @  20 MHz, 4 MB -> wifi4_mcs=6_bw=20_GI=*_osf=2_4MB.bin
+2026-10-17 06:57:19  [11/330] done  HT  MCS  6 @  20 MHz, 4 MB -> wifi4_mcs=6_bw=20_GI=*_osf=2_4MB.bin (0.1 min)
+2026-10-17 06:57:19  [12/330] start HT  MCS  6 @  20 MHz, 8 MB -> wifi4_mcs=6_bw=20_GI=*_osf=2_8MB.bin
+2026-10-17 06:57:36  [12/330] done  HT  MCS  6 @  20 MHz, 8 MB -> wifi4_mcs=6_bw=20_GI=*_osf=2_8MB.bin (0.3 min)
+2026-10-17 06:57:36  [13/330] start HT  MCS  6 @  40 MHz, 4 MB -> wifi4_mcs=6_bw=40_GI=*_osf=2_4MB.bin
+2026-10-17 06:57:53  [13/330] done  HT  MCS  6 @  40 MHz, 4 MB -> wifi4_mcs=6_bw=40_GI=*_osf=2_4MB.bin (0.3 min)
+2026-10-17 06:57:53  [14/330] start HT  MCS  6 @  40 MHz, 8 MB -> wifi4_mcs=6_bw=40_GI=*_osf=2_8MB.bin
+2026-10-17 06:58:01  [14/330] done  HT  MCS  6 @  40 MHz, 8 MB -> wifi4_mcs=6_bw=40_GI=*_osf=2_8MB.bin (0.1 min)
+2026-10-17 06:58:01  [15/330] start HT  MCS  7 @  20 MHz, 4 MB -> wifi4_mcs=7_bw=20_GI=*_osf=2_4MB.bin
+2026-10-17 06:58:07  [15/330] done  HT  MCS  7 @  20 MHz, 4 MB -> wifi4_mcs=7_bw=20_GI=*_osf=2_4MB.bin (0.1 min)
+2026-10-17 06:58:07  [16/330] start HT  MCS  7 @  20 MHz, 8 MB -> wifi4_mcs=7_bw=20_GI=*_osf=2_8MB.bin
+2026-10-17 06:58:16  [16/330] done  HT  MCS  7 @  20 MHz, 8 MB -> wifi4_mcs=7_bw=20_GI=*_osf=2_8MB.bin (0.2 min)
+2026-10-17 06:58:16  [17/330] start HT  MCS  7 @  40 MHz, 4 MB -> wifi4_mcs=7_bw=40_GI=*_osf=2_4MB.bin
+2026-10-17 06:58:26  [17/330] done  HT  MCS  7 @  40 MHz, 4 MB -> wifi4_mcs=7_bw=40_GI=*_osf=2_4MB.bin (0.2 min)
+2026-10-17 06:58:26  [18/330] start HT  MCS  7 @  40 MHz, 8 MB -> wifi4_mcs=7_bw=40_GI=*_osf=2_8MB.bin
+2026-10-17 06:58:31  [18/330] done  HT  MCS  7 @  40 MHz, 8 MB -> wifi4_mcs=7_bw=40_GI=*_osf=2_8MB.bin (0.1 min)
+2026-10-17 06:58:31  [19/330] start VHT MCS  0 @  20 MHz, 4 MB -> wifi5_mcs=0_bw=20_osf=2_4MB.bin
+2026-10-17 06:59:27  [19/330] done  VHT MCS  0 @  20 MHz, 4 MB -> wifi5_mcs=0_bw=20_osf=2_4MB.bin (0.9 min)
+2026-10-17 06:59:27  [20/330] start VHT MCS  0 @  20 MHz, 8 MB -> wifi5_mcs=0_bw=20_osf=2_8MB.bin
+2026-10-17 07:00:00  [20/330] done  VHT MCS  0 @  20 MHz, 8 MB -> wifi5_mcs=0_bw=20_osf=2_8MB.bin (0.6 min)
+2026-10-17 07:00:00  [21/330] start VHT MCS  0 @  40 MHz, 4 MB -> wifi5_mcs=0_bw=40_osf=2_4MB.bin
+2026-10-17 07:00:06  [21/330] done  VHT MCS  0 @  40 MHz, 4 MB -> wifi5_mcs=0_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:00:06  [22/330] start VHT MCS  0 @  40 MHz, 8 MB -> wifi5_mcs=0_bw=40_osf=2_8MB.bin
+2026-10-17 07:00:27  [22/330] done  VHT MCS  0 @  40 MHz, 8 MB -> wifi5_mcs=0_bw=40_osf=2_8MB.bin (0.3 min)
+2026-10-17 07:00:27  [23/330] start VHT MCS  0 @  80 MHz, 4 MB -> wifi5_mcs=0_bw=80_osf=2_4MB.bin
+2026-10-17 07:01:03  [23/330] done  VHT MCS  0 @  80 MHz, 4 MB -> wifi5_mcs=0_bw=80_osf=2_4MB.bin (0.6 min)
+2026-10-17 07:01:03  [24/330] start VHT MCS  0 @  80 MHz, 8 MB -> wifi5_mcs=0_bw=80_osf=2_8MB.bin
+2026-10-17 07:01:10  [24/330] done  VHT MCS  0 @  80 MHz, 8 MB -> wifi5_mcs=0_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:01:10  [25/330] start VHT MCS  0 @ 160 MHz, 4 MB -> wifi5_mcs=0_bw=160_osf=2_4MB.bin
+2026-10-17 07:01:36  [25/330] done  VHT MCS  0 @ 160 MHz, 4 MB -> wifi5_mcs=0_bw=160_osf=2_4MB.bin (0.4 min)
+2026-10-17 07:01:36  [26/330] start VHT MCS  0 @ 160 MHz, 8 MB -> wifi5_mcs=0_bw=160_osf=2_8MB.bin
+2026-10-17 07:01:49  [26/330] done  VHT MCS  0 @ 160 MHz, 8 MB -> wifi5_mcs=0_bw=160_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:01:49  [27/330] start VHT MCS  1 @  20 MHz, 4 MB -> wifi5_mcs=1_bw=20_osf=2_4MB.bin
+2026-10-17 07:01:52  [27/330] done  VHT MCS  1 @  20 MHz, 4 MB -> wifi5_mcs=1_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:01:52  [28/330] start VHT MCS  1 @  20 MHz, 8 MB -> wifi5_mcs=1_bw=20_osf=2_8MB.bin
+2026-10-17 07:02:00  [28/330] done  VHT MCS  1 @  20 MHz, 8 MB -> wifi5_mcs=1_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:02:00  [29/330] start VHT MCS  1 @  40 MHz, 4 MB -> wifi5_mcs=1_bw=40_osf=2_4MB.bin
+2026-10-17 07:02:13  [29/330] done  VHT MCS  1 @  40 MHz, 4 MB -> wifi5_mcs=1_bw=40_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:02:13  [30/330] start VHT MCS  1 @  40 MHz, 8 MB -> wifi5_mcs=1_bw=40_osf=2_8MB.bin
+2026-10-17 07:02:16  [30/330] done  VHT MCS  1 @  40 MHz, 8 MB -> wifi5_mcs=1_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:02:16  [31/330] start VHT MCS  1 @  80 MHz, 4 MB -> wifi5_mcs=1_bw=80_osf=2_4MB.bin
+2026-10-17 07:02:21  [31/330] done  VHT MCS  1 @  80 MHz, 4 MB -> wifi5_mcs=1_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:02:21  [32/330] start VHT MCS  1 @  80 MHz, 8 MB -> wifi5_mcs=1_bw=80_osf=2_8MB.bin
+2026-10-17 07:02:24  [32/330] done  VHT MCS  1 @  80 MHz, 8 MB -> wifi5_mcs=1_bw=80_osf=2_8MB.bin (0.0 min)
+2026-10-17 07:02:24  [33/330] start VHT MCS  1 @ 160 MHz, 4 MB -> wifi5_mcs=1_bw=160_osf=2_4MB.bin
+2026-10-17 07:02:26  [33/330] done  VHT MCS  1 @ 160 MHz, 4 MB -> wifi5_mcs=1_bw=160_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:02:26  [34/330] start VHT MCS  1 @ 160 MHz, 8 MB -> wifi5_mcs=1_bw=160_osf=2_8MB.bin
+2026-10-17 07:02:35  [34/330] done  VHT MCS  1 @ 160 MHz, 8 MB -> wifi5_mcs=1_bw=160_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:02:35  [35/330] start VHT MCS  2 @  20 MHz, 4 MB -> wifi5_mcs=2_bw=20_osf=2_4MB.bin
+2026-10-17 07:02:37  [35/330] done  VHT MCS  2 @  20 MHz, 4 MB -> wifi5_mcs=2_bw=20_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:02:37  [36/330] start VHT MCS  2 @  20 MHz, 8 MB -> wifi5_mcs=2_bw=20_osf=2_8MB.bin
+2026-10-17 07:02:41  [36/330] done  VHT MCS  2 @  20 MHz, 8 MB -> wifi5_mcs=2_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:02:41  [37/330] start VHT MCS  2 @  40 MHz, 4 MB -> wifi5_mcs=2_bw=40_osf=2_4MB.bin
+2026-10-17 07:02:44  [37/330] done  VHT MCS  2 @  40 MHz, 4 MB -> wifi5_mcs=2_bw=40_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:02:44  [38/330] start VHT MCS  2 @  40 MHz, 8 MB -> wifi5_mcs=2_bw=40_osf=2_8MB.bin
+2026-10-17 07:02:50  [38/330] done  VHT MCS  2 @  40 MHz, 8 MB -> wifi5_mcs=2_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:02:50  [39/330] start VHT MCS  2 @  80 MHz, 4 MB -> wifi5_mcs=2_bw=80_osf=2_4MB.bin
+2026-10-17 07:02:53  [39/330] done  VHT MCS  2 @  80 MHz, 4 MB -> wifi5_mcs=2_bw=80_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:02:53  [40/330] start VHT MCS  2 @  80 MHz, 8 MB -> wifi5_mcs=2_bw=80_osf=2_8MB.bin
+2026-10-17 07:03:02  [40/330] done  VHT MCS  2 @  80 MHz, 8 MB -> wifi5_mcs=2_bw=80_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:03:02  [41/330] start VHT MCS  2 @ 160 MHz, 4 MB -> wifi5_mcs=2_bw=160_osf=2_4MB.bin
+2026-10-17 07:03:12  [41/330] done  VHT MCS  2 @ 160 MHz, 4 MB -> wifi5_mcs=2_bw=160_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:03:12  [42/330] start VHT MCS  2 @ 160 MHz, 8 MB -> wifi5_mcs=2_bw=160_osf=2_8MB.bin
+2026-10-17 07:03:14  [42/330] done  VHT MCS  2 @ 160 MHz, 8 MB -> wifi5_mcs=2_bw=160_osf=2_8MB.bin (0.0 min)
+2026-10-17 07:03:14  [43/330] start VHT MCS  3 @  20 MHz, 4 MB -> wifi5_mcs=3_bw=20_osf=2_4MB.bin
+2026-10-17 07:03:18  [43/330] done  VHT MCS  3 @  20 MHz, 4 MB -> wifi5_mcs=3_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:03:18  [44/330] start VHT MCS  3 @  20 MHz, 8 MB -> wifi5_mcs=3_bw=20_osf=2_8MB.bin
+2026-10-17 07:03:22  [44/330] done  VHT MCS  3 @  20 MHz, 8 MB -> wifi5_mcs=3_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:03:22  [45/330] start VHT MCS  3 @  40 MHz, 4 MB -> wifi5_mcs=3_bw=40_osf=2_4MB.bin
+2026-10-17 07:03:32  [45/330] done  VHT MCS  3 @  40 MHz, 4 MB -> wifi5_mcs=3_bw=40_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:03:32  [46/330] start VHT MCS  3 @  40 MHz, 8 MB -> wifi5_mcs=3_bw=40_osf=2_8MB.bin
+2026-10-17 07:03:35  [46/330] done  VHT MCS  3 @  40 MHz, 8 MB -> wifi5_mcs=3_bw=40_osf=2_8MB.bin (0.0 min)
+2026-10-17 07:03:35  [47/330] start VHT MCS  3 @  80 MHz, 4 MB -> wifi5_mcs=3_bw=80_osf=2_4MB.bin
+2026-10-17 07:03:42  [47/330] done  VHT MCS  3 @  80 MHz, 4 MB -> wifi5_mcs=3_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:03:42  [48/330] start VHT MCS  3 @  80 MHz, 8 MB -> wifi5_mcs=3_bw=80_osf=2_8MB.bin
+2026-10-17 07:03:46  [48/330] done  VHT MCS  3 @  80 MHz, 8 MB -> wifi5_mcs=3_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:03:46  [49/330] start VHT MCS  3 @ 160 MHz, 4 MB -> wifi5_mcs=3_bw=160_osf=2_4MB.bin
+2026-10-17 07:03:49  [49/330] done  VHT MCS  3 @ 160 MHz, 4 MB -> wifi5_mcs=3_bw=160_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:03:49  [50/330] start VHT MCS  3 @ 160 MHz, 8 MB -> wifi5_mcs=3_bw=160_osf=2_8MB.bin
+2026-10-17 07:03:54  [50/330] done  VHT MCS  3 @ 160 MHz, 8 MB -> wifi5_mcs=3_bw=160_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:03:54  [51/330] start VHT MCS  4 @  20 MHz, 4 MB -> wifi5_mcs=4_bw=20_osf=2_4MB.bin
+2026-10-17 07:03:56  [51/330] done  VHT MCS  4 @  20 MHz, 4 MB -> wifi5_mcs=4_bw=20_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:03:56  [52/330] start VHT MCS  4 @  20 MHz, 8 MB -> wifi5_mcs=4_bw=20_osf=2_8MB.bin
+2026-10-17 07:04:04  [52/330] done  VHT MCS  4 @  20 MHz, 8 MB -> wifi5_mcs=4_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:04:04  [53/330] start VHT MCS  4 @  40 MHz, 4 MB -> wifi5_mcs=4_bw=40_osf=2_4MB.bin
+2026-10-17 07:04:06  [53/330] done  VHT MCS  4 @  40 MHz, 4 MB -> wifi5_mcs=4_bw=40_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:04:06  [54/330] start VHT MCS  4 @  40 MHz, 8 MB -> wifi5_mcs=4_bw=40_osf=2_8MB.bin
+2026-10-17 07:04:10  [54/330] done  VHT MCS  4 @  40 MHz, 8 MB -> wifi5_mcs=4_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:04:10  [55/330] start VHT MCS  4 @  80 MHz, 4 MB -> wifi5_mcs=4_bw=80_osf=2_4MB.bin
+2026-10-17 07:04:17  [55/330] done  VHT MCS  4 @  80 MHz, 4 MB -> wifi5_mcs=4_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:04:17  [56/330] start VHT MCS  4 @  80 MHz, 8 MB -> wifi5_mcs=4_bw=80_osf=2_8MB.bin
+2026-10-17 07:04:24  [56/330] done  VHT MCS  4 @  80 MHz, 8 MB -> wifi5_mcs=4_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:04:24  [57/330] start VHT MCS  4 @ 160 MHz, 4 MB -> wifi5_mcs=4_bw=160_osf=2_4MB.bin
+2026-10-17 07:04:30  [57/330] done  VHT MCS  4 @ 160 MHz, 4 MB -> wifi5_mcs=4_bw=160_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:04:30  [58/330] start VHT MCS  4 @ 160 MHz, 8 MB -> wifi5_mcs=4_bw=160_osf=2_8MB.bin
+2026-10-17 07:04:37  [58/330] done  VHT MCS  4 @ 160 MHz, 8 MB -> wifi5_mcs=4_bw=160_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:04:37  [59/330] start VHT MCS  5 @  20 MHz, 4 MB -> wifi5_mcs=5_bw=20_osf=2_4MB.bin
+2026-10-17 07:04:40  [59/330] done  VHT MCS  5 @  20 MHz, 4 MB -> wifi5_mcs=5_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:04:40  [60/330] start VHT MCS  5 @  20 MHz, 8 MB -> wifi5_mcs=5_bw=20_osf=2_8MB.bin
+2026-10-17 07:04:45  [60/330] done  VHT MCS  5 @  20 MHz, 8 MB -> wifi5_mcs=5_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:04:45  [61/330] start VHT MCS  5 @  40 MHz, 4 MB -> wifi5_mcs=5_bw=40_osf=2_4MB.bin
+2026-10-17 07:04:52  [61/330] done  VHT MCS  5 @  40 MHz, 4 MB -> wifi5_mcs=5_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:04:52  [62/330] start VHT MCS  5 @  40 MHz, 8 MB -> wifi5_mcs=5_bw=40_osf=2_8MB.bin
+2026-10-17 07:04:55  [62/330] done  VHT MCS  5 @  40 MHz, 8 MB -> wifi5_mcs=5_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:04:55  [63/330] start VHT MCS  5 @  80 MHz, 4 MB -> wifi5_mcs=5_bw=80_osf=2_4MB.bin
+2026-10-17 07:04:57  [63/330] done  VHT MCS  5 @  80 MHz, 4 MB -> wifi5_mcs=5_bw=80_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:04:57  [64/330] start VHT MCS  5 @  80 MHz, 8 MB -> wifi5_mcs=5_bw=80_osf=2_8MB.bin
+2026-10-17 07:05:01  [64/330] done  VHT MCS  5 @  80 MHz, 8 MB -> wifi5_mcs=5_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:05:01  [65/330] start VHT MCS  5 @ 160 MHz, 4 MB -> wifi5_mcs=5_bw=160_osf=2_4MB.bin
+2026-10-17 07:05:14  [65/330] done  VHT MCS  5 @ 160 MHz, 4 MB -> wifi5_mcs=5_bw=160_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:05:14  [66/330] start VHT MCS  5 @ 160 MHz, 8 MB -> wifi5_mcs=5_bw=160_osf=2_8MB.bin
+2026-10-17 07:05:27  [66/330] done  VHT MCS  5 @ 160 MHz, 8 MB -> wifi5_mcs=5_bw=160_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:05:27  [67/330] start VHT MCS  6 @  20 MHz, 4 MB -> wifi5_mcs=6_bw=20_osf=2_4MB.bin
+2026-10-17 07:05:31  [67/330] done  VHT MCS  6 @  20 MHz, 4 MB -> wifi5_mcs=6_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:05:31  [68/330] start VHT MCS  6 @  20 MHz, 8 MB -> wifi5_mcs=6_bw=20_osf=2_8MB.bin
+2026-10-17 07:05:37  [68/330] done  VHT MCS  6 @  20 MHz, 8 MB -> wifi5_mcs=6_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:05:37  [69/330] start VHT MCS  6 @  40 MHz, 4 MB -> wifi5_mcs=6_bw=40_osf=2_4MB.bin
+2026-10-17 07:05:42  [69/330] done  VHT MCS  6 @  40 MHz, 4 MB -> wifi5_mcs=6_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:05:42  [70/330] start VHT MCS  6 @  40 MHz, 8 MB -> wifi5_mcs=6_bw=40_osf=2_8MB.bin
+2026-10-17 07:05:48  [70/330] done  VHT MCS  6 @  40 MHz, 8 MB -> wifi5_mcs=6_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:05:48  [71/330] start VHT MCS  6 @  80 MHz, 4 MB -> wifi5_mcs=6_bw=80_osf=2_4MB.bin
+2026-10-17 07:05:50  [71/330] done  VHT MCS  6 @  80 MHz, 4 MB -> wifi5_mcs=6_bw=80_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:05:50  [72/330] start VHT MCS  6 @  80 MHz, 8 MB -> wifi5_mcs=6_bw=80_osf=2_8MB.bin
+2026-10-17 07:05:57  [72/330] done  VHT MCS  6 @  80 MHz, 8 MB -> wifi5_mcs=6_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:05:57  [73/330] start VHT MCS  6 @ 160 MHz, 4 MB -> wifi5_mcs=6_bw=160_osf=2_4MB.bin
+2026-10-17 07:06:18  [73/330] done  VHT MCS  6 @ 160 MHz, 4 MB -> wifi5_mcs=6_bw=160_osf=2_4MB.bin (0.4 min)
+2026-10-17 07:06:18  [74/330] start VHT MCS  6 @ 160 MHz, 8 MB -> wifi5_mcs=6_bw=160_osf=2_8MB.bin
+2026-10-17 07:06:22  [74/330] done  VHT MCS  6 @ 160 MHz, 8 MB -> wifi5_mcs=6_bw=160_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:06:22  [75/330] start VHT MCS  7 @  20 MHz, 4 MB -> wifi5_mcs=7_bw=20_osf=2_4MB.bin
+2026-10-17 07:06:28  [75/330] done  VHT MCS  7 @  20 MHz, 4 MB -> wifi5_mcs=7_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:06:28  [76/330] start VHT MCS  7 @  20 MHz, 8 MB -> wifi5_mcs=7_bw=20_osf=2_8MB.bin
+2026-10-17 07:06:31  [76/330] done  VHT MCS  7 @  20 MHz, 8 MB -> wifi5_mcs=7_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:06:31  [77/330] start VHT MCS  7 @  40 MHz, 4 MB -> wifi5_mcs=7_bw=40_osf=2_4MB.bin
+2026-10-17 07:06:34  [77/330] done  VHT MCS  7 @  40 MHz, 4 MB -> wifi5_mcs=7_bw=40_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:06:34  [78/330] start VHT MCS  7 @  40 MHz, 8 MB -> wifi5_mcs=7_bw=40_osf=2_8MB.bin
+2026-10-17 07:06:38  [78/330] done  VHT MCS  7 @  40 MHz, 8 MB -> wifi5_mcs=7_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:06:38  [79/330] start VHT MCS  7 @  80 MHz, 4 MB -> wifi5_mcs=7_bw=80_osf=2_4MB.bin
+2026-10-17 07:06:43  [79/330] done  VHT MCS  7 @  80 MHz, 4 MB -> wifi5_mcs=7_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:06:43  [80/330] start VHT MCS  7 @  80 MHz, 8 MB -> wifi5_mcs=7_bw=80_osf=2_8MB.bin
+2026-10-17 07:07:01  [80/330] done  VHT MCS  7 @  80 MHz, 8 MB -> wifi5_mcs=7_bw=80_osf=2_8MB.bin (0.3 min)
+2026-10-17 07:07:01  [81/330] start VHT MCS  7 @ 160 MHz, 4 MB -> wifi5_mcs=7_bw=160_osf=2_4MB.bin
+2026-10-17 07:07:03  [81/330] done  VHT MCS  7 @ 160 MHz, 4 MB -> wifi5_mcs=7_bw=160_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:07:03  [82/330] start VHT MCS  7 @ 160 MHz, 8 MB -> wifi5_mcs=7_bw=160_osf=2_8MB.bin
+2026-10-17 07:07:09  [82/330] done  VHT MCS  7 @ 160 MHz, 8 MB -> wifi5_mcs=7_bw=160_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:07:09  [83/330] start VHT MCS  8 @  40 MHz, 4 MB -> wifi5_mcs=8_bw=40_osf=2_4MB.bin
+2026-10-17 07:07:14  [83/330] done  VHT MCS  8 @  40 MHz, 4 MB -> wifi5_mcs=8_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:07:14  [84/330] start VHT MCS  8 @  40 MHz, 8 MB -> wifi5_mcs=8_bw=40_osf=2_8MB.bin
+2026-10-17 07:07:24  [84/330] done  VHT MCS  8 @  40 MHz, 8 MB -> wifi5_mcs=8_bw=40_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:07:24  [85/330] start VHT MCS  8 @  80 MHz, 4 MB -> wifi5_mcs=8_bw=80_osf=2_4MB.bin
+2026-10-17 07:07:37  [85/330] done  VHT MCS  8 @  80 MHz, 4 MB -> wifi5_mcs=8_bw=80_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:07:37  [86/330] start VHT MCS  8 @  80 MHz, 8 MB -> wifi5_mcs=8_bw=80_osf=2_8MB.bin
+2026-10-17 07:07:42  [86/330] done  VHT MCS  8 @  80 MHz, 8 MB -> wifi5_mcs=8_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:07:42  [87/330] start VHT MCS  8 @ 160 MHz, 4 MB -> wifi5_mcs=8_bw=160_osf=2_4MB.bin
+2026-10-17 07:07:45  [87/330] done  VHT MCS  8 @ 160 MHz, 4 MB -> wifi5_mcs=8_bw=160_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:07:45  [88/330] start VHT MCS  8 @ 160 MHz, 8 MB -> wifi5_mcs=8_bw=160_osf=2_8MB.bin
+2026-10-17 07:07:53  [88/330] done  VHT MCS  8 @ 160 MHz, 8 MB -> wifi5_mcs=8_bw=160_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:07:53  [89/330] start VHT MCS  9 @  40 MHz, 4 MB -> wifi5_mcs=9_bw=40_osf=2_4MB.bin
+2026-10-17 07:07:59  [89/330] done  VHT MCS  9 @  40 MHz, 4 MB -> wifi5_mcs=9_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:07:59  [90/330] start VHT MCS  9 @  40 MHz, 8 MB -> wifi5_mcs=9_bw=40_osf=2_8MB.bin
+2026-10-17 07:08:06  [90/330] done  VHT MCS  9 @  40 MHz, 8 MB -> wifi5_mcs=9_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:08:06  [91/330] start VHT MCS  9 @  80 MHz, 4 MB -> wifi5_mcs=9_bw=80_osf=2_4MB.bin
+2026-10-17 07:08:13  [91/330] done  VHT MCS  9 @  80 MHz, 4 MB -> wifi5_mcs=9_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:08:13  [92/330] start VHT MCS  9 @  80 MHz, 8 MB -> wifi5_mcs=9_bw=80_osf=2_8MB.bin
+2026-10-17 07:08:22  [92/330] done  VHT MCS  9 @  80 MHz, 8 MB -> wifi5_mcs=9_bw=80_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:08:22  [93/330] start VHT MCS  9 @ 160 MHz, 4 MB -> wifi5_mcs=9_bw=160_osf=2_4MB.bin
+2026-10-17 07:08:35  [93/330] done  VHT MCS  9 @ 160 MHz, 4 MB -> wifi5_mcs=9_bw=160_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:08:35  [94/330] start VHT MCS  9 @ 160 MHz, 8 MB -> wifi5_mcs=9_bw=160_osf=2_8MB.bin
+2026-10-17 07:08:41  [94/330] done  VHT MCS  9 @ 160 MHz, 8 MB -> wifi5_mcs=9_bw=160_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:08:41  [95/330] start HE  MCS  0 @  20 MHz, 4 MB -> wifi6_mcs=0_bw=20_osf=2_4MB.bin
+2026-10-17 07:08:56  [95/330] done  HE  MCS  0 @  20 MHz, 4 MB -> wifi6_mcs=0_bw=20_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:08:56  [96/330] start HE  MCS  0 @  20 MHz, 8 MB -> wifi6_mcs=0_bw=20_osf=2_8MB.bin
+2026-10-17 07:09:12  [96/330] done  HE  MCS  0 @  20 MHz, 8 MB -> wifi6_mcs=0_bw=20_osf=2_8MB.bin (0.3 min)
+2026-10-17 07:09:12  [97/330] start HE  MCS  0 @  40 MHz, 4 MB -> wifi6_mcs=0_bw=40_osf=2_4MB.bin
+2026-10-17 07:09:14  [97/330] done  HE  MCS  0 @  40 MHz, 4 MB -> wifi6_mcs=0_bw=40_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:09:14  [98/330] start HE  MCS  0 @  40 MHz, 8 MB -> wifi6_mcs=0_bw=40_osf=2_8MB.bin
+2026-10-17 07:09:22  [98/330] done  HE  MCS  0 @  40 MHz, 8 MB -> wifi6_mcs=0_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:09:22  [99/330] start HE  MCS  0 @  80 MHz, 4 MB -> wifi6_mcs=0_bw=80_osf=2_4MB.bin
+2026-10-17 07:09:24  [99/330] done  HE  MCS  0 @  80 MHz, 4 MB -> wifi6_mcs=0_bw=80_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:09:24  [100/330] start HE  MCS  0 @  80 MHz, 8 MB -> wifi6_mcs=0_bw=80_osf=2_8MB.bin
+2026-10-17 07:09:26  [100/330] done  HE  MCS  0 @  80 MHz, 8 MB -> wifi6_mcs=0_bw=80_osf=2_8MB.bin (0.0 min)
+2026-10-17 07:09:26  [101/330] start HE  MCS  0 @ 160 MHz, 4 MB -> wifi6_mcs=0_bw=160_osf=2_4MB.bin
+2026-10-17 07:09:27  [101/330] done  HE  MCS  0 @ 160 MHz, 4 MB -> wifi6_mcs=0_bw=160_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:09:27  [102/330] start HE  MCS  0 @ 160 MHz, 8 MB -> wifi6_mcs=0_bw=160_osf=2_8MB.bin
+2026-10-17 07:09:47  [102/330] done  HE  MCS  0 @ 160 MHz, 8 MB -> wifi6_mcs=0_bw=160_osf=2_8MB.bin (0.3 min)
+2026-10-17 07:09:47  [103/330] start HE  MCS  1 @  20 MHz, 4 MB -> wifi6_mcs=1_bw=20_osf=2_4MB.bin
+2026-10-17 07:09:49  [103/330] done  HE  MCS  1 @  20 MHz, 4 MB -> wifi6_mcs=1_bw=20_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:09:49  [104/330] start HE  MCS  1 @  20 MHz, 8 MB -> wifi6_mcs=1_bw=20_osf=2_8MB.bin
+2026-10-17 07:09:53  [104/330] done  HE  MCS  1 @  20 MHz, 8 MB -> wifi6_mcs=1_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:09:53  [105/330] start HE  MCS  1 @  40 MHz, 4 MB -> wifi6_mcs=1_bw=40_osf=2_4MB.bin
+2026-10-17 07:10:26  [105/330] done  HE  MCS  1 @  40 MHz, 4 MB -> wifi6_mcs=1_bw=40_osf=2_4MB.bin (0.6 min)
+2026-10-17 07:10:26  [106/330] start HE  MCS  1 @  40 MHz, 8 MB -> wifi6_mcs=1_bw=40_osf=2_8MB.bin
+2026-10-17 07:10:38  [106/330] done  HE  MCS  1 @  40 MHz, 8 MB -> wifi6_mcs=1_bw=40_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:10:38  [107/330] start HE  MCS  1 @  80 MHz, 4 MB -> wifi6_mcs=1_bw=80_osf=2_4MB.bin
+2026-10-17 07:10:42  [107/330] done  HE  MCS  1 @  80 MHz, 4 MB -> wifi6_mcs=1_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:10:42  [108/330] start HE  MCS  1 @  80 MHz, 8 MB -> wifi6_mcs=1_bw=80_osf=2_8MB.bin
+2026-10-17 07:10:48  [108/330] done  HE  MCS  1 @  80 MHz, 8 MB -> wifi6_mcs=1_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:10:48  [109/330] start HE  MCS  1 @ 160 MHz, 4 MB -> wifi6_mcs=1_bw=160_osf=2_4MB.bin
+2026-10-17 07:10:52  [109/330] done  HE  MCS  1 @ 160 MHz, 4 MB -> wifi6_mcs=1_bw=160_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:10:52  [110/330] start HE  MCS  1 @ 160 MHz, 8 MB -> wifi6_mcs=1_bw=160_osf=2_8MB.bin
+2026-10-17 07:11:16  [110/330] done  HE  MCS  1 @ 160 MHz, 8 MB -> wifi6_mcs=1_bw=160_osf=2_8MB.bin (0.4 min)
+2026-10-17 07:11:16  [111/330] start HE  MCS  2 @  20 MHz, 4 MB -> wifi6_mcs=2_bw=20_osf=2_4MB.bin
+2026-10-17 07:11:23  [111/330] done  HE  MCS  2 @  20 MHz, 4 MB -> wifi6_mcs=2_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:11:23  [112/330] start HE  MCS  2 @  20 MHz, 8 MB -> wifi6_mcs=2_bw=20_osf=2_8MB.bin
+2026-10-17 07:11:32  [112/330] done  HE  MCS  2 @  20 MHz, 8 MB -> wifi6_mcs=2_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:11:32  [113/330] start HE  MCS  2 @  40 MHz, 4 MB -> wifi6_mcs=2_bw=40_osf=2_4MB.bin
+2026-10-17 07:11:34  [113/330] done  HE  MCS  2 @  40 MHz, 4 MB -> wifi6_mcs=2_bw=40_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:11:34  [114/330] start HE  MCS  2 @  40 MHz, 8 MB -> wifi6_mcs=2_bw=40_osf=2_8MB.bin
+2026-10-17 07:11:41  [114/330] done  HE  MCS  2 @  40 MHz, 8 MB -> wifi6_mcs=2_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:11:41  [115/330] start HE  MCS  2 @  80 MHz, 4 MB -> wifi6_mcs=2_bw=80_osf=2_4MB.bin
+2026-10-17 07:11:51  [115/330] done  HE  MCS  2 @  80 MHz, 4 MB -> wifi6_mcs=2_bw=80_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:11:51  [116/330] start HE  MCS  2 @  80 MHz, 8 MB -> wifi6_mcs=2_bw=80_osf=2_8MB.bin
+2026-10-17 07:11:53  [116/330] done  HE  MCS  2 @  80 MHz, 8 MB -> wifi6_mcs=2_bw=80_osf=2_8MB.bin (0.0 min)
+2026-10-17 07:11:53  [117/330] start HE  MCS  2 @ 160 MHz, 4 MB -> wifi6_mcs=2_bw=160_osf=2_4MB.bin
+2026-10-17 07:12:01  [117/330] done  HE  MCS  2 @ 160 MHz, 4 MB -> wifi6_mcs=2_bw=160_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:12:01  [118/330] start HE  MCS  2 @ 160 MHz, 8 MB -> wifi6_mcs=2_bw=160_osf=2_8MB.bin
+2026-10-17 07:12:17  [118/330] done  HE  MCS  2 @ 160 MHz, 8 MB -> wifi6_mcs=2_bw=160_osf=2_8MB.bin (0.3 min)
+2026-10-17 07:12:17  [119/330] start HE  MCS  3 @  20 MHz, 4 MB -> wifi6_mcs=3_bw=20_osf=2_4MB.bin
+2026-10-17 07:12:21  [119/330] done  HE  MCS  3 @  20 MHz, 4 MB -> wifi6_mcs=3_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:12:21  [120/330] start HE  MCS  3 @  20 MHz, 8 MB -> wifi6_mcs=3_bw=20_osf=2_8MB.bin
+2026-10-17 07:12:25  [120/330] done  HE  MCS  3 @  20 MHz, 8 MB -> wifi6_mcs=3_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:12:25  [121/330] start HE  MCS  3 @  40 MHz, 4 MB -> wifi6_mcs=3_bw=40_osf=2_4MB.bin
+2026-10-17 07:12:28  [121/330] done  HE  MCS  3 @  40 MHz, 4 MB -> wifi6_mcs=3_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:12:28  [122/330] start HE  MCS  3 @  40 MHz, 8 MB -> wifi6_mcs=3_bw=40_osf=2_8MB.bin
+2026-10-17 07:12:31  [122/330] done  HE  MCS  3 @  40 MHz, 8 MB -> wifi6_mcs=3_bw=40_osf=2_8MB.bin (0.0 min)
+2026-10-17 07:12:31  [123/330] start HE  MCS  3 @  80 MHz, 4 MB -> wifi6_mcs=3_bw=80_osf=2_4MB.bin
+2026-10-17 07:12:40  [123/330] done  HE  MCS  3 @  80 MHz, 4 MB -> wifi6_mcs=3_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:12:40  [124/330] start HE  MCS  3 @  80 MHz, 8 MB -> wifi6_mcs=3_bw=80_osf=2_8MB.bin
+2026-10-17 07:12:49  [124/330] done  HE  MCS  3 @  80 MHz, 8 MB -> wifi6_mcs=3_bw=80_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:12:49  [125/330] start HE  MCS  3 @ 160 MHz, 4 MB -> wifi6_mcs=3_bw=160_osf=2_4MB.bin
+2026-10-17 07:12:55  [125/330] done  HE  MCS  3 @ 160 MHz, 4 MB -> wifi6_mcs=3_bw=160_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:12:55  [126/330] start HE  MCS  3 @ 160 MHz, 8 MB -> wifi6_mcs=3_bw=160_osf=2_8MB.bin
+2026-10-17 07:13:27  [126/330] done  HE  MCS  3 @ 160 MHz, 8 MB -> wifi6_mcs=3_bw=160_osf=2_8MB.bin (0.5 min)
+2026-10-17 07:13:27  [127/330] start HE  MCS  4 @  20 MHz, 4 MB -> wifi6_mcs=4_bw=20_osf=2_4MB.bin
+2026-10-17 07:13:31  [127/330] done  HE  MCS  4 @  20 MHz, 4 MB -> wifi6_mcs=4_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:13:31  [128/330] start HE  MCS  4 @  20 MHz, 8 MB -> wifi6_mcs=4_bw=20_osf=2_8MB.bin
+2026-10-17 07:13:42  [128/330] done  HE  MCS  4 @  20 MHz, 8 MB -> wifi6_mcs=4_bw=20_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:13:42  [129/330] start HE  MCS  4 @  40 MHz, 4 MB -> wifi6_mcs=4_bw=40_osf=2_4MB.bin
+2026-10-17 07:13:44  [129/330] done  HE  MCS  4 @  40 MHz, 4 MB -> wifi6_mcs=4_bw=40_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:13:44  [130/330] start HE  MCS  4 @  40 MHz, 8 MB -> wifi6_mcs=4_bw=40_osf=2_8MB.bin
+2026-10-17 07:13:55  [130/330] done  HE  MCS  4 @  40 MHz, 8 MB -> wifi6_mcs=4_bw=40_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:13:55  [131/330] start HE  MCS  4 @  80 MHz, 4 MB -> wifi6_mcs=4_bw=80_osf=2_4MB.bin
+2026-10-17 07:14:03  [131/330] done  HE  MCS  4 @  80 MHz, 4 MB -> wifi6_mcs=4_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:14:03  [132/330] start HE  MCS  4 @  80 MHz, 8 MB -> wifi6_mcs=4_bw=80_osf=2_8MB.bin
+2026-10-17 07:14:14  [132/330] done  HE  MCS  4 @  80 MHz, 8 MB -> wifi6_mcs=4_bw=80_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:14:14  [133/330] start HE  MCS  4 @ 160 MHz, 4 MB -> wifi6_mcs=4_bw=160_osf=2_4MB.bin
+2026-10-17 07:14:23  [133/330] done  HE  MCS  4 @ 160 MHz, 4 MB -> wifi6_mcs=4_bw=160_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:14:23  [134/330] start HE  MCS  4 @ 160 MHz, 8 MB -> wifi6_mcs=4_bw=160_osf=2_8MB.bin
+2026-10-17 07:14:29  [134/330] done  HE  MCS  4 @ 160 MHz, 8 MB -> wifi6_mcs=4_bw=160_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:14:29  [135/330] start HE  MCS  5 @  20 MHz, 4 MB -> wifi6_mcs=5_bw=20_osf=2_4MB.bin
+2026-10-17 07:14:31  [135/330] done  HE  MCS  5 @  20 MHz, 4 MB -> wifi6_mcs=5_bw=20_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:14:31  [136/330] start HE  MCS  5 @  20 MHz, 8 MB -> wifi6_mcs=5_bw=20_osf=2_8MB.bin
+2026-10-17 07:14:38  [136/330] done  HE  MCS  5 @  20 MHz, 8 MB -> wifi6_mcs=5_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:14:38  [137/330] start HE  MCS  5 @  40 MHz, 4 MB -> wifi6_mcs=5_bw=40_osf=2_4MB.bin
+2026-10-17 07:14:42  [137/330] done  HE  MCS  5 @  40 MHz, 4 MB -> wifi6_mcs=5_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:14:42  [138/330] start HE  MCS  5 @  40 MHz, 8 MB -> wifi6_mcs=5_bw=40_osf=2_8MB.bin
+2026-10-17 07:14:56  [138/330] done  HE  MCS  5 @  40 MHz, 8 MB -> wifi6_mcs=5_bw=40_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:14:56  [139/330] start HE  MCS  5 @  80 MHz, 4 MB -> wifi6_mcs=5_bw=80_osf=2_4MB.bin
+2026-10-17 07:15:02  [139/330] done  HE  MCS  5 @  80 MHz, 4 MB -> wifi6_mcs=5_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:15:02  [140/330] start HE  MCS  5 @  80 MHz, 8 MB -> wifi6_mcs=5_bw=80_osf=2_8MB.bin
+2026-10-17 07:15:12  [140/330] done  HE  MCS  5 @  80 MHz, 8 MB -> wifi6_mcs=5_bw=80_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:15:12  [141/330] start HE  MCS  5 @ 160 MHz, 4 MB -> wifi6_mcs=5_bw=160_osf=2_4MB.bin
+2026-10-17 07:15:20  [141/330] done  HE  MCS  5 @ 160 MHz, 4 MB -> wifi6_mcs=5_bw=160_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:15:20  [142/330] start HE  MCS  5 @ 160 MHz, 8 MB -> wifi6_mcs=5_bw=160_osf=2_8MB.bin
+2026-10-17 07:15:34  [142/330] done  HE  MCS  5 @ 160 MHz, 8 MB -> wifi6_mcs=5_bw=160_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:15:34  [143/330] start HE  MCS  6 @  20 MHz, 4 MB -> wifi6_mcs=6_bw=20_osf=2_4MB.bin
+2026-10-17 07:15:36  [143/330] done  HE  MCS  6 @  20 MHz, 4 MB -> wifi6_mcs=6_bw=20_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:15:36  [144/330] start HE  MCS  6 @  20 MHz, 8 MB -> wifi6_mcs=6_bw=20_osf=2_8MB.bin
+2026-10-17 07:15:43  [144/330] done  HE  MCS  6 @  20 MHz, 8 MB -> wifi6_mcs=6_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:15:43  [145/330] start HE  MCS  6 @  40 MHz, 4 MB -> wifi6_mcs=6_bw=40_osf=2_4MB.bin
+2026-10-17 07:15:45  [145/330] done  HE  MCS  6 @  40 MHz, 4 MB -> wifi6_mcs=6_bw=40_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:15:45  [146/330] start HE  MCS  6 @  40 MHz, 8 MB -> wifi6_mcs=6_bw=40_osf=2_8MB.bin
+2026-10-17 07:15:50  [146/330] done  HE  MCS  6 @  40 MHz, 8 MB -> wifi6_mcs=6_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:15:50  [147/330] start HE  MCS  6 @  80 MHz, 4 MB -> wifi6_mcs=6_bw=80_osf=2_4MB.bin
+2026-10-17 07:16:02  [147/330] done  HE  MCS  6 @  80 MHz, 4 MB -> wifi6_mcs=6_bw=80_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:16:02  [148/330] start HE  MCS  6 @  80 MHz, 8 MB -> wifi6_mcs=6_bw=80_osf=2_8MB.bin
+2026-10-17 07:16:09  [148/330] done  HE  MCS  6 @  80 MHz, 8 MB -> wifi6_mcs=6_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:16:09  [149/330] start HE  MCS  6 @ 160 MHz, 4 MB -> wifi6_mcs=6_bw=160_osf=2_4MB.bin
+2026-10-17 07:16:19  [149/330] done  HE  MCS  6 @ 160 MHz, 4 MB -> wifi6_mcs=6_bw=160_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:16:19  [150/330] start HE  MCS  6 @ 160 MHz, 8 MB -> wifi6_mcs=6_bw=160_osf=2_8MB.bin
+2026-10-17 07:16:32  [150/330] done  HE  MCS  6 @ 160 MHz, 8 MB -> wifi6_mcs=6_bw=160_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:16:32  [151/330] start HE  MCS  7 @  20 MHz, 4 MB -> wifi6_mcs=7_bw=20_osf=2_4MB.bin
+2026-10-17 07:16:37  [151/330] done  HE  MCS  7 @  20 MHz, 4 MB -> wifi6_mcs=7_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:16:37  [152/330] start HE  MCS  7 @  20 MHz, 8 MB -> wifi6_mcs=7_bw=20_osf=2_8MB.bin
+2026-10-17 07:16:44  [152/330] done  HE  MCS  7 @  20 MHz, 8 MB -> wifi6_mcs=7_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:16:44  [153/330] start HE  MCS  7 @  40 MHz, 4 MB -> wifi6_mcs=7_bw=40_osf=2_4MB.bin
+2026-10-17 07:16:50  [153/330] done  HE  MCS  7 @  40 MHz, 4 MB -> wifi6_mcs=7_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:16:50  [154/330] start HE  MCS  7 @  40 MHz, 8 MB -> wifi6_mcs=7_bw=40_osf=2_8MB.bin
+2026-10-17 07:17:11  [154/330] done  HE  MCS  7 @  40 MHz, 8 MB -> wifi6_mcs=7_bw=40_osf=2_8MB.bin (0.3 min)
+2026-10-17 07:17:11  [155/330] start HE  MCS  7 @  80 MHz, 4 MB -> wifi6_mcs=7_bw=80_osf=2_4MB.bin
+2026-10-17 07:17:16  [155/330] done  HE  MCS  7 @  80 MHz, 4 MB -> wifi6_mcs=7_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:17:16  [156/330] start HE  MCS  7 @  80 MHz, 8 MB -> wifi6_mcs=7_bw=80_osf=2_8MB.bin
+2026-10-17 07:17:26  [156/330] done  HE  MCS  7 @  80 MHz, 8 MB -> wifi6_mcs=7_bw=80_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:17:26  [157/330] start HE  MCS  7 @ 160 MHz, 4 MB -> wifi6_mcs=7_bw=160_osf=2_4MB.bin
+2026-10-17 07:17:33  [157/330] done  HE  MCS  7 @ 160 MHz, 4 MB -> wifi6_mcs=7_bw=160_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:17:33  [158/330] start HE  MCS  7 @ 160 MHz, 8 MB -> wifi6_mcs=7_bw=160_osf=2_8MB.bin
+2026-10-17 07:18:02  [158/330] done  HE  MCS  7 @ 160 MHz, 8 MB -> wifi6_mcs=7_bw=160_osf=2_8MB.bin (0.5 min)
+2026-10-17 07:18:02  [159/330] start HE  MCS  8 @  20 MHz, 4 MB -> wifi6_mcs=8_bw=20_osf=2_4MB.bin
+2026-10-17 07:18:07  [159/330] done  HE  MCS  8 @  20 MHz, 4 MB -> wifi6_mcs=8_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:18:07  [160/330] start HE  MCS  8 @  20 MHz, 8 MB -> wifi6_mcs=8_bw=20_osf=2_8MB.bin
+2026-10-17 07:18:09  [160/330] done  HE  MCS  8 @  20 MHz, 8 MB -> wifi6_mcs=8_bw=20_osf=2_8MB.bin (0.0 min)
+2026-10-17 07:18:09  [161/330] start HE  MCS  8 @  40 MHz, 4 MB -> wifi6_mcs=8_bw=40_osf=2_4MB.bin
+2026-10-17 07:18:13  [161/330] done  HE  MCS  8 @  40 MHz, 4 MB -> wifi6_mcs=8_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:18:13  [162/330] start HE  MCS  8 @  40 MHz, 8 MB -> wifi6_mcs=8_bw=40_osf=2_8MB.bin
+2026-10-17 07:18:18  [162/330] done  HE  MCS  8 @  40 MHz, 8 MB -> wifi6_mcs=8_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:18:18  [163/330] start HE  MCS  8 @  80 MHz, 4 MB -> wifi6_mcs=8_bw=80_osf=2_4MB.bin
+2026-10-17 07:18:26  [163/330] done  HE  MCS  8 @  80 MHz, 4 MB -> wifi6_mcs=8_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:18:26  [164/330] start HE  MCS  8 @  80 MHz, 8 MB -> wifi6_mcs=8_bw=80_osf=2_8MB.bin
+2026-10-17 07:18:31  [164/330] done  HE  MCS  8 @  80 MHz, 8 MB -> wifi6_mcs=8_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:18:31  [165/330] start HE  MCS  8 @ 160 MHz, 4 MB -> wifi6_mcs=8_bw=160_osf=2_4MB.bin
+2026-10-17 07:18:39  [165/330] done  HE  MCS  8 @ 160 MHz, 4 MB -> wifi6_mcs=8_bw=160_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:18:39  [166/330] start HE  MCS  8 @ 160 MHz, 8 MB -> wifi6_mcs=8_bw=160_osf=2_8MB.bin
+2026-10-17 07:18:51  [166/330] done  HE  MCS  8 @ 160 MHz, 8 MB -> wifi6_mcs=8_bw=160_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:18:51  [167/330] start HE  MCS  9 @  20 MHz, 4 MB -> wifi6_mcs=9_bw=20_osf=2_4MB.bin
+2026-10-17 07:18:58  [167/330] done  HE  MCS  9 @  20 MHz, 4 MB -> wifi6_mcs=9_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:18:58  [168/330] start HE  MCS  9 @  20 MHz, 8 MB -> wifi6_mcs=9_bw=20_osf=2_8MB.bin
+2026-10-17 07:19:05  [168/330] done  HE  MCS  9 @  20 MHz, 8 MB -> wifi6_mcs=9_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:19:05  [169/330] start HE  MCS  9 @  40 MHz, 4 MB -> wifi6_mcs=9_bw=40_osf=2_4MB.bin
+2026-10-17 07:19:13  [169/330] done  HE  MCS  9 @  40 MHz, 4 MB -> wifi6_mcs=9_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:19:13  [170/330] start HE  MCS  9 @  40 MHz, 8 MB -> wifi6_mcs=9_bw=40_osf=2_8MB.bin
+2026-10-17 07:19:18  [170/330] done  HE  MCS  9 @  40 MHz, 8 MB -> wifi6_mcs=9_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:19:18  [171/330] start HE  MCS  9 @  80 MHz, 4 MB -> wifi6_mcs=9_bw=80_osf=2_4MB.bin
+2026-10-17 07:19:41  [171/330] done  HE  MCS  9 @  80 MHz, 4 MB -> wifi6_mcs=9_bw=80_osf=2_4MB.bin (0.4 min)
+2026-10-17 07:19:41  [172/330] start HE  MCS  9 @  80 MHz, 8 MB -> wifi6_mcs=9_bw=80_osf=2_8MB.bin
+2026-10-17 07:19:53  [172/330] done  HE  MCS  9 @  80 MHz, 8 MB -> wifi6_mcs=9_bw=80_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:19:53  [173/330] start HE  MCS  9 @ 160 MHz, 4 MB -> wifi6_mcs=9_bw=160_osf=2_4MB.bin
+2026-10-17 07:20:39  [173/330] done  HE  MCS  9 @ 160 MHz, 4 MB -> wifi6_mcs=9_bw=160_osf=2_4MB.bin (0.8 min)
+2026-10-17 07:20:39  [174/330] start HE  MCS  9 @ 160 MHz, 8 MB -> wifi6_mcs=9_bw=160_osf=2_8MB.bin
+2026-10-17 07:20:45  [174/330] done  HE  MCS  9 @ 160 MHz, 8 MB -> wifi6_mcs=9_bw=160_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:20:45  [175/330] start HE  MCS 10 @  20 MHz, 4 MB -> wifi6_mcs=10_bw=20_osf=2_4MB.bin
+2026-10-17 07:20:48  [175/330] done  HE  MCS 10 @  20 MHz, 4 MB -> wifi6_mcs=10_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:20:48  [176/330] start HE  MCS 10 @  20 MHz, 8 MB -> wifi6_mcs=10_bw=20_osf=2_8MB.bin
+2026-10-17 07:20:56  [176/330] done  HE  MCS 10 @  20 MHz, 8 MB -> wifi6_mcs=10_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:20:56  [177/330] start HE  MCS 10 @  40 MHz, 4 MB -> wifi6_mcs=10_bw=40_osf=2_4MB.bin
+2026-10-17 07:21:01  [177/330] done  HE  MCS 10 @  40 MHz, 4 MB -> wifi6_mcs=10_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:21:01  [178/330] start HE  MCS 10 @  40 MHz, 8 MB -> wifi6_mcs=10_bw=40_osf=2_8MB.bin
+2026-10-17 07:21:09  [178/330] done  HE  MCS 10 @  40 MHz, 8 MB -> wifi6_mcs=10_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:21:09  [179/330] start HE  MCS 10 @  80 MHz, 4 MB -> wifi6_mcs=10_bw=80_osf=2_4MB.bin
+2026-10-17 07:21:15  [179/330] done  HE  MCS 10 @  80 MHz, 4 MB -> wifi6_mcs=10_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:21:15  [180/330] start HE  MCS 10 @  80 MHz, 8 MB -> wifi6_mcs=10_bw=80_osf=2_8MB.bin
+2026-10-17 07:21:24  [180/330] done  HE  MCS 10 @  80 MHz, 8 MB -> wifi6_mcs=10_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:21:24  [181/330] start HE  MCS 10 @ 160 MHz, 4 MB -> wifi6_mcs=10_bw=160_osf=2_4MB.bin
+2026-10-17 07:21:45  [181/330] done  HE  MCS 10 @ 160 MHz, 4 MB -> wifi6_mcs=10_bw=160_osf=2_4MB.bin (0.4 min)
+2026-10-17 07:21:45  [182/330] start HE  MCS 10 @ 160 MHz, 8 MB -> wifi6_mcs=10_bw=160_osf=2_8MB.bin
+2026-10-17 07:22:14  [182/330] done  HE  MCS 10 @ 160 MHz, 8 MB -> wifi6_mcs=10_bw=160_osf=2_8MB.bin (0.5 min)
+2026-10-17 07:22:14  [183/330] start HE  MCS 11 @  20 MHz, 4 MB -> wifi6_mcs=11_bw=20_osf=2_4MB.bin
+2026-10-17 07:22:19  [183/330] done  HE  MCS 11 @  20 MHz, 4 MB -> wifi6_mcs=11_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:22:19  [184/330] start HE  MCS 11 @  20 MHz, 8 MB -> wifi6_mcs=11_bw=20_osf=2_8MB.bin
+2026-10-17 07:22:37  [184/330] done  HE  MCS 11 @  20 MHz, 8 MB -> wifi6_mcs=11_bw=20_osf=2_8MB.bin (0.3 min)
+2026-10-17 07:22:37  [185/330] start HE  MCS 11 @  40 MHz, 4 MB -> wifi6_mcs=11_bw=40_osf=2_4MB.bin
+2026-10-17 07:22:39  [185/330] done  HE  MCS 11 @  40 MHz, 4 MB -> wifi6_mcs=11_bw=40_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:22:39  [186/330] start HE  MCS 11 @  40 MHz, 8 MB -> wifi6_mcs=11_bw=40_osf=2_8MB.bin
+2026-10-17 07:22:57  [186/330] done  HE  MCS 11 @  40 MHz, 8 MB -> wifi6_mcs=11_bw=40_osf=2_8MB.bin (0.3 min)
+2026-10-17 07:22:57  [187/330] start HE  MCS 11 @  80 MHz, 4 MB -> wifi6_mcs=11_bw=80_osf=2_4MB.bin
+2026-10-17 07:23:03  [187/330] done  HE  MCS 11 @  80 MHz, 4 MB -> wifi6_mcs=11_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:23:03  [188/330] start HE  MCS 11 @  80 MHz, 8 MB -> wifi6_mcs=11_bw=80_osf=2_8MB.bin
+2026-10-17 07:23:09  [188/330] done  HE  MCS 11 @  80 MHz, 8 MB -> wifi6_mcs=11_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:23:09  [189/330] start HE  MCS 11 @ 160 MHz, 4 MB -> wifi6_mcs=11_bw=160_osf=2_4MB.bin
+2026-10-17 07:23:36  [189/330] done  HE  MCS 11 @ 160 MHz, 4 MB -> wifi6_mcs=11_bw=160_osf=2_4MB.bin (0.5 min)
+2026-10-17 07:23:36  [190/330] start HE  MCS 11 @ 160 MHz, 8 MB -> wifi6_mcs=11_bw=160_osf=2_8MB.bin
+2026-10-17 07:24:09  [190/330] done  HE  MCS 11 @ 160 MHz, 8 MB -> wifi6_mcs=11_bw=160_osf=2_8MB.bin (0.5 min)
+2026-10-17 07:24:09  [191/330] start EHT MCS  0 @  20 MHz, 4 MB -> wifi7_mcs=0_bw=20_osf=2_4MB.bin
+2026-10-17 07:24:20  [191/330] done  EHT MCS  0 @  20 MHz, 4 MB -> wifi7_mcs=0_bw=20_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:24:20  [192/330] start EHT MCS  0 @  20 MHz, 8 MB -> wifi7_mcs=0_bw=20_osf=2_8MB.bin
+2026-10-17 07:24:50  [192/330] done  EHT MCS  0 @  20 MHz, 8 MB -> wifi7_mcs=0_bw=20_osf=2_8MB.bin (0.5 min)
+2026-10-17 07:24:50  [193/330] start EHT MCS  0 @  40 MHz, 4 MB -> wifi7_mcs=0_bw=40_osf=2_4MB.bin
+2026-10-17 07:25:10  [193/330] done  EHT MCS  0 @  40 MHz, 4 MB -> wifi7_mcs=0_bw=40_osf=2_4MB.bin (0.3 min)
+2026-10-17 07:25:10  [194/330] start EHT MCS  0 @  40 MHz, 8 MB -> wifi7_mcs=0_bw=40_osf=2_8MB.bin
+2026-10-17 07:25:29  [194/330] done  EHT MCS  0 @  40 MHz, 8 MB -> wifi7_mcs=0_bw=40_osf=2_8MB.bin (0.3 min)
+2026-10-17 07:25:29  [195/330] start EHT MCS  0 @  80 MHz, 4 MB -> wifi7_mcs=0_bw=80_osf=2_4MB.bin
+2026-10-17 07:25:38  [195/330] done  EHT MCS  0 @  80 MHz, 4 MB -> wifi7_mcs=0_bw=80_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:25:38  [196/330] start EHT MCS  0 @  80 MHz, 8 MB -> wifi7_mcs=0_bw=80_osf=2_8MB.bin
+2026-10-17 07:25:47  [196/330] done  EHT MCS  0 @  80 MHz, 8 MB -> wifi7_mcs=0_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:25:47  [197/330] start EHT MCS  0 @ 160 MHz, 4 MB -> wifi7_mcs=0_bw=160_osf=2_4MB.bin
+2026-10-17 07:26:00  [197/330] done  EHT MCS  0 @ 160 MHz, 4 MB -> wifi7_mcs=0_bw=160_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:26:00  [198/330] start EHT MCS  0 @ 160 MHz, 8 MB -> wifi7_mcs=0_bw=160_osf=2_8MB.bin
+2026-10-17 07:26:09  [198/330] done  EHT MCS  0 @ 160 MHz, 8 MB -> wifi7_mcs=0_bw=160_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:26:09  [199/330] start EHT MCS  0 @ 320 MHz, 4 MB -> wifi7_mcs=0_bw=320_osf=1.875_4MB.bin
+2026-10-17 07:26:50  [199/330] done  EHT MCS  0 @ 320 MHz, 4 MB -> wifi7_mcs=0_bw=320_osf=1.875_4MB.bin (0.7 min)
+2026-10-17 07:26:50  [200/330] start EHT MCS  0 @ 320 MHz, 8 MB -> wifi7_mcs=0_bw=320_osf=1.875_8MB.bin
+2026-10-17 07:27:21  [200/330] done  EHT MCS  0 @ 320 MHz, 8 MB -> wifi7_mcs=0_bw=320_osf=1.875_8MB.bin (0.5 min)
+2026-10-17 07:27:21  [201/330] start EHT MCS  1 @  20 MHz, 4 MB -> wifi7_mcs=1_bw=20_osf=2_4MB.bin
+2026-10-17 07:27:22  [201/330] done  EHT MCS  1 @  20 MHz, 4 MB -> wifi7_mcs=1_bw=20_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:27:22  [202/330] start EHT MCS  1 @  20 MHz, 8 MB -> wifi7_mcs=1_bw=20_osf=2_8MB.bin
+2026-10-17 07:27:25  [202/330] done  EHT MCS  1 @  20 MHz, 8 MB -> wifi7_mcs=1_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:27:25  [203/330] start EHT MCS  1 @  40 MHz, 4 MB -> wifi7_mcs=1_bw=40_osf=2_4MB.bin
+2026-10-17 07:27:34  [203/330] done  EHT MCS  1 @  40 MHz, 4 MB -> wifi7_mcs=1_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:27:34  [204/330] start EHT MCS  1 @  40 MHz, 8 MB -> wifi7_mcs=1_bw=40_osf=2_8MB.bin
+2026-10-17 07:27:45  [204/330] done  EHT MCS  1 @  40 MHz, 8 MB -> wifi7_mcs=1_bw=40_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:27:45  [205/330] start EHT MCS  1 @  80 MHz, 4 MB -> wifi7_mcs=1_bw=80_osf=2_4MB.bin
+2026-10-17 07:27:50  [205/330] done  EHT MCS  1 @  80 MHz, 4 MB -> wifi7_mcs=1_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:27:50  [206/330] start EHT MCS  1 @  80 MHz, 8 MB -> wifi7_mcs=1_bw=80_osf=2_8MB.bin
+2026-10-17 07:27:54  [206/330] done  EHT MCS  1 @  80 MHz, 8 MB -> wifi7_mcs=1_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:27:54  [207/330] start EHT MCS  1 @ 160 MHz, 4 MB -> wifi7_mcs=1_bw=160_osf=2_4MB.bin
+2026-10-17 07:28:19  [207/330] done  EHT MCS  1 @ 160 MHz, 4 MB -> wifi7_mcs=1_bw=160_osf=2_4MB.bin (0.4 min)
+2026-10-17 07:28:19  [208/330] start EHT MCS  1 @ 160 MHz, 8 MB -> wifi7_mcs=1_bw=160_osf=2_8MB.bin
+2026-10-17 07:28:24  [208/330] done  EHT MCS  1 @ 160 MHz, 8 MB -> wifi7_mcs=1_bw=160_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:28:24  [209/330] start EHT MCS  1 @ 320 MHz, 4 MB -> wifi7_mcs=1_bw=320_osf=1.875_4MB.bin
+2026-10-17 07:29:04  [209/330] done  EHT MCS  1 @ 320 MHz, 4 MB -> wifi7_mcs=1_bw=320_osf=1.875_4MB.bin (0.7 min)
+2026-10-17 07:29:04  [210/330] start EHT MCS  1 @ 320 MHz, 8 MB -> wifi7_mcs=1_bw=320_osf=1.875_8MB.bin
+2026-10-17 07:29:38  [210/330] done  EHT MCS  1 @ 320 MHz, 8 MB -> wifi7_mcs=1_bw=320_osf=1.875_8MB.bin (0.6 min)
+2026-10-17 07:29:38  [211/330] start EHT MCS  2 @  20 MHz, 4 MB -> wifi7_mcs=2_bw=20_osf=2_4MB.bin
+2026-10-17 07:29:42  [211/330] done  EHT MCS  2 @  20 MHz, 4 MB -> wifi7_mcs=2_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:29:42  [212/330] start EHT MCS  2 @  20 MHz, 8 MB -> wifi7_mcs=2_bw=20_osf=2_8MB.bin
+2026-10-17 07:29:44  [212/330] done  EHT MCS  2 @  20 MHz, 8 MB -> wifi7_mcs=2_bw=20_osf=2_8MB.bin (0.0 min)
+2026-10-17 07:29:44  [213/330] start EHT MCS  2 @  40 MHz, 4 MB -> wifi7_mcs=2_bw=40_osf=2_4MB.bin
+2026-10-17 07:29:56  [213/330] done  EHT MCS  2 @  40 MHz, 4 MB -> wifi7_mcs=2_bw=40_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:29:56  [214/330] start EHT MCS  2 @  40 MHz, 8 MB -> wifi7_mcs=2_bw=40_osf=2_8MB.bin
+2026-10-17 07:30:10  [214/330] done  EHT MCS  2 @  40 MHz, 8 MB -> wifi7_mcs=2_bw=40_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:30:10  [215/330] start EHT MCS  2 @  80 MHz, 4 MB -> wifi7_mcs=2_bw=80_osf=2_4MB.bin
+2026-10-17 07:30:15  [215/330] done  EHT MCS  2 @  80 MHz, 4 MB -> wifi7_mcs=2_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:30:15  [216/330] start EHT MCS  2 @  80 MHz, 8 MB -> wifi7_mcs=2_bw=80_osf=2_8MB.bin
+2026-10-17 07:30:22  [216/330] done  EHT MCS  2 @  80 MHz, 8 MB -> wifi7_mcs=2_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:30:22  [217/330] start EHT MCS  2 @ 160 MHz, 4 MB -> wifi7_mcs=2_bw=160_osf=2_4MB.bin
+2026-10-17 07:30:24  [217/330] done  EHT MCS  2 @ 160 MHz, 4 MB -> wifi7_mcs=2_bw=160_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:30:25  [218/330] start EHT MCS  2 @ 160 MHz, 8 MB -> wifi7_mcs=2_bw=160_osf=2_8MB.bin
+2026-10-17 07:30:54  [218/330] done  EHT MCS  2 @ 160 MHz, 8 MB -> wifi7_mcs=2_bw=160_osf=2_8MB.bin (0.5 min)
+2026-10-17 07:30:54  [219/330] start EHT MCS  2 @ 320 MHz, 4 MB -> wifi7_mcs=2_bw=320_osf=1.875_4MB.bin
+2026-10-17 07:32:39  [219/330] done  EHT MCS  2 @ 320 MHz, 4 MB -> wifi7_mcs=2_bw=320_osf=1.875_4MB.bin (1.8 min)
+2026-10-17 07:32:39  [220/330] start EHT MCS  2 @ 320 MHz, 8 MB -> wifi7_mcs=2_bw=320_osf=1.875_8MB.bin
+2026-10-17 07:32:53  [220/330] done  EHT MCS  2 @ 320 MHz, 8 MB -> wifi7_mcs=2_bw=320_osf=1.875_8MB.bin (0.2 min)
+2026-10-17 07:32:53  [221/330] start EHT MCS  3 @  20 MHz, 4 MB -> wifi7_mcs=3_bw=20_osf=2_4MB.bin
+2026-10-17 07:33:02  [221/330] done  EHT MCS  3 @  20 MHz, 4 MB -> wifi7_mcs=3_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:33:02  [222/330] start EHT MCS  3 @  20 MHz, 8 MB -> wifi7_mcs=3_bw=20_osf=2_8MB.bin
+2026-10-17 07:33:06  [222/330] done  EHT MCS  3 @  20 MHz, 8 MB -> wifi7_mcs=3_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:33:06  [223/330] start EHT MCS  3 @  40 MHz, 4 MB -> wifi7_mcs=3_bw=40_osf=2_4MB.bin
+2026-10-17 07:33:15  [223/330] done  EHT MCS  3 @  40 MHz, 4 MB -> wifi7_mcs=3_bw=40_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:33:15  [224/330] start EHT MCS  3 @  40 MHz, 8 MB -> wifi7_mcs=3_bw=40_osf=2_8MB.bin
+2026-10-17 07:33:21  [224/330] done  EHT MCS  3 @  40 MHz, 8 MB -> wifi7_mcs=3_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:33:21  [225/330] start EHT MCS  3 @  80 MHz, 4 MB -> wifi7_mcs=3_bw=80_osf=2_4MB.bin
+2026-10-17 07:33:27  [225/330] done  EHT MCS  3 @  80 MHz, 4 MB -> wifi7_mcs=3_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:33:27  [226/330] start EHT MCS  3 @  80 MHz, 8 MB -> wifi7_mcs=3_bw=80_osf=2_8MB.bin
+2026-10-17 07:33:39  [226/330] done  EHT MCS  3 @  80 MHz, 8 MB -> wifi7_mcs=3_bw=80_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:33:39  [227/330] start EHT MCS  3 @ 160 MHz, 4 MB -> wifi7_mcs=3_bw=160_osf=2_4MB.bin
+2026-10-17 07:33:47  [227/330] done  EHT MCS  3 @ 160 MHz, 4 MB -> wifi7_mcs=3_bw=160_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:33:47  [228/330] start EHT MCS  3 @ 160 MHz, 8 MB -> wifi7_mcs=3_bw=160_osf=2_8MB.bin
+2026-10-17 07:33:55  [228/330] done  EHT MCS  3 @ 160 MHz, 8 MB -> wifi7_mcs=3_bw=160_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:33:55  [229/330] start EHT MCS  3 @ 320 MHz, 4 MB -> wifi7_mcs=3_bw=320_osf=1.875_4MB.bin
+2026-10-17 07:34:29  [229/330] done  EHT MCS  3 @ 320 MHz, 4 MB -> wifi7_mcs=3_bw=320_osf=1.875_4MB.bin (0.6 min)
+2026-10-17 07:34:29  [230/330] start EHT MCS  3 @ 320 MHz, 8 MB -> wifi7_mcs=3_bw=320_osf=1.875_8MB.bin
+2026-10-17 07:34:56  [230/330] done  EHT MCS  3 @ 320 MHz, 8 MB -> wifi7_mcs=3_bw=320_osf=1.875_8MB.bin (0.5 min)
+2026-10-17 07:34:56  [231/330] start EHT MCS  4 @  20 MHz, 4 MB -> wifi7_mcs=4_bw=20_osf=2_4MB.bin
+2026-10-17 07:35:01  [231/330] done  EHT MCS  4 @  20 MHz, 4 MB -> wifi7_mcs=4_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:35:01  [232/330] start EHT MCS  4 @  20 MHz, 8 MB -> wifi7_mcs=4_bw=20_osf=2_8MB.bin
+2026-10-17 07:35:04  [232/330] done  EHT MCS  4 @  20 MHz, 8 MB -> wifi7_mcs=4_bw=20_osf=2_8MB.bin (0.0 min)
+2026-10-17 07:35:04  [233/330] start EHT MCS  4 @  40 MHz, 4 MB -> wifi7_mcs=4_bw=40_osf=2_4MB.bin
+2026-10-17 07:35:06  [233/330] done  EHT MCS  4 @  40 MHz, 4 MB -> wifi7_mcs=4_bw=40_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:35:06  [234/330] start EHT MCS  4 @  40 MHz, 8 MB -> wifi7_mcs=4_bw=40_osf=2_8MB.bin
+2026-10-17 07:35:09  [234/330] done  EHT MCS  4 @  40 MHz, 8 MB -> wifi7_mcs=4_bw=40_osf=2_8MB.bin (0.0 min)
+2026-10-17 07:35:09  [235/330] start EHT MCS  4 @  80 MHz, 4 MB -> wifi7_mcs=4_bw=80_osf=2_4MB.bin
+2026-10-17 07:35:20  [235/330] done  EHT MCS  4 @  80 MHz, 4 MB -> wifi7_mcs=4_bw=80_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:35:20  [236/330] start EHT MCS  4 @  80 MHz, 8 MB -> wifi7_mcs=4_bw=80_osf=2_8MB.bin
+2026-10-17 07:35:30  [236/330] done  EHT MCS  4 @  80 MHz, 8 MB -> wifi7_mcs=4_bw=80_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:35:30  [237/330] start EHT MCS  4 @ 160 MHz, 4 MB -> wifi7_mcs=4_bw=160_osf=2_4MB.bin
+2026-10-17 07:36:12  [237/330] done  EHT MCS  4 @ 160 MHz, 4 MB -> wifi7_mcs=4_bw=160_osf=2_4MB.bin (0.7 min)
+2026-10-17 07:36:12  [238/330] start EHT MCS  4 @ 160 MHz, 8 MB -> wifi7_mcs=4_bw=160_osf=2_8MB.bin
+2026-10-17 07:36:18  [238/330] done  EHT MCS  4 @ 160 MHz, 8 MB -> wifi7_mcs=4_bw=160_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:36:18  [239/330] start EHT MCS  4 @ 320 MHz, 4 MB -> wifi7_mcs=4_bw=320_osf=1.875_4MB.bin
+2026-10-17 07:36:27  [239/330] done  EHT MCS  4 @ 320 MHz, 4 MB -> wifi7_mcs=4_bw=320_osf=1.875_4MB.bin (0.2 min)
+2026-10-17 07:36:27  [240/330] start EHT MCS  4 @ 320 MHz, 8 MB -> wifi7_mcs=4_bw=320_osf=1.875_8MB.bin
+2026-10-17 07:36:38  [240/330] done  EHT MCS  4 @ 320 MHz, 8 MB -> wifi7_mcs=4_bw=320_osf=1.875_8MB.bin (0.2 min)
+2026-10-17 07:36:38  [241/330] start EHT MCS  5 @  20 MHz, 4 MB -> wifi7_mcs=5_bw=20_osf=2_4MB.bin
+2026-10-17 07:36:39  [241/330] done  EHT MCS  5 @  20 MHz, 4 MB -> wifi7_mcs=5_bw=20_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:36:39  [242/330] start EHT MCS  5 @  20 MHz, 8 MB -> wifi7_mcs=5_bw=20_osf=2_8MB.bin
+2026-10-17 07:36:42  [242/330] done  EHT MCS  5 @  20 MHz, 8 MB -> wifi7_mcs=5_bw=20_osf=2_8MB.bin (0.0 min)
+2026-10-17 07:36:42  [243/330] start EHT MCS  5 @  40 MHz, 4 MB -> wifi7_mcs=5_bw=40_osf=2_4MB.bin
+2026-10-17 07:36:46  [243/330] done  EHT MCS  5 @  40 MHz, 4 MB -> wifi7_mcs=5_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:36:46  [244/330] start EHT MCS  5 @  40 MHz, 8 MB -> wifi7_mcs=5_bw=40_osf=2_8MB.bin
+2026-10-17 07:36:52  [244/330] done  EHT MCS  5 @  40 MHz, 8 MB -> wifi7_mcs=5_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:36:52  [245/330] start EHT MCS  5 @  80 MHz, 4 MB -> wifi7_mcs=5_bw=80_osf=2_4MB.bin
+2026-10-17 07:36:55  [245/330] done  EHT MCS  5 @  80 MHz, 4 MB -> wifi7_mcs=5_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:36:55  [246/330] start EHT MCS  5 @  80 MHz, 8 MB -> wifi7_mcs=5_bw=80_osf=2_8MB.bin
+2026-10-17 07:37:00  [246/330] done  EHT MCS  5 @  80 MHz, 8 MB -> wifi7_mcs=5_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:37:00  [247/330] start EHT MCS  5 @ 160 MHz, 4 MB -> wifi7_mcs=5_bw=160_osf=2_4MB.bin
+2026-10-17 07:37:09  [247/330] done  EHT MCS  5 @ 160 MHz, 4 MB -> wifi7_mcs=5_bw=160_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:37:09  [248/330] start EHT MCS  5 @ 160 MHz, 8 MB -> wifi7_mcs=5_bw=160_osf=2_8MB.bin
+2026-10-17 07:37:44  [248/330] done  EHT MCS  5 @ 160 MHz, 8 MB -> wifi7_mcs=5_bw=160_osf=2_8MB.bin (0.6 min)
+2026-10-17 07:37:44  [249/330] start EHT MCS  5 @ 320 MHz, 4 MB -> wifi7_mcs=5_bw=320_osf=1.875_4MB.bin
+2026-10-17 07:38:25  [249/330] done  EHT MCS  5 @ 320 MHz, 4 MB -> wifi7_mcs=5_bw=320_osf=1.875_4MB.bin (0.7 min)
+2026-10-17 07:38:25  [250/330] start EHT MCS  5 @ 320 MHz, 8 MB -> wifi7_mcs=5_bw=320_osf=1.875_8MB.bin
+2026-10-17 07:39:30  [250/330] done  EHT MCS  5 @ 320 MHz, 8 MB -> wifi7_mcs=5_bw=320_osf=1.875_8MB.bin (1.1 min)
+2026-10-17 07:39:30  [251/330] start EHT MCS  6 @  20 MHz, 4 MB -> wifi7_mcs=6_bw=20_osf=2_4MB.bin
+2026-10-17 07:39:33  [251/330] done  EHT MCS  6 @  20 MHz, 4 MB -> wifi7_mcs=6_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:39:33  [252/330] start EHT MCS  6 @  20 MHz, 8 MB -> wifi7_mcs=6_bw=20_osf=2_8MB.bin
+2026-10-17 07:39:38  [252/330] done  EHT MCS  6 @  20 MHz, 8 MB -> wifi7_mcs=6_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:39:38  [253/330] start EHT MCS  6 @  40 MHz, 4 MB -> wifi7_mcs=6_bw=40_osf=2_4MB.bin
+2026-10-17 07:39:41  [253/330] done  EHT MCS  6 @  40 MHz, 4 MB -> wifi7_mcs=6_bw=40_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:39:41  [254/330] start EHT MCS  6 @  40 MHz, 8 MB -> wifi7_mcs=6_bw=40_osf=2_8MB.bin
+2026-10-17 07:40:18  [254/330] done  EHT MCS  6 @  40 MHz, 8 MB -> wifi7_mcs=6_bw=40_osf=2_8MB.bin (0.6 min)
+2026-10-17 07:40:18  [255/330] start EHT MCS  6 @  80 MHz, 4 MB -> wifi7_mcs=6_bw=80_osf=2_4MB.bin
+2026-10-17 07:40:30  [255/330] done  EHT MCS  6 @  80 MHz, 4 MB -> wifi7_mcs=6_bw=80_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:40:30  [256/330] start EHT MCS  6 @  80 MHz, 8 MB -> wifi7_mcs=6_bw=80_osf=2_8MB.bin
+2026-10-17 07:40:37  [256/330] done  EHT MCS  6 @  80 MHz, 8 MB -> wifi7_mcs=6_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:40:37  [257/330] start EHT MCS  6 @ 160 MHz, 4 MB -> wifi7_mcs=6_bw=160_osf=2_4MB.bin
+2026-10-17 07:40:47  [257/330] done  EHT MCS  6 @ 160 MHz, 4 MB -> wifi7_mcs=6_bw=160_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:40:47  [258/330] start EHT MCS  6 @ 160 MHz, 8 MB -> wifi7_mcs=6_bw=160_osf=2_8MB.bin
+2026-10-17 07:40:54  [258/330] done  EHT MCS  6 @ 160 MHz, 8 MB -> wifi7_mcs=6_bw=160_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:40:54  [259/330] start EHT MCS  6 @ 320 MHz, 4 MB -> wifi7_mcs=6_bw=320_osf=1.875_4MB.bin
+2026-10-17 07:41:01  [259/330] done  EHT MCS  6 @ 320 MHz, 4 MB -> wifi7_mcs=6_bw=320_osf=1.875_4MB.bin (0.1 min)
+2026-10-17 07:41:01  [260/330] start EHT MCS  6 @ 320 MHz, 8 MB -> wifi7_mcs=6_bw=320_osf=1.875_8MB.bin
+2026-10-17 07:42:41  [260/330] done  EHT MCS  6 @ 320 MHz, 8 MB -> wifi7_mcs=6_bw=320_osf=1.875_8MB.bin (1.7 min)
+2026-10-17 07:42:41  [261/330] start EHT MCS  7 @  20 MHz, 4 MB -> wifi7_mcs=7_bw=20_osf=2_4MB.bin
+2026-10-17 07:42:49  [261/330] done  EHT MCS  7 @  20 MHz, 4 MB -> wifi7_mcs=7_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:42:49  [262/330] start EHT MCS  7 @  20 MHz, 8 MB -> wifi7_mcs=7_bw=20_osf=2_8MB.bin
+2026-10-17 07:42:54  [262/330] done  EHT MCS  7 @  20 MHz, 8 MB -> wifi7_mcs=7_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:42:54  [263/330] start EHT MCS  7 @  40 MHz, 4 MB -> wifi7_mcs=7_bw=40_osf=2_4MB.bin
+2026-10-17 07:42:59  [263/330] done  EHT MCS  7 @  40 MHz, 4 MB -> wifi7_mcs=7_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:42:59  [264/330] start EHT MCS  7 @  40 MHz, 8 MB -> wifi7_mcs=7_bw=40_osf=2_8MB.bin
+2026-10-17 07:43:05  [264/330] done  EHT MCS  7 @  40 MHz, 8 MB -> wifi7_mcs=7_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:43:05  [265/330] start EHT MCS  7 @  80 MHz, 4 MB -> wifi7_mcs=7_bw=80_osf=2_4MB.bin
+2026-10-17 07:43:16  [265/330] done  EHT MCS  7 @  80 MHz, 4 MB -> wifi7_mcs=7_bw=80_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:43:16  [266/330] start EHT MCS  7 @  80 MHz, 8 MB -> wifi7_mcs=7_bw=80_osf=2_8MB.bin
+2026-10-17 07:43:28  [266/330] done  EHT MCS  7 @  80 MHz, 8 MB -> wifi7_mcs=7_bw=80_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:43:28  [267/330] start EHT MCS  7 @ 160 MHz, 4 MB -> wifi7_mcs=7_bw=160_osf=2_4MB.bin
+2026-10-17 07:43:35  [267/330] done  EHT MCS  7 @ 160 MHz, 4 MB -> wifi7_mcs=7_bw=160_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:43:35  [268/330] start EHT MCS  7 @ 160 MHz, 8 MB -> wifi7_mcs=7_bw=160_osf=2_8MB.bin
+2026-10-17 07:44:18  [268/330] done  EHT MCS  7 @ 160 MHz, 8 MB -> wifi7_mcs=7_bw=160_osf=2_8MB.bin (0.7 min)
+2026-10-17 07:44:18  [269/330] start EHT MCS  7 @ 320 MHz, 4 MB -> wifi7_mcs=7_bw=320_osf=1.875_4MB.bin
+2026-10-17 07:44:22  [269/330] done  EHT MCS  7 @ 320 MHz, 4 MB -> wifi7_mcs=7_bw=320_osf=1.875_4MB.bin (0.1 min)
+2026-10-17 07:44:22  [270/330] start EHT MCS  7 @ 320 MHz, 8 MB -> wifi7_mcs=7_bw=320_osf=1.875_8MB.bin
+2026-10-17 07:44:49  [270/330] done  EHT MCS  7 @ 320 MHz, 8 MB -> wifi7_mcs=7_bw=320_osf=1.875_8MB.bin (0.4 min)
+2026-10-17 07:44:49  [271/330] start EHT MCS  8 @  20 MHz, 4 MB -> wifi7_mcs=8_bw=20_osf=2_4MB.bin
+2026-10-17 07:45:05  [271/330] done  EHT MCS  8 @  20 MHz, 4 MB -> wifi7_mcs=8_bw=20_osf=2_4MB.bin (0.3 min)
+2026-10-17 07:45:05  [272/330] start EHT MCS  8 @  20 MHz, 8 MB -> wifi7_mcs=8_bw=20_osf=2_8MB.bin
+2026-10-17 07:45:20  [272/330] done  EHT MCS  8 @  20 MHz, 8 MB -> wifi7_mcs=8_bw=20_osf=2_8MB.bin (0.3 min)
+2026-10-17 07:45:20  [273/330] start EHT MCS  8 @  40 MHz, 4 MB -> wifi7_mcs=8_bw=40_osf=2_4MB.bin
+2026-10-17 07:45:34  [273/330] done  EHT MCS  8 @  40 MHz, 4 MB -> wifi7_mcs=8_bw=40_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:45:34  [274/330] start EHT MCS  8 @  40 MHz, 8 MB -> wifi7_mcs=8_bw=40_osf=2_8MB.bin
+2026-10-17 07:45:43  [274/330] done  EHT MCS  8 @  40 MHz, 8 MB -> wifi7_mcs=8_bw=40_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:45:43  [275/330] start EHT MCS  8 @  80 MHz, 4 MB -> wifi7_mcs=8_bw=80_osf=2_4MB.bin
+2026-10-17 07:45:53  [275/330] done  EHT MCS  8 @  80 MHz, 4 MB -> wifi7_mcs=8_bw=80_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:45:53  [276/330] start EHT MCS  8 @  80 MHz, 8 MB -> wifi7_mcs=8_bw=80_osf=2_8MB.bin
+2026-10-17 07:46:26  [276/330] done  EHT MCS  8 @  80 MHz, 8 MB -> wifi7_mcs=8_bw=80_osf=2_8MB.bin (0.6 min)
+2026-10-17 07:46:26  [277/330] start EHT MCS  8 @ 160 MHz, 4 MB -> wifi7_mcs=8_bw=160_osf=2_4MB.bin
+2026-10-17 07:46:39  [277/330] done  EHT MCS  8 @ 160 MHz, 4 MB -> wifi7_mcs=8_bw=160_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:46:39  [278/330] start EHT MCS  8 @ 160 MHz, 8 MB -> wifi7_mcs=8_bw=160_osf=2_8MB.bin
+2026-10-17 07:46:47  [278/330] done  EHT MCS  8 @ 160 MHz, 8 MB -> wifi7_mcs=8_bw=160_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:46:47  [279/330] start EHT MCS  8 @ 320 MHz, 4 MB -> wifi7_mcs=8_bw=320_osf=1.875_4MB.bin
+2026-10-17 07:46:55  [279/330] done  EHT MCS  8 @ 320 MHz, 4 MB -> wifi7_mcs=8_bw=320_osf=1.875_4MB.bin (0.1 min)
+2026-10-17 07:46:55  [280/330] start EHT MCS  8 @ 320 MHz, 8 MB -> wifi7_mcs=8_bw=320_osf=1.875_8MB.bin
+2026-10-17 07:47:43  [280/330] done  EHT MCS  8 @ 320 MHz, 8 MB -> wifi7_mcs=8_bw=320_osf=1.875_8MB.bin (0.8 min)
+2026-10-17 07:47:43  [281/330] start EHT MCS  9 @  20 MHz, 4 MB -> wifi7_mcs=9_bw=20_osf=2_4MB.bin
+2026-10-17 07:47:45  [281/330] done  EHT MCS  9 @  20 MHz, 4 MB -> wifi7_mcs=9_bw=20_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:47:45  [282/330] start EHT MCS  9 @  20 MHz, 8 MB -> wifi7_mcs=9_bw=20_osf=2_8MB.bin
+2026-10-17 07:47:50  [282/330] done  EHT MCS  9 @  20 MHz, 8 MB -> wifi7_mcs=9_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:47:50  [283/330] start EHT MCS  9 @  40 MHz, 4 MB -> wifi7_mcs=9_bw=40_osf=2_4MB.bin
+2026-10-17 07:47:53  [283/330] done  EHT MCS  9 @  40 MHz, 4 MB -> wifi7_mcs=9_bw=40_osf=2_4MB.bin (0.0 min)
+2026-10-17 07:47:53  [284/330] start EHT MCS  9 @  40 MHz, 8 MB -> wifi7_mcs=9_bw=40_osf=2_8MB.bin
+2026-10-17 07:48:00  [284/330] done  EHT MCS  9 @  40 MHz, 8 MB -> wifi7_mcs=9_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:48:00  [285/330] start EHT MCS  9 @  80 MHz, 4 MB -> wifi7_mcs=9_bw=80_osf=2_4MB.bin
+2026-10-17 07:48:06  [285/330] done  EHT MCS  9 @  80 MHz, 4 MB -> wifi7_mcs=9_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:48:06  [286/330] start EHT MCS  9 @  80 MHz, 8 MB -> wifi7_mcs=9_bw=80_osf=2_8MB.bin
+2026-10-17 07:48:14  [286/330] done  EHT MCS  9 @  80 MHz, 8 MB -> wifi7_mcs=9_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:48:14  [287/330] start EHT MCS  9 @ 160 MHz, 4 MB -> wifi7_mcs=9_bw=160_osf=2_4MB.bin
+2026-10-17 07:48:34  [287/330] done  EHT MCS  9 @ 160 MHz, 4 MB -> wifi7_mcs=9_bw=160_osf=2_4MB.bin (0.3 min)
+2026-10-17 07:48:34  [288/330] start EHT MCS  9 @ 160 MHz, 8 MB -> wifi7_mcs=9_bw=160_osf=2_8MB.bin
+2026-10-17 07:48:46  [288/330] done  EHT MCS  9 @ 160 MHz, 8 MB -> wifi7_mcs=9_bw=160_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:48:46  [289/330] start EHT MCS  9 @ 320 MHz, 4 MB -> wifi7_mcs=9_bw=320_osf=1.875_4MB.bin
+2026-10-17 07:49:04  [289/330] done  EHT MCS  9 @ 320 MHz, 4 MB -> wifi7_mcs=9_bw=320_osf=1.875_4MB.bin (0.3 min)
+2026-10-17 07:49:04  [290/330] start EHT MCS  9 @ 320 MHz, 8 MB -> wifi7_mcs=9_bw=320_osf=1.875_8MB.bin
+2026-10-17 07:49:26  [290/330] done  EHT MCS  9 @ 320 MHz, 8 MB -> wifi7_mcs=9_bw=320_osf=1.875_8MB.bin (0.4 min)
+2026-10-17 07:49:26  [291/330] start EHT MCS 10 @  20 MHz, 4 MB -> wifi7_mcs=10_bw=20_osf=2_4MB.bin
+2026-10-17 07:49:34  [291/330] done  EHT MCS 10 @  20 MHz, 4 MB -> wifi7_mcs=10_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:49:34  [292/330] start EHT MCS 10 @  20 MHz, 8 MB -> wifi7_mcs=10_bw=20_osf=2_8MB.bin
+2026-10-17 07:49:43  [292/330] done  EHT MCS 10 @  20 MHz, 8 MB -> wifi7_mcs=10_bw=20_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:49:43  [293/330] start EHT MCS 10 @  40 MHz, 4 MB -> wifi7_mcs=10_bw=40_osf=2_4MB.bin
+2026-10-17 07:49:52  [293/330] done  EHT MCS 10 @  40 MHz, 4 MB -> wifi7_mcs=10_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:49:52  [294/330] start EHT MCS 10 @  40 MHz, 8 MB -> wifi7_mcs=10_bw=40_osf=2_8MB.bin
+2026-10-17 07:50:02  [294/330] done  EHT MCS 10 @  40 MHz, 8 MB -> wifi7_mcs=10_bw=40_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:50:02  [295/330] start EHT MCS 10 @  80 MHz, 4 MB -> wifi7_mcs=10_bw=80_osf=2_4MB.bin
+2026-10-17 07:50:08  [295/330] done  EHT MCS 10 @  80 MHz, 4 MB -> wifi7_mcs=10_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:50:08  [296/330] start EHT MCS 10 @  80 MHz, 8 MB -> wifi7_mcs=10_bw=80_osf=2_8MB.bin
+2026-10-17 07:50:13  [296/330] done  EHT MCS 10 @  80 MHz, 8 MB -> wifi7_mcs=10_bw=80_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:50:13  [297/330] start EHT MCS 10 @ 160 MHz, 4 MB -> wifi7_mcs=10_bw=160_osf=2_4MB.bin
+2026-10-17 07:50:23  [297/330] done  EHT MCS 10 @ 160 MHz, 4 MB -> wifi7_mcs=10_bw=160_osf=2_4MB.bin (0.2 min)
+2026-10-17 07:50:23  [298/330] start EHT MCS 10 @ 160 MHz, 8 MB -> wifi7_mcs=10_bw=160_osf=2_8MB.bin
+2026-10-17 07:50:36  [298/330] done  EHT MCS 10 @ 160 MHz, 8 MB -> wifi7_mcs=10_bw=160_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:50:36  [299/330] start EHT MCS 10 @ 320 MHz, 4 MB -> wifi7_mcs=10_bw=320_osf=1.875_4MB.bin
+2026-10-17 07:52:32  [299/330] done  EHT MCS 10 @ 320 MHz, 4 MB -> wifi7_mcs=10_bw=320_osf=1.875_4MB.bin (1.9 min)
+2026-10-17 07:52:33  [300/330] start EHT MCS 10 @ 320 MHz, 8 MB -> wifi7_mcs=10_bw=320_osf=1.875_8MB.bin
+2026-10-17 07:54:04  [300/330] done  EHT MCS 10 @ 320 MHz, 8 MB -> wifi7_mcs=10_bw=320_osf=1.875_8MB.bin (1.5 min)
+2026-10-17 07:54:04  [301/330] start EHT MCS 11 @  20 MHz, 4 MB -> wifi7_mcs=11_bw=20_osf=2_4MB.bin
+2026-10-17 07:54:09  [301/330] done  EHT MCS 11 @  20 MHz, 4 MB -> wifi7_mcs=11_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:54:09  [302/330] start EHT MCS 11 @  20 MHz, 8 MB -> wifi7_mcs=11_bw=20_osf=2_8MB.bin
+2026-10-17 07:54:17  [302/330] done  EHT MCS 11 @  20 MHz, 8 MB -> wifi7_mcs=11_bw=20_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:54:17  [303/330] start EHT MCS 11 @  40 MHz, 4 MB -> wifi7_mcs=11_bw=40_osf=2_4MB.bin
+2026-10-17 07:54:24  [303/330] done  EHT MCS 11 @  40 MHz, 4 MB -> wifi7_mcs=11_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:54:24  [304/330] start EHT MCS 11 @  40 MHz, 8 MB -> wifi7_mcs=11_bw=40_osf=2_8MB.bin
+2026-10-17 07:54:38  [304/330] done  EHT MCS 11 @  40 MHz, 8 MB -> wifi7_mcs=11_bw=40_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:54:38  [305/330] start EHT MCS 11 @  80 MHz, 4 MB -> wifi7_mcs=11_bw=80_osf=2_4MB.bin
+2026-10-17 07:54:45  [305/330] done  EHT MCS 11 @  80 MHz, 4 MB -> wifi7_mcs=11_bw=80_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:54:45  [306/330] start EHT MCS 11 @  80 MHz, 8 MB -> wifi7_mcs=11_bw=80_osf=2_8MB.bin
+2026-10-17 07:55:06  [306/330] done  EHT MCS 11 @  80 MHz, 8 MB -> wifi7_mcs=11_bw=80_osf=2_8MB.bin (0.3 min)
+2026-10-17 07:55:06  [307/330] start EHT MCS 11 @ 160 MHz, 4 MB -> wifi7_mcs=11_bw=160_osf=2_4MB.bin
+2026-10-17 07:56:01  [307/330] done  EHT MCS 11 @ 160 MHz, 4 MB -> wifi7_mcs=11_bw=160_osf=2_4MB.bin (0.9 min)
+2026-10-17 07:56:01  [308/330] start EHT MCS 11 @ 160 MHz, 8 MB -> wifi7_mcs=11_bw=160_osf=2_8MB.bin
+2026-10-17 07:56:21  [308/330] done  EHT MCS 11 @ 160 MHz, 8 MB -> wifi7_mcs=11_bw=160_osf=2_8MB.bin (0.3 min)
+2026-10-17 07:56:21  [309/330] start EHT MCS 11 @ 320 MHz, 4 MB -> wifi7_mcs=11_bw=320_osf=1.875_4MB.bin
+2026-10-17 07:57:54  [309/330] done  EHT MCS 11 @ 320 MHz, 4 MB -> wifi7_mcs=11_bw=320_osf=1.875_4MB.bin (1.5 min)
+2026-10-17 07:57:54  [310/330] start EHT MCS 11 @ 320 MHz, 8 MB -> wifi7_mcs=11_bw=320_osf=1.875_8MB.bin
+2026-10-17 07:58:06  [310/330] done  EHT MCS 11 @ 320 MHz, 8 MB -> wifi7_mcs=11_bw=320_osf=1.875_8MB.bin (0.2 min)
+2026-10-17 07:58:06  [311/330] start EHT MCS 12 @  20 MHz, 4 MB -> wifi7_mcs=12_bw=20_osf=2_4MB.bin
+2026-10-17 07:58:10  [311/330] done  EHT MCS 12 @  20 MHz, 4 MB -> wifi7_mcs=12_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:58:10  [312/330] start EHT MCS 12 @  20 MHz, 8 MB -> wifi7_mcs=12_bw=20_osf=2_8MB.bin
+2026-10-17 07:58:20  [312/330] done  EHT MCS 12 @  20 MHz, 8 MB -> wifi7_mcs=12_bw=20_osf=2_8MB.bin (0.2 min)
+2026-10-17 07:58:20  [313/330] start EHT MCS 12 @  40 MHz, 4 MB -> wifi7_mcs=12_bw=40_osf=2_4MB.bin
+2026-10-17 07:58:26  [313/330] done  EHT MCS 12 @  40 MHz, 4 MB -> wifi7_mcs=12_bw=40_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:58:26  [314/330] start EHT MCS 12 @  40 MHz, 8 MB -> wifi7_mcs=12_bw=40_osf=2_8MB.bin
+2026-10-17 07:58:33  [314/330] done  EHT MCS 12 @  40 MHz, 8 MB -> wifi7_mcs=12_bw=40_osf=2_8MB.bin (0.1 min)
+2026-10-17 07:58:33  [315/330] start EHT MCS 12 @  80 MHz, 4 MB -> wifi7_mcs=12_bw=80_osf=2_4MB.bin
+2026-10-17 07:58:55  [315/330] done  EHT MCS 12 @  80 MHz, 4 MB -> wifi7_mcs=12_bw=80_osf=2_4MB.bin (0.4 min)
+2026-10-17 07:58:55  [316/330] start EHT MCS 12 @  80 MHz, 8 MB -> wifi7_mcs=12_bw=80_osf=2_8MB.bin
+2026-10-17 07:59:14  [316/330] done  EHT MCS 12 @  80 MHz, 8 MB -> wifi7_mcs=12_bw=80_osf=2_8MB.bin (0.3 min)
+2026-10-17 07:59:14  [317/330] start EHT MCS 12 @ 160 MHz, 4 MB -> wifi7_mcs=12_bw=160_osf=2_4MB.bin
+2026-10-17 07:59:22  [317/330] done  EHT MCS 12 @ 160 MHz, 4 MB -> wifi7_mcs=12_bw=160_osf=2_4MB.bin (0.1 min)
+2026-10-17 07:59:22  [318/330] start EHT MCS 12 @ 160 MHz, 8 MB -> wifi7_mcs=12_bw=160_osf=2_8MB.bin
+2026-10-17 07:59:45  [318/330] done  EHT MCS 12 @ 160 MHz, 8 MB -> wifi7_mcs=12_bw=160_osf=2_8MB.bin (0.4 min)
+2026-10-17 07:59:45  [319/330] start EHT MCS 12 @ 320 MHz, 4 MB -> wifi7_mcs=12_bw=320_osf=1.875_4MB.bin
+2026-10-17 07:59:57  [319/330] done  EHT MCS 12 @ 320 MHz, 4 MB -> wifi7_mcs=12_bw=320_osf=1.875_4MB.bin (0.2 min)
+2026-10-17 07:59:57  [320/330] start EHT MCS 12 @ 320 MHz, 8 MB -> wifi7_mcs=12_bw=320_osf=1.875_8MB.bin
+2026-10-17 08:00:21  [320/330] done  EHT MCS 12 @ 320 MHz, 8 MB -> wifi7_mcs=12_bw=320_osf=1.875_8MB.bin (0.4 min)
+2026-10-17 08:00:21  [321/330] start EHT MCS 13 @  20 MHz, 4 MB -> wifi7_mcs=13_bw=20_osf=2_4MB.bin
+2026-10-17 08:00:25  [321/330] done  EHT MCS 13 @  20 MHz, 4 MB -> wifi7_mcs=13_bw=20_osf=2_4MB.bin (0.1 min)
+2026-10-17 08:00:25  [322/330] start EHT MCS 13 @  20 MHz, 8 MB -> wifi7_mcs=13_bw=20_osf=2_8MB.bin
+2026-10-17 08:00:41  [322/330] done  EHT MCS 13 @  20 MHz, 8 MB -> wifi7_mcs=13_bw=20_osf=2_8MB.bin (0.3 min)
+2026-10-17 08:00:41  [323/330] start EHT MCS 13 @  40 MHz, 4 MB -> wifi7_mcs=13_bw=40_osf=2_4MB.bin
+2026-10-17 08:00:57  [323/330] done  EHT MCS 13 @  40 MHz, 4 MB -> wifi7_mcs=13_bw=40_osf=2_4MB.bin (0.3 min)
+2026-10-17 08:00:57  [324/330] start EHT MCS 13 @  40 MHz, 8 MB -> wifi7_mcs=13_bw=40_osf=2_8MB.bin
+2026-10-17 08:01:15  [324/330] done  EHT MCS 13 @  40 MHz, 8 MB -> wifi7_mcs=13_bw=40_osf=2_8MB.bin (0.3 min)
+2026-10-17 08:01:15  [325/330] start EHT MCS 13 @  80 MHz, 4 MB -> wifi7_mcs=13_bw=80_osf=2_4MB.bin
+2026-10-17 08:01:25  [325/330] done  EHT MCS 13 @  80 MHz, 4 MB -> wifi7_mcs=13_bw=80_osf=2_4MB.bin (0.2 min)
+2026-10-17 08:01:25  [326/330] start EHT MCS 13 @  80 MHz, 8 MB -> wifi7_mcs=13_bw=80_osf=2_8MB.bin
+2026-10-17 08:01:46  [326/330] done  EHT MCS 13 @  80 MHz, 8 MB -> wifi7_mcs=13_bw=80_osf=2_8MB.bin (0.3 min)
+2026-10-17 08:01:46  [327/330] start EHT MCS 13 @ 160 MHz, 4 MB -> wifi7_mcs=13_bw=160_osf=2_4MB.bin
+2026-10-17 08:02:17  [327/330] done  EHT MCS 13 @ 160 MHz, 4 MB -> wifi7_mcs=13_bw=160_osf=2_4MB.bin (0.5 min)
+2026-10-17 08:02:17  [328/330] start EHT MCS 13 @ 160 MHz, 8 MB -> wifi7_mcs=13_bw=160_osf=2_8MB.bin
+2026-10-17 08:02:35  [328/330] done  EHT MCS 13 @ 160 MHz, 8 MB -> wifi7_mcs=13_bw=160_osf=2_8MB.bin (0.3 min)
+2026-10-17 08:02:35  [329/330] start EHT MCS 13 @ 320 MHz, 4 MB -> wifi7_mcs=13_bw=320_osf=1.875_4MB.bin
+2026-10-17 08:02:48  [329/330] done  EHT MCS 13 @ 320 MHz, 4 MB -> wifi7_mcs=13_bw=320_osf=1.875_4MB.bin (0.2 min)
+2026-10-17 08:02:48  [330/330] start EHT MCS 13 @ 320 MHz, 8 MB -> wifi7_mcs=13_bw=320_osf=1.875_8MB.bin
+2026-10-17 08:03:05  [330/330] done  EHT MCS 13 @ 320 MHz, 8 MB -> wifi7_mcs=13_bw=320_osf=1.875_8MB.bin (0.3 min)
+2026-10-17 08:03:05  run_wifi_all finished generating: 330 ok, 0 failed, 1.1 h total.
+2026-10-17 08:03:06    deleted wifi5_mcs=0_bw=160_osf=4_7.617188e+00MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=0_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=0_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=0_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=1_bw=160_osf=4_7.617188e+00MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=1_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=1_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=1_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=2_bw=160_osf=4_7.617188e+00MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=2_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=2_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=3_bw=160_osf=4_7.617188e+00MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=3_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=3_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=3_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=4_bw=160_osf=4_7.617188e+00MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=4_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=4_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=4_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=5_bw=160_osf=4_7.617188e+00MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=5_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=5_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=5_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=6_bw=160_osf=4_7.617188e+00MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=6_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=6_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=6_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=7_bw=160_osf=4_7.617188e+00MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=7_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=7_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=7_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=8_bw=160_osf=4_7.617188e+00MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=8_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=8_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=8_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=8_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=8_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=9_bw=160_osf=4_7.617188e+00MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=9_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=9_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=9_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=9_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi5_mcs=9_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=0_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=0_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=0_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=0_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=0_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=0_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=0_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=0_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=10_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=10_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=10_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=10_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=10_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=10_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=10_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=10_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=11_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=11_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=11_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=11_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=11_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=11_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=11_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=11_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=1_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=1_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=1_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=1_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=1_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=1_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=1_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=1_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=2_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=2_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=2_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=2_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=2_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=2_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=2_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=2_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=3_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=3_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=3_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=3_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=3_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=3_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=3_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=3_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=4_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=4_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=4_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=4_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=4_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=4_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=4_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=4_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=5_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=5_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=5_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=5_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=5_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=5_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=5_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=5_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=6_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=6_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=6_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=6_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=6_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=6_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=6_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=6_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=7_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=7_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=7_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=7_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=7_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=7_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=7_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=7_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=8_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=8_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=8_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=8_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=8_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=8_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=8_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=8_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:06    deleted wifi6_mcs=9_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi6_mcs=9_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi6_mcs=9_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi6_mcs=9_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi6_mcs=9_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi6_mcs=9_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi6_mcs=9_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi6_mcs=9_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=0_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=0_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=0_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=0_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=0_bw=320_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=0_bw=320_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=0_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=0_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=0_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=0_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=10_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=10_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=10_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=10_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=10_bw=320_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=10_bw=320_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=10_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=10_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=10_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=10_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=11_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=11_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=11_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=11_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=11_bw=320_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=11_bw=320_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=11_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=11_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=11_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=11_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=12_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=12_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=12_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=12_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=12_bw=320_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=12_bw=320_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=12_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=12_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=12_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=12_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=13_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=13_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=13_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=13_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=13_bw=320_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=13_bw=320_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=13_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=13_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=13_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=13_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=1_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=1_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=1_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=1_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=1_bw=320_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=1_bw=320_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=1_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=1_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=1_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=1_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=2_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=2_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=2_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=2_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=2_bw=320_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=2_bw=320_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=2_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=2_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=2_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=2_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=3_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=3_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=3_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=3_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=3_bw=320_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=3_bw=320_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=3_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=3_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=3_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=3_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=4_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=4_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=4_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=4_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=4_bw=320_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=4_bw=320_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=4_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=4_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=4_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=4_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=5_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=5_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=5_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=5_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=5_bw=320_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=5_bw=320_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=5_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=5_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=5_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=5_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=6_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=6_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=6_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=6_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=6_bw=320_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=6_bw=320_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=6_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=6_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=6_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=6_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=7_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=7_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=7_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=7_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=7_bw=320_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=7_bw=320_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=7_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=7_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=7_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=7_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=8_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=8_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=8_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=8_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=8_bw=320_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=8_bw=320_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=8_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=8_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=8_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=9_bw=160_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=9_bw=160_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=9_bw=20_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=9_bw=20_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=9_bw=320_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=9_bw=40_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=9_bw=40_osf=4_8MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=9_bw=80_osf=4_4MB.bin
+2026-10-17 08:03:07    deleted wifi7_mcs=9_bw=80_osf=4_8MB.bin
+2026-10-17 08:03:07  Clean: 277 stale file(s) deleted, 0 kept until replaced.
+2026-10-17 08:03:07  Log: C:\Users\jeffr\OneDrive\Documents\Github\PA-standard-sig\Code\WiFi\run_wifi_all.log

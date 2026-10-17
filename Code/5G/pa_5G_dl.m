@@ -43,7 +43,7 @@ runGen = env_num('PAPR_RUN_GEN', 1); % Generates signals for loading on signal g
 
 direction = 'dl';
 waveform = 'cp-ofdm';                % downlink is always CP-OFDM
-osf = 4;                             % Oversampling factor (SampleRate = osf x Nfft x SCS)
+osf = 4;                             % Generation/PAPR-matching rate (osf x Nfft x SCS); files export at 2x (papr_export_rate)
 
 % Carrier and options, all shell-overridable.
 BW  = env_num('PAPR_BW', 100);       % MHz
@@ -81,12 +81,21 @@ if runCdf || runAll
     streamPlan = papr_5g_stream_plan(cfgNR, info, measureDataFieldOnly);
     spu = streamPlan.meta.subframesPerUnit;
 
-    paprSamples = cell(1, numel(targetSubframes));
-    outsideData = zeros(1, numel(targetSubframes));
-    achieved    = zeros(1, numel(targetSubframes));
+    % Burst lengths are whole units. With a multi-subframe slot pattern two
+    % requested durations can round to the same unit count; keep one.
+    [unitList, keep] = unique(max(1, round(targetSubframes / spu)), 'stable');
+    if numel(unitList) < numel(targetSubframes)
+        fprintf('  %d-subframe unit: durations [%s] ms reduce to [%s] ms.\n', spu, ...
+            num2str(targetSubframes), num2str(unitList * spu));
+        list = list(keep);
+    end
 
-    for ib = 1:numel(targetSubframes)
-        nUnits = max(1, round(targetSubframes(ib) / spu));
+    paprSamples = cell(1, numel(unitList));
+    outsideData = zeros(1, numel(unitList));
+    achieved    = zeros(1, numel(unitList));
+
+    for ib = 1:numel(unitList)
+        nUnits = unitList(ib);
         achieved(ib) = nUnits * spu;
         trials = list(ib);
         papr_db = zeros(trials, 1);
@@ -169,7 +178,12 @@ if runGen || runAll
         info.fs/1e6, target_mbytes, modeTag);
 
     genMeta = papr_5g_meta(cfgNR, info);
-    total_target_samples = (target_mbytes * 1024 * 1024) / bytes_per_sample;
+    % Generate and match PAPR at osf (the rate the targets were measured
+    % at), export at 2x or the ARB clock cap; see papr_export_rate.
+    ex = papr_export_rate(info.fs/osf, info.fs, (target_mbytes * 1024 * 1024) / bytes_per_sample);
+    total_target_samples = ex.genSamples;
+    fprintf('Export: %.2f MS/s (%gx), %d samples; generating at %gx.\n', ...
+        ex.fs/1e6, ex.osf, ex.samples, osf);
 
     % The memory budget is the hard limit and the airtime is the negotiable
     % one: papr_5g_fit_airtime packs whole units and cuts the last one at a
@@ -220,11 +234,25 @@ if runGen || runAll
             modeTag, numel(localPapr), target_mean_papr_db, target_std_papr_db);
     end
 
+    % Transmit filter: flat across the occupied resource blocks, zero from
+    % the channel edge on, so the file's own sidelobes do not mask the PA's
+    % regrowth. The grid spans -6*NRB..6*NRB-1 subcarriers about the carrier.
+    passHz = (6*info.nrb + 0.5) * SCS * 1e3;
+    stopHz = BW * 1e6 / 2;
+
     matched = false;
     for attempt = 1:max_attempts
         seed = randi([1 2^20]);
         tx_burst = papr_5g_generate(cfgNR, genMeta, fit.unitsToGen, 0, seed);
         tx_burst = tx_burst(1:fit.burstSamples, :);
+
+        % Pad to the memory budget, then filter the whole loop as one period
+        % so it stays band-limited across the wrap when the generator plays
+        % it end to end. PAPR is measured on the filtered burst, i.e. on
+        % what is exported.
+        final_waveform = papr_loop_filter([tx_burst; zeros(fit.padSamples, size(tx_burst,2))], ...
+            info.fs, passHz, stopHz);
+        tx_burst = final_waveform(1:fit.burstSamples, :);
 
         % Same definition as the targets, so the comparison is meaningful.
         current_papr_db = papr_burst_db(tx_burst, genMeta, fit.unitsToGen, measureDataFieldOnly);
@@ -233,13 +261,19 @@ if runGen || runAll
             matched = true;
             fprintf('Success on attempt %d! Matched PAPR: %2.2f dB\n', attempt, current_papr_db);
 
-            final_waveform = [tx_burst; zeros(fit.padSamples, size(tx_burst,2))];
+            % Down to the export rate. The loop is band-limited and periodic,
+            % so this is exact and adds nothing at the wrap.
+            final_waveform = papr_loop_resample(final_waveform, ex.samples);
+
+            % Peak at 1.0, so an import that takes +/-1 as full scale
+            % cannot clip it.
+            final_waveform = final_waveform / max(abs(final_waveform(:)));
             interleaved_data = zeros(2*length(final_waveform), 1, 'single');
             interleaved_data(1:2:end) = real(final_waveform(:,1));
             interleaved_data(2:2:end) = imag(final_waveform(:,1));
 
-            baseName = sprintf('5g_%s_%s_osf=%d_fs=%.2fMSps_%gMB', ...
-                direction, tagOf(MCS, BW, SCS), osf, info.fs/1e6, target_mbytes);
+            baseName = sprintf('5g_%s_%s_osf=%g_fs=%.2fMSps_%gMB', ...
+                direction, tagOf(MCS, BW, SCS), ex.osf, ex.fs/1e6, target_mbytes);
             if ~exist(sigPath, 'dir')
                 mkdir(sigPath);
             end
@@ -258,13 +292,14 @@ if runGen || runAll
                 'frequencyRange', info.frequencyRange, 'bandwidthMHz', BW, 'scsKHz', SCS, ...
                 'numRB', info.nrb, 'mcs', MCS, 'mcsTable', cfgOpts.MCSTable, ...
                 'modulation', info.modulation, 'codeRate', info.codeRate, ...
-                'oversampling', osf, 'sampleRateHz', info.fs, ...
-                'burstSubframes', fit.subframes, 'burstSamples', fit.burstSamples, ...
+                'oversampling', ex.osf, 'sampleRateHz', ex.fs, 'generationOversampling', osf, ...
+                'burstSubframes', fit.subframes, 'burstSamples', fit.burstSamples, 'exportSamples', ex.samples, ...
                 'padSamples', fit.padSamples, 'airtimeReduced', fit.reduced, ...
                 'ssb', cfgOpts.SSB, 'pdcch', cfgOpts.PDCCH, ...
                 'measureMode', modeTag, 'paprDb', current_papr_db, ...
                 'targetMeanDb', target_mean_papr_db, 'targetStdDb', target_std_papr_db, ...
-                'format', 'float32 interleaved I,Q', 'seed', seed);
+                'txFilterPassHz', passHz, 'txFilterStopHz', stopHz, ...
+                'format', 'float32 interleaved I,Q, peak 1.0', 'seed', seed);
             sideID = fopen(fullfile(sigPath, [baseName '.json']), 'w');
             fwrite(sideID, jsonencode(side, 'PrettyPrint', true), 'char');
             fclose(sideID);

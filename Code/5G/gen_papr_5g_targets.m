@@ -6,9 +6,14 @@
 % papr_5g_meta), otherwise the search loop compares two different quantities
 % and, at the default tolerance of 0.05 dB, may never converge.
 %
-% Results MERGE into any existing papr_5g_targets.csv: only the rows this
-% run produces (same direction, waveform, MCS table, MCS, BW, SCS, mode) are
-% replaced, so a sweep of one direction does not discard the other.
+% Results MERGE into any existing papr_5g_targets.csv, one row at a time:
+% every (direction, waveform, MCS table, MCS, BW, SCS, mode) row is written
+% to the file the moment it is measured, so an interrupted run keeps what it
+% finished, and a sweep of one direction does not discard the other.
+%
+% Restarting RESUMES: rows whose key is already in the file are skipped.
+% Set PAPR_TARGET_FORCE=1 to re-measure and replace them (for instance after
+% changing PAPR_TARGET_TRIALS or PAPR_TARGET_MS).
 %
 %   % uplink only, both waveform types
 %   PAPR_TARGET_DIRS=ul matlab -batch "run('gen_papr_5g_targets.m')"
@@ -38,6 +43,7 @@ baseTrials = env_num('PAPR_TARGET_TRIALS', 300);
 minTrials  = env_num('PAPR_TARGET_MIN_TRIALS', 80);
 burstMs    = env_num('PAPR_TARGET_MS', 8);
 osf        = env_num('PAPR_TARGET_OSF', 4);     % must match the osf runGen uses
+force      = env_num('PAPR_TARGET_FORCE', 0) ~= 0;
 modes      = split_csv_env('PAPR_TARGET_MODES', {'data', 'full'});
 dirs       = split_csv_env('PAPR_TARGET_DIRS', {'dl', 'ul'});
 wfFilter   = split_csv_env('PAPR_TARGET_WAVEFORMS', {});
@@ -46,10 +52,9 @@ bwFilter   = str2double(split_csv_env('PAPR_TARGET_BW', {}));
 scsFilter  = str2double(split_csv_env('PAPR_TARGET_SCS', {}));
 mcsFilter  = str2double(split_csv_env('PAPR_TARGET_MCS', {}));
 
-% Channel coverage: (SCS kHz, BW MHz) pairs, FR1 at 15/30 kHz, FR2 at 120.
-combos = [ 15  5;  15 10;  15 20; ...
-           30 20;  30 50;  30 100; ...
-          120 100; 120 200; 120 400];
+% Channel coverage: (SCS kHz, BW MHz) pairs, shared with run_5g_all so the
+% table always covers what the generators ask for.
+combos = papr_5g_combos();
 mcsAll = 0:28;                       % the 64QAM tables; 256QAM stops at 27
 if strcmp(mcsTable, '256QAM')
     mcsAll = 0:27;
@@ -58,7 +63,26 @@ if ~isempty(mcsFilter) && all(isfinite(mcsFilter))
     mcsAll = intersect(mcsAll, mcsFilter, 'stable');
 end
 
-rows = {};
+% mcs_table is the TS 38.214 table the index was resolved against ('64QAM'
+% or '256QAM'); modulation and code_rate are what that index means in it.
+varNames = {'direction','waveform','mcs_table','mcs','modulation','code_rate', ...
+            'bw','scs','mode','mean_db','std_db','max_db','outside_frac','trials'};
+outPath = fullfile(scriptDir, 'papr_5g_targets.csv');
+if isfile(outPath)
+    T = backfill_columns(readtable(outPath, 'TextType', 'char'), varNames);
+    if force
+        fprintf('%d rows in %s; PAPR_TARGET_FORCE set, rows in this sweep will be re-measured.\n', ...
+            height(T), outPath);
+    else
+        fprintf('%d rows in %s; rows already present are skipped (PAPR_TARGET_FORCE=1 to redo).\n', ...
+            height(T), outPath);
+    end
+else
+    T = [];
+end
+
+nMeasured = 0;
+nSkipped  = 0;
 for im = 1:numel(modes)
     mode = modes{im};
     measureDataFieldOnly = strcmp(mode, 'data');
@@ -97,6 +121,11 @@ for im = 1:numel(modes)
                 end
 
                 for mcs = mcsAll
+                    key = key_of(direction, waveform, mcsTable, mcs, bw, scs, mode);
+                    if ~force && ~isempty(T) && any(row_key(T) == key)
+                        nSkipped = nSkipped + 1;
+                        continue;
+                    end
                     try
                         [cfg, info] = papr_5g_config(direction, bw, scs, mcs, osf, opts);
                         streamPlan = papr_5g_stream_plan(cfg, info, measureDataFieldOnly);
@@ -115,38 +144,21 @@ for im = 1:numel(modes)
                             upper(direction), waveform, mcs, bw, scs, mode, err.message);
                         continue;
                     end
-                    rows(end+1,:) = row; %#ok<SAGROW>
+                    % Write immediately so an interruption keeps this row.
+                    T = upsert_row(T, row, varNames);
+                    write_atomic(T, outPath);
+                    nMeasured = nMeasured + 1;
                 end
             end
         end
     end
 end
 
-if isempty(rows)
+if nMeasured == 0 && nSkipped == 0
     error('gen_papr_5g_targets:NoRows', 'The sweep produced no rows; check the filters.');
 end
-
-Tnew = cell2table(rows, 'VariableNames', ...
-    {'direction','waveform','mcs_table','mcs','bw','scs','mode', ...
-     'mean_db','std_db','max_db','outside_frac','trials'});
-
-outPath = fullfile(scriptDir, 'papr_5g_targets.csv');
-if isfile(outPath)
-    Told = readtable(outPath, 'TextType', 'char');
-    keyOld = row_key(Told);
-    keyNew = row_key(Tnew);
-    replaced = ismember(keyOld, keyNew);
-    fprintf('\nMerging: %d existing rows kept, %d replaced, %d added.\n', ...
-        sum(~replaced), sum(replaced), height(Tnew) - sum(replaced));
-    Told(replaced, :) = [];
-    T = [Told; Tnew];
-else
-    T = Tnew;
-end
-
-T = sortrows(T, {'direction','waveform','mcs_table','scs','bw','mcs','mode'});
-writetable(T, outPath);
-fprintf('Wrote %d rows to %s\n', height(T), outPath);
+fprintf('\nDone: %d row(s) measured this run, %d skipped as already present; %s holds %d rows.\n', ...
+    nMeasured, nSkipped, outPath, height(T));
 
 function row = sweep_one(streamPlan, direction, waveform, mcsTable, mcs, bw, scs, ...
                          mode, nUnits, trials, info)
@@ -159,17 +171,75 @@ parfor t = 1:trials
 end
 
 papr_db = papr_db(isfinite(papr_db));
-row = {direction, waveform, mcsTable, mcs, bw, scs, mode, mean(papr_db), std(papr_db), ...
-       max(papr_db), mean(outside), numel(papr_db)};
+row = {direction, waveform, mcsTable, mcs, info.modulation, info.codeRate, bw, scs, mode, ...
+       mean(papr_db), std(papr_db), max(papr_db), mean(outside), numel(papr_db)};
 fprintf('%s %-10s MCS %-2d (%s R=%.3f) @ %3d MHz / %3d kHz (%-4s): %d ms, mean=%.3f std=%.4f outsideData=%3.0f%%\n', ...
     upper(direction), waveform, mcs, info.modulation, info.codeRate, bw, scs, mode, ...
-    nUnits * streamPlan.meta.subframesPerUnit, row{8}, row{9}, 100*row{11});
+    nUnits * streamPlan.meta.subframesPerUnit, row{10}, row{11}, 100*row{13});
 end
 
 function key = row_key(T)
-key = strcat(lower(string(T.direction)), '|', lower(string(T.waveform)), '|', ...
-             upper(string(T.mcs_table)), '|', string(T.mcs), '|', string(T.bw), '|', ...
-             string(T.scs), '|', lower(string(T.mode)));
+%ROW_KEY One key string per table row, in the form KEY_OF produces.
+if isempty(T)
+    key = strings(0, 1);
+    return;
+end
+key = key_of(T.direction, T.waveform, T.mcs_table, T.mcs, T.bw, T.scs, T.mode);
+end
+
+function key = key_of(direction, waveform, mcsTable, mcs, bw, scs, mode)
+%KEY_OF The identity of a target row: everything but the measured numbers.
+key = strcat(lower(string(direction)), '|', lower(string(waveform)), '|', ...
+             upper(string(mcsTable)), '|', string(mcs), '|', string(bw), '|', ...
+             string(scs), '|', lower(string(mode)));
+end
+
+function T = backfill_columns(T, varNames)
+%BACKFILL_COLUMNS Bring a table written by an earlier version of this
+%   script up to the current column set. modulation and code_rate follow
+%   from (mcs_table, mcs, waveform) alone, so they are filled in rather
+%   than re-measured.
+if ~ismember('modulation', T.Properties.VariableNames)
+    modulation = cell(height(T), 1);
+    codeRate = zeros(height(T), 1);
+    for r = 1:height(T)
+        [modulation{r}, codeRate(r)] = papr_5g_mcs(T.mcs(r), T.mcs_table{r}, ...
+            strcmpi(T.waveform{r}, 'dft-s-ofdm'));
+    end
+    T.modulation = modulation;
+    T.code_rate = codeRate;
+    fprintf('Added modulation and code_rate columns to %d existing rows.\n', height(T));
+end
+missing = setdiff(varNames, T.Properties.VariableNames);
+if ~isempty(missing)
+    error('gen_papr_5g_targets:BadTable', 'papr_5g_targets.csv lacks column(s): %s', ...
+        strjoin(missing, ', '));
+end
+T = T(:, varNames);
+end
+
+function T = upsert_row(T, row, varNames)
+%UPSERT_ROW Replace the row with the same key, or append, and keep the
+%   table sorted so the file is stable regardless of sweep order.
+Tnew = cell2table(row, 'VariableNames', varNames);
+if isempty(T)
+    T = Tnew;
+else
+    T(row_key(T) == row_key(Tnew), :) = [];
+    T = [T; Tnew];
+end
+T = sortrows(T, {'direction','waveform','mcs_table','scs','bw','mcs','mode'});
+end
+
+function write_atomic(T, outPath)
+%WRITE_ATOMIC Write to a sibling temp file and rename over the target, so
+%   an interruption during the write never leaves a truncated CSV behind.
+tmpPath = [outPath '.tmp'];
+writetable(T, tmpPath, 'FileType', 'text', 'Delimiter', ',');
+[ok, msg] = movefile(tmpPath, outPath, 'f');
+if ~ok
+    error('gen_papr_5g_targets:WriteFailed', 'Could not update %s: %s', outPath, msg);
+end
 end
 
 function out = split_csv_env(name, defaultValue)

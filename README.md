@@ -38,9 +38,12 @@ MC files are provided in binary format with:
 - 32-bit I data per sample
 - 32-bit Q data per sample
 
-MC signals are oversampled by 4x. Example:
+MC signals are oversampled by 2x, capped at a 600 MS/s ARB clock for the widest bandwidths (see [WiFi Generation Methodology](#wifi-generation-methodology)). Example:
 
-- A 20 MHz signal is sampled at 80 MHz.
+- A 20 MHz signal is sampled at 40 MHz.
+- A 320 MHz signal is sampled at 600 MHz (1.875x).
+
+Files generated before this change were oversampled by 4x; the `osf=` field in the file name gives the rate.
 
 #### WiFi Generation Methodology
 
@@ -50,6 +53,15 @@ The WiFi signal generators ([Code/WiFi](Code/WiFi)) target two things simultaneo
 2. **Uniform airtime across MCS/bandwidth.** Because higher MCS indices carry more bits per symbol, a fixed `APEPLength` would make packet duration vary wildly by MCS. To keep airtime comparable:
    - **802.11n (HT) / 802.11ac (VHT):** `APEPLength` is scaled per-MCS/bandwidth so every packet targets ~1.5 ms of airtime (`target_packet_duration_sec`), clipped to the standard's max PSDU length.
    - **802.11ax (HE) / 802.11be (EHT):** `APEPLength` is instead chosen so every packet spans a fixed number of OFDM data symbols (default 300, `PAPR_GEN_SYMBOLS`), which keeps airtime uniform without depending on an approximate bitrate table.
+
+Every exported file (WiFi and 5G NR) is then made suitable for PA linearity measurements and looped playback:
+
+- **Transmit filtering.** The OFDM generators only window symbol edges, which leaves the file's own sidelobes at about -35 dBc in the adjacent channel. [papr_loop_filter.m](Code/WiFi/papr_loop_filter.m) applies a raised-cosine mask that is flat across the occupied subcarriers and zero from the channel edge on, pushing the file's ACLR below -125 dBc.
+- **Glitch-free looping.** The mask is applied to the whole file, idle padding included, in the DFT domain, so the waveform is filtered as one period of a periodic signal and stays band-limited where the generator wraps from the last sample to the first.
+- **Peak-normalized.** Samples are float32 interleaved I,Q scaled to a peak magnitude of 1.0, so an import that treats ±1 as full scale cannot clip them.
+- **2x export rate.** Signals are generated and PAPR-matched at 4x (the rate the PAPR targets were measured at), then resampled exactly in the DFT domain to 2x the native rate, so they play on generators with modest ARB clocks. The signal generator's ARB interpolates up to its DAC rate itself. Very wide signals are capped at an ARB clock of 600 MS/s (`PAPR_MAX_FS_MHZ`), e.g. 320 MHz EHT exports at 1.875x. The factor and cap are overridable (`PAPR_EXPORT_OSF`, `PAPR_MAX_FS_MHZ`) and the export rate is in each file name (`osf=`).
+
+PAPR matching is done on the filtered burst at 4x, so the matched value is the analog PAPR of the exported file; the file's own samples can read a few tenths of a dB lower because they miss peaks between samples.
 
 Representative mean/std PAPR values (MCS 0, data-field only) from `papr_targets.csv`:
 
