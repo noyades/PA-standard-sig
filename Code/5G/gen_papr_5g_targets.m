@@ -120,6 +120,9 @@ for im = 1:numel(modes)
                         upper(direction), waveform, bw, scs, trials, baseTrials);
                 end
 
+                % Worker count that last fit in memory; higher MCS never
+                % needs less, so it carries forward within the combination.
+                workerCap = Inf;
                 for mcs = mcsAll
                     key = key_of(direction, waveform, mcsTable, mcs, bw, scs, mode);
                     if ~force && ~isempty(T) && any(row_key(T) == key)
@@ -137,8 +140,8 @@ for im = 1:numel(modes)
                     nUnits = max(1, round(burstMs / streamPlan.meta.subframesPerUnit));
 
                     try
-                        row = sweep_one(streamPlan, direction, waveform, mcsTable, mcs, bw, scs, ...
-                            mode, nUnits, trials, info);
+                        [row, workerCap] = sweep_one(streamPlan, direction, waveform, mcsTable, mcs, bw, scs, ...
+                            mode, nUnits, trials, info, workerCap);
                     catch err
                         fprintf('Skipping %s %s MCS %d @ %d MHz / %d kHz (%s): %s\n', ...
                             upper(direction), waveform, mcs, bw, scs, mode, err.message);
@@ -160,15 +163,10 @@ end
 fprintf('\nDone: %d row(s) measured this run, %d skipped as already present; %s holds %d rows.\n', ...
     nMeasured, nSkipped, outPath, height(T));
 
-function row = sweep_one(streamPlan, direction, waveform, mcsTable, mcs, bw, scs, ...
-                         mode, nUnits, trials, info)
-papr_db = zeros(trials,1);
-outside = false(trials,1);
+function [row, nWorkers] = sweep_one(streamPlan, direction, waveform, mcsTable, mcs, bw, scs, ...
+                         mode, nUnits, trials, info, maxWorkers)
 seeds = randi([1 2^20], trials, 1);
-
-parfor t = 1:trials
-    [papr_db(t), outside(t)] = papr_burst_stream_db([], [], nUnits, seeds(t), streamPlan);
-end
+[papr_db, outside, nWorkers] = papr_5g_trials(nUnits, seeds, streamPlan, [], maxWorkers);
 
 papr_db = papr_db(isfinite(papr_db));
 row = {direction, waveform, mcsTable, mcs, info.modulation, info.codeRate, bw, scs, mode, ...

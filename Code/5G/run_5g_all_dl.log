@@ -1,0 +1,1044 @@
+2026-10-18 11:14:12  run_5g_all DL: 521 job(s) to run, 0 combination(s) already complete (mode=data, table=64QAM, steps=gen, MB=[4  8]).
+2026-10-18 11:14:12  [1/521] start cp-ofdm MCS  0 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:14:31  [1/521] done  cp-ofdm MCS  0 @   5 MHz /  15 kHz: gen 4 MB (0.3 min)
+2026-10-18 11:14:31  [2/521] start cp-ofdm MCS  0 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:15:28  [2/521] done  cp-ofdm MCS  0 @   5 MHz /  15 kHz: gen 8 MB (1.0 min)
+2026-10-18 11:15:28  [3/521] start cp-ofdm MCS  1 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:15:36  [3/521] done  cp-ofdm MCS  1 @   5 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 11:15:36  [4/521] start cp-ofdm MCS  1 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:17:35  [4/521] done  cp-ofdm MCS  1 @   5 MHz /  15 kHz: gen 8 MB (2.0 min)
+2026-10-18 11:17:35  [5/521] start cp-ofdm MCS  2 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:17:38  [5/521] done  cp-ofdm MCS  2 @   5 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 11:17:38  [6/521] start cp-ofdm MCS  2 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:18:41  [6/521] done  cp-ofdm MCS  2 @   5 MHz /  15 kHz: gen 8 MB (1.1 min)
+2026-10-18 11:18:41  [7/521] start cp-ofdm MCS  3 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:19:00  [7/521] done  cp-ofdm MCS  3 @   5 MHz /  15 kHz: gen 4 MB (0.3 min)
+2026-10-18 11:19:00  [8/521] start cp-ofdm MCS  3 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:19:11  [8/521] done  cp-ofdm MCS  3 @   5 MHz /  15 kHz: gen 8 MB (0.2 min)
+2026-10-18 11:19:11  [9/521] start cp-ofdm MCS  4 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:19:15  [9/521] done  cp-ofdm MCS  4 @   5 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 11:19:15  [10/521] start cp-ofdm MCS  4 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:21:01  [10/521] done  cp-ofdm MCS  4 @   5 MHz /  15 kHz: gen 8 MB (1.8 min)
+2026-10-18 11:21:01  [11/521] start cp-ofdm MCS  5 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:21:05  [11/521] done  cp-ofdm MCS  5 @   5 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 11:21:05  [12/521] start cp-ofdm MCS  5 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:23:29  [12/521] done  cp-ofdm MCS  5 @   5 MHz /  15 kHz: gen 8 MB (2.4 min)
+2026-10-18 11:23:29  [13/521] start cp-ofdm MCS  6 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:23:47  [13/521] done  cp-ofdm MCS  6 @   5 MHz /  15 kHz: gen 4 MB (0.3 min)
+2026-10-18 11:23:47  [14/521] start cp-ofdm MCS  6 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:27:12  [14/521] done  cp-ofdm MCS  6 @   5 MHz /  15 kHz: gen 8 MB (3.4 min)
+2026-10-18 11:27:12  [15/521] start cp-ofdm MCS  7 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:27:39  [15/521] done  cp-ofdm MCS  7 @   5 MHz /  15 kHz: gen 4 MB (0.4 min)
+2026-10-18 11:27:39  [16/521] start cp-ofdm MCS  7 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:31:40  [16/521] done  cp-ofdm MCS  7 @   5 MHz /  15 kHz: gen 8 MB (4.0 min)
+2026-10-18 11:31:40  [17/521] start cp-ofdm MCS  8 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:31:48  [17/521] done  cp-ofdm MCS  8 @   5 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 11:31:48  [18/521] start cp-ofdm MCS  8 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:39:44  [18/521] done  cp-ofdm MCS  8 @   5 MHz /  15 kHz: gen 8 MB (7.9 min)
+2026-10-18 11:39:44  [19/521] start cp-ofdm MCS  9 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:39:46  [19/521] done  cp-ofdm MCS  9 @   5 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 11:39:46  [20/521] start cp-ofdm MCS  9 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:43:21  [20/521] done  cp-ofdm MCS  9 @   5 MHz /  15 kHz: gen 8 MB (3.6 min)
+2026-10-18 11:43:21  [21/521] start cp-ofdm MCS 10 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:43:28  [21/521] done  cp-ofdm MCS 10 @   5 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 11:43:28  [22/521] start cp-ofdm MCS 10 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:46:12  [22/521] done  cp-ofdm MCS 10 @   5 MHz /  15 kHz: gen 8 MB (2.7 min)
+2026-10-18 11:46:12  [23/521] start cp-ofdm MCS 11 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:46:16  [23/521] done  cp-ofdm MCS 11 @   5 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 11:46:16  [24/521] start cp-ofdm MCS 11 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:48:53  [24/521] done  cp-ofdm MCS 11 @   5 MHz /  15 kHz: gen 8 MB (2.6 min)
+2026-10-18 11:48:53  [25/521] start cp-ofdm MCS 12 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:49:10  [25/521] done  cp-ofdm MCS 12 @   5 MHz /  15 kHz: gen 4 MB (0.3 min)
+2026-10-18 11:49:10  [26/521] start cp-ofdm MCS 12 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:52:49  [26/521] done  cp-ofdm MCS 12 @   5 MHz /  15 kHz: gen 8 MB (3.7 min)
+2026-10-18 11:52:49  [27/521] start cp-ofdm MCS 13 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:53:09  [27/521] done  cp-ofdm MCS 13 @   5 MHz /  15 kHz: gen 4 MB (0.3 min)
+2026-10-18 11:53:09  [28/521] start cp-ofdm MCS 13 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:55:06  [28/521] done  cp-ofdm MCS 13 @   5 MHz /  15 kHz: gen 8 MB (1.9 min)
+2026-10-18 11:55:06  [29/521] start cp-ofdm MCS 14 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:55:10  [29/521] done  cp-ofdm MCS 14 @   5 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 11:55:10  [30/521] start cp-ofdm MCS 14 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:55:47  [30/521] done  cp-ofdm MCS 14 @   5 MHz /  15 kHz: gen 8 MB (0.6 min)
+2026-10-18 11:55:47  [31/521] start cp-ofdm MCS 15 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:55:55  [31/521] done  cp-ofdm MCS 15 @   5 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 11:55:55  [32/521] start cp-ofdm MCS 15 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:56:48  [32/521] done  cp-ofdm MCS 15 @   5 MHz /  15 kHz: gen 8 MB (0.9 min)
+2026-10-18 11:56:48  [33/521] start cp-ofdm MCS 16 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 11:56:50  [33/521] done  cp-ofdm MCS 16 @   5 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 11:56:50  [34/521] start cp-ofdm MCS 16 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 11:59:59  [34/521] done  cp-ofdm MCS 16 @   5 MHz /  15 kHz: gen 8 MB (3.2 min)
+2026-10-18 11:59:59  [35/521] start cp-ofdm MCS 17 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:00:01  [35/521] done  cp-ofdm MCS 17 @   5 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 12:00:01  [36/521] start cp-ofdm MCS 17 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:08:00  [36/521] done  cp-ofdm MCS 17 @   5 MHz /  15 kHz: gen 8 MB (8.0 min)
+2026-10-18 12:08:00  [37/521] start cp-ofdm MCS 18 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:08:11  [37/521] done  cp-ofdm MCS 18 @   5 MHz /  15 kHz: gen 4 MB (0.2 min)
+2026-10-18 12:08:11  [38/521] start cp-ofdm MCS 18 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:09:26  [38/521] done  cp-ofdm MCS 18 @   5 MHz /  15 kHz: gen 8 MB (1.3 min)
+2026-10-18 12:09:26  [39/521] start cp-ofdm MCS 19 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:09:30  [39/521] done  cp-ofdm MCS 19 @   5 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:09:30  [40/521] start cp-ofdm MCS 19 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:09:57  [40/521] done  cp-ofdm MCS 19 @   5 MHz /  15 kHz: gen 8 MB (0.5 min)
+2026-10-18 12:09:57  [41/521] start cp-ofdm MCS 20 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:10:17  [41/521] done  cp-ofdm MCS 20 @   5 MHz /  15 kHz: gen 4 MB (0.3 min)
+2026-10-18 12:10:17  [42/521] start cp-ofdm MCS 20 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:16:02  [42/521] done  cp-ofdm MCS 20 @   5 MHz /  15 kHz: gen 8 MB (5.8 min)
+2026-10-18 12:16:02  [43/521] start cp-ofdm MCS 21 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:16:05  [43/521] done  cp-ofdm MCS 21 @   5 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 12:16:05  [44/521] start cp-ofdm MCS 21 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:18:21  [44/521] done  cp-ofdm MCS 21 @   5 MHz /  15 kHz: gen 8 MB (2.3 min)
+2026-10-18 12:18:21  [45/521] start cp-ofdm MCS 22 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:18:27  [45/521] done  cp-ofdm MCS 22 @   5 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:18:27  [46/521] start cp-ofdm MCS 22 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:18:57  [46/521] done  cp-ofdm MCS 22 @   5 MHz /  15 kHz: gen 8 MB (0.5 min)
+2026-10-18 12:18:57  [47/521] start cp-ofdm MCS 23 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:19:23  [47/521] done  cp-ofdm MCS 23 @   5 MHz /  15 kHz: gen 4 MB (0.4 min)
+2026-10-18 12:19:23  [48/521] start cp-ofdm MCS 23 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:22:04  [48/521] done  cp-ofdm MCS 23 @   5 MHz /  15 kHz: gen 8 MB (2.7 min)
+2026-10-18 12:22:04  [49/521] start cp-ofdm MCS 24 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:22:09  [49/521] done  cp-ofdm MCS 24 @   5 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:22:09  [50/521] start cp-ofdm MCS 24 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:24:02  [50/521] done  cp-ofdm MCS 24 @   5 MHz /  15 kHz: gen 8 MB (1.9 min)
+2026-10-18 12:24:02  [51/521] start cp-ofdm MCS 25 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:24:10  [51/521] done  cp-ofdm MCS 25 @   5 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:24:10  [52/521] start cp-ofdm MCS 25 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:29:41  [52/521] done  cp-ofdm MCS 25 @   5 MHz /  15 kHz: gen 8 MB (5.5 min)
+2026-10-18 12:29:41  [53/521] start cp-ofdm MCS 26 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:29:45  [53/521] done  cp-ofdm MCS 26 @   5 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:29:45  [54/521] start cp-ofdm MCS 26 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:30:50  [54/521] done  cp-ofdm MCS 26 @   5 MHz /  15 kHz: gen 8 MB (1.1 min)
+2026-10-18 12:30:50  [55/521] start cp-ofdm MCS 27 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:30:53  [55/521] done  cp-ofdm MCS 27 @   5 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 12:30:53  [56/521] start cp-ofdm MCS 27 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:39:52  [56/521] done  cp-ofdm MCS 27 @   5 MHz /  15 kHz: gen 8 MB (9.0 min)
+2026-10-18 12:39:52  [57/521] start cp-ofdm MCS 28 @   5 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:40:00  [57/521] done  cp-ofdm MCS 28 @   5 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:40:00  [58/521] start cp-ofdm MCS 28 @   5 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:42:44  [58/521] done  cp-ofdm MCS 28 @   5 MHz /  15 kHz: gen 8 MB (2.7 min)
+2026-10-18 12:42:44  [59/521] start cp-ofdm MCS  0 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:42:47  [59/521] done  cp-ofdm MCS  0 @  10 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:42:47  [60/521] start cp-ofdm MCS  0 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:43:24  [60/521] done  cp-ofdm MCS  0 @  10 MHz /  15 kHz: gen 8 MB (0.6 min)
+2026-10-18 12:43:24  [61/521] start cp-ofdm MCS  1 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:43:33  [61/521] done  cp-ofdm MCS  1 @  10 MHz /  15 kHz: gen 4 MB (0.2 min)
+2026-10-18 12:43:33  [62/521] start cp-ofdm MCS  1 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:44:10  [62/521] done  cp-ofdm MCS  1 @  10 MHz /  15 kHz: gen 8 MB (0.6 min)
+2026-10-18 12:44:10  [63/521] start cp-ofdm MCS  2 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:44:19  [63/521] done  cp-ofdm MCS  2 @  10 MHz /  15 kHz: gen 4 MB (0.2 min)
+2026-10-18 12:44:19  [64/521] start cp-ofdm MCS  2 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:44:27  [64/521] done  cp-ofdm MCS  2 @  10 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 12:44:27  [65/521] start cp-ofdm MCS  3 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:44:34  [65/521] done  cp-ofdm MCS  3 @  10 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:44:34  [66/521] start cp-ofdm MCS  3 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:44:52  [66/521] done  cp-ofdm MCS  3 @  10 MHz /  15 kHz: gen 8 MB (0.3 min)
+2026-10-18 12:44:52  [67/521] start cp-ofdm MCS  4 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:45:06  [67/521] done  cp-ofdm MCS  4 @  10 MHz /  15 kHz: gen 4 MB (0.2 min)
+2026-10-18 12:45:06  [68/521] start cp-ofdm MCS  4 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:45:36  [68/521] done  cp-ofdm MCS  4 @  10 MHz /  15 kHz: gen 8 MB (0.5 min)
+2026-10-18 12:45:36  [69/521] start cp-ofdm MCS  5 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:45:38  [69/521] done  cp-ofdm MCS  5 @  10 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 12:45:38  [70/521] start cp-ofdm MCS  5 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:45:47  [70/521] done  cp-ofdm MCS  5 @  10 MHz /  15 kHz: gen 8 MB (0.2 min)
+2026-10-18 12:45:47  [71/521] start cp-ofdm MCS  6 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:45:50  [71/521] done  cp-ofdm MCS  6 @  10 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:45:50  [72/521] start cp-ofdm MCS  6 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:45:54  [72/521] done  cp-ofdm MCS  6 @  10 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 12:45:54  [73/521] start cp-ofdm MCS  7 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:45:57  [73/521] done  cp-ofdm MCS  7 @  10 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 12:45:57  [74/521] start cp-ofdm MCS  7 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:46:17  [74/521] done  cp-ofdm MCS  7 @  10 MHz /  15 kHz: gen 8 MB (0.3 min)
+2026-10-18 12:46:17  [75/521] start cp-ofdm MCS  8 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:46:33  [75/521] done  cp-ofdm MCS  8 @  10 MHz /  15 kHz: gen 4 MB (0.3 min)
+2026-10-18 12:46:33  [76/521] start cp-ofdm MCS  8 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:46:35  [76/521] done  cp-ofdm MCS  8 @  10 MHz /  15 kHz: gen 8 MB (0.0 min)
+2026-10-18 12:46:35  [77/521] start cp-ofdm MCS  9 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:47:14  [77/521] done  cp-ofdm MCS  9 @  10 MHz /  15 kHz: gen 4 MB (0.6 min)
+2026-10-18 12:47:14  [78/521] start cp-ofdm MCS  9 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:47:39  [78/521] done  cp-ofdm MCS  9 @  10 MHz /  15 kHz: gen 8 MB (0.4 min)
+2026-10-18 12:47:39  [79/521] start cp-ofdm MCS 10 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:48:06  [79/521] done  cp-ofdm MCS 10 @  10 MHz /  15 kHz: gen 4 MB (0.4 min)
+2026-10-18 12:48:06  [80/521] start cp-ofdm MCS 10 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:49:03  [80/521] done  cp-ofdm MCS 10 @  10 MHz /  15 kHz: gen 8 MB (0.9 min)
+2026-10-18 12:49:03  [81/521] start cp-ofdm MCS 11 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:49:09  [81/521] done  cp-ofdm MCS 11 @  10 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:49:09  [82/521] start cp-ofdm MCS 11 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:49:45  [82/521] done  cp-ofdm MCS 11 @  10 MHz /  15 kHz: gen 8 MB (0.6 min)
+2026-10-18 12:49:45  [83/521] start cp-ofdm MCS 12 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:49:48  [83/521] done  cp-ofdm MCS 12 @  10 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 12:49:48  [84/521] start cp-ofdm MCS 12 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:50:28  [84/521] done  cp-ofdm MCS 12 @  10 MHz /  15 kHz: gen 8 MB (0.7 min)
+2026-10-18 12:50:28  [85/521] start cp-ofdm MCS 13 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:50:36  [85/521] done  cp-ofdm MCS 13 @  10 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:50:36  [86/521] start cp-ofdm MCS 13 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:52:39  [86/521] done  cp-ofdm MCS 13 @  10 MHz /  15 kHz: gen 8 MB (2.1 min)
+2026-10-18 12:52:39  [87/521] start cp-ofdm MCS 14 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:52:46  [87/521] done  cp-ofdm MCS 14 @  10 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:52:46  [88/521] start cp-ofdm MCS 14 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:52:49  [88/521] done  cp-ofdm MCS 14 @  10 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 12:52:49  [89/521] start cp-ofdm MCS 15 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:53:01  [89/521] done  cp-ofdm MCS 15 @  10 MHz /  15 kHz: gen 4 MB (0.2 min)
+2026-10-18 12:53:01  [90/521] start cp-ofdm MCS 15 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:53:07  [90/521] done  cp-ofdm MCS 15 @  10 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 12:53:07  [91/521] start cp-ofdm MCS 16 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:53:10  [91/521] done  cp-ofdm MCS 16 @  10 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 12:53:10  [92/521] start cp-ofdm MCS 16 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:54:29  [92/521] done  cp-ofdm MCS 16 @  10 MHz /  15 kHz: gen 8 MB (1.3 min)
+2026-10-18 12:54:29  [93/521] start cp-ofdm MCS 17 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:54:34  [93/521] done  cp-ofdm MCS 17 @  10 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:54:34  [94/521] start cp-ofdm MCS 17 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:54:45  [94/521] done  cp-ofdm MCS 17 @  10 MHz /  15 kHz: gen 8 MB (0.2 min)
+2026-10-18 12:54:45  [95/521] start cp-ofdm MCS 18 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:54:49  [95/521] done  cp-ofdm MCS 18 @  10 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:54:49  [96/521] start cp-ofdm MCS 18 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:55:21  [96/521] done  cp-ofdm MCS 18 @  10 MHz /  15 kHz: gen 8 MB (0.5 min)
+2026-10-18 12:55:21  [97/521] start cp-ofdm MCS 19 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:55:47  [97/521] done  cp-ofdm MCS 19 @  10 MHz /  15 kHz: gen 4 MB (0.4 min)
+2026-10-18 12:55:47  [98/521] start cp-ofdm MCS 19 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:56:05  [98/521] done  cp-ofdm MCS 19 @  10 MHz /  15 kHz: gen 8 MB (0.3 min)
+2026-10-18 12:56:05  [99/521] start cp-ofdm MCS 20 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:56:10  [99/521] done  cp-ofdm MCS 20 @  10 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:56:10  [100/521] start cp-ofdm MCS 20 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:56:18  [100/521] done  cp-ofdm MCS 20 @  10 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 12:56:18  [101/521] start cp-ofdm MCS 21 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:56:21  [101/521] done  cp-ofdm MCS 21 @  10 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:56:21  [102/521] start cp-ofdm MCS 21 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:57:47  [102/521] done  cp-ofdm MCS 21 @  10 MHz /  15 kHz: gen 8 MB (1.4 min)
+2026-10-18 12:57:47  [103/521] start cp-ofdm MCS 22 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:57:57  [103/521] done  cp-ofdm MCS 22 @  10 MHz /  15 kHz: gen 4 MB (0.2 min)
+2026-10-18 12:57:57  [104/521] start cp-ofdm MCS 22 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:59:15  [104/521] done  cp-ofdm MCS 22 @  10 MHz /  15 kHz: gen 8 MB (1.3 min)
+2026-10-18 12:59:15  [105/521] start cp-ofdm MCS 23 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:59:19  [105/521] done  cp-ofdm MCS 23 @  10 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 12:59:19  [106/521] start cp-ofdm MCS 23 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 12:59:42  [106/521] done  cp-ofdm MCS 23 @  10 MHz /  15 kHz: gen 8 MB (0.4 min)
+2026-10-18 12:59:42  [107/521] start cp-ofdm MCS 24 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 12:59:57  [107/521] done  cp-ofdm MCS 24 @  10 MHz /  15 kHz: gen 4 MB (0.2 min)
+2026-10-18 12:59:57  [108/521] start cp-ofdm MCS 24 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:00:12  [108/521] done  cp-ofdm MCS 24 @  10 MHz /  15 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:00:12  [109/521] start cp-ofdm MCS 25 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:00:26  [109/521] done  cp-ofdm MCS 25 @  10 MHz /  15 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:00:26  [110/521] start cp-ofdm MCS 25 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:00:29  [110/521] done  cp-ofdm MCS 25 @  10 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:00:29  [111/521] start cp-ofdm MCS 26 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:00:41  [111/521] done  cp-ofdm MCS 26 @  10 MHz /  15 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:00:41  [112/521] start cp-ofdm MCS 26 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:00:43  [112/521] done  cp-ofdm MCS 26 @  10 MHz /  15 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:00:43  [113/521] start cp-ofdm MCS 27 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:01:06  [113/521] done  cp-ofdm MCS 27 @  10 MHz /  15 kHz: gen 4 MB (0.4 min)
+2026-10-18 13:01:06  [114/521] start cp-ofdm MCS 27 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:01:29  [114/521] done  cp-ofdm MCS 27 @  10 MHz /  15 kHz: gen 8 MB (0.4 min)
+2026-10-18 13:01:29  [115/521] start cp-ofdm MCS 28 @  10 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:01:39  [115/521] done  cp-ofdm MCS 28 @  10 MHz /  15 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:01:39  [116/521] start cp-ofdm MCS 28 @  10 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:01:44  [116/521] done  cp-ofdm MCS 28 @  10 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:01:44  [117/521] start cp-ofdm MCS  0 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:01:57  [117/521] done  cp-ofdm MCS  0 @  20 MHz /  15 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:01:57  [118/521] start cp-ofdm MCS  0 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:02:03  [118/521] done  cp-ofdm MCS  0 @  20 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:02:03  [119/521] start cp-ofdm MCS  1 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:02:05  [119/521] done  cp-ofdm MCS  1 @  20 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:02:05  [120/521] start cp-ofdm MCS  1 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:02:16  [120/521] done  cp-ofdm MCS  1 @  20 MHz /  15 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:02:16  [121/521] start cp-ofdm MCS  2 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:02:34  [121/521] done  cp-ofdm MCS  2 @  20 MHz /  15 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:02:34  [122/521] start cp-ofdm MCS  2 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:02:36  [122/521] done  cp-ofdm MCS  2 @  20 MHz /  15 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:02:36  [123/521] start cp-ofdm MCS  3 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:02:40  [123/521] done  cp-ofdm MCS  3 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:02:40  [124/521] start cp-ofdm MCS  3 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:02:51  [124/521] done  cp-ofdm MCS  3 @  20 MHz /  15 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:02:51  [125/521] start cp-ofdm MCS  4 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:02:56  [125/521] done  cp-ofdm MCS  4 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:02:56  [126/521] start cp-ofdm MCS  4 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:03:01  [126/521] done  cp-ofdm MCS  4 @  20 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:03:01  [127/521] start cp-ofdm MCS  5 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:03:06  [127/521] done  cp-ofdm MCS  5 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:03:06  [128/521] start cp-ofdm MCS  5 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:03:08  [128/521] done  cp-ofdm MCS  5 @  20 MHz /  15 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:03:08  [129/521] start cp-ofdm MCS  6 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:03:09  [129/521] done  cp-ofdm MCS  6 @  20 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:03:09  [130/521] start cp-ofdm MCS  6 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:03:25  [130/521] done  cp-ofdm MCS  6 @  20 MHz /  15 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:03:25  [131/521] start cp-ofdm MCS  7 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:03:41  [131/521] done  cp-ofdm MCS  7 @  20 MHz /  15 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:03:41  [132/521] start cp-ofdm MCS  7 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:03:47  [132/521] done  cp-ofdm MCS  7 @  20 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:03:47  [133/521] start cp-ofdm MCS  8 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:03:51  [133/521] done  cp-ofdm MCS  8 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:03:51  [134/521] start cp-ofdm MCS  8 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:04:22  [134/521] done  cp-ofdm MCS  8 @  20 MHz /  15 kHz: gen 8 MB (0.5 min)
+2026-10-18 13:04:22  [135/521] start cp-ofdm MCS  9 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:04:27  [135/521] done  cp-ofdm MCS  9 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:04:27  [136/521] start cp-ofdm MCS  9 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:04:30  [136/521] done  cp-ofdm MCS  9 @  20 MHz /  15 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:04:30  [137/521] start cp-ofdm MCS 10 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:04:32  [137/521] done  cp-ofdm MCS 10 @  20 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:04:32  [138/521] start cp-ofdm MCS 10 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:05:13  [138/521] done  cp-ofdm MCS 10 @  20 MHz /  15 kHz: gen 8 MB (0.7 min)
+2026-10-18 13:05:13  [139/521] start cp-ofdm MCS 11 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:05:18  [139/521] done  cp-ofdm MCS 11 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:05:18  [140/521] start cp-ofdm MCS 11 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:05:25  [140/521] done  cp-ofdm MCS 11 @  20 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:05:25  [141/521] start cp-ofdm MCS 12 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:05:37  [141/521] done  cp-ofdm MCS 12 @  20 MHz /  15 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:05:37  [142/521] start cp-ofdm MCS 12 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:05:58  [142/521] done  cp-ofdm MCS 12 @  20 MHz /  15 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:05:58  [143/521] start cp-ofdm MCS 13 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:06:07  [143/521] done  cp-ofdm MCS 13 @  20 MHz /  15 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:06:07  [144/521] start cp-ofdm MCS 13 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:06:09  [144/521] done  cp-ofdm MCS 13 @  20 MHz /  15 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:06:09  [145/521] start cp-ofdm MCS 14 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:06:17  [145/521] done  cp-ofdm MCS 14 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:06:17  [146/521] start cp-ofdm MCS 14 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:06:43  [146/521] done  cp-ofdm MCS 14 @  20 MHz /  15 kHz: gen 8 MB (0.4 min)
+2026-10-18 13:06:43  [147/521] start cp-ofdm MCS 15 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:06:46  [147/521] done  cp-ofdm MCS 15 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:06:46  [148/521] start cp-ofdm MCS 15 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:06:57  [148/521] done  cp-ofdm MCS 15 @  20 MHz /  15 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:06:57  [149/521] start cp-ofdm MCS 16 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:06:59  [149/521] done  cp-ofdm MCS 16 @  20 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:06:59  [150/521] start cp-ofdm MCS 16 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:07:12  [150/521] done  cp-ofdm MCS 16 @  20 MHz /  15 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:07:12  [151/521] start cp-ofdm MCS 17 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:07:28  [151/521] done  cp-ofdm MCS 17 @  20 MHz /  15 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:07:28  [152/521] start cp-ofdm MCS 17 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:07:30  [152/521] done  cp-ofdm MCS 17 @  20 MHz /  15 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:07:30  [153/521] start cp-ofdm MCS 18 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:07:31  [153/521] done  cp-ofdm MCS 18 @  20 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:07:31  [154/521] start cp-ofdm MCS 18 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:07:37  [154/521] done  cp-ofdm MCS 18 @  20 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:07:37  [155/521] start cp-ofdm MCS 19 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:07:43  [155/521] done  cp-ofdm MCS 19 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:07:43  [156/521] start cp-ofdm MCS 19 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:07:47  [156/521] done  cp-ofdm MCS 19 @  20 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:07:47  [157/521] start cp-ofdm MCS 20 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:07:50  [157/521] done  cp-ofdm MCS 20 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:07:50  [158/521] start cp-ofdm MCS 20 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:08:00  [158/521] done  cp-ofdm MCS 20 @  20 MHz /  15 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:08:00  [159/521] start cp-ofdm MCS 21 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:08:15  [159/521] done  cp-ofdm MCS 21 @  20 MHz /  15 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:08:15  [160/521] start cp-ofdm MCS 21 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:08:17  [160/521] done  cp-ofdm MCS 21 @  20 MHz /  15 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:08:17  [161/521] start cp-ofdm MCS 22 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:08:23  [161/521] done  cp-ofdm MCS 22 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:08:23  [162/521] start cp-ofdm MCS 22 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:08:25  [162/521] done  cp-ofdm MCS 22 @  20 MHz /  15 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:08:25  [163/521] start cp-ofdm MCS 23 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:08:33  [163/521] done  cp-ofdm MCS 23 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:08:33  [164/521] start cp-ofdm MCS 23 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:08:35  [164/521] done  cp-ofdm MCS 23 @  20 MHz /  15 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:08:35  [165/521] start cp-ofdm MCS 24 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:08:39  [165/521] done  cp-ofdm MCS 24 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:08:39  [166/521] start cp-ofdm MCS 24 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:09:03  [166/521] done  cp-ofdm MCS 24 @  20 MHz /  15 kHz: gen 8 MB (0.4 min)
+2026-10-18 13:09:03  [167/521] start cp-ofdm MCS 25 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:09:08  [167/521] done  cp-ofdm MCS 25 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:09:08  [168/521] start cp-ofdm MCS 25 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:09:28  [168/521] done  cp-ofdm MCS 25 @  20 MHz /  15 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:09:28  [169/521] start cp-ofdm MCS 26 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:09:30  [169/521] done  cp-ofdm MCS 26 @  20 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:09:30  [170/521] start cp-ofdm MCS 26 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:09:45  [170/521] done  cp-ofdm MCS 26 @  20 MHz /  15 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:09:45  [171/521] start cp-ofdm MCS 27 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:09:49  [171/521] done  cp-ofdm MCS 27 @  20 MHz /  15 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:09:49  [172/521] start cp-ofdm MCS 27 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:09:52  [172/521] done  cp-ofdm MCS 27 @  20 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:09:52  [173/521] start cp-ofdm MCS 28 @  20 MHz /  15 kHz: gen 4 MB
+2026-10-18 13:09:55  [173/521] done  cp-ofdm MCS 28 @  20 MHz /  15 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:09:55  [174/521] start cp-ofdm MCS 28 @  20 MHz /  15 kHz: gen 8 MB
+2026-10-18 13:09:59  [174/521] done  cp-ofdm MCS 28 @  20 MHz /  15 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:09:59  [175/521] start cp-ofdm MCS  0 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:10:01  [175/521] done  cp-ofdm MCS  0 @  20 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:10:01  [176/521] start cp-ofdm MCS  0 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:10:52  [176/521] done  cp-ofdm MCS  0 @  20 MHz /  30 kHz: gen 8 MB (0.8 min)
+2026-10-18 13:10:52  [177/521] start cp-ofdm MCS  1 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:10:53  [177/521] done  cp-ofdm MCS  1 @  20 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:10:53  [178/521] start cp-ofdm MCS  1 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:11:05  [178/521] done  cp-ofdm MCS  1 @  20 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:11:05  [179/521] start cp-ofdm MCS  2 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:11:15  [179/521] done  cp-ofdm MCS  2 @  20 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:11:15  [180/521] start cp-ofdm MCS  2 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:11:22  [180/521] done  cp-ofdm MCS  2 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:11:22  [181/521] start cp-ofdm MCS  3 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:11:25  [181/521] done  cp-ofdm MCS  3 @  20 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:11:25  [182/521] start cp-ofdm MCS  3 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:11:27  [182/521] done  cp-ofdm MCS  3 @  20 MHz /  30 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:11:27  [183/521] start cp-ofdm MCS  4 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:11:34  [183/521] done  cp-ofdm MCS  4 @  20 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:11:35  [184/521] start cp-ofdm MCS  4 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:11:43  [184/521] done  cp-ofdm MCS  4 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:11:43  [185/521] start cp-ofdm MCS  5 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:11:47  [185/521] done  cp-ofdm MCS  5 @  20 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:11:47  [186/521] start cp-ofdm MCS  5 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:11:51  [186/521] done  cp-ofdm MCS  5 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:11:51  [187/521] start cp-ofdm MCS  6 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:11:57  [187/521] done  cp-ofdm MCS  6 @  20 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:11:57  [188/521] start cp-ofdm MCS  6 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:12:11  [188/521] done  cp-ofdm MCS  6 @  20 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:12:11  [189/521] start cp-ofdm MCS  7 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:12:20  [189/521] done  cp-ofdm MCS  7 @  20 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:12:20  [190/521] start cp-ofdm MCS  7 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:12:27  [190/521] done  cp-ofdm MCS  7 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:12:27  [191/521] start cp-ofdm MCS  8 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:12:31  [191/521] done  cp-ofdm MCS  8 @  20 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:12:31  [192/521] start cp-ofdm MCS  8 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:12:36  [192/521] done  cp-ofdm MCS  8 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:12:36  [193/521] start cp-ofdm MCS  9 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:12:53  [193/521] done  cp-ofdm MCS  9 @  20 MHz /  30 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:12:53  [194/521] start cp-ofdm MCS  9 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:12:56  [194/521] done  cp-ofdm MCS  9 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:12:56  [195/521] start cp-ofdm MCS 10 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:12:59  [195/521] done  cp-ofdm MCS 10 @  20 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:12:59  [196/521] start cp-ofdm MCS 10 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:13:06  [196/521] done  cp-ofdm MCS 10 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:13:06  [197/521] start cp-ofdm MCS 11 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:13:19  [197/521] done  cp-ofdm MCS 11 @  20 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:13:19  [198/521] start cp-ofdm MCS 11 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:13:22  [198/521] done  cp-ofdm MCS 11 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:13:22  [199/521] start cp-ofdm MCS 12 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:13:25  [199/521] done  cp-ofdm MCS 12 @  20 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:13:25  [200/521] start cp-ofdm MCS 12 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:13:32  [200/521] done  cp-ofdm MCS 12 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:13:32  [201/521] start cp-ofdm MCS 13 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:13:43  [201/521] done  cp-ofdm MCS 13 @  20 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:13:43  [202/521] start cp-ofdm MCS 13 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:14:33  [202/521] done  cp-ofdm MCS 13 @  20 MHz /  30 kHz: gen 8 MB (0.8 min)
+2026-10-18 13:14:33  [203/521] start cp-ofdm MCS 14 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:14:35  [203/521] done  cp-ofdm MCS 14 @  20 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:14:35  [204/521] start cp-ofdm MCS 14 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:14:46  [204/521] done  cp-ofdm MCS 14 @  20 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:14:46  [205/521] start cp-ofdm MCS 15 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:14:48  [205/521] done  cp-ofdm MCS 15 @  20 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:14:48  [206/521] start cp-ofdm MCS 15 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:14:52  [206/521] done  cp-ofdm MCS 15 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:14:52  [207/521] start cp-ofdm MCS 16 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:14:53  [207/521] done  cp-ofdm MCS 16 @  20 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:14:53  [208/521] start cp-ofdm MCS 16 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:14:55  [208/521] done  cp-ofdm MCS 16 @  20 MHz /  30 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:14:55  [209/521] start cp-ofdm MCS 17 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:15:09  [209/521] done  cp-ofdm MCS 17 @  20 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:15:09  [210/521] start cp-ofdm MCS 17 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:15:20  [210/521] done  cp-ofdm MCS 17 @  20 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:15:20  [211/521] start cp-ofdm MCS 18 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:15:22  [211/521] done  cp-ofdm MCS 18 @  20 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:15:22  [212/521] start cp-ofdm MCS 18 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:15:26  [212/521] done  cp-ofdm MCS 18 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:15:26  [213/521] start cp-ofdm MCS 19 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:15:28  [213/521] done  cp-ofdm MCS 19 @  20 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:15:28  [214/521] start cp-ofdm MCS 19 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:15:34  [214/521] done  cp-ofdm MCS 19 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:15:34  [215/521] start cp-ofdm MCS 20 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:15:37  [215/521] done  cp-ofdm MCS 20 @  20 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:15:37  [216/521] start cp-ofdm MCS 20 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:15:42  [216/521] done  cp-ofdm MCS 20 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:15:42  [217/521] start cp-ofdm MCS 21 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:15:45  [217/521] done  cp-ofdm MCS 21 @  20 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:15:45  [218/521] start cp-ofdm MCS 21 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:15:50  [218/521] done  cp-ofdm MCS 21 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:15:50  [219/521] start cp-ofdm MCS 22 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:15:58  [219/521] done  cp-ofdm MCS 22 @  20 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:15:58  [220/521] start cp-ofdm MCS 22 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:16:13  [220/521] done  cp-ofdm MCS 22 @  20 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:16:13  [221/521] start cp-ofdm MCS 23 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:16:15  [221/521] done  cp-ofdm MCS 23 @  20 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:16:15  [222/521] start cp-ofdm MCS 23 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:17:00  [222/521] done  cp-ofdm MCS 23 @  20 MHz /  30 kHz: gen 8 MB (0.7 min)
+2026-10-18 13:17:00  [223/521] start cp-ofdm MCS 24 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:17:01  [223/521] done  cp-ofdm MCS 24 @  20 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:17:01  [224/521] start cp-ofdm MCS 24 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:17:23  [224/521] done  cp-ofdm MCS 24 @  20 MHz /  30 kHz: gen 8 MB (0.4 min)
+2026-10-18 13:17:23  [225/521] start cp-ofdm MCS 25 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:17:34  [225/521] done  cp-ofdm MCS 25 @  20 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:17:34  [226/521] start cp-ofdm MCS 25 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:17:41  [226/521] done  cp-ofdm MCS 25 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:17:41  [227/521] start cp-ofdm MCS 26 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:18:05  [227/521] done  cp-ofdm MCS 26 @  20 MHz /  30 kHz: gen 4 MB (0.4 min)
+2026-10-18 13:18:05  [228/521] start cp-ofdm MCS 26 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:18:08  [228/521] done  cp-ofdm MCS 26 @  20 MHz /  30 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:18:08  [229/521] start cp-ofdm MCS 27 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:18:22  [229/521] done  cp-ofdm MCS 27 @  20 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:18:22  [230/521] start cp-ofdm MCS 27 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:18:29  [230/521] done  cp-ofdm MCS 27 @  20 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:18:29  [231/521] start cp-ofdm MCS 28 @  20 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:18:39  [231/521] done  cp-ofdm MCS 28 @  20 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:18:39  [232/521] start cp-ofdm MCS 28 @  20 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:18:55  [232/521] done  cp-ofdm MCS 28 @  20 MHz /  30 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:18:55  [233/521] start cp-ofdm MCS  0 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:19:04  [233/521] done  cp-ofdm MCS  0 @  50 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:19:04  [234/521] start cp-ofdm MCS  0 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:19:22  [234/521] done  cp-ofdm MCS  0 @  50 MHz /  30 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:19:22  [235/521] start cp-ofdm MCS  1 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:19:36  [235/521] done  cp-ofdm MCS  1 @  50 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:19:36  [236/521] start cp-ofdm MCS  1 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:20:04  [236/521] done  cp-ofdm MCS  1 @  50 MHz /  30 kHz: gen 8 MB (0.5 min)
+2026-10-18 13:20:04  [237/521] start cp-ofdm MCS  2 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:20:20  [237/521] done  cp-ofdm MCS  2 @  50 MHz /  30 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:20:20  [238/521] start cp-ofdm MCS  2 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:20:22  [238/521] done  cp-ofdm MCS  2 @  50 MHz /  30 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:20:22  [239/521] start cp-ofdm MCS  3 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:20:44  [239/521] done  cp-ofdm MCS  3 @  50 MHz /  30 kHz: gen 4 MB (0.4 min)
+2026-10-18 13:20:44  [240/521] start cp-ofdm MCS  3 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:20:46  [240/521] done  cp-ofdm MCS  3 @  50 MHz /  30 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:20:46  [241/521] start cp-ofdm MCS  4 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:20:48  [241/521] done  cp-ofdm MCS  4 @  50 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:20:48  [242/521] start cp-ofdm MCS  4 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:21:05  [242/521] done  cp-ofdm MCS  4 @  50 MHz /  30 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:21:05  [243/521] start cp-ofdm MCS  5 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:21:10  [243/521] done  cp-ofdm MCS  5 @  50 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:21:10  [244/521] start cp-ofdm MCS  5 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:21:15  [244/521] done  cp-ofdm MCS  5 @  50 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:21:15  [245/521] start cp-ofdm MCS  6 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:21:20  [245/521] done  cp-ofdm MCS  6 @  50 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:21:20  [246/521] start cp-ofdm MCS  6 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:21:34  [246/521] done  cp-ofdm MCS  6 @  50 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:21:34  [247/521] start cp-ofdm MCS  7 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:21:40  [247/521] done  cp-ofdm MCS  7 @  50 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:21:40  [248/521] start cp-ofdm MCS  7 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:21:56  [248/521] done  cp-ofdm MCS  7 @  50 MHz /  30 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:21:56  [249/521] start cp-ofdm MCS  8 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:22:07  [249/521] done  cp-ofdm MCS  8 @  50 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:22:07  [250/521] start cp-ofdm MCS  8 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:22:12  [250/521] done  cp-ofdm MCS  8 @  50 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:22:12  [251/521] start cp-ofdm MCS  9 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:22:23  [251/521] done  cp-ofdm MCS  9 @  50 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:22:23  [252/521] start cp-ofdm MCS  9 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:22:42  [252/521] done  cp-ofdm MCS  9 @  50 MHz /  30 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:22:42  [253/521] start cp-ofdm MCS 10 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:22:46  [253/521] done  cp-ofdm MCS 10 @  50 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:22:46  [254/521] start cp-ofdm MCS 10 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:22:50  [254/521] done  cp-ofdm MCS 10 @  50 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:22:50  [255/521] start cp-ofdm MCS 11 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:22:55  [255/521] done  cp-ofdm MCS 11 @  50 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:22:55  [256/521] start cp-ofdm MCS 11 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:22:58  [256/521] done  cp-ofdm MCS 11 @  50 MHz /  30 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:22:58  [257/521] start cp-ofdm MCS 12 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:22:59  [257/521] done  cp-ofdm MCS 12 @  50 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:22:59  [258/521] start cp-ofdm MCS 12 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:23:17  [258/521] done  cp-ofdm MCS 12 @  50 MHz /  30 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:23:17  [259/521] start cp-ofdm MCS 13 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:23:21  [259/521] done  cp-ofdm MCS 13 @  50 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:23:21  [260/521] start cp-ofdm MCS 13 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:23:27  [260/521] done  cp-ofdm MCS 13 @  50 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:23:27  [261/521] start cp-ofdm MCS 14 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:23:37  [261/521] done  cp-ofdm MCS 14 @  50 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:23:37  [262/521] start cp-ofdm MCS 14 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:23:51  [262/521] done  cp-ofdm MCS 14 @  50 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:23:51  [263/521] start cp-ofdm MCS 15 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:23:54  [263/521] done  cp-ofdm MCS 15 @  50 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:23:54  [264/521] start cp-ofdm MCS 15 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:24:02  [264/521] done  cp-ofdm MCS 15 @  50 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:24:02  [265/521] start cp-ofdm MCS 16 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:24:04  [265/521] done  cp-ofdm MCS 16 @  50 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:24:04  [266/521] start cp-ofdm MCS 16 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:24:14  [266/521] done  cp-ofdm MCS 16 @  50 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:24:14  [267/521] start cp-ofdm MCS 17 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:24:42  [267/521] done  cp-ofdm MCS 17 @  50 MHz /  30 kHz: gen 4 MB (0.5 min)
+2026-10-18 13:24:42  [268/521] start cp-ofdm MCS 17 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:25:24  [268/521] done  cp-ofdm MCS 17 @  50 MHz /  30 kHz: gen 8 MB (0.7 min)
+2026-10-18 13:25:24  [269/521] start cp-ofdm MCS 18 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:25:30  [269/521] done  cp-ofdm MCS 18 @  50 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:25:30  [270/521] start cp-ofdm MCS 18 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:25:36  [270/521] done  cp-ofdm MCS 18 @  50 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:25:36  [271/521] start cp-ofdm MCS 19 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:25:42  [271/521] done  cp-ofdm MCS 19 @  50 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:25:42  [272/521] start cp-ofdm MCS 19 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:25:49  [272/521] done  cp-ofdm MCS 19 @  50 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:25:49  [273/521] start cp-ofdm MCS 20 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:26:04  [273/521] done  cp-ofdm MCS 20 @  50 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:26:04  [274/521] start cp-ofdm MCS 20 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:26:27  [274/521] done  cp-ofdm MCS 20 @  50 MHz /  30 kHz: gen 8 MB (0.4 min)
+2026-10-18 13:26:27  [275/521] start cp-ofdm MCS 21 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:26:32  [275/521] done  cp-ofdm MCS 21 @  50 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:26:32  [276/521] start cp-ofdm MCS 21 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:26:34  [276/521] done  cp-ofdm MCS 21 @  50 MHz /  30 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:26:34  [277/521] start cp-ofdm MCS 22 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:26:41  [277/521] done  cp-ofdm MCS 22 @  50 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:26:41  [278/521] start cp-ofdm MCS 22 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:26:48  [278/521] done  cp-ofdm MCS 22 @  50 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:26:48  [279/521] start cp-ofdm MCS 23 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:26:59  [279/521] done  cp-ofdm MCS 23 @  50 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:26:59  [280/521] start cp-ofdm MCS 23 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:27:01  [280/521] done  cp-ofdm MCS 23 @  50 MHz /  30 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:27:01  [281/521] start cp-ofdm MCS 24 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:27:20  [281/521] done  cp-ofdm MCS 24 @  50 MHz /  30 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:27:20  [282/521] start cp-ofdm MCS 24 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:27:32  [282/521] done  cp-ofdm MCS 24 @  50 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:27:32  [283/521] start cp-ofdm MCS 25 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:27:48  [283/521] done  cp-ofdm MCS 25 @  50 MHz /  30 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:27:48  [284/521] start cp-ofdm MCS 25 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:27:56  [284/521] done  cp-ofdm MCS 25 @  50 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:27:56  [285/521] start cp-ofdm MCS 26 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:28:05  [285/521] done  cp-ofdm MCS 26 @  50 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:28:05  [286/521] start cp-ofdm MCS 26 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:28:11  [286/521] done  cp-ofdm MCS 26 @  50 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:28:11  [287/521] start cp-ofdm MCS 27 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:28:17  [287/521] done  cp-ofdm MCS 27 @  50 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:28:17  [288/521] start cp-ofdm MCS 27 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:28:25  [288/521] done  cp-ofdm MCS 27 @  50 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:28:25  [289/521] start cp-ofdm MCS 28 @  50 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:28:29  [289/521] done  cp-ofdm MCS 28 @  50 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:28:29  [290/521] start cp-ofdm MCS 28 @  50 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:28:39  [290/521] done  cp-ofdm MCS 28 @  50 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:28:39  [291/521] start cp-ofdm MCS  0 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:29:07  [291/521] done  cp-ofdm MCS  0 @ 100 MHz /  30 kHz: gen 4 MB (0.5 min)
+2026-10-18 13:29:07  [292/521] start cp-ofdm MCS  0 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:29:18  [292/521] done  cp-ofdm MCS  0 @ 100 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:29:18  [293/521] start cp-ofdm MCS  1 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:29:29  [293/521] done  cp-ofdm MCS  1 @ 100 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:29:29  [294/521] start cp-ofdm MCS  1 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:29:33  [294/521] done  cp-ofdm MCS  1 @ 100 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:29:33  [295/521] start cp-ofdm MCS  2 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:29:43  [295/521] done  cp-ofdm MCS  2 @ 100 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:29:43  [296/521] start cp-ofdm MCS  2 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:29:51  [296/521] done  cp-ofdm MCS  2 @ 100 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:29:51  [297/521] start cp-ofdm MCS  3 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:30:10  [297/521] done  cp-ofdm MCS  3 @ 100 MHz /  30 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:30:10  [298/521] start cp-ofdm MCS  3 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:30:12  [298/521] done  cp-ofdm MCS  3 @ 100 MHz /  30 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:30:12  [299/521] start cp-ofdm MCS  4 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:30:14  [299/521] done  cp-ofdm MCS  4 @ 100 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:30:14  [300/521] start cp-ofdm MCS  4 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:30:18  [300/521] done  cp-ofdm MCS  4 @ 100 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:30:18  [301/521] start cp-ofdm MCS  5 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:30:38  [301/521] done  cp-ofdm MCS  5 @ 100 MHz /  30 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:30:38  [302/521] start cp-ofdm MCS  5 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:30:46  [302/521] done  cp-ofdm MCS  5 @ 100 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:30:46  [303/521] start cp-ofdm MCS  6 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:31:02  [303/521] done  cp-ofdm MCS  6 @ 100 MHz /  30 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:31:02  [304/521] start cp-ofdm MCS  6 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:31:06  [304/521] done  cp-ofdm MCS  6 @ 100 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:31:06  [305/521] start cp-ofdm MCS  7 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:31:17  [305/521] done  cp-ofdm MCS  7 @ 100 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:31:17  [306/521] start cp-ofdm MCS  7 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:31:24  [306/521] done  cp-ofdm MCS  7 @ 100 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:31:24  [307/521] start cp-ofdm MCS  8 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:32:05  [307/521] done  cp-ofdm MCS  8 @ 100 MHz /  30 kHz: gen 4 MB (0.7 min)
+2026-10-18 13:32:05  [308/521] start cp-ofdm MCS  8 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:32:11  [308/521] done  cp-ofdm MCS  8 @ 100 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:32:11  [309/521] start cp-ofdm MCS  9 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:32:14  [309/521] done  cp-ofdm MCS  9 @ 100 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:32:14  [310/521] start cp-ofdm MCS  9 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:32:19  [310/521] done  cp-ofdm MCS  9 @ 100 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:32:19  [311/521] start cp-ofdm MCS 10 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:32:51  [311/521] done  cp-ofdm MCS 10 @ 100 MHz /  30 kHz: gen 4 MB (0.5 min)
+2026-10-18 13:32:51  [312/521] start cp-ofdm MCS 10 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:32:56  [312/521] done  cp-ofdm MCS 10 @ 100 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:32:56  [313/521] start cp-ofdm MCS 11 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:33:01  [313/521] done  cp-ofdm MCS 11 @ 100 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:33:01  [314/521] start cp-ofdm MCS 11 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:33:52  [314/521] done  cp-ofdm MCS 11 @ 100 MHz /  30 kHz: gen 8 MB (0.8 min)
+2026-10-18 13:33:52  [315/521] start cp-ofdm MCS 12 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:34:36  [315/521] done  cp-ofdm MCS 12 @ 100 MHz /  30 kHz: gen 4 MB (0.7 min)
+2026-10-18 13:34:36  [316/521] start cp-ofdm MCS 12 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:34:38  [316/521] done  cp-ofdm MCS 12 @ 100 MHz /  30 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:34:38  [317/521] start cp-ofdm MCS 13 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:35:19  [317/521] done  cp-ofdm MCS 13 @ 100 MHz /  30 kHz: gen 4 MB (0.7 min)
+2026-10-18 13:35:19  [318/521] start cp-ofdm MCS 13 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:36:07  [318/521] done  cp-ofdm MCS 13 @ 100 MHz /  30 kHz: gen 8 MB (0.8 min)
+2026-10-18 13:36:07  [319/521] start cp-ofdm MCS 14 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:36:39  [319/521] done  cp-ofdm MCS 14 @ 100 MHz /  30 kHz: gen 4 MB (0.5 min)
+2026-10-18 13:36:39  [320/521] start cp-ofdm MCS 14 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:37:07  [320/521] done  cp-ofdm MCS 14 @ 100 MHz /  30 kHz: gen 8 MB (0.5 min)
+2026-10-18 13:37:07  [321/521] start cp-ofdm MCS 15 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:37:10  [321/521] done  cp-ofdm MCS 15 @ 100 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:37:10  [322/521] start cp-ofdm MCS 15 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:37:12  [322/521] done  cp-ofdm MCS 15 @ 100 MHz /  30 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:37:12  [323/521] start cp-ofdm MCS 16 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:37:36  [323/521] done  cp-ofdm MCS 16 @ 100 MHz /  30 kHz: gen 4 MB (0.4 min)
+2026-10-18 13:37:36  [324/521] start cp-ofdm MCS 16 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:37:49  [324/521] done  cp-ofdm MCS 16 @ 100 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:37:49  [325/521] start cp-ofdm MCS 17 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:37:51  [325/521] done  cp-ofdm MCS 17 @ 100 MHz /  30 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:37:51  [326/521] start cp-ofdm MCS 17 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:37:53  [326/521] done  cp-ofdm MCS 17 @ 100 MHz /  30 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:37:53  [327/521] start cp-ofdm MCS 18 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:38:55  [327/521] done  cp-ofdm MCS 18 @ 100 MHz /  30 kHz: gen 4 MB (1.0 min)
+2026-10-18 13:38:55  [328/521] start cp-ofdm MCS 18 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:39:05  [328/521] done  cp-ofdm MCS 18 @ 100 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:39:05  [329/521] start cp-ofdm MCS 19 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:39:14  [329/521] done  cp-ofdm MCS 19 @ 100 MHz /  30 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:39:14  [330/521] start cp-ofdm MCS 19 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:39:16  [330/521] done  cp-ofdm MCS 19 @ 100 MHz /  30 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:39:16  [331/521] start cp-ofdm MCS 20 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:39:34  [331/521] done  cp-ofdm MCS 20 @ 100 MHz /  30 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:39:34  [332/521] start cp-ofdm MCS 21 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:40:16  [332/521] done  cp-ofdm MCS 21 @ 100 MHz /  30 kHz: gen 4 MB (0.7 min)
+2026-10-18 13:40:16  [333/521] start cp-ofdm MCS 21 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:40:20  [333/521] done  cp-ofdm MCS 21 @ 100 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:40:20  [334/521] start cp-ofdm MCS 22 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:40:53  [334/521] done  cp-ofdm MCS 22 @ 100 MHz /  30 kHz: gen 4 MB (0.5 min)
+2026-10-18 13:40:53  [335/521] start cp-ofdm MCS 22 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:41:07  [335/521] done  cp-ofdm MCS 22 @ 100 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:41:07  [336/521] start cp-ofdm MCS 23 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:41:27  [336/521] done  cp-ofdm MCS 23 @ 100 MHz /  30 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:41:27  [337/521] start cp-ofdm MCS 23 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:41:45  [337/521] done  cp-ofdm MCS 23 @ 100 MHz /  30 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:41:45  [338/521] start cp-ofdm MCS 24 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:41:53  [338/521] done  cp-ofdm MCS 24 @ 100 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:41:53  [339/521] start cp-ofdm MCS 24 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:42:01  [339/521] done  cp-ofdm MCS 24 @ 100 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:42:01  [340/521] start cp-ofdm MCS 25 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:42:36  [340/521] done  cp-ofdm MCS 25 @ 100 MHz /  30 kHz: gen 4 MB (0.6 min)
+2026-10-18 13:42:36  [341/521] start cp-ofdm MCS 25 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:42:50  [341/521] done  cp-ofdm MCS 25 @ 100 MHz /  30 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:42:50  [342/521] start cp-ofdm MCS 26 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:42:54  [342/521] done  cp-ofdm MCS 26 @ 100 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:42:54  [343/521] start cp-ofdm MCS 26 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:42:57  [343/521] done  cp-ofdm MCS 26 @ 100 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:42:57  [344/521] start cp-ofdm MCS 27 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:43:03  [344/521] done  cp-ofdm MCS 27 @ 100 MHz /  30 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:43:03  [345/521] start cp-ofdm MCS 27 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:43:06  [345/521] done  cp-ofdm MCS 27 @ 100 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:43:06  [346/521] start cp-ofdm MCS 28 @ 100 MHz /  30 kHz: gen 4 MB
+2026-10-18 13:43:47  [346/521] done  cp-ofdm MCS 28 @ 100 MHz /  30 kHz: gen 4 MB (0.7 min)
+2026-10-18 13:43:47  [347/521] start cp-ofdm MCS 28 @ 100 MHz /  30 kHz: gen 8 MB
+2026-10-18 13:43:51  [347/521] done  cp-ofdm MCS 28 @ 100 MHz /  30 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:43:51  [348/521] start cp-ofdm MCS  0 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:43:58  [348/521] done  cp-ofdm MCS  0 @ 100 MHz / 120 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:43:58  [349/521] start cp-ofdm MCS  0 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:44:07  [349/521] done  cp-ofdm MCS  0 @ 100 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:44:07  [350/521] start cp-ofdm MCS  1 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:44:10  [350/521] done  cp-ofdm MCS  1 @ 100 MHz / 120 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:44:10  [351/521] start cp-ofdm MCS  1 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:44:29  [351/521] done  cp-ofdm MCS  1 @ 100 MHz / 120 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:44:29  [352/521] start cp-ofdm MCS  2 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:44:47  [352/521] done  cp-ofdm MCS  2 @ 100 MHz / 120 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:44:47  [353/521] start cp-ofdm MCS  2 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:44:53  [353/521] done  cp-ofdm MCS  2 @ 100 MHz / 120 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:44:53  [354/521] start cp-ofdm MCS  3 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:45:00  [354/521] done  cp-ofdm MCS  3 @ 100 MHz / 120 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:45:00  [355/521] start cp-ofdm MCS  3 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:45:26  [355/521] done  cp-ofdm MCS  3 @ 100 MHz / 120 kHz: gen 8 MB (0.4 min)
+2026-10-18 13:45:26  [356/521] start cp-ofdm MCS  4 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:45:54  [356/521] done  cp-ofdm MCS  4 @ 100 MHz / 120 kHz: gen 4 MB (0.5 min)
+2026-10-18 13:45:54  [357/521] start cp-ofdm MCS  4 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:46:05  [357/521] done  cp-ofdm MCS  4 @ 100 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:46:05  [358/521] start cp-ofdm MCS  5 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:46:26  [358/521] done  cp-ofdm MCS  5 @ 100 MHz / 120 kHz: gen 4 MB (0.4 min)
+2026-10-18 13:46:26  [359/521] start cp-ofdm MCS  5 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:46:34  [359/521] done  cp-ofdm MCS  5 @ 100 MHz / 120 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:46:34  [360/521] start cp-ofdm MCS  6 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:46:40  [360/521] done  cp-ofdm MCS  6 @ 100 MHz / 120 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:46:40  [361/521] start cp-ofdm MCS  6 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:46:53  [361/521] done  cp-ofdm MCS  6 @ 100 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:46:53  [362/521] start cp-ofdm MCS  7 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:47:18  [362/521] done  cp-ofdm MCS  7 @ 100 MHz / 120 kHz: gen 4 MB (0.4 min)
+2026-10-18 13:47:18  [363/521] start cp-ofdm MCS  7 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:47:32  [363/521] done  cp-ofdm MCS  7 @ 100 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:47:32  [364/521] start cp-ofdm MCS  8 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:48:27  [364/521] done  cp-ofdm MCS  8 @ 100 MHz / 120 kHz: gen 4 MB (0.9 min)
+2026-10-18 13:48:27  [365/521] start cp-ofdm MCS  8 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:48:33  [365/521] done  cp-ofdm MCS  8 @ 100 MHz / 120 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:48:33  [366/521] start cp-ofdm MCS  9 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:48:35  [366/521] done  cp-ofdm MCS  9 @ 100 MHz / 120 kHz: gen 4 MB (0.0 min)
+2026-10-18 13:48:35  [367/521] start cp-ofdm MCS  9 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:48:58  [367/521] done  cp-ofdm MCS  9 @ 100 MHz / 120 kHz: gen 8 MB (0.4 min)
+2026-10-18 13:48:58  [368/521] start cp-ofdm MCS 10 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:49:34  [368/521] done  cp-ofdm MCS 10 @ 100 MHz / 120 kHz: gen 4 MB (0.6 min)
+2026-10-18 13:49:34  [369/521] start cp-ofdm MCS 10 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:49:42  [369/521] done  cp-ofdm MCS 10 @ 100 MHz / 120 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:49:42  [370/521] start cp-ofdm MCS 11 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:49:47  [370/521] done  cp-ofdm MCS 11 @ 100 MHz / 120 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:49:47  [371/521] start cp-ofdm MCS 11 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:49:51  [371/521] done  cp-ofdm MCS 11 @ 100 MHz / 120 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:49:51  [372/521] start cp-ofdm MCS 12 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:50:14  [372/521] done  cp-ofdm MCS 12 @ 100 MHz / 120 kHz: gen 4 MB (0.4 min)
+2026-10-18 13:50:14  [373/521] start cp-ofdm MCS 12 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:50:24  [373/521] done  cp-ofdm MCS 12 @ 100 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:50:24  [374/521] start cp-ofdm MCS 13 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:50:39  [374/521] done  cp-ofdm MCS 13 @ 100 MHz / 120 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:50:39  [375/521] start cp-ofdm MCS 13 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:50:49  [375/521] done  cp-ofdm MCS 13 @ 100 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:50:49  [376/521] start cp-ofdm MCS 14 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:50:53  [376/521] done  cp-ofdm MCS 14 @ 100 MHz / 120 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:50:53  [377/521] start cp-ofdm MCS 14 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:51:16  [377/521] done  cp-ofdm MCS 14 @ 100 MHz / 120 kHz: gen 8 MB (0.4 min)
+2026-10-18 13:51:16  [378/521] start cp-ofdm MCS 15 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:51:36  [378/521] done  cp-ofdm MCS 15 @ 100 MHz / 120 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:51:36  [379/521] start cp-ofdm MCS 15 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:51:58  [379/521] done  cp-ofdm MCS 15 @ 100 MHz / 120 kHz: gen 8 MB (0.4 min)
+2026-10-18 13:51:58  [380/521] start cp-ofdm MCS 16 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:52:04  [380/521] done  cp-ofdm MCS 16 @ 100 MHz / 120 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:52:04  [381/521] start cp-ofdm MCS 16 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:52:10  [381/521] done  cp-ofdm MCS 16 @ 100 MHz / 120 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:52:10  [382/521] start cp-ofdm MCS 17 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:52:15  [382/521] done  cp-ofdm MCS 17 @ 100 MHz / 120 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:52:15  [383/521] start cp-ofdm MCS 17 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:52:23  [383/521] done  cp-ofdm MCS 17 @ 100 MHz / 120 kHz: gen 8 MB (0.1 min)
+2026-10-18 13:52:23  [384/521] start cp-ofdm MCS 18 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:52:28  [384/521] done  cp-ofdm MCS 18 @ 100 MHz / 120 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:52:28  [385/521] start cp-ofdm MCS 18 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:52:54  [385/521] done  cp-ofdm MCS 18 @ 100 MHz / 120 kHz: gen 8 MB (0.4 min)
+2026-10-18 13:52:54  [386/521] start cp-ofdm MCS 19 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:53:09  [386/521] done  cp-ofdm MCS 19 @ 100 MHz / 120 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:53:09  [387/521] start cp-ofdm MCS 19 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:53:11  [387/521] done  cp-ofdm MCS 19 @ 100 MHz / 120 kHz: gen 8 MB (0.0 min)
+2026-10-18 13:53:11  [388/521] start cp-ofdm MCS 20 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:53:44  [388/521] done  cp-ofdm MCS 20 @ 100 MHz / 120 kHz: gen 4 MB (0.6 min)
+2026-10-18 13:53:44  [389/521] start cp-ofdm MCS 20 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:53:57  [389/521] done  cp-ofdm MCS 20 @ 100 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:53:57  [390/521] start cp-ofdm MCS 21 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:54:10  [390/521] done  cp-ofdm MCS 21 @ 100 MHz / 120 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:54:10  [391/521] start cp-ofdm MCS 21 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:54:27  [391/521] done  cp-ofdm MCS 21 @ 100 MHz / 120 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:54:27  [392/521] start cp-ofdm MCS 22 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:54:44  [392/521] done  cp-ofdm MCS 22 @ 100 MHz / 120 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:54:44  [393/521] start cp-ofdm MCS 22 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:54:55  [393/521] done  cp-ofdm MCS 22 @ 100 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:54:55  [394/521] start cp-ofdm MCS 23 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:55:00  [394/521] done  cp-ofdm MCS 23 @ 100 MHz / 120 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:55:00  [395/521] start cp-ofdm MCS 23 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:55:09  [395/521] done  cp-ofdm MCS 23 @ 100 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:55:09  [396/521] start cp-ofdm MCS 24 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:55:24  [396/521] done  cp-ofdm MCS 24 @ 100 MHz / 120 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:55:24  [397/521] start cp-ofdm MCS 24 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:55:34  [397/521] done  cp-ofdm MCS 24 @ 100 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:55:34  [398/521] start cp-ofdm MCS 25 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:55:42  [398/521] done  cp-ofdm MCS 25 @ 100 MHz / 120 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:55:42  [399/521] start cp-ofdm MCS 25 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:55:52  [399/521] done  cp-ofdm MCS 25 @ 100 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:55:52  [400/521] start cp-ofdm MCS 26 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:56:22  [400/521] done  cp-ofdm MCS 26 @ 100 MHz / 120 kHz: gen 4 MB (0.5 min)
+2026-10-18 13:56:22  [401/521] start cp-ofdm MCS 26 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:56:33  [401/521] done  cp-ofdm MCS 26 @ 100 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 13:56:33  [402/521] start cp-ofdm MCS 27 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:56:46  [402/521] done  cp-ofdm MCS 27 @ 100 MHz / 120 kHz: gen 4 MB (0.2 min)
+2026-10-18 13:56:46  [403/521] start cp-ofdm MCS 27 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:57:32  [403/521] done  cp-ofdm MCS 27 @ 100 MHz / 120 kHz: gen 8 MB (0.8 min)
+2026-10-18 13:57:32  [404/521] start cp-ofdm MCS 28 @ 100 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:57:39  [404/521] done  cp-ofdm MCS 28 @ 100 MHz / 120 kHz: gen 4 MB (0.1 min)
+2026-10-18 13:57:39  [405/521] start cp-ofdm MCS 28 @ 100 MHz / 120 kHz: gen 8 MB
+2026-10-18 13:57:59  [405/521] done  cp-ofdm MCS 28 @ 100 MHz / 120 kHz: gen 8 MB (0.3 min)
+2026-10-18 13:57:59  [406/521] start cp-ofdm MCS  0 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 13:58:19  [406/521] done  cp-ofdm MCS  0 @ 200 MHz / 120 kHz: gen 4 MB (0.3 min)
+2026-10-18 13:58:19  [407/521] start cp-ofdm MCS  0 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:00:27  [407/521] done  cp-ofdm MCS  0 @ 200 MHz / 120 kHz: gen 8 MB (2.1 min)
+2026-10-18 14:00:27  [408/521] start cp-ofdm MCS  1 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:00:54  [408/521] done  cp-ofdm MCS  1 @ 200 MHz / 120 kHz: gen 4 MB (0.4 min)
+2026-10-18 14:00:54  [409/521] start cp-ofdm MCS  1 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:00:57  [409/521] done  cp-ofdm MCS  1 @ 200 MHz / 120 kHz: gen 8 MB (0.0 min)
+2026-10-18 14:00:57  [410/521] start cp-ofdm MCS  2 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:03:44  [410/521] done  cp-ofdm MCS  2 @ 200 MHz / 120 kHz: gen 4 MB (2.8 min)
+2026-10-18 14:03:44  [411/521] start cp-ofdm MCS  2 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:04:09  [411/521] done  cp-ofdm MCS  2 @ 200 MHz / 120 kHz: gen 8 MB (0.4 min)
+2026-10-18 14:04:09  [412/521] start cp-ofdm MCS  3 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:05:30  [412/521] done  cp-ofdm MCS  3 @ 200 MHz / 120 kHz: gen 4 MB (1.3 min)
+2026-10-18 14:05:30  [413/521] start cp-ofdm MCS  3 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:05:57  [413/521] done  cp-ofdm MCS  3 @ 200 MHz / 120 kHz: gen 8 MB (0.5 min)
+2026-10-18 14:05:57  [414/521] start cp-ofdm MCS  4 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:06:32  [414/521] done  cp-ofdm MCS  4 @ 200 MHz / 120 kHz: gen 4 MB (0.6 min)
+2026-10-18 14:06:32  [415/521] start cp-ofdm MCS  4 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:06:53  [415/521] done  cp-ofdm MCS  4 @ 200 MHz / 120 kHz: gen 8 MB (0.3 min)
+2026-10-18 14:06:53  [416/521] start cp-ofdm MCS  5 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:07:10  [416/521] done  cp-ofdm MCS  5 @ 200 MHz / 120 kHz: gen 4 MB (0.3 min)
+2026-10-18 14:07:10  [417/521] start cp-ofdm MCS  5 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:07:28  [417/521] done  cp-ofdm MCS  5 @ 200 MHz / 120 kHz: gen 8 MB (0.3 min)
+2026-10-18 14:07:28  [418/521] start cp-ofdm MCS  6 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:09:09  [418/521] done  cp-ofdm MCS  6 @ 200 MHz / 120 kHz: gen 4 MB (1.7 min)
+2026-10-18 14:09:09  [419/521] start cp-ofdm MCS  6 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:09:39  [419/521] done  cp-ofdm MCS  6 @ 200 MHz / 120 kHz: gen 8 MB (0.5 min)
+2026-10-18 14:09:39  [420/521] start cp-ofdm MCS  7 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:11:13  [420/521] done  cp-ofdm MCS  7 @ 200 MHz / 120 kHz: gen 4 MB (1.6 min)
+2026-10-18 14:11:13  [421/521] start cp-ofdm MCS  7 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:11:16  [421/521] done  cp-ofdm MCS  7 @ 200 MHz / 120 kHz: gen 8 MB (0.0 min)
+2026-10-18 14:11:16  [422/521] start cp-ofdm MCS  8 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:12:12  [422/521] done  cp-ofdm MCS  8 @ 200 MHz / 120 kHz: gen 4 MB (0.9 min)
+2026-10-18 14:12:12  [423/521] start cp-ofdm MCS  8 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:12:31  [423/521] done  cp-ofdm MCS  8 @ 200 MHz / 120 kHz: gen 8 MB (0.3 min)
+2026-10-18 14:12:31  [424/521] start cp-ofdm MCS  9 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:12:36  [424/521] done  cp-ofdm MCS  9 @ 200 MHz / 120 kHz: gen 4 MB (0.1 min)
+2026-10-18 14:12:36  [425/521] start cp-ofdm MCS  9 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:12:39  [425/521] done  cp-ofdm MCS  9 @ 200 MHz / 120 kHz: gen 8 MB (0.0 min)
+2026-10-18 14:12:39  [426/521] start cp-ofdm MCS 10 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:15:23  [426/521] done  cp-ofdm MCS 10 @ 200 MHz / 120 kHz: gen 4 MB (2.7 min)
+2026-10-18 14:15:23  [427/521] start cp-ofdm MCS 10 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:15:37  [427/521] done  cp-ofdm MCS 10 @ 200 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 14:15:37  [428/521] start cp-ofdm MCS 11 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:17:31  [428/521] done  cp-ofdm MCS 11 @ 200 MHz / 120 kHz: gen 4 MB (1.9 min)
+2026-10-18 14:17:31  [429/521] start cp-ofdm MCS 11 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:17:40  [429/521] done  cp-ofdm MCS 11 @ 200 MHz / 120 kHz: gen 8 MB (0.1 min)
+2026-10-18 14:17:40  [430/521] start cp-ofdm MCS 12 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:18:20  [430/521] done  cp-ofdm MCS 12 @ 200 MHz / 120 kHz: gen 4 MB (0.7 min)
+2026-10-18 14:18:20  [431/521] start cp-ofdm MCS 12 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:19:10  [431/521] done  cp-ofdm MCS 12 @ 200 MHz / 120 kHz: gen 8 MB (0.8 min)
+2026-10-18 14:19:10  [432/521] start cp-ofdm MCS 13 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:19:59  [432/521] done  cp-ofdm MCS 13 @ 200 MHz / 120 kHz: gen 4 MB (0.8 min)
+2026-10-18 14:19:59  [433/521] start cp-ofdm MCS 13 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:20:16  [433/521] done  cp-ofdm MCS 13 @ 200 MHz / 120 kHz: gen 8 MB (0.3 min)
+2026-10-18 14:20:16  [434/521] start cp-ofdm MCS 14 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:20:30  [434/521] done  cp-ofdm MCS 14 @ 200 MHz / 120 kHz: gen 4 MB (0.2 min)
+2026-10-18 14:20:30  [435/521] start cp-ofdm MCS 14 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:20:36  [435/521] done  cp-ofdm MCS 14 @ 200 MHz / 120 kHz: gen 8 MB (0.1 min)
+2026-10-18 14:20:36  [436/521] start cp-ofdm MCS 15 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:23:35  [436/521] done  cp-ofdm MCS 15 @ 200 MHz / 120 kHz: gen 4 MB (3.0 min)
+2026-10-18 14:23:35  [437/521] start cp-ofdm MCS 15 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:23:40  [437/521] done  cp-ofdm MCS 15 @ 200 MHz / 120 kHz: gen 8 MB (0.1 min)
+2026-10-18 14:23:40  [438/521] start cp-ofdm MCS 16 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:23:59  [438/521] done  cp-ofdm MCS 16 @ 200 MHz / 120 kHz: gen 4 MB (0.3 min)
+2026-10-18 14:23:59  [439/521] start cp-ofdm MCS 16 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:24:53  [439/521] done  cp-ofdm MCS 16 @ 200 MHz / 120 kHz: gen 8 MB (0.9 min)
+2026-10-18 14:24:53  [440/521] start cp-ofdm MCS 17 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:25:20  [440/521] done  cp-ofdm MCS 17 @ 200 MHz / 120 kHz: gen 4 MB (0.4 min)
+2026-10-18 14:25:20  [441/521] start cp-ofdm MCS 17 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:25:31  [441/521] done  cp-ofdm MCS 17 @ 200 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 14:25:31  [442/521] start cp-ofdm MCS 18 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:27:28  [442/521] done  cp-ofdm MCS 18 @ 200 MHz / 120 kHz: gen 4 MB (2.0 min)
+2026-10-18 14:27:28  [443/521] start cp-ofdm MCS 18 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:27:48  [443/521] done  cp-ofdm MCS 18 @ 200 MHz / 120 kHz: gen 8 MB (0.3 min)
+2026-10-18 14:27:48  [444/521] start cp-ofdm MCS 19 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:28:00  [444/521] done  cp-ofdm MCS 19 @ 200 MHz / 120 kHz: gen 4 MB (0.2 min)
+2026-10-18 14:28:00  [445/521] start cp-ofdm MCS 19 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:28:04  [445/521] done  cp-ofdm MCS 19 @ 200 MHz / 120 kHz: gen 8 MB (0.1 min)
+2026-10-18 14:28:04  [446/521] start cp-ofdm MCS 20 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:28:59  [446/521] done  cp-ofdm MCS 20 @ 200 MHz / 120 kHz: gen 4 MB (0.9 min)
+2026-10-18 14:28:59  [447/521] start cp-ofdm MCS 20 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:29:31  [447/521] done  cp-ofdm MCS 20 @ 200 MHz / 120 kHz: gen 8 MB (0.5 min)
+2026-10-18 14:29:31  [448/521] start cp-ofdm MCS 21 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:30:45  [448/521] done  cp-ofdm MCS 21 @ 200 MHz / 120 kHz: gen 4 MB (1.2 min)
+2026-10-18 14:30:45  [449/521] start cp-ofdm MCS 21 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:31:03  [449/521] done  cp-ofdm MCS 21 @ 200 MHz / 120 kHz: gen 8 MB (0.3 min)
+2026-10-18 14:31:03  [450/521] start cp-ofdm MCS 22 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:31:39  [450/521] done  cp-ofdm MCS 22 @ 200 MHz / 120 kHz: gen 4 MB (0.6 min)
+2026-10-18 14:31:39  [451/521] start cp-ofdm MCS 22 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:33:14  [451/521] done  cp-ofdm MCS 22 @ 200 MHz / 120 kHz: gen 8 MB (1.6 min)
+2026-10-18 14:33:14  [452/521] start cp-ofdm MCS 23 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:33:58  [452/521] done  cp-ofdm MCS 23 @ 200 MHz / 120 kHz: gen 4 MB (0.7 min)
+2026-10-18 14:33:58  [453/521] start cp-ofdm MCS 23 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:34:57  [453/521] done  cp-ofdm MCS 23 @ 200 MHz / 120 kHz: gen 8 MB (1.0 min)
+2026-10-18 14:34:57  [454/521] start cp-ofdm MCS 24 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:35:08  [454/521] done  cp-ofdm MCS 24 @ 200 MHz / 120 kHz: gen 4 MB (0.2 min)
+2026-10-18 14:35:08  [455/521] start cp-ofdm MCS 24 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:35:26  [455/521] done  cp-ofdm MCS 24 @ 200 MHz / 120 kHz: gen 8 MB (0.3 min)
+2026-10-18 14:35:26  [456/521] start cp-ofdm MCS 25 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:35:29  [456/521] done  cp-ofdm MCS 25 @ 200 MHz / 120 kHz: gen 4 MB (0.0 min)
+2026-10-18 14:35:29  [457/521] start cp-ofdm MCS 25 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:36:44  [457/521] done  cp-ofdm MCS 25 @ 200 MHz / 120 kHz: gen 8 MB (1.3 min)
+2026-10-18 14:36:44  [458/521] start cp-ofdm MCS 26 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:37:20  [458/521] done  cp-ofdm MCS 26 @ 200 MHz / 120 kHz: gen 4 MB (0.6 min)
+2026-10-18 14:37:20  [459/521] start cp-ofdm MCS 26 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:38:34  [459/521] done  cp-ofdm MCS 26 @ 200 MHz / 120 kHz: gen 8 MB (1.2 min)
+2026-10-18 14:38:34  [460/521] start cp-ofdm MCS 27 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:39:02  [460/521] done  cp-ofdm MCS 27 @ 200 MHz / 120 kHz: gen 4 MB (0.5 min)
+2026-10-18 14:39:02  [461/521] start cp-ofdm MCS 27 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:39:48  [461/521] done  cp-ofdm MCS 27 @ 200 MHz / 120 kHz: gen 8 MB (0.8 min)
+2026-10-18 14:39:48  [462/521] start cp-ofdm MCS 28 @ 200 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:41:10  [462/521] done  cp-ofdm MCS 28 @ 200 MHz / 120 kHz: gen 4 MB (1.4 min)
+2026-10-18 14:41:10  [463/521] start cp-ofdm MCS 28 @ 200 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:41:25  [463/521] done  cp-ofdm MCS 28 @ 200 MHz / 120 kHz: gen 8 MB (0.3 min)
+2026-10-18 14:41:25  [464/521] start cp-ofdm MCS  0 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:42:26  [464/521] done  cp-ofdm MCS  0 @ 400 MHz / 120 kHz: gen 4 MB (1.0 min)
+2026-10-18 14:42:26  [465/521] start cp-ofdm MCS  0 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:44:03  [465/521] done  cp-ofdm MCS  0 @ 400 MHz / 120 kHz: gen 8 MB (1.6 min)
+2026-10-18 14:44:03  [466/521] start cp-ofdm MCS  1 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:45:50  [466/521] done  cp-ofdm MCS  1 @ 400 MHz / 120 kHz: gen 4 MB (1.8 min)
+2026-10-18 14:45:50  [467/521] start cp-ofdm MCS  1 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:45:59  [467/521] done  cp-ofdm MCS  1 @ 400 MHz / 120 kHz: gen 8 MB (0.1 min)
+2026-10-18 14:45:59  [468/521] start cp-ofdm MCS  2 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:47:12  [468/521] done  cp-ofdm MCS  2 @ 400 MHz / 120 kHz: gen 4 MB (1.2 min)
+2026-10-18 14:47:12  [469/521] start cp-ofdm MCS  2 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:49:07  [469/521] done  cp-ofdm MCS  2 @ 400 MHz / 120 kHz: gen 8 MB (1.9 min)
+2026-10-18 14:49:07  [470/521] start cp-ofdm MCS  3 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:49:41  [470/521] done  cp-ofdm MCS  3 @ 400 MHz / 120 kHz: gen 4 MB (0.6 min)
+2026-10-18 14:49:41  [471/521] start cp-ofdm MCS  3 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:50:09  [471/521] done  cp-ofdm MCS  3 @ 400 MHz / 120 kHz: gen 8 MB (0.5 min)
+2026-10-18 14:50:09  [472/521] start cp-ofdm MCS  4 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:51:38  [472/521] done  cp-ofdm MCS  4 @ 400 MHz / 120 kHz: gen 4 MB (1.5 min)
+2026-10-18 14:51:38  [473/521] start cp-ofdm MCS  4 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:51:56  [473/521] done  cp-ofdm MCS  4 @ 400 MHz / 120 kHz: gen 8 MB (0.3 min)
+2026-10-18 14:51:56  [474/521] start cp-ofdm MCS  5 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:52:09  [474/521] done  cp-ofdm MCS  5 @ 400 MHz / 120 kHz: gen 4 MB (0.2 min)
+2026-10-18 14:52:09  [475/521] start cp-ofdm MCS  5 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:52:31  [475/521] done  cp-ofdm MCS  5 @ 400 MHz / 120 kHz: gen 8 MB (0.4 min)
+2026-10-18 14:52:31  [476/521] start cp-ofdm MCS  6 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:54:06  [476/521] done  cp-ofdm MCS  6 @ 400 MHz / 120 kHz: gen 4 MB (1.6 min)
+2026-10-18 14:54:06  [477/521] start cp-ofdm MCS  6 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:54:16  [477/521] done  cp-ofdm MCS  6 @ 400 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 14:54:16  [478/521] start cp-ofdm MCS  7 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 14:54:24  [478/521] done  cp-ofdm MCS  7 @ 400 MHz / 120 kHz: gen 4 MB (0.1 min)
+2026-10-18 14:54:24  [479/521] start cp-ofdm MCS  7 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 14:56:51  [479/521] done  cp-ofdm MCS  7 @ 400 MHz / 120 kHz: gen 8 MB (2.5 min)
+2026-10-18 14:56:51  [480/521] start cp-ofdm MCS  8 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:03:03  [480/521] done  cp-ofdm MCS  8 @ 400 MHz / 120 kHz: gen 4 MB (6.2 min)
+2026-10-18 15:03:03  [481/521] start cp-ofdm MCS  8 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:03:09  [481/521] done  cp-ofdm MCS  8 @ 400 MHz / 120 kHz: gen 8 MB (0.1 min)
+2026-10-18 15:03:09  [482/521] start cp-ofdm MCS  9 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:04:18  [482/521] done  cp-ofdm MCS  9 @ 400 MHz / 120 kHz: gen 4 MB (1.2 min)
+2026-10-18 15:04:18  [483/521] start cp-ofdm MCS  9 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:04:33  [483/521] done  cp-ofdm MCS  9 @ 400 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 15:04:33  [484/521] start cp-ofdm MCS 10 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:05:03  [484/521] done  cp-ofdm MCS 10 @ 400 MHz / 120 kHz: gen 4 MB (0.5 min)
+2026-10-18 15:05:03  [485/521] start cp-ofdm MCS 10 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:08:03  [485/521] done  cp-ofdm MCS 10 @ 400 MHz / 120 kHz: gen 8 MB (3.0 min)
+2026-10-18 15:08:03  [486/521] start cp-ofdm MCS 11 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:11:31  [486/521] done  cp-ofdm MCS 11 @ 400 MHz / 120 kHz: gen 4 MB (3.5 min)
+2026-10-18 15:11:31  [487/521] start cp-ofdm MCS 11 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:11:45  [487/521] done  cp-ofdm MCS 11 @ 400 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 15:11:45  [488/521] start cp-ofdm MCS 12 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:12:06  [488/521] done  cp-ofdm MCS 12 @ 400 MHz / 120 kHz: gen 4 MB (0.4 min)
+2026-10-18 15:12:06  [489/521] start cp-ofdm MCS 12 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:16:26  [489/521] done  cp-ofdm MCS 12 @ 400 MHz / 120 kHz: gen 8 MB (4.3 min)
+2026-10-18 15:16:26  [490/521] start cp-ofdm MCS 13 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:17:47  [490/521] done  cp-ofdm MCS 13 @ 400 MHz / 120 kHz: gen 4 MB (1.3 min)
+2026-10-18 15:17:47  [491/521] start cp-ofdm MCS 13 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:18:30  [491/521] done  cp-ofdm MCS 13 @ 400 MHz / 120 kHz: gen 8 MB (0.7 min)
+2026-10-18 15:18:30  [492/521] start cp-ofdm MCS 14 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:20:09  [492/521] done  cp-ofdm MCS 14 @ 400 MHz / 120 kHz: gen 4 MB (1.6 min)
+2026-10-18 15:20:09  [493/521] start cp-ofdm MCS 14 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:20:30  [493/521] done  cp-ofdm MCS 14 @ 400 MHz / 120 kHz: gen 8 MB (0.4 min)
+2026-10-18 15:20:30  [494/521] start cp-ofdm MCS 15 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:23:19  [494/521] done  cp-ofdm MCS 15 @ 400 MHz / 120 kHz: gen 4 MB (2.8 min)
+2026-10-18 15:23:19  [495/521] start cp-ofdm MCS 15 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:24:23  [495/521] done  cp-ofdm MCS 15 @ 400 MHz / 120 kHz: gen 8 MB (1.1 min)
+2026-10-18 15:24:23  [496/521] start cp-ofdm MCS 16 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:25:03  [496/521] done  cp-ofdm MCS 16 @ 400 MHz / 120 kHz: gen 4 MB (0.7 min)
+2026-10-18 15:25:03  [497/521] start cp-ofdm MCS 16 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:25:15  [497/521] done  cp-ofdm MCS 16 @ 400 MHz / 120 kHz: gen 8 MB (0.2 min)
+2026-10-18 15:25:15  [498/521] start cp-ofdm MCS 17 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:27:46  [498/521] done  cp-ofdm MCS 17 @ 400 MHz / 120 kHz: gen 4 MB (2.5 min)
+2026-10-18 15:27:46  [499/521] start cp-ofdm MCS 17 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:28:43  [499/521] done  cp-ofdm MCS 17 @ 400 MHz / 120 kHz: gen 8 MB (0.9 min)
+2026-10-18 15:28:43  [500/521] start cp-ofdm MCS 18 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:31:22  [500/521] done  cp-ofdm MCS 18 @ 400 MHz / 120 kHz: gen 4 MB (2.7 min)
+2026-10-18 15:31:22  [501/521] start cp-ofdm MCS 18 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:32:45  [501/521] done  cp-ofdm MCS 18 @ 400 MHz / 120 kHz: gen 8 MB (1.4 min)
+2026-10-18 15:32:45  [502/521] start cp-ofdm MCS 19 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:33:23  [502/521] done  cp-ofdm MCS 19 @ 400 MHz / 120 kHz: gen 4 MB (0.6 min)
+2026-10-18 15:33:23  [503/521] start cp-ofdm MCS 19 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:34:01  [503/521] done  cp-ofdm MCS 19 @ 400 MHz / 120 kHz: gen 8 MB (0.6 min)
+2026-10-18 15:34:01  [504/521] start cp-ofdm MCS 20 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:35:17  [504/521] done  cp-ofdm MCS 20 @ 400 MHz / 120 kHz: gen 4 MB (1.3 min)
+2026-10-18 15:35:17  [505/521] start cp-ofdm MCS 20 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:35:32  [505/521] done  cp-ofdm MCS 20 @ 400 MHz / 120 kHz: gen 8 MB (0.3 min)
+2026-10-18 15:35:32  [506/521] start cp-ofdm MCS 21 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:37:46  [506/521] done  cp-ofdm MCS 21 @ 400 MHz / 120 kHz: gen 4 MB (2.2 min)
+2026-10-18 15:37:46  [507/521] start cp-ofdm MCS 21 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:38:18  [507/521] done  cp-ofdm MCS 21 @ 400 MHz / 120 kHz: gen 8 MB (0.5 min)
+2026-10-18 15:38:18  [508/521] start cp-ofdm MCS 22 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:40:23  [508/521] done  cp-ofdm MCS 22 @ 400 MHz / 120 kHz: gen 4 MB (2.1 min)
+2026-10-18 15:40:23  [509/521] start cp-ofdm MCS 22 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:41:08  [509/521] done  cp-ofdm MCS 22 @ 400 MHz / 120 kHz: gen 8 MB (0.7 min)
+2026-10-18 15:41:08  [510/521] start cp-ofdm MCS 23 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:42:31  [510/521] done  cp-ofdm MCS 23 @ 400 MHz / 120 kHz: gen 4 MB (1.4 min)
+2026-10-18 15:42:31  [511/521] start cp-ofdm MCS 23 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:45:03  [511/521] done  cp-ofdm MCS 23 @ 400 MHz / 120 kHz: gen 8 MB (2.5 min)
+2026-10-18 15:45:03  [512/521] start cp-ofdm MCS 24 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:45:20  [512/521] done  cp-ofdm MCS 24 @ 400 MHz / 120 kHz: gen 4 MB (0.3 min)
+2026-10-18 15:45:20  [513/521] start cp-ofdm MCS 24 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:45:53  [513/521] done  cp-ofdm MCS 24 @ 400 MHz / 120 kHz: gen 8 MB (0.6 min)
+2026-10-18 15:45:53  [514/521] start cp-ofdm MCS 25 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:50:09  [514/521] done  cp-ofdm MCS 25 @ 400 MHz / 120 kHz: gen 4 MB (4.3 min)
+2026-10-18 15:50:09  [515/521] start cp-ofdm MCS 25 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:50:56  [515/521] done  cp-ofdm MCS 25 @ 400 MHz / 120 kHz: gen 8 MB (0.8 min)
+2026-10-18 15:50:56  [516/521] start cp-ofdm MCS 26 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:52:07  [516/521] done  cp-ofdm MCS 26 @ 400 MHz / 120 kHz: gen 4 MB (1.2 min)
+2026-10-18 15:52:07  [517/521] start cp-ofdm MCS 26 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:53:05  [517/521] done  cp-ofdm MCS 26 @ 400 MHz / 120 kHz: gen 8 MB (1.0 min)
+2026-10-18 15:53:05  [518/521] start cp-ofdm MCS 27 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 15:57:39  [518/521] done  cp-ofdm MCS 27 @ 400 MHz / 120 kHz: gen 4 MB (4.6 min)
+2026-10-18 15:57:39  [519/521] start cp-ofdm MCS 27 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 15:58:04  [519/521] done  cp-ofdm MCS 27 @ 400 MHz / 120 kHz: gen 8 MB (0.4 min)
+2026-10-18 15:58:04  [520/521] start cp-ofdm MCS 28 @ 400 MHz / 120 kHz: gen 4 MB
+2026-10-18 16:00:26  [520/521] done  cp-ofdm MCS 28 @ 400 MHz / 120 kHz: gen 4 MB (2.4 min)
+2026-10-18 16:00:26  [521/521] start cp-ofdm MCS 28 @ 400 MHz / 120 kHz: gen 8 MB
+2026-10-18 16:01:55  [521/521] done  cp-ofdm MCS 28 @ 400 MHz / 120 kHz: gen 8 MB (1.5 min)
+2026-10-18 16:01:55  run_5g_all DL finished: 521 ok, 0 failed, 4.8 h total. Log: C:\Users\jeffr\OneDrive\Documents\Github\PA-standard-sig\Code\5G\run_5g_all_dl.log

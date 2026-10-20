@@ -271,6 +271,105 @@ def index_contributed(root=CONTRIB_ROOT):
     return entries
 
 
+NR_SIGNAL_ROOT = os.path.join("Signals", "Multi Carrier", "5G NR")
+NR_FIGURE_ROOT = os.path.join("Figures", "5G NR")
+
+# 5g_dl_mcs=20_bw=100_scs=30_osf=2_fs=245.76MSps_4MB.bin
+# 5g_ul_dftsofdm_mcs=20_bw=100_scs=30_osf=2_fs=245.76MSps_4MB.bin
+# The sample rate is in the name because for NR it is Nfft x SCS x osf, not
+# bandwidth x osf as for Wi-Fi.
+NR_SIGNAL_RE = re.compile(
+    r"^5g_(?P<dir>dl|ul)_(?:(?P<wf>cpofdm|dftsofdm)_)?mcs=(?P<mcs>\d+)_bw=(?P<bw>\d+)"
+    r"_scs=(?P<scs>\d+)_osf=(?P<osf>\d+(?:\.\d+)?)_fs=(?P<fs>\d+(?:\.\d+)?)MSps"
+    r"_(?P<mem>\d+MB)\.bin$", re.I)
+NR_FIGURE_RE = re.compile(
+    r"^5g_(?P<dir>dl|ul)_PAPR(?P<kind>PDF|CCDF)_(?P<mode>data|full)_"
+    r"(?:(?P<wf>cpofdm|dftsofdm)_)?mcs=(?P<mcs>\d+)_bw=(?P<bw>\d+)_scs=(?P<scs>\d+)$", re.I)
+NR_WAVEFORM_LABEL = {"cpofdm": "CP-OFDM", "dftsofdm": "DFT-s-OFDM"}
+
+
+def nr_standard(direction, waveform):
+    """Standard facet value: downlink is always CP-OFDM, uplink is either."""
+    if direction.lower() == "dl":
+        return "5G NR Downlink"
+    return f"5G NR Uplink {NR_WAVEFORM_LABEL[(waveform or 'cpofdm').lower()]}"
+
+
+def nr_bandwidth(bw, scs):
+    """Bandwidth facet value. 100 MHz exists at both 30 and 120 kHz SCS, so
+    the spacing is part of the label or the two would collapse into one."""
+    return f"{bw} MHz / {scs} kHz SCS"
+
+
+def index_nr():
+    """Catalog entries for the 5G NR waveforms written by Code/5G/pa_5G_*.m.
+
+    Each .bin has a .json sidecar from the generator; when present it supplies
+    the modulation and code rate, and the sample rate in exact form.
+    """
+    figures = {}
+    if os.path.isdir(NR_FIGURE_ROOT):
+        for root, _, files in os.walk(NR_FIGURE_ROOT):
+            for file in sorted(files):
+                stem, ext = os.path.splitext(file)
+                match = NR_FIGURE_RE.match(stem)
+                if not match or ext.lower() not in FIGURE_EXTENSIONS:
+                    continue
+                g = match.groupdict()
+                key = (nr_standard(g["dir"], g["wf"]), g["mcs"], nr_bandwidth(g["bw"], g["scs"]))
+                figures.setdefault(key, []).append({
+                    "name": f"PAPR {g['kind'].upper()} ({g['mode'].lower()} symbols)",
+                    "path": os.path.join(root, file).replace("\\", "/"),
+                })
+
+    entries = []
+    if not os.path.isdir(NR_SIGNAL_ROOT):
+        return entries
+    for root, _, files in os.walk(NR_SIGNAL_ROOT):
+        for file in sorted(files):
+            match = NR_SIGNAL_RE.match(file)
+            if not match:
+                continue
+            g = match.groupdict()
+            repo_path = os.path.join(root, file).replace("\\", "/")
+            standard = nr_standard(g["dir"], g["wf"])
+            bandwidth = nr_bandwidth(g["bw"], g["scs"])
+            mem_label = g["mem"].replace("MB", " MB")
+
+            side = {}
+            try:
+                with open(os.path.splitext(repo_path)[0] + ".json", encoding="utf-8") as handle:
+                    side = json.load(handle)
+            except (OSError, ValueError):
+                pass
+            sample_rate_hz = side.get("sampleRateHz") or float(g["fs"]) * 1e6
+
+            papr, mean_packet_papr = calculate_papr(repo_path)
+            wf_id = (g["wf"] or "cpofdm").lower()
+            entry = {
+                "id": f"mc-5g-{g['dir'].lower()}-{wf_id}-{g['mcs']}-{g['bw']}-{g['scs']}-{g['mem']}",
+                "signalClass": "MC",
+                "signalFamily": "5G NR",
+                "standard": standard,
+                "mcs": g["mcs"],
+                "bandwidth": bandwidth,
+                "memoryLength": mem_label,
+                "oversampling": f"{g['osf']}x",
+                "sampleRateHz": sample_rate_hz,
+                "papr": f"{papr} dB" if papr is not None else "N/A",
+                "meanPacketPapr": f"{mean_packet_papr} dB" if mean_packet_papr is not None else "N/A",
+                "data_file": repo_path,
+                "name": f"{standard} MCS{g['mcs']} {g['bw']}MHz {g['scs']}kHz {mem_label}",
+                "figures": figures.get((standard, g["mcs"], bandwidth), []),
+                "isAlias": False,
+            }
+            if side.get("modulation"):
+                entry["modulation"] = side["modulation"]
+                entry["codeRate"] = side.get("codeRate")
+            entries.append(entry)
+    return entries
+
+
 def build_manifest():
     manifest = []
     os.makedirs("docs", exist_ok=True)
@@ -320,8 +419,10 @@ def build_manifest():
                     continue
                 repo_path = os.path.join(root, file).replace("\\", "/")
                 # GI is optional: Wi-Fi 4 filenames carry it, later ones do not.
+                # osf may be fractional: 320 MHz Wi-Fi 7 exports at 1.875x,
+                # the ARB clock cap divided by the channel bandwidth.
                 match = re.search(
-                    r"(wifi\d+)_mcs=(\d+)_bw=(\d+)(?:_GI=[A-Za-z]+)?_osf=(\d+)_(\d+MB)\.bin$",
+                    r"(wifi\d+)_mcs=(\d+)_bw=(\d+)(?:_GI=[A-Za-z]+)?_osf=(\d+(?:\.\d+)?)_(\d+MB)\.bin$",
                     file, re.I)
                 if not match:
                     continue
@@ -564,6 +665,10 @@ def build_manifest():
                         "name": f"{mod_label} {sym_label} (Roll-off {rolloff_str})",
                         "figures": figures
                     })
+
+    nr_entries = index_nr()
+    print(f"Added {len(nr_entries)} 5G NR signal entries from {NR_SIGNAL_ROOT}.")
+    manifest.extend(nr_entries)
 
     contributed = index_contributed()
     if contributed:

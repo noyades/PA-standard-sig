@@ -2,7 +2,7 @@
 
 Planned work for the signal library and the [interactive signal browser](https://noyades.github.io/PA-standard-sig/). Items keep their original numbering so they can be referenced directly; they are grouped by theme rather than by priority.
 
-Notes marked **Current state** were verified against the repository on 2026-08-26 and should be re-checked before acting on them. Items 1, 2 and 3 carry a **Built** note describing what shipped on 2026-08-30 and what is still open.
+Notes marked **Current state** were verified against the repository on 2026-08-26 and should be re-checked before acting on them. Items 1, 2 and 3 carry a **Built** note describing what shipped on 2026-08-30 and what is still open. Items 7 and 9 were re-checked on 2026-10-19.
 
 ## Summary
 
@@ -16,7 +16,9 @@ Notes marked **Current state** were verified against the repository on 2026-08-2
 | 5 | Per-instrument upload instructions for R&S and Keysight VSGs | Instrument workflow | — |
 | 7 | Not all SC signals are downloadable from the web app | Catalog integrity | — |
 | 8 | Custom SC naming convention to mirror the MC convention | Naming | — |
-| 9 | Drop `osf` and `GI` from the MC naming convention, note it in the README | Naming | 7 |
+| 9 | Drop `GI` from the MC naming convention, note it in the README | Naming | 8 (rename together) |
+| 10 | Speculative OTFS signals | Speculative waveforms | 5G target table complete |
+| 11 | Speculative AFDM signals | Speculative waveforms | 10 (shared scaffolding) |
 
 ---
 
@@ -134,13 +136,15 @@ Submission travels by hand, because the site is static and has no upload endpoin
 
 **Goal.** Verify that every catalog entry resolves to a real, downloadable file, and fix those that do not.
 
-**Current state.** Partially diagnosed. Three distinct problems, verified 2026-08-26:
+**Current state.** Two of the three problems found on 2026-08-26 are fixed; one is open, and the CI check is not started. Re-checked 2026-10-19:
 
-1. **Most SC entries are unreachable through the UI, not missing.** All 625 SC entries in `docs/manifest.json` point at files that exist on disk *and* are committed to git, so the download links themselves are sound. The problem is the filter set: [docs/app.js:64](docs/app.js#L64) defines the SC facets as `["modulation", "rolloff", "filterType"]` only. There is no selector for symbol length (100 / 1k / 10k / 100k / 1M) or for the `PAPR_average` vs `PAPR_max` variant, even though the manifest carries `symbols`. That is 25 addressable combinations covering 625 entries, so the great majority cannot be selected. **This is the most likely cause of the reported symptom and should be confirmed first.**
-2. **16 MC entries point at files that do not exist.** These are the 160 MHz WiFi 5 entries; the manifest expects `wifi5_mcs=N_bw=160_osf=4_4MB.bin` but what is committed is `wifi5_mcs=N_bw=160_osf=4_7.617188e+00MB.bin` (10 files, MCS 0–9). The malformed size came from the old VHT generator behavior of *growing* the memory budget to fit one oversized packet and then formatting a non-integer megabyte count with `%d`. That generator behavior has since been replaced by [Code/WiFi/papr_fit_airtime.m](Code/WiFi/papr_fit_airtime.m), which shortens the airtime instead, so the fault will not recur — but the existing files still need regenerating at a real 4 MB and the stale ones removing.
-3. **WiFi 6 and WiFi 7 signals are not committed at all.** `Signals/Multi Carrier/WiFi/802.11AX (WiFi6)` and `802.11BE (WiFi7)` contain files on disk but are untracked in git. Downloads resolve through `raw.githubusercontent.com` ([docs/app.js:509](docs/app.js#L509)), so an uncommitted file is a guaranteed 404 regardless of what the manifest says.
+1. **Open: most SC entries are unreachable through the UI, not missing.** All 625 SC entries in `docs/manifest.json` point at files that exist on disk *and* are committed to git, so the download links themselves are sound. The problem is the filter set: [docs/app.js:63](docs/app.js#L63) defines the SC facets as `["modulation", "rolloff", "filterType"]` only. There is no selector for symbol length (100 / 1k / 10k / 100k / 1M) or for the `PAPR_average` vs `PAPR_max` variant, even though the manifest carries `symbols`. That is 25 addressable combinations covering 625 entries, so the great majority cannot be selected.
+2. **Fixed: the 16 WiFi 5 160 MHz entries that pointed at missing files.** The `wifi5_..._7.617188e+00MB.bin` files were regenerated through [Code/WiFi/papr_fit_airtime.m](Code/WiFi/papr_fit_airtime.m) at real 4 and 8 MB sizes (`wifi5_mcs=N_bw=160_osf=2_4MB.bin`) and the malformed ones are gone.
+3. **Fixed: WiFi 6 and WiFi 7 signals not committed.** All 96 WiFi 6 and 140 WiFi 7 files are tracked.
 
-**Notes.** Worth adding a CI check that fails when a manifest `data_file` is missing from disk or absent from the committed tree. That converts this class of bug from "a user reports a broken download" into a failing build.
+A fourth failure of the same kind was found and fixed on 2026-10-19: [scripts/build_manifest.py](scripts/build_manifest.py) silently skipped any `.bin` its filename patterns did not recognise. That dropped the 28 WiFi 7 320 MHz files (fractional `osf=1.875`) and every 5G NR file. Both are now parsed, but the builder still skips an unrecognised filename without saying so.
+
+**Notes.** Add a CI step to [.github/workflows/pages.yml](.github/workflows/pages.yml) that fails when a manifest `data_file` is missing from disk or absent from the committed tree, and that warns, or fails, when a `.bin` under `Signals/` matches no pattern in `build_manifest.py`. The first converts "a user reports a broken download" into a failing build; the second would have caught the 320 MHz and 5G omissions above.
 
 **Done when.** Every manifest entry is reachable through the UI and resolves to a committed file, and a check exists to keep it that way.
 
@@ -167,22 +171,76 @@ where `Extension` captures anything exotic. Our own signals will not need it, bu
 
 **Done when.** SC filenames are self-describing, `build_manifest.py` reads metadata from the filename rather than inferring it from the directory, and the browser exposes the fields as filters.
 
-### 9. Drop `osf` and `GI` from the MC naming convention
+### 9. Drop `GI` from the MC naming convention
 
-**Goal.** Remove the `osf=4` and `GI=Long` fields from MC filenames, since every MC signal in the library uses those values, and record the convention in the README instead.
+**Goal.** Remove the `GI=Long` field from WiFi 4 filenames, which is the only family that carries it, and record the guard-interval convention in the README instead.
 
-**Current state.** Committed MC filenames follow two patterns:
+**Current state.** Re-checked 2026-10-19. The original goal also dropped `osf`, on the grounds that every MC signal used 4x. That is no longer true, and `osf` must stay:
 
-- `wifi4_mcs=N_bw=N_GI=Long_osf=4_NMB.bin` — WiFi 4 is the only family carrying `GI`
-- `wifi5_mcs=N_bw=N_osf=4_NMB.bin` — WiFi 5/6/7 carry `osf` but not `GI`
+- MC signals are now exported at 2x (generated and PAPR-matched at 4x, then resampled), capped at a 600 MS/s ARB clock, so `osf` varies: 318 WiFi files at `osf=2`, 28 WiFi 7 320 MHz files at `osf=1.875`, and 400 MHz 5G NR at `osf=1.2207`. The README already says the factor is in the file name.
+- For 5G NR, `osf` alone does not give the sample rate, because the rate is Nfft × SCS × osf rather than bandwidth × osf. The 5G names therefore also carry `fs=`, e.g. `5g_dl_mcs=20_bw=100_scs=30_osf=2_fs=245.76MSps_4MB.bin`.
 
-So `GI` is already absent from three of the four families, and `osf` is invariant across all of them. Dropping both yields a uniform `wifiN_mcs=N_bw=N_NMB.bin`.
+Committed WiFi filenames follow two patterns:
+
+- `wifi4_mcs=N_bw=N_GI=Long_osf=N_NMB.bin`, WiFi 4 only
+- `wifiN_mcs=N_bw=N_osf=N_NMB.bin`, WiFi 5/6/7
+
+Dropping `GI` yields a uniform `wifiN_mcs=N_bw=N_osf=N_NMB.bin`.
 
 **Notes.**
 
-- The README's Signal Types section already states that MC signals are oversampled 4x; the guard-interval convention should be stated alongside it. Note that "GI=Long" is meaningful for HT/VHT (0.8 µs), whereas HE/EHT use a numeric guard interval — the README wording should not imply a single shared setting where there is not one.
+- The guard-interval convention should be stated in the README next to the oversampling note. "GI=Long" is meaningful for HT/VHT (0.8 µs), whereas HE/EHT use a numeric guard interval. The README wording should not imply a single shared setting where there is not one.
 - Same breaking-change caveat as item 8: filenames are embedded in `docs/manifest.json`, in saved raw URLs, and in the Zenodo-archived release. Do this rename in the same pass as item 8.
 - The generators that construct these names live in the `fname`/`filename` assignments in [Code/WiFi](Code/WiFi); the parser that consumes them is [scripts/build_manifest.py](scripts/build_manifest.py). Both change together.
-- Fixing the malformed 160 MHz WiFi 5 filenames from item 7 is best folded into this rename rather than done separately.
+- With `GI` the only field removed, the gain is small. Consider whether it is worth a breaking rename on its own, or whether it should only happen if item 8 goes ahead.
 
 **Done when.** MC filenames carry only the fields that vary, the generators and manifest builder agree on the new pattern, and the README documents the fixed conventions.
+
+---
+
+## Speculative waveforms
+
+Candidate 6G waveforms with no published standard. They are worth characterizing because their PAPR behaves differently from OFDM, but every parameter is our choice rather than a specification's, so results are only meaningful if those choices are stated and kept few. Both items share the conventions below.
+
+- Keep them out of the standard families: own folder (`Code/OTFS/`, `Code/AFDM/`), own `pa_<waveform>_*.m` scripts, and a sidecar field marking the signal as non-standard so the browser never presents it alongside a 3GPP or IEEE waveform without that label.
+- Reuse NR numerology (e.g. 100 MHz / 30 kHz and 400 MHz / 120 kHz) so every result lines up directly against the 5G CP-OFDM and DFT-s-OFDM rows in [Code/5G/papr_5g_targets.csv](Code/5G/papr_5g_targets.csv).
+- No toolbox generates either waveform, so each needs a custom generator. Everything downstream should be reused unchanged: the PAPR definition and accumulation ([Code/WiFi/papr_burst_db.m](Code/WiFi/papr_burst_db.m)), the memory-budget/airtime policy ([Code/5G/papr_5g_fit_airtime.m](Code/5G/papr_5g_fit_airtime.m)), loop filtering, export rate and the memory-capped parallel trials ([Code/5G/papr_5g_trials.m](Code/5G/papr_5g_trials.m)).
+
+### 10. Speculative OTFS signals
+
+**Goal.** Generate and characterize Orthogonal Time Frequency Space (OTFS) waveforms on a small, explicit parameter grid, with PAPR targets and generator-ready files in the same form as the 5G set.
+
+**Why.** OTFS spreads each delay-Doppler symbol across the whole time-frequency frame. With a rectangular pulse, each time-domain sample is a combination of roughly N Doppler-axis symbols rather than all M subcarriers, so the PAPR bound scales with N (typically 8–64) instead of with the subcarrier count. That should place OTFS between CP-OFDM and DFT-s-OFDM, and where exactly is something this library can measure.
+
+**Notes.**
+
+- Generation is an ISFFT (2-D FFT) onto an OFDM modulator, or an inverse Zak transform for the DD-domain form. Pick one and state it; the two differ in pulse and prefix structure, which matters for PAPR.
+- Pilot design likely dominates: the common embedded-pilot scheme puts a single high-power DD-domain impulse inside a zero guard region, which is a deterministic peak. Measure with and without it, and in both `data` and `full` modes, as the 5G scripts do.
+- Proposed sweep: N ∈ {8, 16, 32}; QPSK / 16QAM / 64QAM; pilot off or embedded at 2–3 power levels; one cyclic prefix per frame vs one per symbol.
+
+**Open questions.**
+
+- Pulse shape: rectangular only, or also a smoother window? Each added pulse multiplies the grid.
+- Is there a published reference parameter set (e.g. from a 6G study item or a widely cited paper) to anchor at least one configuration to?
+
+**Done when.** A target table and a set of exported files exist for the agreed grid, each labeled non-standard, with PDF/CCDF figures directly comparable to the 5G results.
+
+### 11. Speculative AFDM signals
+
+**Goal.** Same as item 10 for Affine Frequency Division Multiplexing (AFDM), the chirp-based multicarrier candidate proposed for high-mobility 6G links.
+
+**Why.** AFDM is the main alternative to OTFS for doubly dispersive channels and, unlike OTFS, keeps a one-dimensional transform structure close to OFDM. Measuring both on the same numerology answers whether the choice between them has a PA cost.
+
+**Notes.**
+
+- Generation is an inverse discrete affine Fourier transform (IDAFT): an IDFT sandwiched between two chirp multiplications with parameters c1 and c2, followed by a chirp-periodic prefix (CPP) rather than a plain cyclic prefix. All three need stating per file.
+- Expected to sit near CP-OFDM in PAPR, since each sample still combines all N subcarriers; the chirps change phase, not magnitude. Confirm rather than assume, and check whether particular c1/c2 choices move it.
+- AFDM pilots use the same embedded-pilot-with-guard idea as OTFS, so the pilot-power sweep from item 10 should carry over directly.
+- Build after item 10 so the scaffolding (sidecar labeling, sweep script shape, target table) is written once.
+
+**Open questions.**
+
+- Which c1 rule to use: the one derived from the maximum Doppler of a design channel, or a fixed value? The former ties the waveform to an assumed channel.
+- Does c2 get swept, or fixed (e.g. at 0, or an irrational value as some papers suggest)?
+
+**Done when.** As item 10, with AFDM and OTFS results plotted on shared axes with the 5G CP-OFDM and DFT-s-OFDM baselines.

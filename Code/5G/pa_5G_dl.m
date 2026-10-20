@@ -98,23 +98,16 @@ if runCdf || runAll
         nUnits = unitList(ib);
         achieved(ib) = nUnits * spu;
         trials = list(ib);
-        papr_db = zeros(trials, 1);
-        outside = false(trials, 1);
         randomSeed = randi([1 2^20], trials, 1);
 
         % Chunked generation for the reason given in the 802.11 scripts: a
         % 400 MHz subframe at 4x oversampling is 2e6 samples, and ten of them
-        % on every worker at once is what exhausts memory.
+        % on every worker at once is what exhausts memory. papr_5g_trials
+        % also caps the worker count at what free memory holds.
         progress = papr_progress(sprintf('runCdf %s %d ms', upper(direction), achieved(ib)), ...
             trials, 'StartPool', true);
         dq = progress.queue;
-        parfor t = 1:trials
-            [papr_db(t), outside(t)] = papr_burst_stream_db([], [], nUnits, ...
-                randomSeed(t), streamPlan);
-            if ~isempty(dq)
-                send(dq, 1);
-            end
-        end
+        [papr_db, outside] = papr_5g_trials(nUnits, randomSeed, streamPlan, dq);
         progress.finish();
 
         paprSamples{ib} = papr_db(isfinite(papr_db));

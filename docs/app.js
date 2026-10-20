@@ -206,7 +206,9 @@ function resolveRatePlan(entry) {
   if (!entry || typeof IqFormats === "undefined") return null;
 
   if (entry.signalClass === "MC") {
-    const sampleRateHz = IqFormats.mcSampleRateHz(entry.bandwidth, entry.oversampling);
+    // 5G NR runs at Nfft x SCS x osf, not bandwidth x osf, so its manifest
+    // entries carry the rate explicitly; Wi-Fi entries derive it.
+    const sampleRateHz = entry.sampleRateHz || IqFormats.mcSampleRateHz(entry.bandwidth, entry.oversampling);
     if (!sampleRateHz) return null;
     return {
       sampleRateHz,
@@ -329,6 +331,8 @@ function processManifest(manifestItems) {
       // Present only on signals that came in through docs/contribute.html.
       isContributed: Boolean(item.isContributed),
       sampleRate: item.sampleRate || "",
+      sampleRateHz: Number(item.sampleRateHz) || null,
+      codeRate: item.codeRate ?? null,
       licence: item.licence || "",
       provenance: item.provenance || null,
       paSurvey: item.paSurvey || null,
@@ -517,6 +521,8 @@ function renderSummary(entry) {
     if (entry.bandwidth) chips.push(chip(entry.bandwidth));
     if (entry.memoryLength) chips.push(chip(entry.memoryLength));
     if (entry.oversampling) chips.push(chip(`Oversampling ${entry.oversampling}`));
+    if (entry.sampleRateHz) chips.push(chip(`${IqFormats.formatHz(entry.sampleRateHz)}`));
+    if (entry.codeRate) chips.push(chip(`${entry.modulation} R=${Number(entry.codeRate).toFixed(3)}`));
   } else if (entry.signalClass === "SC") {
     if (entry.modulation) chips.push(chip(entry.modulation));
     if (entry.symbols) chips.push(chip(entry.symbols));

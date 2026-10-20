@@ -9,12 +9,13 @@ function streamPlan = papr_5g_stream_plan(cfg, info, measureDataFieldOnly, chunk
 %   broadcast it to the workers.
 %
 %   STREAMPLAN = PAPR_5G_STREAM_PLAN(..., CHUNKSAMPLES) sets the per-chunk
-%   sample budget. The default is PAPR_TRIAL_SAMPLES, or 4e6 samples when
-%   unset, the same figure PAPR_STREAM_PLAN uses and for the same reason:
-%   every parallel worker holds one chunk plus its power array at once. A
-%   400 MHz FR2 subframe at 4x oversampling is 1.97e6 samples, so the
-%   budget is two subframes there and tens of subframes at FR1 rates. At
-%   least one unit is always generated per chunk.
+%   sample budget. The default is PAPR_TRIAL_SAMPLES, or 2e6 samples when
+%   unset, half the figure PAPR_STREAM_PLAN uses: every parallel worker
+%   holds one chunk at once, and nrWaveformGenerator peaks near 18x the
+%   chunk's size, about 1 GB for 4e6 samples. A 400 MHz FR2 subframe at 4x
+%   oversampling is 1.97e6 samples, so the budget is one subframe there and
+%   tens of subframes at FR1 rates. At least one unit is always generated
+%   per chunk. PAPR_5G_TRIALS sizes the worker count to the chunk.
 %
 %   STREAMPLAN has fields:
 %     meta          - PAPR_5G_META struct (unitLen, dataRanges, ...)
@@ -30,7 +31,7 @@ function streamPlan = papr_5g_stream_plan(cfg, info, measureDataFieldOnly, chunk
 %   PAPR_STREAM_PLAN.
 
 if nargin < 4 || isempty(chunkSamples)
-    chunkSamples = env_num('PAPR_TRIAL_SAMPLES', 4e6);
+    chunkSamples = env_num('PAPR_TRIAL_SAMPLES', 2e6);
 end
 
 meta = papr_5g_meta(cfg, info);
