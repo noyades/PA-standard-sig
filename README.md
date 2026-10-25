@@ -89,7 +89,16 @@ See [papr_targets.csv](Code/WiFi/papr_targets.csv) for the full per-MCS/bandwidt
 
 For single-carrier QAM, the RRC filter and the waveform duration strongly impact the PAPR. Long SC signals (greater than 1M symbols) show relatively tight PAPR distributions, but those durations may not fit on all signal generators.
 
-To address this, we provide SC waveforms for multiple sequence lengths. For each modulation order, RRC roll-off factor, and sequence length two waveforms are provided: one with the average PAPR for the given length (_average) , and one with the PAPR equivalent to the one of a 1M symbols waveform (_max).
+To address this, we provide SC waveforms for multiple sequence lengths. For each modulation order, RRC roll-off factor, and sequence length two waveforms are provided: one with the average PAPR for the given length (`papr=avg`), and one with the PAPR equivalent to the one of a 1M symbols waveform (`papr=max`).
+
+SC file names follow the same `key=value` convention as the WiFi and 5G NR files, so a downloaded file keeps its full description:
+
+```
+sc_<order>qam_<filter>_alpha=<roll-off>_sym=<length>_osf=<oversampling>_papr=<avg|max>.bin
+e.g. sc_4096qam_rrc_alpha=0.45_sym=1M_osf=4_papr=avg.bin
+```
+
+SC files have no fixed sample rate; the symbol rate is the generator's sample rate divided by `osf`. The `_properties.csv`, `_properties.mat` and `_constellation.png` files beside each waveform share its name. Files published before October 2026 were named `<order>-QAM_PAPR_{average,max}.bin`; [sc_rename_map.csv](Signals/Single%20Carrier/sc_rename_map.csv) maps every old path to its new one.
 
 ## PAPR Statistics
 

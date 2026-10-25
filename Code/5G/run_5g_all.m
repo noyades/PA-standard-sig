@@ -187,6 +187,12 @@ for j = 1:numel(jobs)
         % Run in the base workspace: the script's "clear variables" then
         % clears base, not this function's loop state.
         evalin('base', sprintf('run(''%s'');', strrep(scriptPath, '''', '''''')));
+        % A generation that finds no burst within tolerance of the target
+        % ends in a warning, not an error, so check for the file itself.
+        if ~isempty(job.mb) && ~gen_done(sigPath, opt.Direction, job_tag(job, isUL), job.mb)
+            error('run_5g_all:NoFile', ...
+                'no file written (no burst matched the target PAPR; see PAPR_GEN_ATTEMPTS)');
+        end
         nOk = nOk + 1;
         say('[%d/%d] done  %s (%.1f min)', j, numel(jobs), job_label(job), toc(tJob)/60);
     catch err
@@ -244,6 +250,14 @@ function tf = gen_done(sigPath, direction, tag, mb)
 % The file name carries the sample rate, which the scripts compute; match it
 % with a wildcard rather than recomputing it here.
 tf = ~isempty(dir(fullfile(sigPath, sprintf('5g_%s_%s_osf=*_fs=*MSps_%gMB.bin', direction, tag, mb))));
+end
+
+function tag = job_tag(job, isUL)
+% File-name tag, as the planning loop and the scripts build it.
+tag = sprintf('mcs=%d_bw=%d_scs=%d', job.mcs, job.bw, job.scs);
+if isUL
+    tag = [strrep(job.waveform, '-', '') '_' tag];
+end
 end
 
 function s = job_label(job)

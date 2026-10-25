@@ -14,9 +14,9 @@ Notes marked **Current state** were verified against the repository on 2026-08-2
 | 6 | Parse-signal app | Portal | 1 |
 | 4 | Resample to a user-supplied sig-gen sample rate and desired bandwidth | Instrument workflow | — |
 | 5 | Per-instrument upload instructions for R&S and Keysight VSGs | Instrument workflow | — |
-| 7 | Not all SC signals are downloadable from the web app | Catalog integrity | — |
-| 8 | Custom SC naming convention to mirror the MC convention | Naming | — |
-| 9 | Drop `GI` from the MC naming convention, note it in the README | Naming | 8 (rename together) |
+| 7 | Not all SC signals are downloadable from the web app | Catalog integrity | — (UI fixed; CI check open) |
+| 8 | Custom SC naming convention to mirror the MC convention | Naming | — (done; note rename in next Zenodo release) |
+| 9 | Drop `GI` from the MC naming convention, note it in the README | Naming | — (8 went ahead separately) |
 | 10 | Speculative OTFS signals | Speculative waveforms | 5G target table complete |
 | 11 | Speculative AFDM signals | Speculative waveforms | 10 (shared scaffolding) |
 
@@ -136,9 +136,9 @@ Submission travels by hand, because the site is static and has no upload endpoin
 
 **Goal.** Verify that every catalog entry resolves to a real, downloadable file, and fix those that do not.
 
-**Current state.** Two of the three problems found on 2026-08-26 are fixed; one is open, and the CI check is not started. Re-checked 2026-10-19:
+**Current state.** All three problems found on 2026-08-26 are fixed (the last on 2026-10-24); the CI check is not started. Re-checked 2026-10-19:
 
-1. **Open: most SC entries are unreachable through the UI, not missing.** All 625 SC entries in `docs/manifest.json` point at files that exist on disk *and* are committed to git, so the download links themselves are sound. The problem is the filter set: [docs/app.js:63](docs/app.js#L63) defines the SC facets as `["modulation", "rolloff", "filterType"]` only. There is no selector for symbol length (100 / 1k / 10k / 100k / 1M) or for the `PAPR_average` vs `PAPR_max` variant, even though the manifest carries `symbols`. That is 25 addressable combinations covering 625 entries, so the great majority cannot be selected.
+1. **Fixed 2026-10-24: most SC entries were unreachable through the UI.** The browser now has Sequence Length and PAPR Variant selectors (the latter from the `paprVariant` field item 8 added), and every one of the 250 SC entries is the single match for its modulation / roll-off / length / variant combination. Original finding: All 625 SC entries in `docs/manifest.json` point at files that exist on disk *and* are committed to git, so the download links themselves are sound. The problem is the filter set: [docs/app.js:63](docs/app.js#L63) defines the SC facets as `["modulation", "rolloff", "filterType"]` only. There is no selector for symbol length (100 / 1k / 10k / 100k / 1M) or for the `PAPR_average` vs `PAPR_max` variant, even though the manifest carries `symbols`. That is 25 addressable combinations covering 625 entries, so the great majority cannot be selected.
 2. **Fixed: the 16 WiFi 5 160 MHz entries that pointed at missing files.** The `wifi5_..._7.617188e+00MB.bin` files were regenerated through [Code/WiFi/papr_fit_airtime.m](Code/WiFi/papr_fit_airtime.m) at real 4 and 8 MB sizes (`wifi5_mcs=N_bw=160_osf=2_4MB.bin`) and the malformed ones are gone.
 3. **Fixed: WiFi 6 and WiFi 7 signals not committed.** All 96 WiFi 6 and 140 WiFi 7 files are tracked.
 
@@ -168,6 +168,10 @@ where `Extension` captures anything exotic. Our own signals will not need it, bu
 - Roll-off is not in the proposed pattern. Is it meant to be folded into `Filter` (e.g. `RRC045`), or does it need its own field?
 
 **Notes.** Renaming is a breaking change: it invalidates `docs/manifest.json`, the derived `id` values, any `raw.githubusercontent.com` link a user has already saved, and any path referenced by the archived Zenodo release. Plan the rename together with item 9 so the catalog churns once rather than twice, and consider whether old paths need redirects or a compatibility table.
+
+**Built (2026-10-24).** SC files were renamed to `sc_<order>qam_<filter>_alpha=<a>_sym=<len>_osf=<n>_papr=<avg|max>.bin`, e.g. `sc_4096qam_rrc_alpha=0.45_sym=1M_osf=4_papr=avg.bin`, mirroring the WiFi/5G `key=value` style. Both open questions are settled: the PAPR variant is its own `papr=` field, and roll-off is its own `alpha=` field, written as a decimal the way `osf=1.875` is. The directory tree was kept. The `_properties.csv/.mat` and `_constellation.png` sidecars follow the waveform's name; `summary.txt` is per directory and was left alone. [scripts/rename_sc.py](scripts/rename_sc.py) did the rename with `git mv` and wrote [sc_rename_map.csv](Signals/Single%20Carrier/sc_rename_map.csv) (old to new path) for saved links and the Zenodo release. `build_manifest.py` now parses SC metadata from the filename alone, adds a `paprVariant` field, and warns about any SC `.bin` that does not match. The README documents the convention.
+
+The browser exposes `symbols` and `paprVariant` as filters (see item 7). **Still open:** the next Zenodo release should note the rename.
 
 **Done when.** SC filenames are self-describing, `build_manifest.py` reads metadata from the filename rather than inferring it from the directory, and the browser exposes the fields as filters.
 

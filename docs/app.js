@@ -61,7 +61,7 @@ const SC_PLOT_SUFFIXES = [
 
 const fieldVisibility = {
   MC: ["standard", "mcs", "bandwidth", "memoryLength"],
-  SC: ["modulation", "rolloff", "filterType"],
+  SC: ["modulation", "rolloff", "symbols", "paprVariant", "filterType"],
 };
 
 const formElements = {
@@ -73,6 +73,8 @@ const formElements = {
   memoryLength: document.getElementById("memoryLength"),
   modulation: document.getElementById("modulation"),
   rolloff: document.getElementById("rolloff"),
+  symbols: document.getElementById("symbols"),
+  paprVariant: document.getElementById("paprVariant"),
   targetLength: document.getElementById("targetLength"),
 };
 
@@ -126,6 +128,8 @@ async function initialize() {
   formElements.memoryLength.addEventListener("change", refreshResults);
   formElements.modulation.addEventListener("change", refreshResults);
   formElements.rolloff.addEventListener("change", refreshResults);
+  formElements.symbols.addEventListener("change", refreshResults);
+  formElements.paprVariant.addEventListener("change", refreshResults);
 
   if (downloadZipBtn) {
     downloadZipBtn.addEventListener("click", downloadBundle);
@@ -317,6 +321,7 @@ function processManifest(manifestItems) {
       modulation: item.modulation || "64-QAM",
       rolloff: item.rolloff || "0.25",
       symbols: item.symbols,
+      paprVariant: item.paprVariant,
       filterType: item.filterType || "RRC",
       oversampling: item.oversampling || "4x",
       // `papr` is the waveform's peak-to-average ratio with idle and pad
@@ -440,6 +445,27 @@ function populateDependentSelectors(signalClass) {
 
   populateSelect(formElements.modulation, unique(classEntries.map((entry) => entry.modulation)));
   populateSelect(formElements.rolloff, unique(classEntries.map((entry) => entry.rolloff)));
+  // The fallback catalog carries neither field, hence the filter(Boolean).
+  populateSelect(
+    formElements.symbols,
+    [...new Set(classEntries.map((entry) => entry.symbols).filter(Boolean))]
+      .sort((left, right) => symbolCount(left) - symbolCount(right)),
+  );
+  populateSelect(formElements.paprVariant, unique(classEntries.map((entry) => entry.paprVariant).filter(Boolean)));
+}
+
+// "100 symbols" -> 100, "1k symbols" -> 1000, "1M symbols" -> 1e6. A plain
+// numeric sort would put 1k ahead of 100.
+function symbolCount(label) {
+  const match = /^(\d+)\s*([kM]?)/.exec(label);
+  if (!match) return Infinity;
+  return Number(match[1]) * ({ k: 1e3, M: 1e6 }[match[2]] || 1);
+}
+
+// A catalog entry without the field (an older manifest, or the static
+// fallback) matches any selection rather than none.
+function matchesOptional(value, select) {
+  return !value || value === select.value;
 }
 
 function setFieldVisibility(signalClass) {
@@ -471,7 +497,9 @@ function refreshResults() {
 
     return (
       entry.modulation === formElements.modulation.value &&
-      entry.rolloff === formElements.rolloff.value
+      entry.rolloff === formElements.rolloff.value &&
+      matchesOptional(entry.symbols, formElements.symbols) &&
+      matchesOptional(entry.paprVariant, formElements.paprVariant)
     );
   });
 
@@ -526,6 +554,7 @@ function renderSummary(entry) {
   } else if (entry.signalClass === "SC") {
     if (entry.modulation) chips.push(chip(entry.modulation));
     if (entry.symbols) chips.push(chip(entry.symbols));
+    if (entry.paprVariant) chips.push(chip(entry.paprVariant));
     if (entry.rolloff) chips.push(chip(`Roll-off ${entry.rolloff}`));
     if (entry.filterType) chips.push(chip(entry.filterType));
   }

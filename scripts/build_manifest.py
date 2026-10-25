@@ -47,39 +47,19 @@ def format_fig_name(filename):
     return name.title()
 
 
-def read_sc_oversampling(repo_path, default=4):
-    """Oversampling factor of a single-carrier waveform, from its sidecar CSV.
-
-    A single-carrier file is pulse-shaped symbols with no sample rate of its
-    own, so the browser has to ask the user for one. Turning that answer into a
-    symbol rate and an occupied bandwidth needs the samples-per-symbol the file
-    was written at, which lives only in the "<name>_properties.csv" written
-    beside it. Every file in the library today says 4, but reading it beats
-    assuming it, because a later sweep at a different factor would otherwise be
-    published with a bandwidth figure that is quietly wrong.
-    """
-    sidecar = re.sub(r"\.[^./]+$", "", repo_path) + "_properties.csv"
-    if not os.path.exists(sidecar):
-        return default
-    try:
-        with open(sidecar, "r", encoding="utf-8", errors="replace") as handle:
-            for line in handle:
-                key, _, value = line.partition(",")
-                if key.strip().lower() == "oversampling factor":
-                    return int(float(value.strip()))
-    except (OSError, ValueError):
-        pass
-    return default
-
-
-def parse_alpha(alpha_str):
-    """Converts folder string like 'alpha005' or 'alpha025' to decimal float string '0.05' or '0.25'."""
-    clean = alpha_str.lower().replace("alpha", "").strip()
-    if len(clean) == 3 and clean.startswith("0"):
-        return f"0.{clean[1:]}"
-    elif len(clean) == 2:
-        return f"0.{clean}"
-    return f"0.{clean}"
+# sc_4096qam_rrc_alpha=0.45_sym=1M_osf=4_papr=avg.bin
+# Every field the catalog needs is in the name, mirroring the Wi-Fi and 5G NR
+# convention, so a file that leaves its directory keeps its description.
+# A single-carrier file has no sample rate of its own; osf is what lets the
+# browser turn a user-chosen rate into a symbol rate and occupied bandwidth.
+# papr=avg is the average PAPR for that length, papr=max matches a 1M-symbol
+# waveform. Files renamed from the old layout are listed in
+# Signals/Single Carrier/sc_rename_map.csv (written by scripts/rename_sc.py).
+SC_SIGNAL_RE = re.compile(
+    r"^sc_(?P<order>\d+)qam_(?P<filter>[a-z]+)_alpha=(?P<alpha>\d+(?:\.\d+)?)"
+    r"_sym=(?P<sym>\d+[kM]?)_osf=(?P<osf>\d+(?:\.\d+)?)_papr=(?P<papr>avg|max)"
+    r"\.(?:bin|csv)$", re.I)
+SC_PAPR_VARIANT = {"avg": "Average PAPR", "max": "Max PAPR (1M-symbol)"}
 
 
 # -----------------------------------------------------------------
@@ -583,88 +563,64 @@ def build_manifest():
         print(f"Added {len(unclassified)} 'other figures' entries for unrecognised filenames.")
 
     # -------------------------------------------------------------
-    # 2. Single-Carrier (SC) Scanning matching hierarchy:
-    #    Signals/Single Carrier/<symbols>/<QAM>/<alpha>/<filename>
+    # 2. Single-Carrier (SC) Scanning. Metadata comes from the filename
+    #    (see SC_SIGNAL_RE), not the directory, so a downloaded file and its
+    #    catalog entry describe the same thing.
     # -------------------------------------------------------------
     sc_dir = os.path.join("Signals", "Single Carrier")
     if os.path.exists(sc_dir):
         for root, _, files in os.walk(sc_dir):
-            for file in files:
-                if file.endswith((".bin", ".csv", ".txt")) and not file.startswith("."):
-                    # Every waveform directory ships a "<name>_properties.csv"
-                    # and a "summary.txt" describing the sweep that produced it.
-                    # They match the extension filter but hold no samples, and
-                    # cataloguing them created 375 entries that render as
-                    # signals with no PAPR and cannot be converted into a
-                    # generator waveform. The extensions stay eligible so a
-                    # genuine CSV waveform can still be added later.
-                    if file.endswith("_properties.csv") or file == "summary.txt":
-                        continue
-                    repo_path = os.path.join(root, file).replace("\\", "/")
-                    norm_root = root.replace("\\", "/")
+            for file in sorted(files):
+                match = SC_SIGNAL_RE.match(file)
+                if not match:
+                    if file.endswith(".bin"):
+                        print(f"WARNING: {os.path.join(root, file)} does not follow the SC "
+                              f"naming convention; it will not be published.")
+                    continue
+                g = match.groupdict()
+                repo_path = os.path.join(root, file).replace("\\", "/")
+                qam_val = g["order"]
+                mod_label = f"{qam_val}-QAM"
+                sym_label = f"{g['sym']} symbols"
+                rolloff_str = g["alpha"]
 
-                    # 1. Symbol Count (e.g., "100 symbols", "100k symbols")
-                    sym_match = re.search(r"(\d+[kM]?)\s*symbols", norm_root, re.I)
-                    sym_label = sym_match.group(1) + " symbols" if sym_match else "100k symbols"
+                papr, mean_packet_papr = calculate_papr(repo_path)
+                papr_str = f"{papr} dB" if papr is not None else "N/A"
+                mean_packet_papr_str = (
+                    f"{mean_packet_papr} dB" if mean_packet_papr is not None else "N/A"
+                )
 
-                    # 2. QAM Order (e.g., "1024QAM", "16QAM", "64QAM")
-                    qam_match = re.search(r"(\d+)QAM|(\d+)-QAM", norm_root + "/" + file, re.I)
-                    if qam_match:
-                        qam_val = qam_match.group(1) or qam_match.group(2)
-                        mod_label = f"{qam_val}-QAM"
-                    else:
-                        mod_label = "64-QAM"
-                        qam_val = "64"
+                # Link Figures from Figures/ directory matching roll-off
+                figures = []
+                formatted_alpha_dir = f"rolloff_{rolloff_str.replace('.', 'p')}"
+                fig_search_dir = os.path.join("Figures", formatted_alpha_dir)
+                if os.path.exists(fig_search_dir):
+                    for fig_root, _, fig_files in os.walk(fig_search_dir):
+                        if qam_val in fig_root or mod_label in fig_root:
+                            for f_img in sorted(fig_files):
+                                if f_img.endswith((".png", ".jpg", ".svg")):
+                                    figures.append({
+                                        "name": format_fig_name(f_img),
+                                        "path": os.path.join(fig_root, f_img).replace("\\", "/")
+                                    })
 
-                    # 3. Roll-off Factor (e.g., "alpha005" -> "0.05", "alpha025" -> "0.25")
-                    alpha_match = re.search(r"alpha(\d+)", norm_root, re.I)
-                    if alpha_match:
-                        rolloff_str = parse_alpha(alpha_match.group(0))
-                    else:
-                        # Fallback regex if named differently
-                        fallback_match = re.search(r"rolloff_(\d+)p(\d+)|0p(\d+)|0\.(\d+)", file, re.I)
-                        if fallback_match:
-                            r_groups = [g for g in fallback_match.groups() if g is not None]
-                            rolloff_str = f"{r_groups[0]}.{r_groups[1]}" if len(r_groups) == 2 else f"0.{r_groups[0]}"
-                        else:
-                            rolloff_str = "0.25"
-
-                    # 4. PAPR Calculation
-                    papr, mean_packet_papr = calculate_papr(repo_path)
-                    papr_str = f"{papr} dB" if papr is not None else "N/A"
-                    mean_packet_papr_str = (
-                        f"{mean_packet_papr} dB" if mean_packet_papr is not None else "N/A"
-                    )
-
-                    # 5. Link Figures from Figures/ directory matching roll-off
-                    figures = []
-                    formatted_alpha_dir = f"rolloff_{rolloff_str.replace('.', 'p')}"
-                    fig_search_dir = os.path.join("Figures", formatted_alpha_dir)
-                    if os.path.exists(fig_search_dir):
-                        for fig_root, _, fig_files in os.walk(fig_search_dir):
-                            if qam_val in fig_root or mod_label in fig_root:
-                                for f_img in sorted(fig_files):
-                                    if f_img.endswith((".png", ".jpg", ".svg")):
-                                        figures.append({
-                                            "name": format_fig_name(f_img),
-                                            "path": os.path.join(fig_root, f_img).replace("\\", "/")
-                                        })
-
-                    manifest.append({
-                        "id": f"sc-{sym_label.replace(' ', '')}-{qam_val}-a{rolloff_str.replace('.', '')}-{file}",
-                        "signalClass": "SC",
-                        "signalFamily": "QAM",
-                        "modulation": mod_label,
-                        "rolloff": rolloff_str,
-                        "symbols": sym_label,
-                        "filterType": "RRC",
-                        "oversampling": f"{read_sc_oversampling(repo_path)}x",
-                        "papr": papr_str,
-                        "meanPacketPapr": mean_packet_papr_str,
-                        "data_file": repo_path,
-                        "name": f"{mod_label} {sym_label} (Roll-off {rolloff_str})",
-                        "figures": figures
-                    })
+                manifest.append({
+                    "id": os.path.splitext(file)[0],
+                    "signalClass": "SC",
+                    "signalFamily": "QAM",
+                    "modulation": mod_label,
+                    "rolloff": rolloff_str,
+                    "symbols": sym_label,
+                    "paprVariant": SC_PAPR_VARIANT[g["papr"].lower()],
+                    "filterType": g["filter"].upper(),
+                    "oversampling": f"{g['osf']}x",
+                    "papr": papr_str,
+                    "meanPacketPapr": mean_packet_papr_str,
+                    "data_file": repo_path,
+                    "name": f"{mod_label} {sym_label} (Roll-off {rolloff_str}, "
+                            f"{SC_PAPR_VARIANT[g['papr'].lower()]})",
+                    "figures": figures
+                })
 
     nr_entries = index_nr()
     print(f"Added {len(nr_entries)} 5G NR signal entries from {NR_SIGNAL_ROOT}.")

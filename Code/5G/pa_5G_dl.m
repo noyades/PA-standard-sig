@@ -160,7 +160,7 @@ if runGen || runAll
     % float32 Q via fwrite(...,'single').
     bytes_per_sample = 8;
     tolerance_db = 0.05;
-    max_attempts = 2000;
+    max_attempts = env_num('PAPR_GEN_ATTEMPTS', 2000);
     maxSubframes = env_num('PAPR_GEN_SUBFRAMES', Inf);   % cap the burst below the budget
     localTrials = env_num('PAPR_GEN_LOCAL_TRIALS', 100);
 
